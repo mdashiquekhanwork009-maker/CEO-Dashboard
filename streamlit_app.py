@@ -19,7 +19,7 @@ from dashboard import (
 )
 
 
-st.set_page_config(page_title="Recruitment Dashboard", layout="wide")
+st.set_page_config(page_title="J2W Dashboard", layout="wide")
 
 
 @st.cache_data(show_spinner=False)
