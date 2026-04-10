@@ -229,6 +229,7 @@ st.markdown("###")
 mom_html = f"""
 <div style="
     background:#f8f9fb;
+    color:#2c3e50;
     padding:12px 20px;
     border-radius:12px;
     font-size:14px;
