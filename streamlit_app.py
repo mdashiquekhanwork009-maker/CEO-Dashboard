@@ -166,8 +166,13 @@ all_clients = [entry["name"] for entry in client_meta]
 domain_options = sorted({entry["domain"] for entry in client_meta if entry["domain"]})
 bh_options = sorted({entry["bh"] for entry in client_meta if entry["bh"]})
 
-current_year_default = [year_options[0]] if year_options else []
-current_month_default = [month_options[-1]] if month_options else []
+today = datetime.now()
+
+# Year default
+current_year_default = [str(today.year)] if str(today.year) in year_options else [year_options[0]]
+
+# Month default
+current_month_default = [today.month] if today.month in month_options else [month_options[-1]]
 
 st.title("J2W Dashboard")
 st.caption("")
