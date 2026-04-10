@@ -221,8 +221,8 @@ def mom_item(label, curr, prev):
     change = calculate_mom(curr, prev)
     arrow = "▲" if change >= 0 else "▼"
     color = "green" if change >= 0 else "red"
-    return f"<span style='margin-right:20px;'><b>{label}</b> {curr:,} <span style='color:{color}'>{arrow} {abs(change):.0f}%</span></span>"
-
+    return f"""<span style='margin-right:20px; color:#2c3e50;'> <b>{label}</b> {curr:,} <span style='color:{color}; font-weight:600;'>{arrow} {abs(change):.0f}%</span> </span>
+"""
 
 st.markdown("###")
 
