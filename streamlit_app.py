@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import plotly.express as px
 from datetime import datetime, timedelta
 
 from dashboard import (
@@ -37,7 +38,7 @@ def series_to_df(series, label):
 st.set_page_config(page_title="J2W Dashboard", layout="wide")
 
 # =========================
-# CSS
+# CSS (PILLS + CARDS)
 # =========================
 st.markdown("""
 <style>
@@ -57,6 +58,20 @@ st.markdown("""
 .orange{border-top:4px solid #f39c12;}
 
 div[data-testid="column"] {padding:0 6px;}
+
+/* Pill buttons */
+div[role="radiogroup"] > label {
+    background-color: #f1f3f5;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-right: 6px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+div[role="radiogroup"] > label:has(input:checked) {
+    background-color: #e74c3c !important;
+    color: white !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -98,22 +113,30 @@ def get_data(y, m, c):
 grand = get_data(years, months, clients)
 
 # =========================
-# KPI
+# KPI CARDS WITH ICONS
 # =========================
-def card(t,v,c):
-    return f"<div class='kpi-card {c}'><div class='kpi-title'>{t}</div><div class='kpi-value'>{v}</div></div>"
+def card(title, value, color, icon):
+    return f"""
+    <div class='kpi-card {color}'>
+        <div style='display:flex;justify-content:space-between'>
+            <div class='kpi-title'>{title}</div>
+            <div>{icon}</div>
+        </div>
+        <div class='kpi-value'>{value}</div>
+    </div>
+    """
 
 cols = st.columns(5)
 data = [
-    ("Demands", grand.get("dem",0),"red"),
-    ("Submissions", grand.get("sub",0),"blue"),
-    ("Interviews", grand.get("l1",0),"orange"),
-    ("Selections", grand.get("sel",0),"green"),
-    ("Active HC", grand.get("active_hc",0),"blue"),
+    ("Demands", grand.get("dem",0),"red","📋"),
+    ("Submissions", grand.get("sub",0),"blue","📤"),
+    ("Interviews", grand.get("l1",0),"orange","🎤"),
+    ("Selections", grand.get("sel",0),"green","✅"),
+    ("Active HC", grand.get("active_hc",0),"blue","👥"),
 ]
 
-for col,(t,v,c) in zip(cols,data):
-    col.markdown(card(t,f"{v:,}",c), unsafe_allow_html=True)
+for col,(t,v,c,i) in zip(cols,data):
+    col.markdown(card(t,f"{v:,}",c,i), unsafe_allow_html=True)
 
 # =========================
 # MOM STRIP
@@ -137,7 +160,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # =========================
-# DAY FILTERS
+# DAY TRENDS
 # =========================
 st.markdown("### Day-on-Day Trends")
 
@@ -151,7 +174,6 @@ metric_map = {"Demands":"dem","Submissions":"sub","Interviews":"intv","Selection
 metric_day = st.radio("", list(metric_map.keys()), horizontal=True)
 
 today = datetime.now().date()
-
 start_day = today - timedelta(days=7 if range_day=="Last 7 Days" else 15 if range_day=="Last 15 Days" else 30)
 end_day = to_day if to_day else today
 
@@ -162,22 +184,29 @@ filtered_day = [
     if start_day <= pd.to_datetime(i["d"]).date() <= end_day
 ]
 
-st.line_chart(series_to_df(filtered_day, metric_day).set_index("Period"))
+df_day = series_to_df(filtered_day, metric_day)
+
+fig = px.line(df_day, x="Period", y=metric_day, markers=True)
+fig.update_traces(text=df_day[metric_day], textposition="top center")
+
+st.plotly_chart(fig, use_container_width=True)
 
 # =========================
-# NEW MONTH SECTION 🔥
+# MONTH TRENDS (NEW SECTION)
 # =========================
 st.markdown("### Month-on-Month Trends")
 
 range_month = st.radio("",["Last 6 Months","Last 12 Months"], horizontal=True)
 
-metric_month = st.radio("", list(metric_map.keys()), horizontal=True, key="m2")
+metric_month = st.radio("", list(metric_map.keys()), horizontal=True, key="month")
 
 month_data = daily_trends_cached(None,None,None,"month")
 
-if range_month == "Last 6 Months":
-    month_data_filtered = month_data.get(metric_map[metric_month], [])[-6:]
-else:
-    month_data_filtered = month_data.get(metric_map[metric_month], [])[-12:]
+month_filtered = month_data.get(metric_map[metric_month], [])[-6:] if range_month=="Last 6 Months" else month_data.get(metric_map[metric_month], [])[-12:]
 
-st.line_chart(series_to_df(month_data_filtered, metric_month).set_index("Period"))
+df_month = series_to_df(month_filtered, metric_month)
+
+fig2 = px.line(df_month, x="Period", y=metric_month, markers=True)
+fig2.update_traces(text=df_month[metric_month], textposition="top center")
+
+st.plotly_chart(fig2, use_container_width=True)
