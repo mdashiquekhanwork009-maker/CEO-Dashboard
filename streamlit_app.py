@@ -3,16 +3,11 @@ import streamlit as st
 from datetime import datetime, timedelta
 
 from dashboard import (
-    RAW_DATASET_CONFIG,
-    CAPTIVE_SUFFIX,
     compute_all_cached,
     daily_trends_cached,
     freeze_filter,
     get_client_catalog,
-    get_mapping_context,
-    get_mapped_client_name,
     get_periods_cached,
-    get_raw_dataset_frame,
     grand_total,
     resolve_client_filter_cached,
     round_m,
@@ -51,29 +46,19 @@ st.markdown("""
     background: #ffffff;
     border-radius: 14px;
     padding: 18px;
-    height: 150px;
+    height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 10px;
 }
-.kpi-title { font-size: 14px; color: #6c757d; font-weight: 600; }
-.kpi-value { font-size: 32px; font-weight: 700; color: #2c3e50; }
-.kpi-sub { font-size: 12px; color: #7f8c8d; }
+.kpi-title { font-size: 14px; color: #6c757d; }
+.kpi-value { font-size: 30px; font-weight: 700; color: #2c3e50; }
 
 .red { border-top: 4px solid #e74c3c; }
 .green { border-top: 4px solid #2ecc71; }
 .blue { border-top: 4px solid #3498db; }
 .orange { border-top: 4px solid #f39c12; }
-
-.badge {
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    background: #f8d7da;
-    color: #721c24;
-}
 
 div[data-testid="column"] {
     padding: 0 6px;
@@ -119,7 +104,7 @@ def get_data(years, months, clients):
 grand = get_data(selected_years, selected_months, selected_clients)
 
 # =========================
-# KPI FUNCTION
+# KPI UI
 # =========================
 def kpi_card(title, value, color):
     return f"""
@@ -129,9 +114,6 @@ def kpi_card(title, value, color):
     </div>
     """
 
-# =========================
-# KPI UI
-# =========================
 cols = st.columns(5)
 metrics = [
     ("Demands", grand.get("dem", 0), "red"),
@@ -157,11 +139,11 @@ def mom(label, c, p):
     change = calculate_mom(c, p)
     arrow = "▲" if change >= 0 else "▼"
     color = "#27ae60" if change >= 0 else "#e74c3c"
-    return f"<span><b>{label}</b> {c:,} <span style='color:{color}'>{arrow} {abs(change):.0f}%</span></span>"
+    return f"<span style='margin-right:15px'><b>{label}</b> {c:,} <span style='color:{color}'>{arrow} {abs(change):.0f}%</span></span>"
 
 st.markdown(f"""
-<div style="background:#fff;padding:12px;border-radius:10px;">
-<b>VS {prev_month}</b>
+<div style="background:#fff;padding:12px;border-radius:10px;margin-top:10px;">
+<b>VS {prev_month}</b><br>
 {mom("Dem", grand.get("dem",0), prev.get("dem",0))}
 {mom("Sub", grand.get("sub",0), prev.get("sub",0))}
 </div>
@@ -212,16 +194,17 @@ for i in day_trends.get(metric_map[selected_metric], []):
     if start <= d <= end:
         filtered.append(i)
 
+month_trends = daily_trends_cached(None, None, None, "month")
+
 # =========================
 # CHARTS
 # =========================
 c1, c2 = st.columns(2)
 
 with c1:
-    st.subheader("Daily")
+    st.subheader("Daily Trends")
     st.line_chart(series_to_df(filtered, selected_metric).set_index("Period"))
 
 with c2:
-    st.subheader("Monthly")
-    month = daily_trends_cached(None, None, None, "month")
-    st.line_chart(series_to_df(month.get(metric_map[selected_metric], []), selected_metric).set_index("Period"))
+    st.subheader("Monthly Trends")
+    st.line_chart(series_to_df(month_trends.get(metric_map[selected_metric], []), selected_metric).set_index("Period"))
