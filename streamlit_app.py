@@ -78,9 +78,10 @@ st.markdown("""
     margin-top: 8px;
 }
             
+div[data-testid="column"] {
+    padding: 0 6px;
+            
 </style>
-            div[data-testid="column"] {
-    padding: 0 6px;   /* 🔥 equal gap between cards */
 }
 
 """, unsafe_allow_html=True)
