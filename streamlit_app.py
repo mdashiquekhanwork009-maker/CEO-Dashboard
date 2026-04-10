@@ -170,7 +170,7 @@ current_year_default = [year_options[0]] if year_options else []
 current_month_default = [month_options[-1]] if month_options else []
 
 st.title("J2W Dashboard")
-st.caption("Starter Streamlit version powered by your existing dashboard logic.")
+st.caption("")
 
 with st.sidebar:
     st.header("Filters")
@@ -225,6 +225,7 @@ def mom_item(label, curr, prev):
 """
 
 st.markdown("###")
+st.markdown("<br>", unsafe_allow_html=True)
 
 mom_html = f"""
 <div style="
