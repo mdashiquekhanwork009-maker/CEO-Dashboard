@@ -1,4 +1,4 @@
-"""RecruitIQ  —  CEO Dashboard  v5
+"""J2W  —  CEO Dashboard  v5
 ─────────────────────────────────
 Run:   py -3.11 dashboard.py
 Open:  http://localhost:5050
