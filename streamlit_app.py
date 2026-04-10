@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from datetime import datetime
 
 from dashboard import (
     RAW_DATASET_CONFIG,
@@ -19,8 +20,56 @@ from dashboard import (
 )
 
 
+def calculate_mom(current, previous):
+    if previous == 0:
+        return 0
+    return ((current - previous) / previous) * 100
+
+
+def get_previous_month(year, month):
+    if month == 1:
+        return year - 1, 12
+    return year, month - 1
+
 st.set_page_config(page_title="J2W Dashboard", layout="wide")
 
+st.markdown("""
+<style>
+.kpi-card {
+    background: linear-gradient(145deg, #f0f2f6, #ffffff);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+}
+.kpi-title {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 600;
+}
+.kpi-value {
+    font-size: 36px;
+    font-weight: bold;
+}
+.kpi-sub {
+    font-size: 13px;
+    color: #6c757d;
+}
+.red { border-top: 4px solid #e74c3c; }
+.green { border-top: 4px solid #2ecc71; }
+.blue { border-top: 4px solid #3498db; }
+.orange { border-top: 4px solid #f39c12; }
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    background-color: #f8d7da;
+    color: #721c24;
+    margin-top: 8px;
+}
+</style>
+""", unsafe_allow_html=True)
 
 @st.cache_data(show_spinner=False)
 def get_streamlit_init_data():
@@ -134,19 +183,165 @@ visible_rows, grand, resolved_clients = get_visible_rows(
     tuple(selected_bhs),
 )
 
-metric_cols = st.columns(5)
-metric_cols[0].metric("Demands", f"{int(grand.get('dem', 0)):,}")
-metric_cols[1].metric("Unserviced", f"{int(grand.get('dem_u', 0)):,}")
-metric_cols[2].metric("Submissions", f"{int(grand.get('sub', 0)):,}")
-metric_cols[3].metric("Feedback Pending", f"{int(grand.get('sub_fp', 0)):,}")
-metric_cols[4].metric("Onboarded", f"{int(grand.get('ob_hc', 0)):,}")
+# Get selected month/year
+if selected_years and selected_months:
+    curr_year = int(selected_years[0])
+    curr_month = int(selected_months[0])
+else:
+    curr_year = datetime.now().year
+    curr_month = datetime.now().month
 
-metric_cols2 = st.columns(5)
-metric_cols2[0].metric("Selections", f"{int(grand.get('sel', 0)):,}")
-metric_cols2[1].metric("Exits", f"{int(grand.get('ex_hc', 0)):,}")
-metric_cols2[2].metric("Net HC", f"{int(grand.get('net_hc', 0)):,}")
-metric_cols2[3].metric("Net PO (L)", f"{grand.get('net_po', 0):,.2f}")
-metric_cols2[4].metric("Net Margin (L)", f"{grand.get('net_mg', 0):,.2f}")
+prev_year, prev_month = get_previous_month(curr_year, curr_month)
+
+# Get previous month data
+_, prev_grand, _ = get_visible_rows(
+    (curr_year,), 
+    (prev_month,), 
+    tuple(selected_clients),
+    tuple(selected_domains),
+    tuple(selected_bhs),
+)
+
+def kpi_card(title, value, subtext="", color="blue", badge=None):
+    return f"""
+    <div class="kpi-card {color}">
+        <div class="kpi-title">{title}</div>
+        <div class="kpi-value">{value}</div>
+        <div class="kpi-sub">{subtext}</div>
+        {f'<div class="badge">{badge}</div>' if badge else ''}
+    </div>
+    """
+
+def mom_item(label, curr, prev):
+    change = calculate_mom(curr, prev)
+    arrow = "▲" if change >= 0 else "▼"
+    color = "green" if change >= 0 else "red"
+    return f"<span style='margin-right:20px;'><b>{label}</b> {curr:,} <span style='color:{color}'>{arrow} {abs(change):.0f}%</span></span>"
+
+
+st.markdown("###")
+
+mom_html = f"""
+<div style="
+    background:#f8f9fb;
+    padding:12px 20px;
+    border-radius:12px;
+    font-size:14px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+">
+<b style="margin-right:20px;">VS {pd.Timestamp(prev_year, prev_month, 1).strftime('%b %Y')}</b>
+
+{mom_item("Demands", grand.get('dem',0), prev_grand.get('dem',0))}
+{mom_item("Submissions", grand.get('sub',0), prev_grand.get('sub',0))}
+{mom_item("L1", grand.get('l1',0), prev_grand.get('l1',0))}
+{mom_item("L2", grand.get('l2',0), prev_grand.get('l2',0))}
+{mom_item("Selections", grand.get('sel',0), prev_grand.get('sel',0))}
+{mom_item("Onboarded", grand.get('ob_hc',0), prev_grand.get('ob_hc',0))}
+{mom_item("Exits", grand.get('ex_hc',0), prev_grand.get('ex_hc',0))}
+{mom_item("Net HC", grand.get('net_hc',0), prev_grand.get('net_hc',0))}
+{mom_item("Net PO", grand.get('net_po',0), prev_grand.get('net_po',0))}
+{mom_item("Net Margin", grand.get('net_mg',0), prev_grand.get('net_mg',0))}
+
+</div>
+"""
+
+st.markdown(mom_html, unsafe_allow_html=True)
+
+col1, col2, col3, col4, col5, col6 = st.columns(6)
+
+with col1:
+    st.markdown(kpi_card(
+        "Demands",
+        f"{int(grand.get('dem',0)):,}",
+        f"{int(grand.get('dem_open',0))} openings",
+        "red",
+        f"{int(grand.get('dem_u',0))} pending"
+    ), unsafe_allow_html=True)
+
+with col2:
+    st.markdown(kpi_card(
+        "Submissions",
+        f"{int(grand.get('sub',0)):,}",
+        f"{int(grand.get('sub_fp',0))} pending",
+        "blue"
+    ), unsafe_allow_html=True)
+
+with col3:
+    st.markdown(kpi_card(
+        "Interviews",
+        f"{int(grand.get('l1',0)+grand.get('l2',0)+grand.get('l3',0)):,}",
+        f"L1 {int(grand.get('l1',0))} | L2 {int(grand.get('l2',0))}",
+        "orange"
+    ), unsafe_allow_html=True)
+
+with col4:
+    st.markdown(kpi_card(
+        "Selections",
+        f"{int(grand.get('sel',0)):,}",
+        "Confirmed candidates",
+        "green"
+    ), unsafe_allow_html=True)
+
+with col5:
+    st.markdown(kpi_card(
+        "Selection Pipeline",
+        f"{int(grand.get('sp_hc',0)):,}",
+        f"₹{grand.get('sp_po',0):.2f}L PO",
+        "blue"
+    ), unsafe_allow_html=True)
+
+with col6:
+    st.markdown(kpi_card(
+        "Active HC",
+        f"{int(grand.get('active_hc',0)):,}",
+        "Current active",
+        "blue"
+    ), unsafe_allow_html=True)
+
+col1, col2, col3, col4, col5 = st.columns(5)
+
+with col1:
+    st.markdown(kpi_card(
+        "Onboarded",
+        f"{int(grand.get('ob_hc',0)):,}",
+        f"₹{grand.get('ob_po',0):.2f}L",
+        "green"
+    ), unsafe_allow_html=True)
+
+with col2:
+    st.markdown(kpi_card(
+        "Exits",
+        f"{int(grand.get('ex_hc',0)):,}",
+        f"₹{grand.get('ex_po',0):.2f}L",
+        "red"
+    ), unsafe_allow_html=True)
+
+with col3:
+    st.markdown(kpi_card(
+        "Net HC",
+        f"{int(grand.get('net_hc',0)):,}",
+        "Movement",
+        "red" if grand.get('net_hc',0) < 0 else "green"
+    ), unsafe_allow_html=True)
+
+with col4:
+    st.markdown(kpi_card(
+        "Net PO",
+        f"₹{grand.get('net_po',0):.2f}L",
+        "",
+        "red" if grand.get('net_po',0) < 0 else "green"
+    ), unsafe_allow_html=True)
+
+with col5:
+    st.markdown(kpi_card(
+        "Net Margin",
+        f"₹{grand.get('net_mg',0):.2f}L",
+        "",
+        "red" if grand.get('net_mg',0) < 0 else "green"
+    ), unsafe_allow_html=True)
+
 
 day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
 
