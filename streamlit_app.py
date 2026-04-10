@@ -80,7 +80,7 @@ st.markdown("""
 }
             
 div[data-testid="column"] {
-    padding: 0 6px;
+    padding: 0 6px;}
             
 </style>
 }
@@ -389,6 +389,14 @@ st.markdown(mom_html, unsafe_allow_html=True)
 
 day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
 
+# Filter daily trends
+filtered_day = []
+
+for item in day_trends.get(metric_map[selected_metric], []):
+    d = pd.to_datetime(item["d"]).date()
+    if start_date <= d <= end_date:
+        filtered_day.append(item)day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
+
 st.markdown("#### Metrics")
 
 metric_options = [
@@ -451,7 +459,8 @@ with trend_col1:
         format_func=lambda item: item[1],
         key="day_metric",
     )
-    st.line_chart(series_to_df(day_trends.get(day_metric[0], []), day_metric[1]).set_index("Period"))
+    st.line_chart(
+    series_to_df(filtered_day, selected_metric).set_index("Period"))
 
 with trend_col2:
     st.subheader("Month-on-Month Trends")
