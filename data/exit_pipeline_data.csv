@@ -1,0 +1,232 @@
+recruiter_name,manager_name,full_name,employee_type,employee_id,joining_date,p_o_value,margin,exit_type,company_name,status,tentative_exit_date
+Sumanth VM,Fazila Khanum,Gourishetty Saikiran,2,C36230783,2023-06-05,189000.00,22334.00,Contract Closure,Infosys ADM,5,2026-04-30
+Shikha Rana,Shikha Rana,Kamadi Abhinav Reddy,1,,2022-02-14,42483.00,7483.00,No Show,UHG,7,
+Abhishek B,Harshavardhan Reddy,Sushma K,6,C36210643,2021-03-17,35685.00,5185.00,Contract Closure,HP,5,2026-10-15
+Sunaina Mehra,Harshavardhan Reddy,Pavithra P,6,C36220182,2022-01-17,35685.00,5185.00,Contract Closure,HP,5,2026-09-16
+Maheshwari K S,Harshavardhan Reddy,S Ajith Kumar,6,C36221043,2022-04-25,35685.00,5185.00,Contract Closure,HP,5,2026-04-24
+Surekha S,Harshavardhan Reddy,VUDDANDAIAH GARI YASVITHA,6,C36221002,2022-04-29,35685.00,5185.00,Contract Closure,HP,5,2026-04-28
+Maheshwari K S,Harshavardhan Reddy,Joel P J,6,C36221217,2022-05-23,35685.00,5185.00,Contract Closure,HP,5,2026-05-22
+Surekha S,Harshavardhan Reddy,A. Navya Shree,6,C36221204,2022-05-23,35685.00,5185.00,Contract Closure,HP,5,2026-05-22
+Monisha R,Harshavardhan Reddy,Navya P,6,C36221604,2022-06-30,35685.00,5185.00,Contract Closure,HP,5,2026-12-30
+Surekha S,Harshavardhan Reddy,Aarushi lall,6,C36222274,2022-09-05,41037.75,5962.75,Conversion,HP,5,2026-05-06
+Maheshwari K S,Monisha R,Raghukul Sai Kadiri Rajendra Kumar,6,C36230402,2023-03-28,35685.00,5185.00,Resignation,HP,5,2026-04-28
+Anil Kumar M,Monisha R,Arnab Banerjee,6,C36240989,2024-06-27,35685.00,5185.00,Resignation,HP,5,2026-04-19
+Deepika D,Monisha R,Flora Rosalina Karra,6,C36251794,2025-09-02,46800.00,6800.00,Resignation,HP,5,2026-04-16
+Mansi R,Jawad u,Ananda Shubra Bhowmick,6,C36252513,2025-12-15,63375.00,9209.00,Resignation,HP,5,2026-04-10
+Navaneethan GN,Sushma Hegde,Gaurav Vinod Patil,2,C36251206,2025-06-24,262800.00,62800.00,No Show,Cognizant,7,2025-06-24
+Veronic Kavya,Chiranjeev Desai,Nalamothu Anusha  ,2,C36252228,2025-10-29,213600.00,9434.00,Contract Closure,Cognizant,5,2026-04-30
+Javeed Khan,Jawad Ulla Khan,Akshay Kumar Raja Yadav ,2,C36232022,2023-10-16,26151.16,7151.16,Resignation,Accenture_BPO,5,2026-04-23
+Sireesha K,Jawad Ulla Khan,Rayidi Prathima ,2,C36232274,2023-12-08,29500.00,4500.00,Conversion,Accenture_BPO,5,2026-04-17
+Mehraj N,Jawad Ulla Khan,Adarsh Ambadas Rachcha ,2,C36240503,2024-04-08,25580.04,6218.04,Project Roll Off,Accenture_BPO,5,2026-04-10
+Sindhu S R,Jawad Ulla Khan,Priya Dattatray  Yadav,2,C36240694,2024-05-21,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Sindhu S R,Jawad Ulla Khan,BAGATE ASHWINI  GAUTAM ,2,C36241008,2024-06-27,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-04-17
+Sindhu S R,Jawad Ulla Khan,Laxuman Rangrao Sandule,2,C36241037,2024-06-28,25580.04,5508.04,Resignation,Accenture_BPO,5,2026-05-08
+Ravi Berwal,Jawad Ulla Khan,Manish Ranjeet Jaiswar,2,C36241136,2024-07-19,25580.04,5508.04,Resignation,Accenture_BPO,5,2026-04-23
+Vaishnavi N J,Jawad Ulla Khan,Rohini Mangesh  Yadav,2,C36241206,2024-07-25,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Pacha Vyshnavi,Jawad Ulla Khan,Kimaya Nitin Patil,2,C36241145,2024-07-22,22847.16,3485.16,No Show,Accenture_BPO,3,2024-07-22
+Ravi Berwal,Jawad Ulla Khan,Vivek Arvind Kumar Jain,2,C36241368,2024-08-01,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-04-27
+Ravi Berwal,Jawad Ulla Khan,Harsh Sanjay Bhosle ,2,C36241351,2024-08-07,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-04-17
+Sachin K,Jawad Ulla Khan,Pallavi Mahadev Chavan,2,C36241332,2024-08-06,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-05-15
+Vaishnavi N J,Jawad Ulla Khan,Reshma Deepak Rumade ,2,C36241380,2024-08-08,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Monisha Srinivasan,Jawad Ulla Khan,Kashish Gulabchand Gupta,2,C36241353,2024-08-08,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Vaishnavi N J,Jawad Ulla Khan,Akshay Deepak Chavan,2,C36241454,2024-08-12,24158.14,4796.14,Resignation,Accenture_BPO,5,2026-04-17
+Sachin K,Jawad Ulla Khan,Manoj Raghavaraju Sameti,2,C36241609,2024-08-12,23684.96,3612.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Sachin K,Jawad Ulla Khan,Soona Venkatesh Dodla ,2,C36241705,2024-08-12,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Vaishnavi N J,Jawad Ulla Khan,Deepika Sharnappa Dodmani,2,C36241554,2024-08-16,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Sindhu S R,Jawad Ulla Khan,Akshay  Ashok Shinde,2,C36241505,2024-08-16,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Vaishnavi N J,Jawad Ulla Khan,Meet Govind Bhanushali,2,C36241651,2024-08-16,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Monisha Srinivasan,Jawad Ulla Khan,Sagar Ramkrishna Mhetre,2,C36241585,2024-08-21,25580.04,6218.04,Termination,Accenture_BPO,5,2026-04-23
+Mehraj N,Jawad Ulla Khan,Kartik Manjabapu Date ,2,C36241656,2024-08-21,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-05-11
+Pacha Vyshnavi,Jawad Ulla Khan,Dhanesh Ravi Taddu,2,C36241655,2024-08-20,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Mehraj N,Jawad Ulla Khan,Krutika Gopal Acharya ,2,C36241671,2024-08-22,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Pacha Vyshnavi,Jawad Ulla Khan,Nikhil Manohar Savant,2,C36241721,2024-08-26,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Ravi Berwal,Jawad Ulla Khan,Priti Mahesh Pawar  ,2,C36241755,2024-08-26,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Ranjitha V Pai,Jawad Ulla Khan,P Varsha,2,C36241789,2024-08-30,21956.26,6956.26,Resignation,Accenture_BPO,5,2026-05-15
+Mahalakshmi S,Jawad Ulla Khan,Rucha Rajendra Mahadik,2,C36241828,2024-09-03,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Priya b,Jawad Ulla Khan, Harsh Ganesh  Jindal ,2,C36242070,2024-09-19,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
+Mehraj N,Jawad Ulla Khan,Diksha Ashok Telmore ,2,C36242186,2024-10-03,50976.00,7776.00,Project Roll Off,Accenture_BPO,5,2026-04-23
+Ravi Berwal,Jawad Ulla Khan,Omkar Vijay Sakharkar ,2,C36242198,2024-10-04,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-05-15
+Sangeetham Jyothirmai,Jawad Ulla Khan,Ankit Murlidhar Shirgaonkar,2,C36242370,2024-11-12,22847.00,3485.00,Project Roll Off,Accenture_BPO,3,2024-11-25
+Pacha Vyshnavi,Jawad Ulla Khan,Sirwani Kirti,2,C36242611,2024-12-23,41300.00,6300.00,Project Roll Off,Accenture_BPO,5,2026-04-30
+Sachin K,Jawad Ulla Khan,A Chanchal,2,C36242515,2024-11-29,26531.12,4631.12,Project Roll Off,Accenture_BPO,5,2026-04-30
+Monisha Srinivasan,Jawad Ulla Khan,Manish Shirish Divekar,2,C36250003,2025-01-02,70800.00,10800.00,Project Roll Off,Accenture_BPO,5,2026-04-22
+Sangeetham Jyothirmai,Jawad Ulla Khan,Suganya D,2,C36250155,2025-01-31,21956.26,3456.26,Resignation,Accenture_BPO,5,2026-05-06
+Ravi Berwal,Jawad Ulla Khan,Avinash Baban Singh      ,2,C36250280,2025-02-26,29500.00,4500.00,Resignation,Accenture_BPO,5,2026-04-17
+Ranjitha V Pai,Jawad Ulla Khan,Shivani Kamlesh Tiwari,2,C36250322,2025-03-04,23684.96,4034.96,Resignation,Accenture_BPO,5,2026-04-17
+Mahalakshmi S,Jawad Ulla Khan,Aditya Girja Pasi,2,C36250438,2025-03-19,23187.00,3537.00,Resignation,Accenture_BPO,5,2026-05-07
+Divya Np,Jawad Ulla Khan,Rajnish Ranjan,2,C36250731,2025-04-25,21240.00,3240.00,Project Roll Off,Accenture_BPO,5,2026-04-24
+Ashwini Jekinakatti,Jawad Ulla Khan,Sumit Subhash Yadav,2,C36251143,2025-06-09,23718.00,3618.00,Resignation,Accenture_BPO,5,2026-04-28
+Muskan S,Jawad Ulla Khan,Ayushree Ajay Kadam,2,C36251236,2025-06-26,23718.00,3618.00,Termination,Accenture_BPO,5,2026-04-21
+Ashwini Jekinakatti,Jawad Ulla Khan,Avishka Vishnu Patil,2,C36251354,2025-07-17,23718.00,3618.00,Resignation,Accenture_BPO,5,2026-05-06
+Deepika D,Monisha R,Ashwini Danaraddi		 ,2,C36251403,2025-07-21,41875.00,8375.00,Project Roll Off,Accenture_BPO,5,2026-04-30
+Muskan S,Jawad Ulla Khan,Prachita Shrikant Naik,2,C36251408,2025-07-22,29500.00,4500.00,Resignation,Accenture_BPO,5,2026-04-23
+Ashwini Jekinakatti,Jawad Ulla Khan,Devesh Ganesh Chaudhari,2,C36251469,2025-07-30,23718.00,3618.00,Resignation,Accenture_BPO,5,2026-04-10
+Sachin K,Jawad Ulla Khan,Dipika  Rajesh Khade,2,C36251462,2025-07-31,23718.00,3618.00,Resignation,Accenture_BPO,5,2026-05-04
+Vaishnavi Shambi,Jawad Ulla Khan,Tasmiya Shaikh,2,C36251515,2025-08-06,50000.00,10000.00,Resignation,Accenture_BPO,5,2026-04-10
+Deepika D,Monisha R,Mohammed Subhan		 ,2,C36251514,2025-08-04,50000.00,10000.00,No Show,Accenture_BPO,5,2025-08-04
+Laxmitha  D,Jawad Ulla Khan,Raman Kumar Shivshankar Prasad,2,C36251610,2025-08-13,23718.00,3618.00,No Show,Accenture_BPO,5,2025-08-13
+Amrithesh Sairam,Jawad Ulla Khan, Penumatsa Lavanya,2,C36251874,2025-09-05,31250.00,6250.00,Project Roll Off,Accenture_BPO,5,2026-04-30
+Basavaraj B,Jawad Ulla Khan,Aldon  Shaji,2,C36251822,2025-09-09,50000.00,10000.00,Project Roll Off,Accenture_BPO,5,2026-04-30
+Mahalakshmi S,Jawad Ulla Khan,Rahul Narsaiah Kodipelli,2,C36251860,2025-09-15,23718.00,3618.00,No Show,Accenture_BPO,5,2025-09-15
+Mahalakshmi S,Jawad Ulla Khan,Manish Yadav ,2,C36251881,2025-09-16,23718.00,3618.00,Resignation,Accenture_BPO,5,2026-04-16
+Ningappa M Donni,Jawad Ulla Khan,Ajay Madhav Kumbharkar,2,C36252170,2025-10-17,23718.00,3618.00,Resignation,Accenture_BPO,5,2026-05-04
+Laxmitha  D,Jawad Ulla Khan,Shreemayee Sinha,2,C36252440,2025-11-26,41300.00,6300.00,Resignation,Accenture_BPO,5,2026-04-24
+Laxmitha  D,Prathyusha Mangalampalli,Monika Mohan Gavhane,2,C36260002,2025-12-31,29500.00,4500.00,No Show,Accenture_BPO,5,2025-12-31
+Priya b,Prathyusha Mangalampalli,Y.Manasa,2,C36260036,2026-01-09,47200.00,7200.00,Project Roll Off,Accenture_BPO,5,2026-04-24
+Ningappa M Donni,Prathyusha Mangalampalli,Sonali Arun Panigrahi,2,C36260118,2026-01-30,35400.00,5400.00,Resignation,Accenture_BPO,5,2026-05-11
+Krishna Mohanty,Menaka Prasad,Dinesh Kumar J ,2,C36230467,2023-04-10,61332.12,2472.12,Contract Closure,CenturyLink Technologies India Pvt.Ltd,5,2026-05-01
+Ebi Thambu,Linu P Mathew,Shalini S,1,C36250386,2025-03-10,43953.00,6453.00,Resignation,Socgen,5,2026-05-08
+Ebi Thambu,Linu P Mathew,Kavya M S,1,C36250347,2025-03-10,78624.00,28624.00,Conversion,Socgen,5,2026-05-06
+Siva Darsana,Afzal Mohammed,Ananthakrishnan G,1,C36250396,2025-03-17,78624.00,32791.00,Conversion,Socgen,5,2026-05-06
+Shreyashi Kundu,Afzal Mohammed,Shaik Kather S J,1,C36250511,2025-04-03,78624.00,32791.00,Contract Closure,Socgen,5,2026-05-06
+Jothipriya R,M Jagadish Kumar,Pasumarthi Venkata Naga Abhishek ,1,C36250585,2025-04-07,78624.00,16124.00,Resignation,Socgen,5,2026-05-06
+Aniskeh Manick S N,Afzal Mohammed,Meena Girishan,1,C36250626,2025-04-10,78624.00,28624.00,Contract Closure,Socgen,5,2026-05-06
+Madhuri Ps,Afzal Mohammed,Ravikumar,1,C36250670,2025-04-17,140049.00,56716.00,Contract Closure,Socgen,5,2026-04-22
+Tanya Angeline S,Tamil C,Guru Prasad Reddy K,4,O36250023,2025-01-20,285714.29,77381.29,Project Roll Off,DXC,6,2025-03-15
+Harshitha S,Tamil C,Bvpmy Software Consulting Services Llp(Kalyan Kumar Katakam) ,4,O36250040,2025-02-10,157635.47,27635.47,Resignation,DXC,5,2026-04-30
+Harshitha S,Tamil C, Sathyanarayanan D,1,C36250397,2025-03-19,34985.22,1485.22,Project Roll Off,DXC,5,2026-05-14
+Jackson Mathew S,Tamil C,Vidya S Honnalli (Prasad S Ganji) ,4,O36250062,2025-03-24,226600.99,21600.99,Resignation,DXC,5,2026-04-30
+Harshitha S,Tamil C,Mohini Parmeshwar Mete,4,O36250093,2025-05-08,177339.90,44006.90,Contract Closure,DXC,5,2026-04-30
+Arun kumar ,Tamil C,Rachamallu Jayaprashanthkumar Reddy,1,C36251257,2025-07-01,177339.00,44005.00,Conversion,DXC,5,2026-04-30
+Akash Jena,Jawad Ulla Khan,Kotla Mounika,1,C36252072,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Akash Jena,Jawad Ulla Khan,Sandhya Sonti,1,C36252071,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Rishabh Saxena,Jawad Ulla Khan,Shreya Singh,1,C36252091,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Muskan S,Jawad Ulla Khan,Nimmathi Sravani,1,C36252090,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Syed Ayub Uddin,Jawad Ulla Khan,Adesh Singh Rajawat,1,C36252086,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Syed Ayub Uddin,Jawad Ulla Khan,Macha Praneetha,1,C36252084,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Syed Ayub Uddin,Jawad Ulla Khan,Mano Satvik Yata,1,C36252083,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Akash Jena,Jawad Ulla Khan,Elijala Harikrishna,1,C36252068,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Akash Jena,Jawad Ulla Khan,Gyara Alekya,1,C36252067,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Ashwini Jekinakatti,Jawad Ulla Khan,Kandury Sri Lakshmi Sahithi Aruna,1,C36252062,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Ashwini Jekinakatti,Jawad Ulla Khan,Sanaboina Sai Dinesh,1,C36252060,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Ashwini Jekinakatti,Jawad Ulla Khan,Kolipaka Yoganand,1,C36252059,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Mahalakshmi S,Jawad Ulla Khan,Nulu Kamesh ,1,C36252066,2025-10-13,24097.50,4097.50,Conversion,UHG-Non IT,5,2026-04-10
+Akash Jena,Jawad Ulla Khan,Yekbote Omkar ,1,C36252224,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,K Srikanth,1,C36252216,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,Nagarigari Srilatha,1,C36252213,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,Gajapaga Sneha ,1,C36252211,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Syed Ayub Uddin,Jawad Ulla Khan,Syed Samreen  Banu,1,C36252248,2025-10-27,25882.50,5882.50,Project Roll Off,UHG-Non IT,5,2026-05-25
+Laxmitha  D,Jawad Ulla Khan,Vara Ganti Vikranth Kumar ,1,C36252205,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Laxmitha  D,Jawad Ulla Khan,Areti Sai Kishore,1,C36252204,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Syed Ayub Uddin,Jawad Ulla Khan,Shaik Shanawaz,1,C36252245,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,Gorrela Kalyan ,1,C36252198,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,Gangapuram Shiva Kumar,1,C36252192,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Syed Ayub Uddin,Jawad Ulla Khan,MD Ibrahim Ahmed,1,C36252243,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,Aswin S Nair ,1,C36252193,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Akash Jena,Jawad Ulla Khan,Vishal Choudhary ,1,C36252257,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Syed Ayub Uddin,Jawad Ulla Khan,Mohammed Sameer Pasha,1,C36252241,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Syed Ayub Uddin,Jawad Ulla Khan,C Mani deep,1,C36252252,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Syed Ayub Uddin,Jawad Ulla Khan,B.Sujith  Kumar,1,C36252238,2025-10-27,25882.50,5882.50,Contract Closure,UHG-Non IT,5,2026-05-25
+Vinodhini E,Jawad Ulla Khan,S Sai Praneeth Reddy,1,C36252182,2025-10-27,25882.50,5882.50,Project Roll Off,UHG-Non IT,5,2026-05-25
+Siva Darsana,Afzal Mohammed,Athulya Anilkumar,1,C36242445,2024-11-28,46683.00,10850.00,Conversion,Soc gen Ops ,5,2026-05-29
+Sagarika Suman,Bijoy Anand Jha,Shreya Mishra,1,C36260389,2026-03-16,96474.00,8974.00,Resignation,Soc gen Ops ,5,2026-05-07
+Muhammed faizal,Sabreena Jabeen,Pagala Ramalakshumma,2,C36232088,2023-10-19,156492.00,44992.00,Contract Closure,Mercedes benz,5,2026-04-30
+Dhruthi M,Anmol Katoch,Naseeruddin ,2,C36230802,2023-06-05,60000.00,5834.00,Resignation,Accenture_IDB,5,2026-04-24
+Anusha RK,Suman N,Chauhan Mayurbhai Narendrabhai,2,C36240282,2024-02-22,205000.00,13334.00,Project Roll Off,Accenture_IDB,5,2026-04-13
+Don Bosco,Suman N, Suryaprakash Yadav,2,C36240355,2024-03-06,99750.00,12250.00,Contract Closure,Accenture_IDB,5,2026-04-30
+Chakali Mallikarjuna,Priyakanta Choudhary,Priyanka Jadon,2,C36240518,2024-04-12,39199.95,5600.95,Contract Closure,Accenture_IDB,5,2026-04-30
+Kanchana Kumari,Suman N,Hari  Prakash PL,2,C36240701,2024-05-24,150000.00,25000.00,Contract Closure,Accenture_IDB,5,2026-04-30
+Medha nag,Suman N,Shivanand S Telsang,2,C36241045,2024-07-08,100000.00,8334.00,Project Roll Off,Accenture_IDB,5,2026-04-23
+Ranganatha T,Suman N,Sundarrajan Duraisamy,2,C36241073,2024-07-11,136000.00,33917.00,Project Roll Off,Accenture_IDB,5,2026-04-30
+Nidhi Tingal,Mehr Hashim, Malladi Rama Subbaiah,2,C36211451,2021-05-24,207090.00,109924.00,Resignation,Flipkart,5,2026-04-09
+Gayathri Narayana,Mehr Hashim,Kalamalla Khadar Valli ,2,C36212673,2021-08-30,92000.00,34500.00,Resignation,Flipkart,5,2026-04-16
+Manyam Rohith,Shivam Prasad,Prachi Pragya,2,C36242317,2024-10-30,66250.00,3750.00,Conversion,Flipkart,5,2026-04-15
+Sharanabasava Saalunke,Mehr Hashim,Laxmi Hulagutte	,2,C36242584,2024-12-19,39750.00,2250.00,Resignation,Flipkart,5,2026-04-13
+P Ashok Kumar Reddy,Mehr Hashim,Vishal ,2,C36250499,2025-04-01,39750.00,2250.00,Resignation,Flipkart,5,2026-04-23
+Surabhi K,Mehr Hashim,Jitendra Kumar Sahu,2,C36251077,2025-06-05,57028.00,3228.00,Termination,Flipkart,5,2026-04-07
+Rakshitha BR ,Mehr Hashim,Sapna Yadav ,2,C36251093,2025-06-05,40280.00,2280.00,Resignation,Flipkart,5,2026-04-14
+Surabhi K,Mehr Hashim,Dara Kiran,2,C36251064,2025-06-03,49820.00,2820.00,Resignation,Flipkart,5,2026-04-24
+Surabhi K,Mehr Hashim,Lavanya H M,2,C36251366,2025-07-21,61833.33,3500.33,Resignation,Flipkart,5,2026-04-29
+Manyam Rohith,Mehr Hashim,Ankit Kumar,2,C36251216,2025-06-26,39750.00,2250.00,Termination,Flipkart,5,2026-04-07
+Manyam Rohith,Mehr Hashim,Preeti,2,C36251396,2025-07-24,35333.33,2000.33,Resignation,Flipkart,5,2026-04-13
+Surabhi K,Mehr Hashim,MD Shakib,2,C36251741,2025-08-28,128083.33,7250.33,Resignation,Flipkart,5,2026-04-28
+Gopinath S N,Mehr Hashim,Kunisetty Sudarsan,2,C36252117,2025-10-16,123900.00,36400.00,Contract Closure,Flipkart,5,2026-04-22
+Manyam Rohith,Mehr Hashim,Kushal,2,C36252169,2025-10-27,30528.00,1728.00,Contract Closure,Flipkart,5,2026-04-30
+Surabhi K,Mehr Hashim,Lalan Kumar Vishwakarma,2,C36252162,2025-10-23,35828.00,2028.00,Contract Closure,Flipkart,5,2026-04-30
+Rakshith S K,Mehr Hashim,Dilshad Khan,2,C36252326,2025-11-06,123900.00,44734.00,Contract Closure,Flipkart,5,2026-04-22
+Achuth Yadav MS,Mehr Hashim,Aastha Agarwal,2,C36260325,2026-03-05,97166.66,5499.99,Resignation,Flipkart,5,2026-05-07
+Achuth Yadav MS,Mehr Hashim,L Mohammad Sharique,2,C36260324,2026-03-05,110416.66,6249.99,Resignation,Flipkart,5,2026-05-07
+Kalyani Shavalli Khan,Vamsi Sankaran,Aryan Mishra,2,C36241082,2024-07-12,47500.00,5000.00,Resignation,PricewaterhouseCoopers,5,2026-05-26
+Kalyani Shavalli Khan,Vamsi Sankaran,Divyansh Shukla,2,C36241159,2024-07-22,42500.00,5000.00,Resignation,PricewaterhouseCoopers,5,2026-04-30
+Priyambada Dipakkumar Gadhwal,Soniya Sabnani,Puram SivaSankar,2,C36260059,2026-01-13,105000.00,17500.00,Contract Closure,PricewaterhouseCoopers,5,2026-04-24
+Uday Manakare,Shoeb Ahmed,PD Wolke Consultancy,4,O36240105,2024-08-19,372348.48,72348.48,Resignation,Deloitte_Consulting,5,2026-05-02
+Pavan Singh,Rajat Tyagi,Padamati Bhavya,1,C36251762,2025-09-01,248260.32,35760.32,Contract Closure,Deloitte_Consulting,5,2026-05-29
+Kollapuram Vishwakaran,Rajat Tyagi,Liyaqath  Baig,2,C36260086,2026-01-22,460734.75,110734.75,Contract Closure,Deloitte_Consulting,5,2026-06-27
+Kumari Ritika,Shivam Prasad,Neeraja Suresh,2,C36250562,2025-04-01,157111.00,14283.00,Conversion,Lam Research,5,2026-04-30
+Antati Deekshith,Sundeep Kumar Garige,A MEGHANA,1,C36220168,2022-01-13,139258.56,139257.56,Contract Closure,Deloitte-One Tech,5,2026-05-29
+Priya b,Jawad Ulla Khan,Rahul C,2,C36230564,2023-04-28,51840.00,11840.00,Contract Closure,Accenture-voice,5,2026-04-27
+Amrithesh Sairam,Jawad Ulla Khan,S Lohith,2,C36251895,2025-09-18,31250.00,6250.00,Project Roll Off,Accenture-voice,5,2026-04-15
+Ningappa M Donni,Jawad Ulla Khan,Gowtham P,2,C36251970,2025-09-26,62500.00,12500.00,No Show,Accenture-voice,3,2025-09-26
+Amrithesh Sairam,Jawad Ulla Khan,Soumya,2,C36252075,2025-10-10,70000.00,14000.00,Project Roll Off,Accenture-voice,5,2026-04-30
+Priya b,Jawad Ulla Khan,Prisha  Syndrella John,2,C36252097,2025-10-14,31250.00,6250.00,Project Roll Off,Accenture-voice,5,2026-04-22
+Amrithesh Sairam,Jawad Ulla Khan,Roopa.C,2,C36252176,2025-10-27,31250.00,6250.00,Project Roll Off,Accenture-voice,5,2026-04-10
+Amrithesh Sairam,Jawad Ulla Khan,Ponnada Anjuna,2,C36252347,2025-11-07,31250.00,6250.00,Project Roll Off,Accenture-voice,5,2026-04-10
+Mahalakshmi S,Jawad Ulla Khan, Malisetty Rajesh ,2,C36252344,2025-11-07,70000.00,14000.00,Bgv Failure,Accenture-voice,5,2026-04-16
+Vaishnavi Shambi,Jawad Ulla Khan,Ayesha Begum R,2,C36252329,2025-11-07,70000.00,14000.00,Bgv Failure,Accenture-voice,5,2026-04-23
+Amrithesh Sairam,Jawad Ulla Khan,Trupti  S Balikai,2,C36252388,2025-11-11,43750.00,8750.00,Resignation,Accenture-voice,5,2026-04-17
+Karthik AK,Suraj T,Shilpashree  H S,1,C36222344,2022-09-30,220000.00,219999.00,Project Roll Off,SONY Software Development Centre,5,2026-04-17
+Prateek A,Mehr Hashim,Mohamed  Nasir,2,C36240699,2024-05-24,85000.00,25500.00,Contract Closure,SONY Software Development Centre,5,2026-05-04
+Prateek A,Mehr Hashim,SHAIK ABDUL AZEEZ,2,C36241038,2024-07-04,85000.00,23750.00,Contract Closure,SONY Software Development Centre,5,2026-05-04
+Hrithik Selvan,Mehr Hashim,Sreesailam Vishal Gowd,2,C36252147,2025-10-23,130000.00,30000.00,Resignation,SONY Software Development Centre,5,2026-05-31
+Ponduru Sarath kumar,Anuradha M,Rishi Sharma,2,C36260083,2026-01-21,277200.00,127200.00,No Show,Koch Industries,3,2026-01-21
+Rashmi Kulkarni,Linu P Mathew,Bhavana Borkar,2,C36242566,2024-12-13,409920.00,93254.00,Resignation,JLL,5,2026-04-30
+Manjunath R,Shivam Prasad,Nilesh Chandrakant Borate,2,C36252278,2025-10-31,391600.00,33267.00,Resignation,Veritas,5,2026-04-30
+Harrish Seenivasan,Deepthi David,Varun  Kumar,2,C36212917,2021-09-20,107688.00,41022.00,Project Roll Off,IBM -Mercedes,5,2026-04-30
+Vyshnavi Garimidi,Anuradha M,Gowrishankar  J,2,C36252291,2025-11-03,96600.00,25767.00,Contract Closure,Verifone,5,2026-04-30
+Vyshnavi Garimidi,Anuradha M,Safeena Banu  Bellary,2,C36252279,2025-11-03,96600.00,25767.00,Conversion,Verifone,5,2026-04-30
+Mugelan M,Shivam Prasad,A S Alamelumangai ,2,C36250283,2025-03-03,144000.00,60667.00,Resignation,Schneider Electric,5,2026-05-29
+Barri Lavanya,Shivam Prasad,Kumar Swamy K J,2,C36251243,2025-06-30,220000.00,3334.00,Resignation,Schneider Electric,5,2026-06-06
+Sree Hari,Shinoy EK,Lebaka Sri Vani,2,C36222551,2022-11-14,317955.00,76289.00,Contract Closure,Xylem INC,5,2026-06-30
+Mathew PC,Mehr Hashim,K Hari prasad,2,C36222097,2022-08-25,100000.00,12500.00,Resignation,GE Healthcare Global Private Limited.,5,2026-04-30
+Mohammed hamza,Mehr Hashim,Yarrasani Venkatesh Yadav,2,C36231484,2023-08-17,302400.00,136150.00,Resignation,GE Healthcare Global Private Limited.,5,2026-05-29
+Tamilarasan S,Mehr Hashim,Premanand,2,,2024-03-29,420000.00,186666.67,Exited and Redeployed,GE Healthcare Global Private Limited.,6,2024-03-29
+Prateek A,Mehr Hashim,Mamta Kailas Dahiwal ,2,,2024-04-02,285600.00,77266.67,Exited and Redeployed,GE Healthcare Global Private Limited.,3,2024-04-02
+Vedesh Soundhara Raj,Mehr Hashim,Astik Kishore Bandekar,2,C36240585,2024-04-25,130000.00,63334.00,Resignation,GE Healthcare Global Private Limited.,5,2026-05-06
+Uma Sree,Mehr Hashim,Patel Kamlesh Rameshbhai,2,,2024-05-03,450000.00,83333.33,Exited and Redeployed,GE Healthcare Global Private Limited.,6,2024-05-03
+Sandipta Panigrahi,Mehr Hashim,Shantnu Kumar ,2,C36242404,2024-11-19,436800.00,50550.00,Resignation,GE Healthcare Global Private Limited.,5,2026-05-07
+Subhash Kumar,Vamsi Sankaran,Mathan Kumar K,2,C36242432,2024-11-25,386000.00,163084.00,Resignation,GE Healthcare Global Private Limited.,5,2026-04-30
+Sandipta Panigrahi,Mehr Hashim,Pankaj Kumar,2,C36251254,2025-07-21,310800.00,127467.00,No Show,GE Healthcare Global Private Limited.,5,2025-06-30
+Gopinath S N,Mehr Hashim,Bhabani Sankar Panigrahi,2,C36251346,2025-07-16,411600.00,69934.00,Contract Closure,GE Healthcare Global Private Limited.,5,2026-05-31
+Gopinath S N,Mehr Hashim,Mula Sreedhar Reddy,2,C36252168,2025-10-27,310800.00,102467.00,Performance Issue,GE Healthcare Global Private Limited.,5,2026-04-10
+Gopinath S N,Mehr Hashim,Malaprabha Anil Patil,2,C36252465,2025-11-28,263424.00,80091.00,Performance Issue,GE Healthcare Global Private Limited.,5,2026-04-17
+Prateek A,Mehr Hashim,Gouri Vivek Patil,2,C36260109,2026-01-28,310800.00,160800.00,Performance Issue,GE Healthcare Global Private Limited.,5,2026-04-27
+Karapa Vinay,Shivam Prasad,Sanket Anilkumar Patodi,2,C36260169,2026-02-16,300080.00,75080.00,No Show,Boston Scientific,5,2026-02-16
+Rekha M B,Shivam Prasad,Nitin Dnyaneshwar Kale,2,C36260537,2026-04-07,350064.00,75064.00,No Show,Boston Scientific,5,2026-04-07
+Gopal V,Sai Dhayanand,Tejaswini Jilla ,2,C36221564,2022-06-27,425000.00,300000.00,Resignation,SYNITI,5,2026-04-15
+Gopinath S N,Mehr Hashim,Shubham Shantaram Kapdule,2,C36242166,2024-09-30,210533.46,210532.46,Resignation,Google,5,2026-04-12
+Gopinath S N,Mehr Hashim,Ramesh Aravind V,2,C36250338,2025-03-07,275000.00,45833.33,Project Roll Off,Hinge Health,5,2026-07-31
+Prateek A,Mehr Hashim,Priya Balasaheb Kawane,2,C36250577,2025-04-07,250000.00,66667.00,Project Roll Off,Hinge Health,5,2026-11-02
+Tejaswini I N,Beryl babu,Surabattula Adityavardhan,2,C36241087,2024-07-12,243625.00,16125.00,Resignation,BSH,5,2026-05-06
+Krishna Priya,Mehr Hashim,Babu  Gopal,2,C36240324,2024-02-29,285000.24,60000.24,Resignation,Pure Storage,5,2026-04-23
+Babu H,Shivam Prasad,Akhil Chandrakant Belanekar,2,C36250857,2025-05-19,188500.00,13500.00,Conversion,Bread Financials_Support,5,2026-06-01
+Manju B,Dipika Saha,Baldeo  Yadav ,2,C36251076,2025-06-09,188000.00,104666.67,Resignation,Bread Financials_Support,5,2026-02-28
+Manju B,Dipika Saha,Vishal  Kumar,2,C36251370,2025-07-21,318750.00,18750.00,Conversion,Bread Financials_Support,5,2026-04-17
+Siva Darsana,Afzal Mohammed,Swati Bhargava,2,C36250767,2025-05-02,134592.00,5426.00,Contract Closure,Lumen routing ,5,2026-05-29
+Ilakiya A,Saravanan P,Veeresh Nayaka,2,C36250741,2025-04-29,195888.00,95888.00,Project Roll Off,DTICI,5,2026-05-06
+Pawan SL,Saravanan P,Anupama  M,2,C36251710,2025-08-25,240408.00,115408.00,Contract Closure,DTICI,5,2026-04-17
+Vaishnavi G,Tara V R,Midathala Aruna ,2,C36251314,2025-07-09,181650.00,89984.00,Contract Closure,Infosys Consulting,5,2026-07-02
+Chakali Mallikarjuna,Priyakanta Choudhary,Saurav S Panicker,2,C36242243,2024-10-16,30470.46,7986.46,Contract Closure,Accenture_IDB_1,5,2026-04-30
+Don Bosco,Namitha Gowda,Anjana Kumari,2,C36242339,2024-11-07,29183.76,8183.76,Contract Closure,Accenture_IDB_1,5,2026-04-30
+Rakshitha B,Sheetal AT,Udaragudi Aamani,2,C36250177,2025-02-14,126999.60,43666.60,Contract Closure,Accenture_IDB_1,5,2026-07-02
+Vadde Meghana,Priyakanta Choudhary,Tamal Banik,2,C36252281,2025-11-03,127189.70,23023.70,Resignation,Accenture_IDB_1,5,2026-04-16
+Poornima Baskar,Priyakanta Choudhary,Malijeddi Gowtham,2,C36260022,2026-01-09,110400.00,35400.00,Project Roll Off,Accenture_IDB_1,5,2026-04-10
+Sandipta Panigrahi,Mehr Hashim,Sayyad Mohasin,2,C36250697,2025-04-23,440000.00,223334.00,Contract Closure,Coupang,5,2026-05-04
+Sandipta Panigrahi,Mehr Hashim,Mayank  Mishra,4,O36250126,2025-07-28,524000.00,190667.00,Performance Issue,Coupang,5,2026-05-04
+Gopinath S N,Mehr Hashim,Madhumitha Marimuthu,2,C36252178,2025-10-29,440000.00,181667.00,Contract Closure,Coupang,5,2026-06-13
+Devagonda Monika,Anuradha M, Sunder Kumar V,2,C36260017,2026-01-07,524000.00,107334.00,Performance Issue,Coupang,5,2026-05-04
+Mahalakshmi S,Jawad Ulla Khan,Kumar Aditya,2,C36250612,2025-04-09,37090.00,12090.00,Resignation,Lenovo,5,2026-04-27
+Ashwini Jekinakatti,Prathyusha Mangalampalli,Taiyaba Fathima,2,C36260230,2026-02-19,37090.00,12090.00,Resignation,Lenovo,5,2026-02-25
+Priyanka Barik,Jawad Ulla Khan,Partha Ghosh,2,CR3625550,2025-06-17,68599.08,6650.08,Resignation,Lenovo 2,5,2026-04-10
+Divya Np,Jawad Ulla Khan,Shaik Rahamthulla,2,CR3625668,2025-06-17,46901.00,6650.00,No Show,Lenovo 2,5,2025-06-30
+Basavaraj B,Jawad Ulla Khan,Rahul Kumar,2,CR3625598,2025-06-19,31822.00,6650.00,Resignation,Lenovo 2,5,2026-04-22
+Priyanka Barik,Jawad Ulla Khan,Jyoti Nandini,2,CR3625649,2025-06-21,33587.00,6650.00,Resignation,Lenovo 2,5,2026-04-10
+Priyanka Barik,Jawad Ulla Khan,Anand Divatai,2,CR3625708,2025-06-19,31822.00,6650.00,Resignation,Lenovo 2,5,2026-04-08
+Ashwini Jekinakatti,Jawad Ulla Khan,Vinay Kumar Joshi,2,CR3625704,2025-06-19,31822.00,6650.00,Resignation,Lenovo 2,5,2026-04-24
+Basavaraj B,Jawad Ulla Khan,Mohan Kumar M,2,CR3625447,2025-06-17,31822.00,6650.00,Resignation,Lenovo 2,5,2026-05-04
+Muskan S,Jawad Ulla Khan,Samridhi ,2,CR3625235,2025-05-31,36558.00,6650.00,Resignation,Lenovo 2,5,2026-04-09
+Jamadhagni Geethanjali,Jawad Ulla Khan,Monika Kumari,2,CR3625217,2025-05-27,37232.00,6650.00,Resignation,Lenovo 2,5,2026-04-09
+Sachin K,Jawad Ulla Khan,Sricharan Jadhav ,2,CR3625425,2025-06-17,38964.50,6650.50,Resignation,Lenovo 2,5,2026-03-20
+Divya Np,Jawad Ulla Khan,Tharun  Kumar ,2,CR3625679,2025-06-17,40155.00,6650.00,No Show,Lenovo 2,5,2025-06-30
+Ningappa M Donni,Jawad Ulla Khan,Aman Kumar,2,CR3625688,2025-06-19,41822.00,6650.00,Resignation,Lenovo 2,5,2026-04-20
+Sachin K,Jawad Ulla Khan,Koushik Patil,2,CR3625584,2025-06-19,33357.00,6650.00,No Show,Lenovo 2,5,2025-07-17
+Sai Ganesh R,Sushma Hegde,Saikumar M Bhujanganavar,2,C36251194,2025-06-23,178000.00,15500.00,No Show,Kyndryl,7,2025-06-23
