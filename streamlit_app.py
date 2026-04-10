@@ -9,12 +9,11 @@ from dashboard import (
     get_client_catalog,
     get_periods_cached,
     grand_total,
-    resolve_client_filter_cached,
     round_m,
 )
 
 # =========================
-# BASIC FUNCTIONS
+# FUNCTIONS
 # =========================
 def calculate_mom(current, previous):
     if previous == 0:
@@ -28,12 +27,12 @@ def series_to_df(series, label):
     if not series:
         return pd.DataFrame(columns=["Period", label])
     return pd.DataFrame({
-        "Period": [item["d"] for item in series],
-        label: [item["v"] for item in series],
+        "Period": [i["d"] for i in series],
+        label: [i["v"] for i in series],
     })
 
 # =========================
-# PAGE CONFIG
+# CONFIG
 # =========================
 st.set_page_config(page_title="J2W Dashboard", layout="wide")
 
@@ -43,26 +42,21 @@ st.set_page_config(page_title="J2W Dashboard", layout="wide")
 st.markdown("""
 <style>
 .kpi-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 18px;
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background:#ffffff;
+    border-radius:12px;
+    padding:18px;
+    height:140px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
-.kpi-title { font-size: 14px; color: #6c757d; }
-.kpi-value { font-size: 30px; font-weight: 700; color: #2c3e50; }
+.kpi-title {color:#6c757d;font-size:14px;}
+.kpi-value {font-size:30px;font-weight:700;color:#2c3e50;}
 
-.red { border-top: 4px solid #e74c3c; }
-.green { border-top: 4px solid #2ecc71; }
-.blue { border-top: 4px solid #3498db; }
-.orange { border-top: 4px solid #f39c12; }
+.red{border-top:4px solid #e74c3c;}
+.blue{border-top:4px solid #3498db;}
+.green{border-top:4px solid #2ecc71;}
+.orange{border-top:4px solid #f39c12;}
 
-div[data-testid="column"] {
-    padding: 0 6px;
-}
+div[data-testid="column"] {padding:0 6px;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -80,131 +74,110 @@ def init():
 client_meta, year_options, month_options = init()
 
 # =========================
-# SIDEBAR FILTERS
+# SIDEBAR
 # =========================
 st.title("J2W Dashboard")
 
 with st.sidebar:
-    selected_years = st.multiselect("Year", year_options, default=[year_options[0]])
-    selected_months = st.multiselect("Month", month_options, default=[month_options[-1]])
-    selected_clients = st.multiselect("Clients", [c["name"] for c in client_meta])
+    years = st.multiselect("Year", year_options, default=[year_options[0]])
+    months = st.multiselect("Month", month_options, default=[month_options[-1]])
+    clients = st.multiselect("Clients", [c["name"] for c in client_meta])
 
 # =========================
-# DATA COMPUTE
+# DATA
 # =========================
 @st.cache_data
-def get_data(years, months, clients):
-    result = compute_all_cached(
-        freeze_filter(set(map(int, years))),
-        freeze_filter(set(months)),
-        freeze_filter(set(clients)),
+def get_data(y, m, c):
+    res = compute_all_cached(
+        freeze_filter(set(map(int, y))),
+        freeze_filter(set(m)),
+        freeze_filter(set(c)),
     )
-    return round_m(grand_total(result))
+    return round_m(grand_total(res))
 
-grand = get_data(selected_years, selected_months, selected_clients)
+grand = get_data(years, months, clients)
 
 # =========================
-# KPI UI
+# KPI
 # =========================
-def kpi_card(title, value, color):
-    return f"""
-    <div class="kpi-card {color}">
-        <div class="kpi-title">{title}</div>
-        <div class="kpi-value">{value}</div>
-    </div>
-    """
+def card(t,v,c):
+    return f"<div class='kpi-card {c}'><div class='kpi-title'>{t}</div><div class='kpi-value'>{v}</div></div>"
 
 cols = st.columns(5)
-metrics = [
-    ("Demands", grand.get("dem", 0), "red"),
-    ("Submissions", grand.get("sub", 0), "blue"),
-    ("Interviews", grand.get("l1", 0), "orange"),
-    ("Selections", grand.get("sel", 0), "green"),
-    ("Active HC", grand.get("active_hc", 0), "blue"),
+data = [
+    ("Demands", grand.get("dem",0),"red"),
+    ("Submissions", grand.get("sub",0),"blue"),
+    ("Interviews", grand.get("l1",0),"orange"),
+    ("Selections", grand.get("sel",0),"green"),
+    ("Active HC", grand.get("active_hc",0),"blue"),
 ]
 
-for col, (t, v, c) in zip(cols, metrics):
-    col.markdown(kpi_card(t, f"{v:,}", c), unsafe_allow_html=True)
+for col,(t,v,c) in zip(cols,data):
+    col.markdown(card(t,f"{v:,}",c), unsafe_allow_html=True)
 
 # =========================
 # MOM STRIP
 # =========================
-curr_year = int(selected_years[0])
-curr_month = int(selected_months[0])
-prev_year, prev_month = get_previous_month(curr_year, curr_month)
+cy, cm = int(years[0]), int(months[0])
+py, pm = get_previous_month(cy, cm)
+prev = get_data([py],[pm],clients)
 
-prev = get_data([prev_year], [prev_month], selected_clients)
-
-def mom(label, c, p):
-    change = calculate_mom(c, p)
-    arrow = "▲" if change >= 0 else "▼"
-    color = "#27ae60" if change >= 0 else "#e74c3c"
-    return f"<span style='margin-right:15px'><b>{label}</b> {c:,} <span style='color:{color}'>{arrow} {abs(change):.0f}%</span></span>"
+def mom(label,cur,pr):
+    ch = calculate_mom(cur,pr)
+    arrow = "▲" if ch>=0 else "▼"
+    color = "#27ae60" if ch>=0 else "#e74c3c"
+    return f"<span><b>{label}</b> {cur:,} <span style='color:{color}'>{arrow} {abs(ch):.0f}%</span></span>"
 
 st.markdown(f"""
-<div style="background:#fff;padding:12px;border-radius:10px;margin-top:10px;">
-<b>VS {prev_month}</b><br>
-{mom("Dem", grand.get("dem",0), prev.get("dem",0))}
-{mom("Sub", grand.get("sub",0), prev.get("sub",0))}
+<div style="background:#f8f9fb;color:#2c3e50;padding:12px;border-radius:10px;margin-top:10px;display:flex;gap:20px;">
+<b>VS {pm}</b>
+{mom("Dem",grand.get("dem",0),prev.get("dem",0))}
+{mom("Sub",grand.get("sub",0),prev.get("sub",0))}
 </div>
 """, unsafe_allow_html=True)
 
 # =========================
-# CHART FILTERS
+# DAY FILTERS
 # =========================
 st.markdown("### Day-on-Day Trends")
 
-range_option = st.radio("", ["Last 7 Days","Last 15 Days","Last 30 Days"], horizontal=True)
+range_day = st.radio("",["Last 7 Days","Last 15 Days","Last 30 Days"], horizontal=True)
 
-col1, col2 = st.columns(2)
-from_date = col1.date_input("From")
-to_date = col2.date_input("To")
+col1,col2 = st.columns(2)
+from_day = col1.date_input("From Date")
+to_day = col2.date_input("To Date")
 
-metric_map = {
-    "Demands": "dem",
-    "Submissions": "sub",
-    "Interviews": "intv",
-    "Selections": "sel",
-}
+metric_map = {"Demands":"dem","Submissions":"sub","Interviews":"intv","Selections":"sel"}
+metric_day = st.radio("", list(metric_map.keys()), horizontal=True)
 
-selected_metric = st.radio("", list(metric_map.keys()), horizontal=True)
-
-# =========================
-# DATE LOGIC
-# =========================
 today = datetime.now().date()
 
-if range_option == "Last 7 Days":
-    start = today - timedelta(days=7)
-elif range_option == "Last 15 Days":
-    start = today - timedelta(days=15)
+start_day = today - timedelta(days=7 if range_day=="Last 7 Days" else 15 if range_day=="Last 15 Days" else 30)
+end_day = to_day if to_day else today
+
+day_data = daily_trends_cached(None,None,None,"day")
+
+filtered_day = [
+    i for i in day_data.get(metric_map[metric_day],[])
+    if start_day <= pd.to_datetime(i["d"]).date() <= end_day
+]
+
+st.line_chart(series_to_df(filtered_day, metric_day).set_index("Period"))
+
+# =========================
+# NEW MONTH SECTION 🔥
+# =========================
+st.markdown("### Month-on-Month Trends")
+
+range_month = st.radio("",["Last 6 Months","Last 12 Months"], horizontal=True)
+
+metric_month = st.radio("", list(metric_map.keys()), horizontal=True, key="m2")
+
+month_data = daily_trends_cached(None,None,None,"month")
+
+if range_month == "Last 6 Months":
+    month_data_filtered = month_data.get(metric_map[metric_month], [])[-6:]
 else:
-    start = today - timedelta(days=30)
+    month_data_filtered = month_data.get(metric_map[metric_month], [])[-12:]
 
-end = to_date if to_date else today
-
-# =========================
-# TRENDS
-# =========================
-day_trends = daily_trends_cached(None, None, None, "day")
-
-filtered = []
-for i in day_trends.get(metric_map[selected_metric], []):
-    d = pd.to_datetime(i["d"]).date()
-    if start <= d <= end:
-        filtered.append(i)
-
-month_trends = daily_trends_cached(None, None, None, "month")
-
-# =========================
-# CHARTS
-# =========================
-c1, c2 = st.columns(2)
-
-with c1:
-    st.subheader("Daily Trends")
-    st.line_chart(series_to_df(filtered, selected_metric).set_index("Period"))
-
-with c2:
-    st.subheader("Monthly Trends")
-    st.line_chart(series_to_df(month_trends.get(metric_map[selected_metric], []), selected_metric).set_index("Period"))
+st.line_chart(series_to_df(month_data_filtered, metric_month).set_index("Period"))
