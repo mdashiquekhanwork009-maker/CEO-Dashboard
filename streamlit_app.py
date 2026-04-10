@@ -47,14 +47,18 @@ st.markdown("""
     color: #6c757d;
     font-weight: 600;
 }
+
 .kpi-value {
     font-size: 36px;
     font-weight: bold;
+    color: #2c3e50;   /* 🔥 FIX */
 }
+
 .kpi-sub {
     font-size: 13px;
     color: #6c757d;
 }
+            
 .red { border-top: 4px solid #e74c3c; }
 .green { border-top: 4px solid #2ecc71; }
 .blue { border-top: 4px solid #3498db; }
