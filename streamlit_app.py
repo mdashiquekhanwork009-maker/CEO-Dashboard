@@ -164,7 +164,7 @@ bh_options = sorted({entry["bh"] for entry in client_meta if entry["bh"]})
 current_year_default = [year_options[0]] if year_options else []
 current_month_default = [month_options[-1]] if month_options else []
 
-st.title("Recruitment Dashboard")
+st.title("J2W Dashboard")
 st.caption("Starter Streamlit version powered by your existing dashboard logic.")
 
 with st.sidebar:
@@ -195,7 +195,7 @@ prev_year, prev_month = get_previous_month(curr_year, curr_month)
 
 # Get previous month data
 _, prev_grand, _ = get_visible_rows(
-    (curr_year,), 
+    (prev_year,),   # ✅ FIXED
     (prev_month,), 
     tuple(selected_clients),
     tuple(selected_domains),
@@ -246,8 +246,6 @@ mom_html = f"""
 
 </div>
 """
-
-st.markdown(mom_html, unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5, col6 = st.columns(6)
 
@@ -341,6 +339,8 @@ with col5:
         "",
         "red" if grand.get('net_mg',0) < 0 else "green"
     ), unsafe_allow_html=True)
+
+st.markdown(mom_html, unsafe_allow_html=True)
 
 
 day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
