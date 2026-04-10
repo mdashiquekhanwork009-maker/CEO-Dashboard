@@ -36,11 +36,15 @@ st.set_page_config(page_title="J2W Dashboard", layout="wide")
 st.markdown("""
 <style>
 .kpi-card {
-    background: linear-gradient(145deg, #f0f2f6, #ffffff);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-    margin-bottom: 15px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px;
+    height: 150px;                 /* 🔥 Equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* 🔥 Balanced spacing */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
 }
 .kpi-title {
     font-size: 14px;
@@ -49,14 +53,15 @@ st.markdown("""
 }
 
 .kpi-value {
-    font-size: 36px;
-    font-weight: bold;
-    color: #2c3e50;   /* 🔥 FIX */
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 4px 0;
 }
 
 .kpi-sub {
-    font-size: 13px;
-    color: #6c757d;
+    font-size: 12px;
+    color: #7f8c8d;
 }
             
 .red { border-top: 4px solid #e74c3c; }
@@ -74,7 +79,13 @@ st.markdown("""
 }
             
 </style>
+            div[data-testid="column"] {
+    padding: 0 6px;   /* 🔥 equal gap between cards */
+}
+
 """, unsafe_allow_html=True)
+
+
 
 @st.cache_data(show_spinner=False)
 def get_streamlit_init_data():
@@ -225,26 +236,37 @@ def kpi_card(title, value, subtext="", color="blue", badge=None):
 def mom_item(label, curr, prev):
     change = calculate_mom(curr, prev)
     arrow = "▲" if change >= 0 else "▼"
-    color = "green" if change >= 0 else "red"
-    return f"""<span style='margin-right:20px; color:#2c3e50;'> <b>{label}</b> {curr:,} <span style='color:{color}; font-weight:600;'>{arrow} {abs(change):.0f}%</span>     </span>
-"""
+    color = "#27ae60" if change >= 0 else "#e74c3c"
+
+    return f"""
+    <div style="min-width:120px;">
+        <div style="font-size:12px; color:#7f8c8d;">{label}</div>
+        <div style="font-weight:600;">
+            {curr:,} 
+            <span style="color:{color}; margin-left:6px;">
+                {arrow} {abs(change):.0f}%
+            </span>
+        </div>
+    </div>
+    """
 
 st.markdown("###")
 st.markdown("<br>", unsafe_allow_html=True)
 
 mom_html = f"""
 <div style="
-    background:#ffffff;              /* 🔥 updated */
+    background:#ffffff;
     color:#2c3e50;
-    padding:12px 20px;
-    border-radius:12px;
-    font-size:14px;
+    padding:14px 18px;
+    border-radius:14px;
+    font-size:13px;
     display:flex;
     flex-wrap:wrap;
     align-items:center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);   /* 🔥 add here */
+    gap:18px;   /* 🔥 spacing between items */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 ">
-<b style="margin-right:20px;">VS {pd.Timestamp(prev_year, prev_month, 1).strftime('%b %Y')}</b>
+<b style="margin-right:10px;">VS {pd.Timestamp(prev_year, prev_month, 1).strftime('%b %Y')}</b>
 
 {mom_item("Demands", grand.get('dem',0), prev_grand.get('dem',0))}
 {mom_item("Submissions", grand.get('sub',0), prev_grand.get('sub',0))}
