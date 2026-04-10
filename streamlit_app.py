@@ -238,17 +238,11 @@ def mom_item(label, curr, prev):
     arrow = "▲" if change >= 0 else "▼"
     color = "#27ae60" if change >= 0 else "#e74c3c"
 
-    return f"""
-    <div style="min-width:120px;">
-        <div style="font-size:12px; color:#7f8c8d;">{label}</div>
-        <div style="font-weight:600;">
-            {curr:,} 
-            <span style="color:{color}; margin-left:6px;">
-                {arrow} {abs(change):.0f}%
-            </span>
-        </div>
-    </div>
-    """
+    return f"<div style='min-width:120px; display:inline-block;'>\
+<div style='font-size:12px; color:#7f8c8d;'>{label}</div>\
+<div style='font-weight:600;'>{curr:,} \
+<span style='color:{color}; margin-left:6px;'>{arrow} {abs(change):.0f}%</span>\
+</div></div>"
 
 st.markdown("###")
 st.markdown("<br>", unsafe_allow_html=True)
