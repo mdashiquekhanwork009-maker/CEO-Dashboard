@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 from datetime import datetime
+from datetime import timedelta
 
 from dashboard import (
     RAW_DATASET_CONFIG,
@@ -87,6 +88,19 @@ div[data-testid="column"] {
 """, unsafe_allow_html=True)
 
 
+
+today = datetime.now().date()
+
+if range_option == "Last 7 Days":
+    start_date = today - timedelta(days=7)
+elif range_option == "Last 15 Days":
+    start_date = today - timedelta(days=15)
+elif range_option == "Last 30 Days":
+    start_date = today - timedelta(days=30)
+else:
+    start_date = from_date
+
+end_date = to_date if to_date else today
 
 @st.cache_data(show_spinner=False)
 def get_streamlit_init_data():
@@ -375,7 +389,51 @@ st.markdown(mom_html, unsafe_allow_html=True)
 
 day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
 
+st.markdown("#### Metrics")
+
+metric_options = [
+    "Demands", "Unserviced", "Submissions",
+    "Feedback Pending", "Interviews",
+    "Selections", "Onboarded", "Exits"
+]
+
+selected_metric = st.radio(
+    "",
+    metric_options,
+    horizontal=True,
+    key="chart_metric"
+)
+
 trend_col1, trend_col2 = st.columns(2)
+
+st.markdown("#### Metrics")
+
+metric_options = [
+    "Demands", "Unserviced", "Submissions",
+    "Feedback Pending", "Interviews",
+    "Selections", "Onboarded", "Exits"
+]
+
+selected_metric = st.radio(
+    "",
+    metric_options,
+    horizontal=True,
+    key="chart_metric"
+)
+
+metric_map = {
+    "Demands": "dem",
+    "Unserviced": "dem_u",
+    "Submissions": "sub",
+    "Feedback Pending": "sub_fp",
+    "Interviews": "intv",
+    "Selections": "sel",
+    "Onboarded": "ob",
+    "Exits": "ex",
+}
+
+
+
 with trend_col1:
     st.subheader("Daily Trends")
     day_metric = st.selectbox(
