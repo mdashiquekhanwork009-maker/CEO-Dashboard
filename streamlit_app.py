@@ -221,14 +221,14 @@ def mom_item(label, curr, prev):
     change = calculate_mom(curr, prev)
     arrow = "▲" if change >= 0 else "▼"
     color = "green" if change >= 0 else "red"
-    return f"""<span style='margin-right:20px; color:#2c3e50;'> <b>{label}</b> {curr:,} <span style='color:{color}; font-weight:600;'>{arrow} {abs(change):.0f}%</span> </span>
+    return f"""<span style='margin-right:20px; color:#2c3e50;'> <b>{label}</b> {curr:,} <span style='color:{color}; font-weight:600;'>{arrow} {abs(change):.0f}%</span>     </span>
 """
 
 st.markdown("###")
 
 mom_html = f"""
 <div style="
-    background:#f8f9fb;
+    background:#ffffff;              /* 🔥 updated */
     color:#2c3e50;
     padding:12px 20px;
     border-radius:12px;
@@ -236,6 +236,7 @@ mom_html = f"""
     display:flex;
     flex-wrap:wrap;
     align-items:center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);   /* 🔥 add here */
 ">
 <b style="margin-right:20px;">VS {pd.Timestamp(prev_year, prev_month, 1).strftime('%b %Y')}</b>
 
