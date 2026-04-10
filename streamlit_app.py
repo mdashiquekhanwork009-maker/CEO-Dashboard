@@ -33,8 +33,8 @@ def get_streamlit_init_data():
 
 @st.cache_data(show_spinner=False)
 def get_visible_rows(year_values, month_values, client_values, domain_values, bh_values):
-    years = {int(y) for y in year_values} if year_values else set()
-    months = {int(m) for m in month_values} if month_values else set()
+    years = {int(y) for y in year_values} if year_values else None
+    months = {int(m) for m in month_values} if month_values else None
     clients = set(client_values) if client_values else None
     domains = set(domain_values) if domain_values else None
     bhs = set(bh_values) if bh_values else None
