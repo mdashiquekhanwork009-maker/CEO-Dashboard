@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
-from datetime import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 from dashboard import (
     RAW_DATASET_CONFIG,
@@ -15,541 +14,214 @@ from dashboard import (
     get_periods_cached,
     get_raw_dataset_frame,
     grand_total,
-    load_data_cached,
     resolve_client_filter_cached,
     round_m,
 )
 
-
+# =========================
+# BASIC FUNCTIONS
+# =========================
 def calculate_mom(current, previous):
     if previous == 0:
         return 0
     return ((current - previous) / previous) * 100
 
-
 def get_previous_month(year, month):
-    if month == 1:
-        return year - 1, 12
-    return year, month - 1
+    return (year - 1, 12) if month == 1 else (year, month - 1)
 
+def series_to_df(series, label):
+    if not series:
+        return pd.DataFrame(columns=["Period", label])
+    return pd.DataFrame({
+        "Period": [item["d"] for item in series],
+        label: [item["v"] for item in series],
+    })
+
+# =========================
+# PAGE CONFIG
+# =========================
 st.set_page_config(page_title="J2W Dashboard", layout="wide")
 
+# =========================
+# CSS
+# =========================
 st.markdown("""
 <style>
 .kpi-card {
     background: #ffffff;
     border-radius: 14px;
     padding: 18px;
-    height: 150px;                 /* 🔥 Equal height */
+    height: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  /* 🔥 Balanced spacing */
+    justify-content: space-between;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     margin-bottom: 10px;
 }
-.kpi-title {
-    font-size: 14px;
-    color: #6c757d;
-    font-weight: 600;
-}
+.kpi-title { font-size: 14px; color: #6c757d; font-weight: 600; }
+.kpi-value { font-size: 32px; font-weight: 700; color: #2c3e50; }
+.kpi-sub { font-size: 12px; color: #7f8c8d; }
 
-.kpi-value {
-    font-size: 32px;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 4px 0;
-}
-
-.kpi-sub {
-    font-size: 12px;
-    color: #7f8c8d;
-}
-            
 .red { border-top: 4px solid #e74c3c; }
 .green { border-top: 4px solid #2ecc71; }
 .blue { border-top: 4px solid #3498db; }
 .orange { border-top: 4px solid #f39c12; }
+
 .badge {
-    display: inline-block;
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 12px;
-    background-color: #f8d7da;
-    color: #721c24;   /* already good */
-    margin-top: 8px;
-}
-            
-div[data-testid="column"] {
-    padding: 0 6px;}
-            
-</style>
+    background: #f8d7da;
+    color: #721c24;
 }
 
+div[data-testid="column"] {
+    padding: 0 6px;
+}
+</style>
 """, unsafe_allow_html=True)
 
-
-
-today = datetime.now().date()
-
-if range_option == "Last 7 Days":
-    start_date = today - timedelta(days=7)
-elif range_option == "Last 15 Days":
-    start_date = today - timedelta(days=15)
-elif range_option == "Last 30 Days":
-    start_date = today - timedelta(days=30)
-else:
-    start_date = from_date
-
-end_date = to_date if to_date else today
-
-@st.cache_data(show_spinner=False)
-def get_streamlit_init_data():
+# =========================
+# LOAD DATA
+# =========================
+@st.cache_data
+def init():
     periods = get_periods_cached()
     client_meta = list(get_client_catalog())
     years = sorted({str(p[0]) for p in periods}, reverse=True)
     months = sorted({int(p[1]) for p in periods})
-    return periods, client_meta, years, months
+    return client_meta, years, months
 
+client_meta, year_options, month_options = init()
 
-@st.cache_data(show_spinner=False)
-def get_visible_rows(year_values, month_values, client_values, domain_values, bh_values):
-    years = {int(y) for y in year_values} if year_values else None
-    months = {int(m) for m in month_values} if month_values else None
-    clients = set(client_values) if client_values else None
-    domains = set(domain_values) if domain_values else None
-    bhs = set(bh_values) if bh_values else None
-
-    resolved_clients = resolve_client_filter_cached(
-        freeze_filter(clients),
-        freeze_filter(domains),
-        freeze_filter(bhs),
-    )
-
-    result = compute_all_cached(
-        freeze_filter(years),
-        freeze_filter(months),
-        freeze_filter(resolved_clients),
-    )
-    client_to_domain, client_to_bh, client_lookup, _, _ = get_mapping_context()
-
-    for client in list(result.keys()):
-        if CAPTIVE_SUFFIX in client:
-            base = client.replace(CAPTIVE_SUFFIX, "").strip()
-            client_to_domain[client] = "Captive"
-            client_to_bh[client] = client_to_bh.get(base, "")
-
-    visible = []
-    for client, metrics in sorted(result.items(), key=lambda item: item[0].lower()):
-        mapped = get_mapped_client_name(client, client_lookup)
-        domain = client_to_domain.get(mapped, "")
-        bh = client_to_bh.get(mapped, "")
-        if domains and domain not in domains:
-            continue
-        if bhs and bh not in bhs:
-            continue
-        visible.append(
-            {
-                "Client": client,
-                "Domain": domain or "Unmapped",
-                "Business Head": bh or "Unassigned",
-                **round_m(metrics),
-            }
-        )
-
-    grand_source = {
-        row["Client"]: {
-            key: value
-            for key, value in row.items()
-            if key not in {"Client", "Domain", "Business Head"}
-        }
-        for row in visible
-    }
-    grand = grand_total(grand_source)
-    return visible, round_m(grand), list(resolved_clients or [])
-
-
-@st.cache_data(show_spinner=False)
-def get_trend_frames(client_values):
-    clients = set(client_values) if client_values else None
-    day = daily_trends_cached(freeze_filter(clients), None, None, "day")
-    month = daily_trends_cached(freeze_filter(clients), None, None, "month")
-    return day, month
-
-
-def series_to_df(series, label):
-    if not series:
-        return pd.DataFrame(columns=["Period", label])
-    return pd.DataFrame(
-        {
-            "Period": [item["d"] for item in series],
-            label: [item["v"] for item in series],
-        }
-    )
-
-
-_, client_meta, year_options, month_options = get_streamlit_init_data()
-all_clients = [entry["name"] for entry in client_meta]
-domain_options = sorted({entry["domain"] for entry in client_meta if entry["domain"]})
-bh_options = sorted({entry["bh"] for entry in client_meta if entry["bh"]})
-
-today = datetime.now()
-
-# Year default
-current_year_default = [str(today.year)] if str(today.year) in year_options else [year_options[0]]
-
-# Month default
-current_month_default = [today.month] if today.month in month_options else [month_options[-1]]
-
+# =========================
+# SIDEBAR FILTERS
+# =========================
 st.title("J2W Dashboard")
-st.caption("")
 
 with st.sidebar:
-    st.header("Filters")
-    selected_years = st.multiselect("Year", year_options, default=current_year_default)
-    selected_months = st.multiselect("Month", month_options, default=current_month_default)
-    selected_domains = st.multiselect("Domain", domain_options)
-    selected_bhs = st.multiselect("Business Head", bh_options)
-    selected_clients = st.multiselect("Clients", all_clients)
+    selected_years = st.multiselect("Year", year_options, default=[year_options[0]])
+    selected_months = st.multiselect("Month", month_options, default=[month_options[-1]])
+    selected_clients = st.multiselect("Clients", [c["name"] for c in client_meta])
 
-visible_rows, grand, resolved_clients = get_visible_rows(
-    tuple(selected_years),
-    tuple(selected_months),
-    tuple(selected_clients),
-    tuple(selected_domains),
-    tuple(selected_bhs),
-)
+# =========================
+# DATA COMPUTE
+# =========================
+@st.cache_data
+def get_data(years, months, clients):
+    result = compute_all_cached(
+        freeze_filter(set(map(int, years))),
+        freeze_filter(set(months)),
+        freeze_filter(set(clients)),
+    )
+    return round_m(grand_total(result))
 
-# Get selected month/year
-if selected_years and selected_months:
-    curr_year = int(selected_years[0])
-    curr_month = int(selected_months[0])
-else:
-    curr_year = datetime.now().year
-    curr_month = datetime.now().month
+grand = get_data(selected_years, selected_months, selected_clients)
 
-prev_year, prev_month = get_previous_month(curr_year, curr_month)
-
-# Get previous month data
-_, prev_grand, _ = get_visible_rows(
-    (prev_year,),   # ✅ FIXED
-    (prev_month,), 
-    tuple(selected_clients),
-    tuple(selected_domains),
-    tuple(selected_bhs),
-)
-
-def kpi_card(title, value, subtext="", color="blue", badge=None):
+# =========================
+# KPI FUNCTION
+# =========================
+def kpi_card(title, value, color):
     return f"""
     <div class="kpi-card {color}">
         <div class="kpi-title">{title}</div>
         <div class="kpi-value">{value}</div>
-        <div class="kpi-sub">{subtext}</div>
-        {f'<div class="badge">{badge}</div>' if badge else ''}
     </div>
     """
 
-def mom_item(label, curr, prev):
-    change = calculate_mom(curr, prev)
+# =========================
+# KPI UI
+# =========================
+cols = st.columns(5)
+metrics = [
+    ("Demands", grand.get("dem", 0), "red"),
+    ("Submissions", grand.get("sub", 0), "blue"),
+    ("Interviews", grand.get("l1", 0), "orange"),
+    ("Selections", grand.get("sel", 0), "green"),
+    ("Active HC", grand.get("active_hc", 0), "blue"),
+]
+
+for col, (t, v, c) in zip(cols, metrics):
+    col.markdown(kpi_card(t, f"{v:,}", c), unsafe_allow_html=True)
+
+# =========================
+# MOM STRIP
+# =========================
+curr_year = int(selected_years[0])
+curr_month = int(selected_months[0])
+prev_year, prev_month = get_previous_month(curr_year, curr_month)
+
+prev = get_data([prev_year], [prev_month], selected_clients)
+
+def mom(label, c, p):
+    change = calculate_mom(c, p)
     arrow = "▲" if change >= 0 else "▼"
     color = "#27ae60" if change >= 0 else "#e74c3c"
+    return f"<span><b>{label}</b> {c:,} <span style='color:{color}'>{arrow} {abs(change):.0f}%</span></span>"
 
-    return f"<div style='min-width:120px; display:inline-block;'>\
-<div style='font-size:12px; color:#7f8c8d;'>{label}</div>\
-<div style='font-weight:600;'>{curr:,} \
-<span style='color:{color}; margin-left:6px;'>{arrow} {abs(change):.0f}%</span>\
-</div></div>"
-
-st.markdown("###")
-st.markdown("<br>", unsafe_allow_html=True)
-
-mom_html = f"""
-<div style="
-    background:#ffffff;
-    color:#2c3e50;
-    padding:14px 18px;
-    border-radius:14px;
-    font-size:13px;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:18px;   /* 🔥 spacing between items */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-">
-<b style="margin-right:10px;">VS {pd.Timestamp(prev_year, prev_month, 1).strftime('%b %Y')}</b>
-
-{mom_item("Demands", grand.get('dem',0), prev_grand.get('dem',0))}
-{mom_item("Submissions", grand.get('sub',0), prev_grand.get('sub',0))}
-{mom_item("L1", grand.get('l1',0), prev_grand.get('l1',0))}
-{mom_item("L2", grand.get('l2',0), prev_grand.get('l2',0))}
-{mom_item("Selections", grand.get('sel',0), prev_grand.get('sel',0))}
-{mom_item("Onboarded", grand.get('ob_hc',0), prev_grand.get('ob_hc',0))}
-{mom_item("Exits", grand.get('ex_hc',0), prev_grand.get('ex_hc',0))}
-{mom_item("Net HC", grand.get('net_hc',0), prev_grand.get('net_hc',0))}
-{mom_item("Net PO", grand.get('net_po',0), prev_grand.get('net_po',0))}
-{mom_item("Net Margin", grand.get('net_mg',0), prev_grand.get('net_mg',0))}
-
+st.markdown(f"""
+<div style="background:#fff;padding:12px;border-radius:10px;">
+<b>VS {prev_month}</b>
+{mom("Dem", grand.get("dem",0), prev.get("dem",0))}
+{mom("Sub", grand.get("sub",0), prev.get("sub",0))}
 </div>
-"""
+""", unsafe_allow_html=True)
 
-col1, col2, col3, col4, col5, col6 = st.columns(6)
+# =========================
+# CHART FILTERS
+# =========================
+st.markdown("### Day-on-Day Trends")
 
-with col1:
-    st.markdown(kpi_card(
-        "Demands",
-        f"{int(grand.get('dem',0)):,}",
-        f"{int(grand.get('dem_open',0))} openings",
-        "red",
-        f"{int(grand.get('dem_u',0))} pending"
-    ), unsafe_allow_html=True)
+range_option = st.radio("", ["Last 7 Days","Last 15 Days","Last 30 Days"], horizontal=True)
 
-with col2:
-    st.markdown(kpi_card(
-        "Submissions",
-        f"{int(grand.get('sub',0)):,}",
-        f"{int(grand.get('sub_fp',0))} pending",
-        "blue"
-    ), unsafe_allow_html=True)
-
-with col3:
-    st.markdown(kpi_card(
-        "Interviews",
-        f"{int(grand.get('l1',0)+grand.get('l2',0)+grand.get('l3',0)):,}",
-        f"L1 {int(grand.get('l1',0))} | L2 {int(grand.get('l2',0))}",
-        "orange"
-    ), unsafe_allow_html=True)
-
-with col4:
-    st.markdown(kpi_card(
-        "Selections",
-        f"{int(grand.get('sel',0)):,}",
-        "Confirmed candidates",
-        "green"
-    ), unsafe_allow_html=True)
-
-with col5:
-    st.markdown(kpi_card(
-        "Selection Pipeline",
-        f"{int(grand.get('sp_hc',0)):,}",
-        f"₹{grand.get('sp_po',0):.2f}L PO",
-        "blue"
-    ), unsafe_allow_html=True)
-
-with col6:
-    st.markdown(kpi_card(
-        "Active HC",
-        f"{int(grand.get('active_hc',0)):,}",
-        "Current active",
-        "blue"
-    ), unsafe_allow_html=True)
-
-col1, col2, col3, col4, col5 = st.columns(5)
-
-with col1:
-    st.markdown(kpi_card(
-        "Onboarded",
-        f"{int(grand.get('ob_hc',0)):,}",
-        f"₹{grand.get('ob_po',0):.2f}L",
-        "green"
-    ), unsafe_allow_html=True)
-
-with col2:
-    st.markdown(kpi_card(
-        "Exits",
-        f"{int(grand.get('ex_hc',0)):,}",
-        f"₹{grand.get('ex_po',0):.2f}L",
-        "red"
-    ), unsafe_allow_html=True)
-
-with col3:
-    st.markdown(kpi_card(
-        "Net HC",
-        f"{int(grand.get('net_hc',0)):,}",
-        "Movement",
-        "red" if grand.get('net_hc',0) < 0 else "green"
-    ), unsafe_allow_html=True)
-
-with col4:
-    st.markdown(kpi_card(
-        "Net PO",
-        f"₹{grand.get('net_po',0):.2f}L",
-        "",
-        "red" if grand.get('net_po',0) < 0 else "green"
-    ), unsafe_allow_html=True)
-
-with col5:
-    st.markdown(kpi_card(
-        "Net Margin",
-        f"₹{grand.get('net_mg',0):.2f}L",
-        "",
-        "red" if grand.get('net_mg',0) < 0 else "green"
-    ), unsafe_allow_html=True)
-
-st.markdown(mom_html, unsafe_allow_html=True)
-
-
-day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
-
-# Filter daily trends
-filtered_day = []
-
-for item in day_trends.get(metric_map[selected_metric], []):
-    d = pd.to_datetime(item["d"]).date()
-    if start_date <= d <= end_date:
-        filtered_day.append(item)day_trends, month_trends = get_trend_frames(tuple(resolved_clients))
-
-st.markdown("#### Metrics")
-
-metric_options = [
-    "Demands", "Unserviced", "Submissions",
-    "Feedback Pending", "Interviews",
-    "Selections", "Onboarded", "Exits"
-]
-
-selected_metric = st.radio(
-    "",
-    metric_options,
-    horizontal=True,
-    key="chart_metric"
-)
-
-trend_col1, trend_col2 = st.columns(2)
-
-st.markdown("#### Metrics")
-
-metric_options = [
-    "Demands", "Unserviced", "Submissions",
-    "Feedback Pending", "Interviews",
-    "Selections", "Onboarded", "Exits"
-]
-
-selected_metric = st.radio(
-    "",
-    metric_options,
-    horizontal=True,
-    key="chart_metric"
-)
+col1, col2 = st.columns(2)
+from_date = col1.date_input("From")
+to_date = col2.date_input("To")
 
 metric_map = {
     "Demands": "dem",
-    "Unserviced": "dem_u",
     "Submissions": "sub",
-    "Feedback Pending": "sub_fp",
     "Interviews": "intv",
     "Selections": "sel",
-    "Onboarded": "ob",
-    "Exits": "ex",
 }
 
+selected_metric = st.radio("", list(metric_map.keys()), horizontal=True)
 
+# =========================
+# DATE LOGIC
+# =========================
+today = datetime.now().date()
 
-with trend_col1:
-    st.subheader("Daily Trends")
-    day_metric = st.selectbox(
-        "Daily metric",
-        [
-            ("dem", "Demands"),
-            ("dem_u", "Unserviced Demands"),
-            ("sub", "Submissions"),
-            ("sub_fp", "Feedback Pending"),
-            ("intv", "Interviews"),
-            ("sel", "Selections"),
-            ("ob", "Onboardings"),
-            ("ex", "Exits"),
-        ],
-        format_func=lambda item: item[1],
-        key="day_metric",
-    )
-    st.line_chart(
-    series_to_df(filtered_day, selected_metric).set_index("Period"))
+if range_option == "Last 7 Days":
+    start = today - timedelta(days=7)
+elif range_option == "Last 15 Days":
+    start = today - timedelta(days=15)
+else:
+    start = today - timedelta(days=30)
 
-with trend_col2:
-    st.subheader("Month-on-Month Trends")
-    month_metric = st.selectbox(
-        "Monthly metric",
-        [
-            ("dem", "Demands"),
-            ("dem_u", "Unserviced Demands"),
-            ("sub", "Submissions"),
-            ("sub_fp", "Feedback Pending"),
-            ("intv", "Interviews"),
-            ("sel", "Selections"),
-            ("ob", "Onboardings"),
-            ("hc", "Headcount Movement"),
-            ("ex", "Exits"),
-        ],
-        format_func=lambda item: item[1],
-        key="month_metric",
-    )
-    st.line_chart(series_to_df(month_trends.get(month_metric[0], []), month_metric[1]).set_index("Period"))
+end = to_date if to_date else today
 
-with st.expander("Recruitment Pipeline", expanded=False):
-    pipeline_cols = ["Client", "dem", "sub", "l1", "l2", "l3", "sel", "ob_hc", "Domain", "Business Head"]
-    pipeline_df = pd.DataFrame(visible_rows)
-    if not pipeline_df.empty:
-        st.dataframe(
-            pipeline_df[[col for col in pipeline_cols if col in pipeline_df.columns]].rename(
-                columns={
-                    "dem": "Demands",
-                    "sub": "Submissions",
-                    "l1": "L1",
-                    "l2": "L2",
-                    "l3": "L3",
-                    "sel": "Selections",
-                    "ob_hc": "Onboarded",
-                }
-            ),
-            use_container_width=True,
-            hide_index=True,
-        )
-    else:
-        st.info("No pipeline activity found for the current filter.")
+# =========================
+# TRENDS
+# =========================
+day_trends = daily_trends_cached(None, None, None, "day")
 
-with st.expander("Client Breakdown - MTD", expanded=False):
-    table_df = pd.DataFrame(visible_rows)
-    if not table_df.empty:
-        preferred_columns = [
-            "Client", "Domain", "Business Head", "dem", "dem_u", "sub", "sub_fp", "l1", "l2", "l3",
-            "sel", "sp_hc", "sp_po", "sp_mg", "ob_hc", "ob_po", "ob_mg", "ex_hc", "ex_po", "net_hc", "net_po", "net_mg",
-        ]
-        st.dataframe(table_df[[c for c in preferred_columns if c in table_df.columns]], use_container_width=True, hide_index=True)
-    else:
-        st.info("No client breakdown rows found for the current filter.")
+filtered = []
+for i in day_trends.get(metric_map[selected_metric], []):
+    d = pd.to_datetime(i["d"]).date()
+    if start <= d <= end:
+        filtered.append(i)
 
-with st.expander("Raw Data Explorer", expanded=False):
-    raw_dataset = st.selectbox(
-        "Dataset",
-        options=list(RAW_DATASET_CONFIG.keys()),
-        format_func=lambda key: RAW_DATASET_CONFIG[key]["label"],
-    )
-    raw_col1, raw_col2 = st.columns(2)
-    with raw_col1:
-        raw_month = st.date_input("Month picker", value=None, format="YYYY-MM-DD")
-        raw_from = st.date_input("From Date", value=None, format="YYYY-MM-DD")
-    with raw_col2:
-        raw_to = st.date_input("To Date", value=None, format="YYYY-MM-DD")
-        demand_status = st.radio("Demand Filter", ["all", "unserviced", "serviced"], horizontal=True)
+# =========================
+# CHARTS
+# =========================
+c1, c2 = st.columns(2)
 
-    raw_clients = st.multiselect("Raw data clients", all_clients)
+with c1:
+    st.subheader("Daily")
+    st.line_chart(series_to_df(filtered, selected_metric).set_index("Period"))
 
-    month_filter = None
-    year_filter = None
-    if raw_month:
-        raw_month_ts = pd.Timestamp(raw_month)
-        year_filter = {int(raw_month_ts.year)}
-        month_filter = {int(raw_month_ts.month)}
-
-    raw_df = get_raw_dataset_frame(
-        raw_dataset,
-        year_filter=year_filter,
-        month_filter=month_filter,
-        client_filter=set(raw_clients) if raw_clients else None,
-        from_date=pd.Timestamp(raw_from) if raw_from else None,
-        to_date=pd.Timestamp(raw_to) if raw_to else None,
-        demand_status=demand_status,
-    )
-    visible_columns = [col for col in raw_df.columns if not col.startswith("_")]
-    st.caption(f"{RAW_DATASET_CONFIG[raw_dataset]['label']}: {len(raw_df):,} row(s)")
-    if visible_columns:
-        st.dataframe(raw_df[visible_columns], use_container_width=True, hide_index=True)
-    else:
-        st.info("No raw records found for the selected filters.")
+with c2:
+    st.subheader("Monthly")
+    month = daily_trends_cached(None, None, None, "month")
+    st.line_chart(series_to_df(month.get(metric_map[selected_metric], []), selected_metric).set_index("Period"))
