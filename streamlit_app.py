@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 from datetime import datetime, timedelta
+import calendar
 
 from dashboard import (
     compute_all_cached,
@@ -38,7 +39,7 @@ def series_to_df(series, label):
 st.set_page_config(page_title="J2W Dashboard", layout="wide")
 
 # =========================
-# CSS (PILLS + CARDS)
+# CSS
 # =========================
 st.markdown("""
 <style>
@@ -59,14 +60,11 @@ st.markdown("""
 
 div[data-testid="column"] {padding:0 6px;}
 
-/* Pill buttons */
 div[role="radiogroup"] > label {
     background-color: #f1f3f5;
     padding: 6px 14px;
     border-radius: 20px;
     margin-right: 6px;
-    border: 1px solid #e0e0e0;
-    cursor: pointer;
 }
 div[role="radiogroup"] > label:has(input:checked) {
     background-color: #e74c3c !important;
@@ -89,14 +87,37 @@ def init():
 client_meta, year_options, month_options = init()
 
 # =========================
-# SIDEBAR
+# TOP FILTER BAR
 # =========================
-st.title("J2W Dashboard")
+col1, col2, col3, col4, col5, col6, col7 = st.columns([1,1,1,1,1,0.5,0.5])
 
-with st.sidebar:
+month_map = {i: calendar.month_abbr[i] for i in range(1,13)}
+
+with col1:
     years = st.multiselect("Year", year_options, default=[year_options[0]])
-    months = st.multiselect("Month", month_options, default=[month_options[-1]])
+
+with col2:
+    month_names = [month_map[m] for m in month_options]
+    selected_month_names = st.multiselect("Month", month_names, default=[month_map[month_options[-1]]])
+    months = [k for k,v in month_map.items() if v in selected_month_names]
+
+with col3:
     clients = st.multiselect("Clients", [c["name"] for c in client_meta])
+
+with col4:
+    domains = st.multiselect("Domain", ["Tech","Non-Tech","Infra"])
+
+with col5:
+    bhs = st.multiselect("BH", ["BH1","BH2"])
+
+with col6:
+    if st.button("Reset"):
+        st.session_state.clear()
+        st.rerun()
+
+with col7:
+    if st.button("🔄"):
+        st.rerun()
 
 # =========================
 # DATA
@@ -113,9 +134,9 @@ def get_data(y, m, c):
 grand = get_data(years, months, clients)
 
 # =========================
-# KPI CARDS WITH ICONS
+# KPI CARDS (FULL)
 # =========================
-def card(title, value, color, icon):
+def card(title, value, color, icon, sub=""):
     return f"""
     <div class='kpi-card {color}'>
         <div style='display:flex;justify-content:space-between'>
@@ -123,90 +144,91 @@ def card(title, value, color, icon):
             <div>{icon}</div>
         </div>
         <div class='kpi-value'>{value}</div>
+        <div style='font-size:12px'>{sub}</div>
     </div>
     """
 
-cols = st.columns(5)
-data = [
-    ("Demands", grand.get("dem",0),"red","📋"),
-    ("Submissions", grand.get("sub",0),"blue","📤"),
-    ("Interviews", grand.get("l1",0),"orange","🎤"),
-    ("Selections", grand.get("sel",0),"green","✅"),
-    ("Active HC", grand.get("active_hc",0),"blue","👥"),
+row1 = st.columns(6)
+data1 = [
+    ("Demands", grand.get("dem",0),"red","📋",""),
+    ("Submissions", grand.get("sub",0),"blue","📤",""),
+    ("Interviews", grand.get("l1",0),"orange","🎤",""),
+    ("Selections", grand.get("sel",0),"green","✅",""),
+    ("Selection Pipeline", grand.get("sp_hc",0),"blue","📊",""),
+    ("Active HC", grand.get("active_hc",0),"blue","👥",""),
 ]
 
-for col,(t,v,c,i) in zip(cols,data):
-    col.markdown(card(t,f"{v:,}",c,i), unsafe_allow_html=True)
+for col,(t,v,c,i,s) in zip(row1,data1):
+    col.markdown(card(t,f"{v:,}",c,i,s), unsafe_allow_html=True)
+
+row2 = st.columns(5)
+data2 = [
+    ("Onboarded", grand.get("ob_hc",0),"green","🚀",""),
+    ("Exits", grand.get("ex_hc",0),"red","🚪",""),
+    ("Net HC", grand.get("net_hc",0),"green","📈",""),
+    ("Net PO", f"₹{grand.get('net_po',0):.2f}L","green","💰",""),
+    ("Net Margin", f"₹{grand.get('net_mg',0):.2f}L","green","📊",""),
+]
+
+for col,(t,v,c,i,s) in zip(row2,data2):
+    col.markdown(card(t,v,c,i,s), unsafe_allow_html=True)
 
 # =========================
-# MOM STRIP
+# COMPARISONS
 # =========================
 cy, cm = int(years[0]), int(months[0])
 py, pm = get_previous_month(cy, cm)
 prev = get_data([py],[pm],clients)
 
-def mom(label,cur,pr):
+def comp(label,cur,pr):
     ch = calculate_mom(cur,pr)
     arrow = "▲" if ch>=0 else "▼"
     color = "#27ae60" if ch>=0 else "#e74c3c"
     return f"<span><b>{label}</b> {cur:,} <span style='color:{color}'>{arrow} {abs(ch):.0f}%</span></span>"
 
+# LMTD
 st.markdown(f"""
-<div style="background:#f8f9fb;color:#2c3e50;padding:12px;border-radius:10px;margin-top:10px;display:flex;gap:20px;">
+<div style="background:#ffffff;padding:12px;border-radius:10px;margin-top:10px;display:flex;gap:20px;">
+<b>VS LMTD</b>
+{comp("Dem",grand.get("dem",0),prev.get("dem",0))}
+{comp("Sub",grand.get("sub",0),prev.get("sub",0))}
+</div>
+""", unsafe_allow_html=True)
+
+# MOM
+st.markdown(f"""
+<div style="background:#f8f9fb;padding:12px;border-radius:10px;margin-top:10px;display:flex;gap:20px;">
 <b>VS {pm}</b>
-{mom("Dem",grand.get("dem",0),prev.get("dem",0))}
-{mom("Sub",grand.get("sub",0),prev.get("sub",0))}
+{comp("Dem",grand.get("dem",0),prev.get("dem",0))}
+{comp("Sub",grand.get("sub",0),prev.get("sub",0))}
 </div>
 """, unsafe_allow_html=True)
 
 # =========================
-# DAY TRENDS
+# DAY CHART
 # =========================
 st.markdown("### Day-on-Day Trends")
 
-range_day = st.radio("",["Last 7 Days","Last 15 Days","Last 30 Days"], horizontal=True)
-
-col1,col2 = st.columns(2)
-from_day = col1.date_input("From Date")
-to_day = col2.date_input("To Date")
-
 metric_map = {"Demands":"dem","Submissions":"sub","Interviews":"intv","Selections":"sel"}
-metric_day = st.radio("", list(metric_map.keys()), horizontal=True)
+metric = st.radio("", list(metric_map.keys()), horizontal=True)
 
-today = datetime.now().date()
-start_day = today - timedelta(days=7 if range_day=="Last 7 Days" else 15 if range_day=="Last 15 Days" else 30)
-end_day = to_day if to_day else today
+data_day = daily_trends_cached(None,None,None,"day")
+df = series_to_df(data_day.get(metric_map[metric],[]), metric)
 
-day_data = daily_trends_cached(None,None,None,"day")
-
-filtered_day = [
-    i for i in day_data.get(metric_map[metric_day],[])
-    if start_day <= pd.to_datetime(i["d"]).date() <= end_day
-]
-
-df_day = series_to_df(filtered_day, metric_day)
-
-fig = px.line(df_day, x="Period", y=metric_day, markers=True)
-fig.update_traces(text=df_day[metric_day], textposition="top center")
-
+fig = px.line(df, x="Period", y=metric, markers=True)
+fig.update_traces(text=df[metric], textposition="top center")
 st.plotly_chart(fig, use_container_width=True)
 
 # =========================
-# MONTH TRENDS (NEW SECTION)
+# MONTH CHART
 # =========================
 st.markdown("### Month-on-Month Trends")
 
-range_month = st.radio("",["Last 6 Months","Last 12 Months"], horizontal=True)
+metric2 = st.radio("", list(metric_map.keys()), horizontal=True, key="m2")
+data_month = daily_trends_cached(None,None,None,"month")
 
-metric_month = st.radio("", list(metric_map.keys()), horizontal=True, key="month")
+df2 = series_to_df(data_month.get(metric_map[metric2],[]), metric2)
 
-month_data = daily_trends_cached(None,None,None,"month")
-
-month_filtered = month_data.get(metric_map[metric_month], [])[-6:] if range_month=="Last 6 Months" else month_data.get(metric_map[metric_month], [])[-12:]
-
-df_month = series_to_df(month_filtered, metric_month)
-
-fig2 = px.line(df_month, x="Period", y=metric_month, markers=True)
-fig2.update_traces(text=df_month[metric_month], textposition="top center")
-
+fig2 = px.line(df2, x="Period", y=metric2, markers=True)
+fig2.update_traces(text=df2[metric2], textposition="top center")
 st.plotly_chart(fig2, use_container_width=True)
