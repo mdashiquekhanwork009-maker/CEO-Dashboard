@@ -840,16 +840,27 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
     # ACTIVE HEADCOUNT
     # Count all candidate rows present in the active headcount sheet per client.
-    df = data["activehc"]
-    cl_col = None
-    if not df.empty:
-        cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
-    if not df.empty and cl_col:
-        if client_filter is not None:
-            df = df[df[cl_col].isin(client_filter)]
-        for cl, g in df.groupby(cl_col):
-            ensure(cl)
-            res[cl]["active_hc"] += len(g)
+    # ACTIVE HEADCOUNT
+df = data["activehc"]
+cl_col = None
+if not df.empty:
+    cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
+
+if not df.empty and cl_col:
+    if client_filter is not None:
+        df = df[df[cl_col].isin(client_filter)]
+
+    # 🔥 Ensure PO & Margin columns exist
+    if "_po" not in df.columns:
+        df["_po"] = _flt(df["p_o_value"]) if "p_o_value" in df.columns else 0.0
+    if "_mg" not in df.columns:
+        df["_mg"] = _flt(df["margin"]) if "margin" in df.columns else 0.0
+
+    for cl, g in df.groupby(cl_col):
+        ensure(cl)
+        res[cl]["active_hc"] += len(g)
+        res[cl]["active_po"] += float(g["_po"].sum())
+        res[cl]["active_mg"] += float(g["_mg"].sum())
 
     # For filtered views, show opening active HC for the selected period by
     # excluding onboarding that happened inside the same filtered period.
@@ -881,11 +892,13 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
     for cl in res:
         m = res[cl]
-        for k in ["sp_po", "sp_mg", "ob_po", "ob_mg", "ex_po", "ex_mg", "ex_pipe_po", "ex_pipe_mg"]:
-            m[k] = m[k] / 1e5
+    for k in ["sp_po", "sp_mg", "ob_po", "ob_mg", "ex_po", "ex_mg", "ex_pipe_po", "ex_pipe_mg", "active_po", "active_mg"]:
+        m[k] = m[k] / 1e5
         m["net_hc"] = m["ob_hc"] - m["ex_hc"]
         m["net_po"] = m["ob_po"] - m["ex_po"]
         m["net_mg"] = m["ob_mg"] - m["ex_mg"]
+        g["active_po"] = g["active_po"]
+        g["active_mg"] = g["active_mg"]
     return res
 
 
