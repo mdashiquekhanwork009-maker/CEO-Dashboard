@@ -2,7 +2,7 @@ import pandas as pd
 
 # Load the CSV files
 source_df = pd.read_csv('C:\Data\demand_data.csv')
-target_df = pd.read_csv('demand_data.csv')
+target_df = pd.read_csv('C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\demand_data.csv')
 
 # Set the key column (common column)
 key_column = 'ID'
