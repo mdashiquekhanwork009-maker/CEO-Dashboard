@@ -399,14 +399,23 @@ def get_resolved_filters():
 
 
 def get_period_filters():
+    from datetime import datetime
+
+    today = datetime.today()
+
     years = parse_int_csv_filter_arg("years")
     months = parse_int_csv_filter_arg("months")
+
+    # ✅ DEFAULT YEAR
     if years is None:
         single_year = request.args.get("year", type=int)
-        years = {single_year} if single_year else None
+        years = {single_year} if single_year else {today.year}
+
+    # ✅ DEFAULT MONTH
     if months is None:
         single_month = request.args.get("month", type=int)
-        months = {single_month} if single_month else None
+        months = {single_month} if single_month else {today.month}
+
     return years, months
 
 
