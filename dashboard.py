@@ -472,7 +472,6 @@ def filter_clients(df, file_key, client_filter=None):
         return df[df[client_col].isin(client_filter)]
     return df
 
-
 def filter_unserviced_demands(df):
     if df.empty:
         return df
@@ -490,7 +489,14 @@ def filter_unserviced_demands(df):
     if not id_col_dem:
         return df
     demand_ids = df[id_col_dem].dropna().astype(str).str.strip()
-    return df.loc[~demand_ids.isin(submitted_ids)]
+    unsubmitted = df.loc[~demand_ids.isin(submitted_ids)]
+
+    # Only treat as unserviced if id_status == "0" (when column exists)
+    if "id_status" in unsubmitted.columns:
+        unsubmitted = unsubmitted[
+            unsubmitted["id_status"].astype(str).str.strip() == "0"
+        ]
+    return unsubmitted
 
 
 def get_raw_dataset_frame(dataset_key, year_filter=None, month_filter=None, client_filter=None, from_date=None, to_date=None, demand_status="all"):
