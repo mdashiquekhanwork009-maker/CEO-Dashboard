@@ -324,8 +324,13 @@ with c_date:
         🕐 Updated: {now.strftime('%d %b %Y %H:%M')}</div>""", unsafe_allow_html=True)
 
 with c_yr:
-    selected_years = st.multiselect("YEAR", year_options,
-        default=[year_options[0]] if year_options else [], placeholder="Select Years")
+    current_year = str(datetime.now().year)
+    selected_years = st.multiselect(
+        "YEAR",
+        year_options,
+        default=[current_year] if current_year in year_options else [year_options[0]],
+        placeholder="Select Years"
+    )
 
 with c_mo:
     current_month_num = datetime.now().month
@@ -348,6 +353,9 @@ with c_mo:
     )
 
     selected_months = [k for k, v in month_map.items() if v in sel_month_names]
+
+
+
 with c_cl:
     selected_clients = st.multiselect("CLIENTS", all_clients, placeholder="Select Clients")
 
