@@ -17,7 +17,7 @@ if errorlevel 1 goto error
 call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selection.py"
 if errorlevel 1 goto error
 
-call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selction_pipeline.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selection_pipeline.py"
 if errorlevel 1 goto error
 
 call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\onboarding.py"
