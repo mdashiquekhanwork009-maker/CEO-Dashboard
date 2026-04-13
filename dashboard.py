@@ -760,14 +760,17 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         if client_filter is not None:
             df = df[df[cl_col].isin(client_filter)]
         unserviced_counts = {}
-        # AFTER
+
         if "_id_norm" in df.columns:
             unserviced_df = df.loc[~df["_id_norm"].isin(submitted_ids)]
+
             if "id_status" in unserviced_df.columns:
                 unserviced_df = unserviced_df[
                     unserviced_df["id_status"].astype(str).str.strip() == "0"
-                    ]
-        unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
+                ]
+
+            unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
+            unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
         for cl, g in df.groupby(cl_col):
             ensure(cl)
 
