@@ -766,7 +766,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             if "id_status" in unserviced_df.columns:
                 unserviced_df = unserviced_df[
                     unserviced_df["id_status"].astype(str).str.strip() == "0"
-        ]
+                    ]
         unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
         for cl, g in df.groupby(cl_col):
             ensure(cl)
