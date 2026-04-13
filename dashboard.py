@@ -862,13 +862,14 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
     # 🔥 Ensure PO & Margin columns exist
         def clean_numeric(series):
-          return pd.to_numeric(
-              series.astype(str)
-              .str.replace(",", "", regex=False)
-              .str.replace("₹", "", regex=False)
-              .str.strip(),
-              errors="coerce"
-          ).fillna(0)
+            return pd.to_numeric(
+                series.astype(str)
+                .str.replace(",", "", regex=False)
+                .str.replace("₹", "", regex=False)
+                .str.replace(" ", "", regex=False)
+                .replace({"": None, "nan": None, "None": None}),
+                errors="coerce"
+            ).fillna(0)
 
 # 🔥 FORCE overwrite (IMPORTANT)
         if "p_o_value" in df.columns:
