@@ -292,14 +292,14 @@ def filter_series_by_days(series, n_days):
 
 # ─── SESSION STATE DEFAULTS ───────────────────────────────────────────────────
 ss = st.session_state
-if "dod_range"   not in ss: ss["dod_range"]   = 7
-if "dod_metric"  not in ss: ss["dod_metric"]  = "dem"
-if "dod_from"    not in ss: ss["dod_from"]    = None
-if "dod_to"      not in ss: ss["dod_to"]      = None
-if "mom_range"   not in ss: ss["mom_range"]   = 12
-if "mom_metric"  not in ss: ss["mom_metric"]  = "dem"
-if "mom_from"    not in ss: ss["mom_from"]    = None
-if "mom_to"      not in ss: ss["mom_to"]      = None
+if not ss.get("dod_range"):  ss["dod_range"]  = 7
+if not ss.get("dod_metric"): ss["dod_metric"] = "dem"
+if "dod_from" not in ss:     ss["dod_from"]   = None
+if "dod_to"   not in ss:     ss["dod_to"]     = None
+if not ss.get("mom_range"):  ss["mom_range"]  = 12
+if not ss.get("mom_metric"): ss["mom_metric"] = "dem"
+if "mom_from" not in ss:     ss["mom_from"]   = None
+if "mom_to"   not in ss:     ss["mom_to"]     = None
 
 # ─── TOP FILTER BAR ───────────────────────────────────────────────────────────
 now = datetime.now()
@@ -514,55 +514,53 @@ with mrr3:
 
 # ─── PIPELINE FUNNEL ──────────────────────────────────────────────────────────
 st.markdown('<div class="sec">Recruitment Pipeline</div>', unsafe_allow_html=True)
-
-stages = [
-    ("Demands",   dem,   "#e8453c"),
-    ("Submitted", sub,   "#8892a4"),
-    ("L1",        l1,    "#2ecc71"),
-    ("L2",        l2,    "#27ae60"),
-    ("L3",        l3,    "#1e8449"),
-    ("Selected",  sel,   "#8892a4"),
-    ("Onboarded", ob_hc, "#2ecc71"),
-]
-stage_html = '<div class="stage-wrap">'
-for i, (name, val, color) in enumerate(stages):
-    cv = pct(val, stages[i-1][1]) if i > 0 else 100
-    cv_clr = "#2ecc71" if cv >= 50 else "#e8453c"
-    stage_html += f"""<div class="stage">
-      <div class="sv" style="color:{color}">{val:,}</div>
-      <div class="sl">{name}</div>
-      {f'<div class="sc" style="color:{cv_clr}">{cv}%</div>' if i > 0 else ''}
-    </div>"""
-    if i < len(stages) - 1:
-        stage_html += '<div class="sarrow">›</div>'
-stage_html += "</div>"
-
-mx = max(dem, sub, ti, sel, ob_hc, ex_hc, 1)
-fn_items = [
-    ("Demands",       dem,   "#e8453c", None),
-    ("Submissions",   sub,   "#8892a4", dem),
-    ("L1 Interviews", l1,    "#2ecc71", sub),
-    ("L2 Interviews", l2,    "#27ae60", l1),
-    ("L3 Interviews", l3,    "#1e8449", l2),
-    ("Selections",    sel,   "#8892a4", l1),
-    ("Onboarded",     ob_hc, "#2ecc71", sel),
-    ("Exits",         ex_hc, "#e8453c", None),
-]
-fn_html = ""
-for name, val, color, base in fn_items:
-    w = round(val / mx * 100)
-    p_str = f"{pct(val, base)}%" if base else ""
-    fn_html += f"""<div class="fn">
-      <div class="fnl">{name}</div>
-      <div class="fnt"><div class="fnf" style="width:{w}%;background:{color}"></div></div>
-      <div class="fnn">{val:,}</div>
-      <div class="fnp">{p_str}</div>
-    </div>"""
-
 with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
-    st.markdown(stage_html, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(fn_html, unsafe_allow_html=True)
+    stages = [
+        ("Demands",   dem,   "#e8453c"),
+        ("Submitted", sub,   "#8892a4"),
+        ("L1",        l1,    "#2ecc71"),
+        ("L2",        l2,    "#27ae60"),
+        ("L3",        l3,    "#1e8449"),
+        ("Selected",  sel,   "#8892a4"),
+        ("Onboarded", ob_hc, "#2ecc71"),
+    ]
+
+    # Stage snapshot using Streamlit columns (no HTML)
+    stage_cols = []
+    for i in range(len(stages) * 2 - 1):
+        stage_cols.append(st.columns([1 if i % 2 == 0 else 0.15])[0] if len(stages) * 2 - 1 == 1 else None)
+
+    # Use plotly for stage funnel instead of raw HTML
+    fig_funnel = go.Figure(go.Funnel(
+        y=[s[0] for s in stages],
+        x=[s[1] for s in stages],
+        textinfo="value+percent previous",
+        marker=dict(color=[s[2] for s in stages]),
+    ))
+    fig_funnel.update_layout(height=300, margin=dict(t=10, b=10, l=10, r=10),
+                              plot_bgcolor="white", paper_bgcolor="white")
+    st.plotly_chart(fig_funnel, use_container_width=True, key="funnel_chart")
+
+    # Volume bars using Streamlit progress bars
+    st.markdown("**Volume Funnel**")
+    mx = max(dem, sub, ti, sel, ob_hc, ex_hc, 1)
+    fn_items = [
+        ("Demands",       dem,   "#e8453c", None),
+        ("Submissions",   sub,   "#8892a4", dem),
+        ("L1 Interviews", l1,    "#2ecc71", sub),
+        ("L2 Interviews", l2,    "#27ae60", l1),
+        ("L3 Interviews", l3,    "#1e8449", l2),
+        ("Selections",    sel,   "#8892a4", l1),
+        ("Onboarded",     ob_hc, "#2ecc71", sel),
+        ("Exits",         ex_hc, "#e8453c", None),
+    ]
+    for name, val, color, base in fn_items:
+        c1, c2, c3, c4 = st.columns([2, 5, 1, 0.8])
+        c1.caption(name)
+        c2.progress(int(val / mx * 100) if mx > 0 else 0)
+        c3.markdown(f"**{val:,}**")
+        if base:
+            c4.caption(f"{pct(val,base)}%")
 
 # ─── DAY-ON-DAY TRENDS ────────────────────────────────────────────────────────
 st.markdown('<div class="sec">Day-on-Day Trends</div>', unsafe_allow_html=True)
@@ -697,75 +695,37 @@ st.plotly_chart(trend_chart(mom_series, mom_label, color="#3498db"), use_contain
 st.markdown('<div class="sec">Client Breakdown — MTD</div>', unsafe_allow_html=True)
 with st.expander(f"Client Breakdown — {len(rows)} clients", expanded=False):
     if rows:
-        # Group by domain like dashboard.py
-        grouped = {}
+        table_rows = []
         for r in rows:
-            cat = r["domain"] or "Unmapped"
-            grouped.setdefault(cat, []).append(r)
-
-        cat_order = ["Services", "Captive", "ITES", "Unmapped"]
-        sorted_cats = [c for c in cat_order if c in grouped] + \
-                      [c for c in grouped if c not in cat_order]
-
-        for cat in sorted_cats:
-            st.markdown(f"**{cat}**")
-            cat_rows = []
-            for r in grouped[cat]:
-                m = r["metrics"]
-                cat_rows.append({
-                    "Client":     r["label"],
-                    "BH":         r["bh"],
-                    "Dem":        int(m.get("dem",0)),
-                    "Unsvc":      int(m.get("dem_u",0)),
-                    "Sub":        int(m.get("sub",0)),
-                    "Sub F/B":    int(m.get("sub_fp",0)),
-                    "L1":         int(m.get("l1",0)),
-                    "L2":         int(m.get("l2",0)),
-                    "L3":         int(m.get("l3",0)),
-                    "Sel":        int(m.get("sel",0)),
-                    "SP HC":      int(m.get("sp_hc",0)),
-                    "SP PO(L)":   round(float(m.get("sp_po",0)),2),
-                    "SP Mgn(L)":  round(float(m.get("sp_mg",0)),2),
-                    "Ob HC":      int(m.get("ob_hc",0)),
-                    "Ob PO(L)":   round(float(m.get("ob_po",0)),2),
-                    "Ob Mgn(L)":  round(float(m.get("ob_mg",0)),2),
-                    "Ex HC":      int(m.get("ex_hc",0)),
-                    "Ex PO(L)":   round(float(m.get("ex_po",0)),2),
-                    "Net HC":     int(m.get("net_hc",0)),
-                    "Net PO(L)":  round(float(m.get("net_po",0)),2),
-                    "Net Mgn(L)": round(float(m.get("net_mg",0)),2),
-                })
-            df_cat = pd.DataFrame(cat_rows)
-            st.dataframe(df_cat, use_container_width=True, hide_index=True)
-
-        # Grand total row
-        from dashboard import ZERO
-        gt = {k: 0 for k in ZERO}
-        for r in rows:
-            for k in gt:
-                gt[k] += r["metrics"].get(k, 0)
-        st.markdown("**Grand Total**")
-        st.dataframe(pd.DataFrame([{
-            "Client": "Grand Total", "BH": "",
-            "Dem": int(gt.get("dem",0)), "Unsvc": int(gt.get("dem_u",0)),
-            "Sub": int(gt.get("sub",0)), "Sub F/B": int(gt.get("sub_fp",0)),
-            "L1": int(gt.get("l1",0)), "L2": int(gt.get("l2",0)), "L3": int(gt.get("l3",0)),
-            "Sel": int(gt.get("sel",0)),
-            "SP HC": int(gt.get("sp_hc",0)),
-            "SP PO(L)": round(float(gt.get("sp_po",0)),2),
-            "SP Mgn(L)": round(float(gt.get("sp_mg",0)),2),
-            "Ob HC": int(gt.get("ob_hc",0)),
-            "Ob PO(L)": round(float(gt.get("ob_po",0)),2),
-            "Ob Mgn(L)": round(float(gt.get("ob_mg",0)),2),
-            "Ex HC": int(gt.get("ex_hc",0)),
-            "Ex PO(L)": round(float(gt.get("ex_po",0)),2),
-            "Net HC": int(gt.get("ob_hc",0) - gt.get("ex_hc",0)),
-            "Net PO(L)": round(float(gt.get("ob_po",0)) - float(gt.get("ex_po",0)),2),
-            "Net Mgn(L)": round(float(gt.get("ob_mg",0)) - float(gt.get("ex_mg",0)),2),
-        }]), use_container_width=True, hide_index=True)
+            m = r["metrics"]
+            table_rows.append({
+                "Client":      r["label"],
+                "Domain":      r["domain"],
+                "BH":          r["bh"],
+                "Dem":         int(m.get("dem",0)),
+                "Unsvc":       int(m.get("dem_u",0)),
+                "Sub":         int(m.get("sub",0)),
+                "Sub F/B":     int(m.get("sub_fp",0)),
+                "L1":          int(m.get("l1",0)),
+                "L2":          int(m.get("l2",0)),
+                "L3":          int(m.get("l3",0)),
+                "Sel":         int(m.get("sel",0)),
+                "SP HC":       int(m.get("sp_hc",0)),
+                "SP PO(L)":    round(float(m.get("sp_po",0)),2),
+                "SP Mgn(L)":   round(float(m.get("sp_mg",0)),2),
+                "Ob HC":       int(m.get("ob_hc",0)),
+                "Ob PO(L)":    round(float(m.get("ob_po",0)),2),
+                "Ob Mgn(L)":   round(float(m.get("ob_mg",0)),2),
+                "Ex HC":       int(m.get("ex_hc",0)),
+                "Ex PO(L)":    round(float(m.get("ex_po",0)),2),
+                "Net HC":      int(m.get("net_hc",0)),
+                "Net PO(L)":   round(float(m.get("net_po",0)),2),
+                "Net Mgn(L)":  round(float(m.get("net_mg",0)),2),
+            })
+        df_table = pd.DataFrame(table_rows)
+        st.dataframe(df_table, use_container_width=True, hide_index=True)
     else:
         st.info("No client activity found for the current filter.")
-
 
 # ─── RAW DATA EXPLORER ────────────────────────────────────────────────────────
 from dashboard import RAW_DATASET_CONFIG, get_raw_dataset_frame
@@ -773,90 +733,57 @@ from dashboard import RAW_DATASET_CONFIG, get_raw_dataset_frame
 st.markdown('<div class="sec">Raw Data Explorer</div>', unsafe_allow_html=True)
 with st.expander("Raw Data Explorer — Filtered source rows for each pipeline stage", expanded=False):
 
-    # Dataset tabs
+    # Dataset selector
     dataset_options = list(RAW_DATASET_CONFIG.keys())
     dataset_labels  = [RAW_DATASET_CONFIG[k]["label"] for k in dataset_options]
-    raw_dataset_idx = st.radio("Dataset", dataset_labels, horizontal=True,
-                                index=0, key="raw_dataset_radio", label_visibility="collapsed")
-    raw_dataset = dataset_options[dataset_labels.index(raw_dataset_idx)]
+    raw_ds_cols = st.columns(len(dataset_options))
+    if "raw_dataset" not in ss: ss["raw_dataset"] = "demand"
+    for col, (key, label) in zip(raw_ds_cols, zip(dataset_options, dataset_labels)):
+        with col:
+            if st.button(label, key=f"raw_ds_{key}", use_container_width=True,
+                         type="primary" if ss["raw_dataset"] == key else "secondary"):
+                ss["raw_dataset"] = key
+                st.rerun()
 
-    # Filters row
+    st.markdown("---")
+
+    # Filters
     rf1, rf2, rf3, rf4 = st.columns([1.5, 1.5, 1.5, 2])
     with rf1:
-        raw_month = st.date_input("Month picker (auto-fills range)", value=None,
-                                   format="YYYY-MM-DD", key="raw_month")
+        raw_month = st.date_input("Month picker", value=None, format="YYYY-MM-DD", key="raw_month")
     with rf2:
-        raw_from = st.date_input("From Date", value=None,
-                                  format="YYYY-MM-DD", key="raw_from")
+        raw_from  = st.date_input("From Date", value=None, format="YYYY-MM-DD", key="raw_from")
     with rf3:
-        raw_to = st.date_input("To Date", value=None,
-                                format="YYYY-MM-DD", key="raw_to")
+        raw_to    = st.date_input("To Date",   value=None, format="YYYY-MM-DD", key="raw_to")
     with rf4:
-        if raw_dataset == "demand":
-            demand_status = st.radio("Demand Filter", ["all", "unserviced", "serviced"],
-                                      horizontal=True, key="raw_demand_status")
+        if ss["raw_dataset"] == "demand":
+            demand_status = st.radio("Demand Filter", ["all", "unserviced", "serviced"], horizontal=True, key="raw_dem_status")
         else:
             demand_status = "all"
 
-    raw_clients = st.multiselect("Filter by clients", all_clients, key="raw_clients")
+    raw_clients = st.multiselect("Filter by clients (raw data)", all_clients, key="raw_clients_sel")
 
-    # Resolve date filters — month picker overrides from/to
-    year_filter  = None
-    month_filter = None
-    from_date    = pd.Timestamp(raw_from) if raw_from else None
-    to_date      = pd.Timestamp(raw_to)   if raw_to   else None
-
+    # Resolve filters
+    year_filter = month_filter = None
     if raw_month:
         ts = pd.Timestamp(raw_month)
         year_filter  = {int(ts.year)}
         month_filter = {int(ts.month)}
-        from_date    = None
-        to_date      = None
 
+    # Fetch
     raw_df = get_raw_dataset_frame(
-        raw_dataset,
+        ss["raw_dataset"],
         year_filter=year_filter,
         month_filter=month_filter,
         client_filter=set(raw_clients) if raw_clients else None,
-        from_date=from_date,
-        to_date=to_date,
+        from_date=pd.Timestamp(raw_from) if raw_from else None,
+        to_date=pd.Timestamp(raw_to)     if raw_to   else None,
         demand_status=demand_status,
     )
-
     visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
-    st.caption(f"{RAW_DATASET_CONFIG[raw_dataset]['label']}: **{len(raw_df):,} row(s)**")
-
-    # Quick preset buttons
-    q1, q2, q3, _ = st.columns([1, 1, 1, 5])
-    with q1:
-        if st.button("This Month", key="raw_this_month"):
-            st.info("Set Month picker to current month above")
-    with q2:
-        if st.button("Last 7 Days", key="raw_7d"):
-            st.info("Set From/To dates manually above")
-    with q3:
-        if st.button("Last 30 Days", key="raw_30d"):
-            st.info("Set From/To dates manually above")
-
+    ds_label = RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
+    st.caption(f"{ds_label}: **{len(raw_df):,}** row(s)")
     if visible_cols:
         st.dataframe(raw_df[visible_cols], use_container_width=True, hide_index=True)
-
-        # Download buttons
-        dl1, dl2, _ = st.columns([1, 1, 4])
-        with dl1:
-            csv_data = raw_df[visible_cols].to_csv(index=False).encode("utf-8")
-            st.download_button("⬇ Download CSV", data=csv_data,
-                               file_name=f"{raw_dataset}_export.csv",
-                               mime="text/csv", key="raw_dl_csv")
-        with dl2:
-            import io
-            xlsx_buf = io.BytesIO()
-            with pd.ExcelWriter(xlsx_buf, engine="openpyxl") as writer:
-                raw_df[visible_cols].to_excel(writer, index=False, sheet_name="Raw Data")
-            xlsx_buf.seek(0)
-            st.download_button("⬇ Download Excel", data=xlsx_buf.getvalue(),
-                               file_name=f"{raw_dataset}_export.xlsx",
-                               mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                               key="raw_dl_xlsx")
     else:
         st.info("No raw records found for the selected filters.")
