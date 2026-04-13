@@ -723,7 +723,7 @@ def apply_date_filter(df, from_date, to_date):
         return df
 
     col = date_cols[0]
-    df[col] = pd.to_datetime(df[col], errors="coerce")
+    df[col] = pd.to_datetime(df[col], dayfirst=True, errors="coerce")
 
     if from_date:
         df = df[df[col] >= pd.Timestamp(from_date)]
