@@ -434,11 +434,14 @@ with cols[4]:
         unsafe_allow_html=True)
 
 with cols[5]:
+    active_po = grand.get("active_po", 0.0)
+    active_mg = grand.get("active_mg", 0.0)
     st.markdown(kpi_card("blue","👥","Active Headcount", f"{active_hc:,}", "blue",
-        f"<strong>{active_hc:,}</strong> active (filter-adjusted)",
+        f"<strong>{active_hc:,}</strong> active (filter-adjusted)<br>"
+        f"<strong>₹{L(active_po)}L</strong> PO value · <strong>₹{L(active_mg)}L</strong> margin",
         tag_b("Selected-period onboarding excluded")),
         unsafe_allow_html=True)
-
+    
 # ─── ROW 2 KPI CARDS ──────────────────────────────────────────────────────────
 st.markdown("<div style='margin-top:10px'></div>", unsafe_allow_html=True)
 cols2 = st.columns(5)
