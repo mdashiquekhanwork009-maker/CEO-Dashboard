@@ -851,7 +851,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
     # ACTIVE HEADCOUNT
     # Count all candidate rows present in the active headcount sheet per client.
     
-    df = frames["activehc"]
+    df = data["activehc"]
     cl_col = None
     if not df.empty:
         cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
