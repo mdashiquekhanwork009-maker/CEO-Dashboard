@@ -134,7 +134,7 @@ OPENING_COL_CANDIDATES = [
     "no_of_positions", "No_of_positions", "positions", "Positions",
     "vacancies", "Vacancies",
 ]
-PO_COL_KEYS = {"selpipe", "ob", "exit", "exitpipe"}
+PO_COL_KEYS = {"selpipe", "ob", "exit", "exitpipe", "activehc"}
 RAW_DATASET_CONFIG = {
     "demand": {"label": "Demands"},
     "sub": {"label": "Submissions"},
