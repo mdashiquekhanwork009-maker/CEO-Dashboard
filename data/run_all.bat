@@ -1,6 +1,6 @@
 @echo off
 
-set PYTHON_PATH="C:\Users\E36250444\AppData\Local\Programs\Python\Python314-32\python.exe"
+set PYTHON_PATH="C:\Users\E36250444\AppData\Local\Python\pythoncore-3.14-64\python.exe"
 
 echo Running Python scripts sequentially...
 echo.
