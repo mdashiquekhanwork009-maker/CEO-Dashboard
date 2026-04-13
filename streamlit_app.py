@@ -46,16 +46,16 @@ st.markdown("""
 .kpi.grey::after   { background:linear-gradient(90deg,#5b6578,#99a3b6); }
 .kpi.blue::after   { background:linear-gradient(90deg,#3498db,#69b8ff); }
 
-.kpi-lbl { font-size:10px; font-weight:800; text-transform:uppercase;
-           letter-spacing:.1em; color:#8a91a0; margin-bottom:4px; }
 .kpi-val { font-size:36px; font-weight:900; line-height:1; margin-bottom:6px; letter-spacing:-.02em; }
 .kpi-val.red   { color:#e8453c; }
 .kpi-val.green { color:#1db85a; }
-.kpi-val.grey  { color:#52586a; }
 .kpi-val.blue  { color:#3498db; }
-.kpi-sub { font-size:12px; color:#7f8c8d; line-height:1.45; min-height:32px; }
-.kpi-sub strong { color:#1a1d23; }
-
+.kpi-sub strong { color: var(--text-color); }
+.kpi-lbl { font-size:10px; font-weight:800; text-transform:uppercase;
+           letter-spacing:.1em; color: var(--text-color); opacity: 0.7; margin-bottom:4px; }
+.kpi-sub { font-size:12px; color: var(--text-color); opacity: 0.8;
+           line-height:1.45; min-height:32px; }
+.kpi-val.grey  { color: var(--text-color); }
 .ktag { display:inline-flex; align-items:center; gap:3px; font-size:10px;
         font-weight:700; padding:3px 9px; border-radius:20px; margin-top:6px; }
 .tg  { background:rgba(29,184,90,.12);  color:#17a050; border:1px solid rgba(29,184,90,.28); }
@@ -83,39 +83,39 @@ st.markdown("""
 /* Trend pill buttons */
 .pill-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
 .pill-btn { padding:6px 14px; border-radius:20px; border:1.5px solid #dee2e6;
-            background:white; font-size:12px; font-weight:600; color:#495057;
+            background: var(--secondary-background-color); font-size:12px; font-weight:600; color: var(--text-color);
             cursor:pointer; }
 .pill-btn.on { background:#e74c3c; color:white; border-color:#e74c3c; }
 
 /* Range buttons */
 .range-btn { padding:6px 16px; border-radius:20px; border:1.5px solid #dee2e6;
-             background:white; font-size:12px; font-weight:600; color:#495057; cursor:pointer; }
+             background: var(--secondary-background-color); font-size:12px; font-weight:600; color: var(--text-color); cursor:pointer; }
 .range-btn.on { background:#e74c3c; color:white; border-color:#e74c3c; }
 
 /* MRR grid */
 .mrr-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-.mrr-c { background:#f5f6fa; border:1px solid rgba(0,0,0,0.07); border-radius:10px;
+.mrr-c { background: var(--secondary-background-color); border:1px solid rgba(0,0,0,0.07); border-radius:10px;
          padding:12px; text-align:center; }
 .mrr-v { font-size:20px; font-weight:800; margin-bottom:2px; }
-.mrr-l { font-size:10px; color:#8a91a0; text-transform:uppercase; letter-spacing:.04em; }
+.mrr-l { font-size:10px; color: var(--text-color); opacity: 0.7; text-transform:uppercase; letter-spacing:.04em; }
 
 /* Stage funnel */
 .stage-wrap { display:flex; gap:4px; align-items:stretch; overflow-x:auto; }
-.stage { flex:1; min-width:72px; background:#f5f6fa; border:1px solid rgba(0,0,0,0.07);
+.stage { flex:1; min-width:72px; background: var(--secondary-background-color); border:1px solid rgba(0,0,0,0.07);
          border-radius:10px; padding:12px 8px; text-align:center; }
 .sv { font-size:20px; font-weight:800; line-height:1; margin-bottom:2px; }
-.sl { font-size:9px; color:#8a91a0; text-transform:uppercase; letter-spacing:.04em; }
+.sl { font-size:9px; color: var(--text-color); opacity: 0.7; text-transform:uppercase; letter-spacing:.04em; }
 .sc { font-size:10px; font-weight:700; margin-top:4px; }
-.sarrow { display:flex; align-items:center; justify-content:center; color:#8a91a0;
+.sarrow { display:flex; align-items:center; justify-content:center; color: var(--text-color); opacity: 0.7;
           font-size:20px; padding:0 1px; flex-shrink:0; }
 
 /* Volume funnel bars */
 .fn { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.fnl { font-size:11px; color:#52586a; width:120px; flex-shrink:0; }
-.fnt { flex:1; height:18px; background:#f0f2f5; border-radius:4px; overflow:hidden; }
+.fnl { font-size:11px; color: var(--text-color); opacity: 0.8; width:120px; flex-shrink:0; }
+.fnt { flex:1; height:18px; background: var(--secondary-background-color); border-radius:4px; overflow:hidden; }
 .fnf { height:100%; border-radius:3px; }
 .fnn { font-size:12px; font-weight:700; min-width:50px; text-align:right; }
-.fnp { font-size:10px; color:#8a91a0; min-width:34px; text-align:right; }
+.fnp { font-size:10px; color: var(--text-color); opacity: 0.7; min-width:34px; text-align:right; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -312,14 +312,14 @@ c_logo, c_date, c_yr, c_mo, c_cl, c_dom, c_bh, c_reset = st.columns([0.8,1.4,1.2
 
 with c_logo:
     lbl = f"{MON[now.month]} {now.year}"
-    st.markdown(f"""<div style="background:white;border-radius:10px;padding:7px 12px;
+    st.markdown(f"""<div style="background: var(--background-color);border-radius:10px;padding:7px 12px;
         box-shadow:0 1px 4px rgba(0,0,0,0.08);text-align:center;font-weight:800;
         font-size:13px;color:#e8453c;border:1.5px solid rgba(232,69,60,.2);margin-top:4px">{lbl}</div>""",
         unsafe_allow_html=True)
 
 with c_date:
-    st.markdown(f"""<div style="background:white;border-radius:10px;padding:7px 10px;
-        box-shadow:0 1px 4px rgba(0,0,0,0.08);font-size:11px;color:#52586a;font-weight:600;margin-top:4px">
+    st.markdown(f"""<div style="background: var(--secondary-background-color);border-radius:10px;padding:7px 10px;
+        box-shadow:0 1px 4px rgba(0,0,0,0.08);font-size:11px;color: var(--text-color);font-weight:600;margin-top:4px">
         🕐 Updated: {now.strftime('%d %b %Y %H:%M')}</div>""", unsafe_allow_html=True)
 
 with c_yr:
