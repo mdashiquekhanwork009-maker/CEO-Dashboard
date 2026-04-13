@@ -916,7 +916,8 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             "ex_po", "ex_mg", "ex_pipe_po", "ex_pipe_mg",
             "active_po", "active_mg"
         ]:
-            m[k] = m[k] / 1e5
+            value = m[k] / 1e5
+            m[k] = value if value >= 0.01 else (m[k] / 1e3)
 
         m["net_hc"] = m["ob_hc"] - m["ex_hc"]
         m["net_po"] = m["ob_po"] - m["ex_po"]
