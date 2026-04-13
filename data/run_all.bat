@@ -1,33 +1,35 @@
 @echo off
 
+set PYTHON_PATH="C:\Users\E36250444\AppData\Local\Programs\Python\Python314-32\python.exe"
+
 echo Running Python scripts sequentially...
 echo.
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\demand.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\demand.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\submission.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\submission.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\interview.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\interview.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selection.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selection.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selction_pipeline.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\selction_pipeline.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\onboarding.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\onboarding.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\exit.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\exit.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\exit_pipeline.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\exit_pipeline.py"
 if errorlevel 1 goto error
 
-call python "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\activeHeadCount.py"
+call %PYTHON_PATH% "C:\Users\E36250444\OneDrive - JoulestoWatts Business Solutions Pvt Ltd\Desktop\Streamlit Dashboard\data\activeHeadCount.py"
 if errorlevel 1 goto error
 
 echo.
@@ -39,6 +41,5 @@ exit
 :error
 echo.
 echo ❌ Error occurred while running scripts!
-echo Check logs or run manually to debug.
 pause
 exit
