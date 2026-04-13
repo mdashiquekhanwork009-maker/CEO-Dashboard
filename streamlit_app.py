@@ -71,8 +71,15 @@ st.markdown("""
 .tgr { background:rgba(107,115,133,.10); color:#5b6578; border:1px solid rgba(107,115,133,.22); }
 
 /* Section title */
-.sec { font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.09em;
-       color:#8a91a0; margin:20px 0 10px; display:flex; align-items:center; gap:10px; }
+.sec {
+    font-size:13px;
+    font-weight:700;
+    text-transform:none;
+    letter-spacing:.03em;
+    color: var(--text-color);
+    margin:25px 0 12px;
+}
+            
 .sec::after { content:''; flex:1; height:1px; background:rgba(0,0,0,0.08); }
 
 /* Comparison bar */
@@ -123,6 +130,19 @@ st.markdown("""
 .fnf { height:100%; border-radius:3px; }
 .fnn { font-size:12px; font-weight:700; min-width:50px; text-align:right; }
 .fnp { font-size:10px; color: var(--text-color); opacity: 0.7; min-width:34px; text-align:right; }
+
+/* 🔥 Button Styling (ADD HERE) */
+button[kind="secondary"] {
+    border-radius: 8px !important;
+    border: 1px solid var(--secondary-background-color) !important;
+}
+
+button[kind="primary"] {
+    border-radius: 8px !important;
+    background: #e8453c !important;
+    color: white !important;
+}
+            
 </style>
 """, unsafe_allow_html=True)
 
@@ -431,7 +451,7 @@ sp_yet  = max(0, round((sel or 0) - (ob_hc or 0) - (sp_hc or 0)))
 
 # ─── ROW 1 KPI CARDS ──────────────────────────────────────────────────────────
 st.markdown('<div class="sec">📊 Recruitment Overview</div>', unsafe_allow_html=True)   
-cols = st.columns(6)
+cols = st.columns(3)
 
 with cols[0]:
     st.markdown(kpi_card("red","📋","Demands", f"{dem:,}", "red",
