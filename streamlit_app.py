@@ -330,14 +330,24 @@ with c_yr:
 with c_mo:
     current_month_num = datetime.now().month
     current_month_name = month_map[current_month_num]
+
     month_names_list = [month_map[m] for m in month_options]
 
-    # ✅ Use current month if available, else fallback
+    # ✅ Default logic
     if current_month_name in month_names_list:
         default_month = [current_month_name]
     else:
-        default_month = [month_map[month_options[-1]]] if month_options else []s]
+        default_month = [month_map[month_options[-1]]] if month_options else []
 
+    # ✅ APPLY DEFAULT HERE
+    sel_month_names = st.multiselect(
+        "MONTH",
+        month_names_list,
+        default=default_month,
+        placeholder="Select Months"
+    )
+
+    selected_months = [k for k, v in month_map.items() if v in sel_month_names]
 with c_cl:
     selected_clients = st.multiselect("CLIENTS", all_clients, placeholder="Select Clients")
 
