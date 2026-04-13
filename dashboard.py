@@ -691,11 +691,12 @@ def get_shareable_urls(port):
 # ─────────────────────────────────────────────────────────────────────────────
 
 ZERO = dict(
-    dem=0, dem_open=0, dem_u=0, sub=0, sub_fp=0,
+    dem=0, dem_open=0, dem_u=0, serviced_dem=0,
+    sub=0, sub_fp=0,
     l1=0, l1_fp=0, l2=0, l2_fp=0, l3=0, l3_fp=0,
     sel=0, sel_pure=0, sp_hc=0, sp_po=0.0, sp_mg=0.0,
     ob_hc=0, ob_po=0.0, ob_mg=0.0,
-    active_hc=0,
+    active_hc=0, active_po=0.0, active_mg=0.0,
     ex_hc=0, ex_po=0.0, ex_mg=0.0,
     ex_pipe_hc=0, ex_pipe_po=0.0, ex_pipe_mg=0.0,
     net_hc=0, net_po=0.0, net_mg=0.0,
