@@ -900,13 +900,17 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
     for cl in res:
         m = res[cl]
-    for k in ["sp_po", "sp_mg", "ob_po", "ob_mg", "ex_po", "ex_mg", "ex_pipe_po", "ex_pipe_mg", "active_po", "active_mg"]:
+
+    for k in [
+        "sp_po", "sp_mg", "ob_po", "ob_mg",
+        "ex_po", "ex_mg", "ex_pipe_po", "ex_pipe_mg",
+        "active_po", "active_mg"
+    ]:
         m[k] = m[k] / 1e5
-        m["net_hc"] = m["ob_hc"] - m["ex_hc"]
-        m["net_po"] = m["ob_po"] - m["ex_po"]
-        m["net_mg"] = m["ob_mg"] - m["ex_mg"]
-        g["active_po"] = g["active_po"]
-        g["active_mg"] = g["active_mg"]
+
+    m["net_hc"] = m["ob_hc"] - m["ex_hc"]
+    m["net_po"] = m["ob_po"] - m["ex_po"]
+    m["net_mg"] = m["ob_mg"] - m["ex_mg"]
     return res
 
 
@@ -1186,7 +1190,7 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
             if "id_status" in work_dem.columns:
                 work_dem = work_dem[
                     work_dem["id_status"].astype(str).str.strip() == "0"
-        ]
+                ]
 
         if not work_dem.empty:
             work_dem = work_dem.assign(__ds=period_key(work_dem["_date"]))
