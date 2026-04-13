@@ -616,10 +616,13 @@ def build_raw_export_filename(dataset, client_filter=None, year_filter=None, mon
 
 def _flt(series):
     return pd.to_numeric(
-        series.astype(str).str.replace(",", "", regex=False),
+        series.astype(str)
+        .str.replace(",", "", regex=False)
+        .str.replace("₹", "", regex=False)
+        .str.replace(" ", "", regex=False)
+        .replace({"": None, "nan": None, "None": None}),
         errors="coerce"
     ).fillna(0.0)
-
 
 def collect_periods(data):
     ym = set()
@@ -869,23 +872,6 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         if client_filter is not None:
             df = df[df[cl_col].isin(client_filter)]
 
-    # 🔥 Ensure PO & Margin columns exist
-        def clean_numeric(series):
-            return pd.to_numeric(
-                series.astype(str)
-                .str.replace(",", "", regex=False)
-                .str.replace("₹", "", regex=False)
-                .str.replace(" ", "", regex=False)
-                .replace({"": None, "nan": None, "None": None}),
-                errors="coerce"
-            ).fillna(0)
-
-# 🔥 FORCE overwrite (IMPORTANT)
-        if "p_o_value" in df.columns:
-            df["_po"] = clean_numeric(df["p_o_value"])
-
-        if "margin" in df.columns:
-            df["_mg"] = clean_numeric(df["margin"])
 
         for cl, g in df.groupby(cl_col):
             ensure(cl)
