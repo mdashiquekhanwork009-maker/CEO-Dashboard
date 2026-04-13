@@ -850,8 +850,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
     # ACTIVE HEADCOUNT
     # Count all candidate rows present in the active headcount sheet per client.
-    # ACTIVE HEADCOUNT
-
+    
     df = frames["activehc"]
     cl_col = None
     if not df.empty:
@@ -862,10 +861,18 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             df = df[df[cl_col].isin(client_filter)]
 
     # 🔥 Ensure PO & Margin columns exist
-        if "_po" not in df.columns:
-            df["_po"] = _flt(df["p_o_value"]) if "p_o_value" in df.columns else 0.0
-        if "_mg" not in df.columns:
-            df["_mg"] = _flt(df["margin"]) if "margin" in df.columns else 0.0
+        def clean_numeric(series):
+            return pd.to_numeric(
+                series.astype(str)
+                .str.replace(",", "", regex=False)
+                .str.replace("₹", "", regex=False)
+                .str.strip(),
+                errors="coerce"
+            ).fillna(0)
+
+# 🔥 Apply clean conversion
+        df["_po"] = clean_numeric(df["p_o_value"]) if "p_o_value" in df.columns else 0.0
+        df["_mg"] = clean_numeric(df["margin"]) if "margin" in df.columns else 0.0
 
         for cl, g in df.groupby(cl_col):
             ensure(cl)
@@ -3100,7 +3107,7 @@ function render(rows, g, trends, pg, pmo, pyr, dailyDay, dailyMonth, yr, mo, lmt
     <div class="kpi grey"><div class="kpi-head"><div class="kpi-ico">&#127897;</div></div><div class="kpi-lbl">Interviews</div>${animatedKpiValue(ti,'#5f6b7f')}<div class="kpi-sub">L1 <strong>${Math.round(g.l1)}</strong> &middot; L2 <strong>${Math.round(g.l2)}</strong> &middot; L3 <strong>${Math.round(g.l3)}</strong></div>${tagGr(pc(g.l1,g.sub)+'% sub&#8594;L1')}</div>
     <div class="kpi grey"><div class="kpi-head"><div class="kpi-ico">&#9989;</div></div><div class="kpi-lbl">Selections</div>${animatedKpiValue(g.sel,'#5f6b7f')}<div class="kpi-sub">Confirmed selected candidates in the current period</div>${tagGr(pc(g.sel,g.l1)+'% L1&#8594;selected')}</div>
     <div class="kpi blue"><div class="kpi-head"><div class="kpi-ico">&#128203;</div></div><div class="kpi-lbl">Selection Pipeline</div>${animatedKpiValue(g.sp_hc,'#3498db')}<div class="kpi-sub"><strong>&#8377;${L(g.sp_po)}L</strong> PO value &middot; <strong>&#8377;${L(g.sp_mg)}L</strong> margin</div>${tagBl(Math.max(0, Math.round((g.sel||0)-(g.ob_hc||0)-(g.sp_hc||0)))+' Yet to be Onboarded')}</div>
-    <div class="kpi blue"><div class="kpi-head"><div class="kpi-ico">&#128101;</div></div><div class="kpi-lbl">Active Headcount</div>${animatedKpiValue(g.active_hc,'#1f7ae0')}<div class="kpi-sub"><strong>${Math.round(g.active_hc)}</strong> active (filter-adjusted)</div>${tagBl('Selected-period onboarding excluded')}</div>
+    <div class="kpi blue"><div class="kpi-head"><div class="kpi-ico">&#128101;</div></div><div class="kpi-lbl">Active Headcount</div>${animatedKpiValue(g.active_hc,'#1f7ae0')}<div class="kpi-sub"><span id="active_hc_label"></span></div>${tagBl('Selected-period onboarding excluded')}</div>
     <div class="kpi green"><div class="kpi-head"><div class="kpi-ico">&#128640;</div></div><div class="kpi-lbl">Onboarded</div>${animatedKpiValue(g.ob_hc,'#1db85a')}<div class="kpi-sub"><strong>&#8377;${L(g.ob_po)}L</strong> PO value &middot; <strong>&#8377;${L(g.ob_mg)}L</strong> margin</div>${tagG(pc(g.ob_hc,g.sel)+'% sel&#8594;joined')}</div>
     <div class="kpi red"><div class="kpi-head"><div class="kpi-ico">&#128682;</div></div><div class="kpi-lbl">Exits</div>${animatedKpiValue(g.ex_hc,'#e8453c')}<div class="kpi-sub"><strong>&#8377;${L(g.ex_po)}L</strong> PO value &middot; <strong>&#8377;${L(g.ex_mg)}L</strong> margin<br>Pipeline <strong>${Math.round(g.ex_pipe_hc)}</strong> HC &middot; <strong>&#8377;${L(g.ex_pipe_po)}L</strong> PO &middot; <strong>&#8377;${L(g.ex_pipe_mg)}L</strong> margin</div>${tagR(Math.round(g.ex_hc)+' headcount lost')}</div>
     <div class="kpi ${g.net_hc>=0?'green':'red'}"><div class="kpi-head"><div class="kpi-ico">&#128202;</div></div><div class="kpi-lbl">Net HC</div>${animatedKpiValue(g.net_hc,g.net_hc>=0?'#1db85a':'#e8453c','number',true)}<div class="kpi-sub"><strong>&#8377;${L(Math.abs(g.net_po))}L</strong> net PO movement</div>${g.net_hc>=0?tagG('&#9650; Growth'):tagR('&#9660; Decline')}</div>
