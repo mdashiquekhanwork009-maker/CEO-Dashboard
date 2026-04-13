@@ -437,7 +437,9 @@ lmtd_grand, _ = get_grand(
     tuple(selected_months),
     tuple(selected_clients),
     tuple(selected_domains),
-    tuple(selected_bhs)
+    tuple(selected_bhs),
+    lm_from,   # ✅ ADD THIS
+    lm_to      # ✅ ADD THIS
 )
 
 # Previous month for comparison bar
