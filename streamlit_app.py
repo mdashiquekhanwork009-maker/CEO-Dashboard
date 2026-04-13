@@ -451,7 +451,7 @@ sp_yet  = max(0, round((sel or 0) - (ob_hc or 0) - (sp_hc or 0)))
 
 # ─── ROW 1 KPI CARDS ──────────────────────────────────────────────────────────
 st.markdown('<div class="sec">📊 Recruitment Overview</div>', unsafe_allow_html=True)   
-cols = st.columns(3)
+cols = st.columns(6)
 
 with cols[0]:
     st.markdown(kpi_card("red","📋","Demands", f"{dem:,}", "red",
