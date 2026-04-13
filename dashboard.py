@@ -714,7 +714,23 @@ ZERO = dict(
     ex_pipe_hc=0, ex_pipe_po=0.0, ex_pipe_mg=0.0,
     net_hc=0, net_po=0.0, net_mg=0.0,
 )
+def apply_date_filter(df, from_date, to_date):
+    if df is None or df.empty:
+        return df
 
+    date_cols = [c for c in df.columns if "date" in c.lower()]
+    if not date_cols:
+        return df
+
+    col = date_cols[0]
+    df[col] = pd.to_datetime(df[col], errors="coerce")
+
+    if from_date:
+        df = df[df[col] >= pd.Timestamp(from_date)]
+    if to_date:
+        df = df[df[col] <= pd.Timestamp(to_date)]
+
+    return df
 
 def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, to_date=None):
     frames = {
