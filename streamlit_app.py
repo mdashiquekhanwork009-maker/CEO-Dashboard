@@ -279,6 +279,24 @@ def trend_chart(series, label, color="#e74c3c"):
         showlegend=False,
     )
     return fig
+def get_lmtd_range(year, month):
+    today = datetime.now()
+
+    # Last month logic
+    if month == 1:
+        lm_year = year - 1
+        lm_month = 12
+    else:
+        lm_year = year
+        lm_month = month - 1
+
+    # Same day cutoff
+    day = min(today.day, 28)  # safe for Feb
+
+    from_date = datetime(lm_year, lm_month, 1)
+    to_date   = datetime(lm_year, lm_month, day)
+
+    return from_date, to_date
 
 def filter_series_by_date(series, from_dt, to_dt):
     if not series:
@@ -403,6 +421,21 @@ with c_reset:
 grand, rows = get_grand(
     tuple(selected_years), tuple(selected_months),
     tuple(selected_clients), tuple(selected_domains), tuple(selected_bhs),
+)
+
+# 🔥 LMTD CALCULATION
+cy = int(selected_years[0]) if selected_years else datetime.now().year
+cm = int(selected_months[0]) if selected_months else datetime.now().month
+
+lm_from, lm_to = get_lmtd_range(cy, cm)
+
+# ⚠️ IMPORTANT: pass same filters
+lmtd_grand, _ = get_grand(
+    tuple(selected_years),
+    tuple(selected_months),
+    tuple(selected_clients),
+    tuple(selected_domains),
+    tuple(selected_bhs)
 )
 
 # Previous month for comparison bar
@@ -535,8 +568,21 @@ with cols2[4]:
 
 # ─── COMPARISON BARS ──────────────────────────────────────────────────────────
 if selected_years and selected_months:
-    st.markdown(comp_bar(f"VS {MON[pm]} {py}", grand, prev_grand), unsafe_allow_html=True)
+    # 🔥 LMTD BAR (ADD FIRST)
+    st.markdown(
+        comp_bar(
+            f"VS LMTD ({MON[lm_from.month]} {lm_from.year} till {lm_to.day})",
+            grand,
+            lmtd_grand
+        ),
+        unsafe_allow_html=True
+    )
 
+    # 🔥 EXISTING COMPARISON
+    st.markdown(
+        comp_bar("VS Previous Month", grand, prev_grand),
+        unsafe_allow_html=True
+    )
 # ─── MRR BREAKDOWN ────────────────────────────────────────────────────────────
 st.markdown('<div class="sec">MRR Breakdown</div>', unsafe_allow_html=True)
 mrr1, mrr2, mrr3 = st.columns(3)
