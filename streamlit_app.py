@@ -164,7 +164,7 @@ month_map   = {i: calendar.month_abbr[i] for i in range(1, 13)}
 
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
-def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup):
+def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None):
     resolved = resolve_client_filter_cached(
         freeze_filter(set(c_tup)) if c_tup else None,
         freeze_filter(set(d_tup)) if d_tup else None,
@@ -174,7 +174,9 @@ def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup):
         freeze_filter({int(y) for y in y_tup}) if y_tup else None,
         freeze_filter({int(m) for m in m_tup}) if m_tup else None,
         resolved,
-    )
+        from_date,
+        to_date
+)
     # Build visible rows with domain/BH
     client_to_domain, client_to_bh, client_lookup, _, _ = get_mapping_context()
     for cl in list(res.keys()):
