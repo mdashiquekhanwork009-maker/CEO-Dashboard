@@ -1,23 +1,9 @@
 import pandas as pd
 
-# Load the CSV files
+# Load source CSV
 source_df = pd.read_csv('C:/Data/demand_data.csv')
-target_df = pd.read_csv('C:/Users/E36250444/OneDrive - JoulestoWatts Business Solutions Pvt Ltd/Desktop/Streamlit Dashboard/data/demand_data.csv')
 
-# Set the key column (common column)
-key_column = 'ID'
+# Overwrite target CSV with source data
+source_df.to_csv('C:/Users/E36250444/OneDrive - JoulestoWatts Business Solutions Pvt Ltd/Desktop/Streamlit Dashboard/data/demand_data.csv', index=False)
 
-# Set index for easy update
-source_df.set_index(key_column, inplace=True)
-target_df.set_index(key_column, inplace=True)
-
-# Update target with source values
-target_df.update(source_df)
-
-# Reset index back
-target_df.reset_index(inplace=True)
-
-# Save updated file
-target_df.to_csv('updated_target.csv', index=False)
-
-print("CSV updated successfully!")
+print("Target CSV fully replaced with source data!")
