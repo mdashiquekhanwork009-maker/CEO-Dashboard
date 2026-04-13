@@ -223,6 +223,12 @@ def comp_bar(title, cur, prev):
         </div>"""
     return f'<div class="prev-bar"><span class="prev-bar-title">{title}</span>{items}</div>'
 
+def hex_to_rgba(hex_color, alpha=0.13):
+    """Convert hex color to rgba string for Plotly fillcolor."""
+    hex_color = hex_color.lstrip("#")
+    r, g, b = int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+    return f"rgba({r},{g},{b},{alpha})"
+
 def trend_chart(series, label, color="#e74c3c"):
     if not series:
         return go.Figure()
@@ -237,7 +243,7 @@ def trend_chart(series, label, color="#e74c3c"):
         line=dict(color=color, width=2.5),
         marker=dict(size=7, color="#fff", line=dict(color=color, width=2)),
         fill="tozeroy",
-        fillcolor=color + "22",
+        fillcolor=hex_to_rgba(color),
     ))
     fig.update_layout(
         height=260, margin=dict(t=20, b=20, l=10, r=10),
