@@ -862,17 +862,20 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
     # 🔥 Ensure PO & Margin columns exist
         def clean_numeric(series):
-            return pd.to_numeric(
-                series.astype(str)
-                .str.replace(",", "", regex=False)
-                .str.replace("₹", "", regex=False)
-                .str.strip(),
-                errors="coerce"
-            ).fillna(0)
+          return pd.to_numeric(
+              series.astype(str)
+              .str.replace(",", "", regex=False)
+              .str.replace("₹", "", regex=False)
+              .str.strip(),
+              errors="coerce"
+          ).fillna(0)
 
-# 🔥 Apply clean conversion
-        df["_po"] = clean_numeric(df["p_o_value"]) if "p_o_value" in df.columns else 0.0
-        df["_mg"] = clean_numeric(df["margin"]) if "margin" in df.columns else 0.0
+# 🔥 FORCE overwrite (IMPORTANT)
+        if "p_o_value" in df.columns:
+            df["_po"] = clean_numeric(df["p_o_value"])
+
+        if "margin" in df.columns:
+            df["_mg"] = clean_numeric(df["margin"])
 
         for cl, g in df.groupby(cl_col):
             ensure(cl)
@@ -881,10 +884,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             res[cl]["active_mg"] += float(g["_mg"].sum())
 
     # For filtered views, show opening active HC for the selected period by
-    # excluding onboarding that happened inside the same filtered period.
-    if sel_year or sel_month or from_date is not None or to_date is not None:
-        for m in res.values():
-            m["active_hc"] = max(0, m["active_hc"] - m["ob_hc"])
+    
 
     # EXIT
     df = frames["exit"]
