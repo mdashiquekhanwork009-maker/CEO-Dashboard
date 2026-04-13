@@ -770,10 +770,16 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
         for cl, g in df.groupby(cl_col):
             ensure(cl)
-            res[cl]["dem"] += len(g)
-            res[cl]["dem_open"] += float(g["_openings"].sum()) if "_openings" in g.columns else len(g)
-            if unserviced_counts:
-                res[cl]["dem_u"] += int(unserviced_counts.get(cl, 0))
+
+            total_dem = len(g)
+            unserv = int(unserviced_counts.get(cl, 0))
+
+            res[cl]["dem"] += total_dem
+            res[cl]["dem_open"] += float(g["_openings"].sum()) if "_openings" in g.columns else total_dem
+            res[cl]["dem_u"] += unserv
+
+    # ✅ ADD THIS
+            res[cl]["serviced_dem"] += (total_dem - unserv)
 
     # SUBMISSION
     df = frames["sub"]
@@ -843,7 +849,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
     # Count all candidate rows present in the active headcount sheet per client.
     # ACTIVE HEADCOUNT
 
-    df = data["activehc"]
+    df = frames["activehc"]
     cl_col = None
     if not df.empty:
         cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
