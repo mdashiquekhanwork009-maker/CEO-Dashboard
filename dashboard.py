@@ -12,6 +12,7 @@ import re
 import socket
 import pandas as pd
 from flask import Flask, Response, render_template_string, jsonify, request, send_from_directory
+from plotly import data
 
 app = Flask(__name__)
 
@@ -841,14 +842,15 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
     # ACTIVE HEADCOUNT
     # Count all candidate rows present in the active headcount sheet per client.
     # ACTIVE HEADCOUNT
-df = data["activehc"]
-cl_col = None
-if not df.empty:
-    cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
 
-if not df.empty and cl_col:
-    if client_filter is not None:
-        df = df[df[cl_col].isin(client_filter)]
+    df = data["activehc"]
+    cl_col = None
+    if not df.empty:
+        cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
+
+    if not df.empty and cl_col:
+        if client_filter is not None:
+            df = df[df[cl_col].isin(client_filter)]
 
     # 🔥 Ensure PO & Margin columns exist
     if "_po" not in df.columns:
