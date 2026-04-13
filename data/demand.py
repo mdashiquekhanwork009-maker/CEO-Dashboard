@@ -1,9 +1,12 @@
 import pandas as pd
 
-# Load source CSV
-source_df = pd.read_csv('C:/Data/demand_data.csv')
+try:
+    source_path = 'C:/Data/demand_data.csv'
+    target_path = 'C:/Users/E36250444/OneDrive - JoulestoWatts Business Solutions Pvt Ltd/Desktop/Streamlit Dashboard/data/demand_data.csv'
 
-# Overwrite target CSV with source data
-source_df.to_csv('C:/Users/E36250444/OneDrive - JoulestoWatts Business Solutions Pvt Ltd/Desktop/Streamlit Dashboard/data/demand_data.csv', index=False)
+    source_df = pd.read_csv(source_path)
+    source_df.to_csv(target_path, index=False)
 
-print("Target CSV fully replaced with source data!")
+except Exception as e:
+    with open("error_log.txt", "a") as f:
+        f.write(str(e) + "\n")
