@@ -31,15 +31,14 @@ st.set_page_config(page_title="J2W Recruitment Dashboard", layout="wide", page_i
 st.markdown("""
 <style>
 /* Background */
-[data-testid="stAppViewContainer"] { background:#f0f2f5; }
-[data-testid="stHeader"]           { background:transparent; }
 [data-testid="stSidebar"]          { display:none; }
 [data-testid="stMainBlockContainer"] { padding-top: 12px; }
 
 /* KPI Cards */
-.kpi { background:#fff; border-radius:14px; padding:18px 18px 14px;
-       box-shadow:0 2px 10px rgba(0,0,0,0.07); position:relative;
-       overflow:hidden; min-height:155px; margin-bottom:4px; }
+.kpi {
+    background: var(--background-color);
+    border: 1px solid var(--secondary-background-color);
+}
 .kpi::after { content:''; position:absolute; top:0; left:0; right:0;
               height:4px; border-radius:14px 14px 0 0; }
 .kpi.red::after    { background:linear-gradient(90deg,#e8453c,#ff7043); }
