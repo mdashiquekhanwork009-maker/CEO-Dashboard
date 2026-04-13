@@ -38,7 +38,14 @@ st.markdown("""
 .kpi {
     background: var(--background-color);
     border: 1px solid var(--secondary-background-color);
+    padding: 16px;
+    border-radius: 12px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+            
 .kpi::after { content:''; position:absolute; top:0; left:0; right:0;
               height:4px; border-radius:14px 14px 0 0; }
 .kpi.red::after    { background:linear-gradient(90deg,#e8453c,#ff7043); }
@@ -308,14 +315,15 @@ if "mom_to"   not in ss:     ss["mom_to"]     = None
 
 # ─── TOP FILTER BAR ───────────────────────────────────────────────────────────
 now = datetime.now()
-c_logo, c_date, c_yr, c_mo, c_cl, c_dom, c_bh, c_reset = st.columns([0.8,1.4,1.2,1.2,1.6,1.3,1.3,0.6])
+c_logo, c_date, c_yr, c_mo, c_cl, c_dom, c_bh, c_reset = st.columns([1,1.5,1.2,1.2,1.6,1.4,1.4,1])
 
 with c_logo:
-    lbl = f"{MON[now.month]} {now.year}"
-    st.markdown(f"""<div style="background: var(--background-color);border-radius:10px;padding:7px 12px;
-        box-shadow:0 1px 4px rgba(0,0,0,0.08);text-align:center;font-weight:800;
-        font-size:13px;color:#e8453c;border:1.5px solid rgba(232,69,60,.2);margin-top:4px">{lbl}</div>""",
-        unsafe_allow_html=True)
+    st.markdown("""
+    <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+        <span style="font-size:18px;font-weight:800;color:#e8453c">J2W</span>
+        <span style="font-size:12px;color:var(--text-color);opacity:0.7">Dashboard</span>
+    </div>
+    """, unsafe_allow_html=True)
 
 with c_date:
     st.markdown(f"""<div style="background: var(--secondary-background-color);border-radius:10px;padding:7px 10px;
