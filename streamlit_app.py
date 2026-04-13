@@ -400,7 +400,7 @@ sel_ob  = pct(ob_hc, sel)
 sp_yet  = max(0, round((sel or 0) - (ob_hc or 0) - (sp_hc or 0)))
 
 # ─── ROW 1 KPI CARDS ──────────────────────────────────────────────────────────
-st.markdown('<div class="sec">📊 Recruitment Overview</div>', unsafe_allow_html=True)
+st.markdown('<div class="sec">📊 Recruitment Overview</div>', unsafe_allow_html=True)   
 cols = st.columns(6)
 
 with cols[0]:
