@@ -1160,6 +1160,11 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
         if id_col_dem:
             demand_ids = work_dem[id_col_dem].astype(str).str.strip()
             work_dem = work_dem[~demand_ids.isin(submitted_ids)]
+            # Also require id_status == "0"
+            if "id_status" in work_dem.columns:
+                work_dem = work_dem[
+                    work_dem["id_status"].astype(str).str.strip() == "0"
+        ]
 
         if not work_dem.empty:
             work_dem = work_dem.assign(__ds=period_key(work_dem["_date"]))
