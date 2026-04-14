@@ -177,8 +177,12 @@ with st.sidebar:
     # YEAR
     current_year = str(now.year)
     selected_years = st.multiselect(
-        "YEAR",year_options,default=[current_year],key="YEAR"
+    "YEAR",
+    year_options,
+    default=[current_year] if current_year in year_options else [year_options[0]],
+    key="YEAR"
 )
+
 
     # MONTH
     current_month_name = month_map[now.month]
@@ -196,8 +200,10 @@ with st.sidebar:
     key="MONTH"
 )
 
-    selected_months = [k for k, v in month_map.items() if v in selected_month_names]
-
+    selected_months = [
+    m for m in month_options 
+    if month_map[m] in selected_month_names
+]
     # CLIENT
     selected_clients = st.multiselect(
     "CLIENTS",
@@ -224,8 +230,7 @@ with st.sidebar:
         st.session_state["CLIENTS"] = []
         st.session_state["DOMAIN"] = []
         st.session_state["BH"] = []
-
-    st.rerun()
+        st.rerun()
 # =========================
 # APPLY UI FILTERS (ADD THIS)
 # =========================
