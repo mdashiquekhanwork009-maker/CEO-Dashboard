@@ -218,19 +218,28 @@ with st.sidebar:
 # =========================
 # APPLY UI FILTERS (ADD THIS)
 # =========================
+def get_date_column(df):
+    if "_date" in df.columns:
+        return pd.to_datetime(df["_date"], errors="coerce")
+
+    for col in ["display_date", "Created_at", "date", "Interview_date", "selection_date"]:
+        if col in df.columns:
+            return pd.to_datetime(df[col], errors="coerce")
+
+    return None
 def compute_trend_series(metric_key, freq="day"):
     data = load_data_cached()
 
     df_map = {
-        "dem": data.get("demand_df"),
-        "dem_u": data.get("demand_df"),
-        "sub": data.get("submission_df"),
-        "sub_fp": data.get("submission_df"),
-        "intv": data.get("interview_df"),
-        "sel": data.get("selection_df"),
-        "ob": data.get("onboarding_df"),
-        "ex": data.get("exit_df"),
-    }
+        "dem": data.get("demand"),
+        "dem_u": data.get("demand"),
+        "sub": data.get("sub"),
+        "sub_fp": data.get("sub"),
+        "intv": data.get("intv"),
+        "sel": data.get("sel"),
+        "ob": data.get("ob"),
+        "ex": data.get("exit"),
+}
 
     df = df_map.get(metric_key)
 
@@ -240,11 +249,13 @@ def compute_trend_series(metric_key, freq="day"):
     df = df.copy()
 
     # DATE
-    df["display_date"] = pd.to_datetime(df["display_date"], dayfirst=True, errors="coerce")
+    df["date"] = get_date_column(df)
 
+    if df["date"] is None:
+        return []
     # FILTERS
     if selected_years:
-        df = df[df["display_date"].dt.year.astype(str).isin(selected_years)]
+        df = df[df["date"].dt.year.astype(str).isin(selected_years)]
 
     if selected_months:
         df = df[df["display_date"].dt.month.isin(selected_months)]
@@ -254,7 +265,7 @@ def compute_trend_series(metric_key, freq="day"):
 
     # GROUP
     if freq == "day":
-        df["group"] = df["display_date"].dt.date
+        df["group"] = df["date"].dt.date
     else:
         df["group"] = df["display_date"].dt.to_period("M").astype(str)
 
@@ -294,12 +305,15 @@ def apply_ui_filters(df):
 
     # YEAR (based on date column)
     if "display_date" in df.columns:
-        df["display_date"] = pd.to_datetime(df["display_date"], dayfirst=True, errors="coerce")
+        df["date"] = get_date_column(df)
+
+        if df["date"] is None:
+            return []
         if selected_years:
-            df = df[df["display_date"].dt.year.astype(str).isin(selected_years)]
+            df = df[df["date"].dt.year.astype(str).isin(selected_years)]
 
         if selected_months:
-            df = df[df["display_date"].dt.month.isin(selected_months)]
+            df = df[df["date"].dt.month.isin(selected_months)]
 
     # CLIENT
     if selected_clients and "company_name" in df.columns:
