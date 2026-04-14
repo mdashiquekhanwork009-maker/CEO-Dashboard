@@ -221,7 +221,7 @@ with st.sidebar:
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
 def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None):
-    resolved = resolve_client_filter_cached(
+    resolved_clients = resolve_client_filter_cached(
         freeze_filter(set(c_tup)) if c_tup else None,
         freeze_filter(set(d_tup)) if d_tup else None,
         freeze_filter(set(b_tup)) if b_tup else None,
@@ -756,12 +756,6 @@ to_date = None
 if ss["dod_from"] and ss["dod_to"]:
     from_date = ss["dod_from"]
     to_date   = ss["dod_to"]
-
-resolved = resolve_client_filter_cached(
-    freeze_filter(set(selected_clients)) if selected_clients else None,
-    freeze_filter(set(selected_domains)) if selected_domains else None,
-    freeze_filter(set(selected_bhs)) if selected_bhs else None,
-)
 
 dod_data = daily_trends_cached(
     resolved_clients,
