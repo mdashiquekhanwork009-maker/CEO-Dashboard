@@ -177,10 +177,8 @@ with st.sidebar:
     # YEAR
     current_year = str(now.year)
     selected_years = st.multiselect(
-        "YEAR",
-        year_options,
-        default=[current_year] if current_year in year_options else [year_options[0]]
-    )
+        "YEAR",year_options,default=[current_year],key="YEAR"
+)
 
     # MONTH
     current_month_name = month_map[now.month]
@@ -192,21 +190,32 @@ with st.sidebar:
         default_month = [month_map[month_options[-1]]] if month_options else []
 
     selected_month_names = st.multiselect(
-        "MONTH",
-        month_names_list,
-        default=default_month
-    )
+    "MONTH",
+    month_names_list,
+    default=default_month,
+    key="MONTH"
+)
 
     selected_months = [k for k, v in month_map.items() if v in selected_month_names]
 
     # CLIENT
-    selected_clients = st.multiselect("CLIENTS", all_clients)
-
+    selected_clients = st.multiselect(
+    "CLIENTS",
+    all_clients,
+    key="CLIENTS"
+)   
     # DOMAIN
-    selected_domains = st.multiselect("DOMAIN", domain_options)
-
+    selected_domains = st.multiselect(
+    "DOMAIN",
+    domain_options,
+    key="DOMAIN"
+)
     # BH
-    selected_bhs = st.multiselect("BH", bh_options)
+    selected_bhs = st.multiselect(
+    "BH",
+    bh_options,
+    key="BH"
+)
 
     # RESET
     if st.button("🔄 Reset Filters"):
