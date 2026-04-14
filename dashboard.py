@@ -718,11 +718,15 @@ def apply_date_filter(df, from_date, to_date):
     if df is None or df.empty:
         return df
 
-    date_cols = [c for c in df.columns if "date" in c.lower()]
-    if not date_cols:
+    # ✅ PRIORITIZE CORRECT DATE COLUMN
+    if "display_date" in df.columns:
+        col = "display_date"
+    elif "created_date" in df.columns:
+        col = "created_date"
+    elif "date" in df.columns:
+        col = "date"
+    else:
         return df
-
-    col = date_cols[0]
     df[col] = pd.to_datetime(df[col], dayfirst=True, errors="coerce")
 
     if from_date:
