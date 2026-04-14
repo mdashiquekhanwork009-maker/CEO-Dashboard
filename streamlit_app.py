@@ -355,6 +355,7 @@ if "mom_to"   not in ss:     ss["mom_to"]     = None
 
 # ─── TOP FILTER BAR ───────────────────────────────────────────────────────────
 now = datetime.now()
+c_logo, c_date, c_yr, c_mo, c_cl, c_dom, c_bh, c_reset = st.columns([1,1.5,1.2,1.2,1.6,1.4,1.4,1])
 
 with c_logo:
     st.markdown("""
