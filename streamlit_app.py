@@ -7,12 +7,9 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 from datetime import datetime, timedelta
+from dashboard import daily_trends_cached, freeze_date
 
-from dashboard import (
-    CAPTIVE_SUFFIX,
-    compute_all_cached,
-    load_data_cached,
-    daily_trends_cached,
+from dashboard import (CAPTIVE_SUFFIX,    compute_all_cached,    load_data_cached,    daily_trends_cached,
     freeze_filter,
     get_client_catalog,
     get_mapping_context,
@@ -227,41 +224,6 @@ def get_date_column(df):
             return pd.to_datetime(df[col], errors="coerce")
 
     return None
-def apply_ui_filters(df):
-    if df is None or df.empty:
-        return df
-
-    df = df.copy()
-
-    # YEAR (based on date column)
-    if "display_date" in df.columns:
-        df["date"] = get_date_column(df)
-
-        if df["date"].isna().all():
-            return df
-        if selected_years:
-            df = df[df["date"].dt.year.astype(str).isin(selected_years)]
-
-        if selected_months:
-            df = df[df["date"].dt.month.isin(selected_months)]
-
-    # CLIENT
-    if selected_clients and "company_name" in df.columns:
-        client_cols = ["company_name", "Company_name", "client", "Client"]
-        client_col = next((c for c in client_cols if c in df.columns), None)
-
-        if selected_clients and client_col:
-            df = df[df[client_col].isin(selected_clients)]
-
-    # DOMAIN
-    if selected_domains and "domain" in df.columns:
-        df = df[df["domain"].isin(selected_domains)]
-
-    # BH
-    if selected_bhs and "bh" in df.columns:
-        df = df[df["bh"].isin(selected_bhs)]
-
-    return df
 
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
@@ -831,14 +793,17 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
             st.rerun()
 
 # Fetch & filter
+from_date = None
+to_date = None
+
+if ss["dod_from"] and ss["dod_to"]:
+    from_date = ss["dod_from"]
+    to_date   = ss["dod_to"]
+
 dod_data = daily_trends_cached(
-    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
-    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
-    resolve_client_filter_cached(
-        freeze_filter(set(selected_clients)) if selected_clients else None,
-        freeze_filter(set(selected_domains)) if selected_domains else None,
-        freeze_filter(set(selected_bhs)) if selected_bhs else None,
-    ),
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_date(from_date),
+    freeze_date(to_date),
     "day"
 )
 
@@ -911,18 +876,13 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
 
 # Fetch & filter
 mom_data = daily_trends_cached(
-    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
-    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
-    resolve_client_filter_cached(
-        freeze_filter(set(selected_clients)) if selected_clients else None,
-        freeze_filter(set(selected_domains)) if selected_domains else None,
-        freeze_filter(set(selected_bhs)) if selected_bhs else None,
-    ),
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    None,
+    None,
     "month"
 )
 
 mom_series = mom_data.get(ss["mom_metric"], [])
-
 # 🔥 SAME DATE ALIGNMENT
 if from_date and to_date:
     mom_series = filter_series_by_date(mom_series, from_date, to_date)

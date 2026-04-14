@@ -880,9 +880,9 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             add_po_metrics(g, cl, "ob_hc", "ob_po", "ob_mg")
 
     # ACTIVE HEADCOUNT
-    # Count all candidate rows present in the active headcount sheet per client.
-    
+    # ACTIVE HEADCOUNT
     df = data["activehc"]
+
     cl_col = None
     if not df.empty:
         cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
@@ -891,14 +891,17 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         if client_filter is not None:
             df = df[df[cl_col].isin(client_filter)]
 
-
         for cl, g in df.groupby(cl_col):
             ensure(cl)
-            res[cl]["active_hc"] += len(g)
-            res[cl]["active_po"] += float(g["_po"].sum())
-            res[cl]["active_mg"] += float(g["_mg"].sum())
 
-    # For filtered views, show opening active HC for the selected period by
+            res[cl]["active_hc"] += len(g)
+
+            if "_po" in g.columns:
+                res[cl]["active_po"] = res[cl].get("active_po", 0) + float(g["_po"].sum())
+
+            if "_mg" in g.columns:
+                res[cl]["active_mg"] = res[cl].get("active_mg", 0) + float(g["_mg"].sum())
+        # For filtered views, show opening active HC for the selected period by
     
 
     # EXIT
