@@ -825,7 +825,7 @@ with st.expander("Raw Data Explorer", expanded=False):
     else:
         st.info("No raw records found for the selected filters.")
     # =========================
-    # OVERDUE FILTER (SMART)
+    # OVERDUE FILTER (FINAL FIX)
     # =========================
     if ss["raw_dataset"] == "overdue":
 
@@ -841,24 +841,19 @@ with st.expander("Raw Data Explorer", expanded=False):
             )
 
             # =========================
-            # CLIENT LOGIC
+            # APPLY YEAR FILTER
             # =========================
-            if not raw_clients:
-                # 👉 No client selected → use CURRENT month & year
-                mask &= (
-                    (df_dates.dt.year == current_year) &
-                    (df_dates.dt.month == current_month)
-                )
-            else:
-                # 👉 Client selected → respect filters
-                if raw_year:
-                    mask &= (df_dates.dt.year == int(raw_year))
+            if raw_year:
+                mask &= (df_dates.dt.year == int(raw_year))
 
-                if raw_month:
-                    selected_month_nums = {
-                        k for k, v in month_map.items()
-                        if v in raw_month
-                    }
-                    mask &= df_dates.dt.month.isin(selected_month_nums)
+            # =========================
+            # APPLY MONTH FILTER
+            # =========================
+            if raw_month:
+                selected_month_nums = {
+                    k for k, v in month_map.items()
+                    if v in raw_month
+                }
+                mask &= df_dates.dt.month.isin(selected_month_nums)
 
             raw_df = raw_df[mask]
