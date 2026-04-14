@@ -492,8 +492,11 @@ if "mom_to"   not in ss:     ss["mom_to"]     = None
 
 # ─── FETCH GRAND DATA ─────────────────────────────────────────────────────────
 grand, rows = get_grand(
-    tuple(selected_years), tuple(selected_months),
-    tuple(selected_clients), tuple(selected_domains), tuple(selected_bhs),
+    tuple(selected_years), 
+    tuple(selected_months),
+    tuple(selected_clients), 
+    tuple(selected_domains), 
+    tuple(selected_bhs),
 )
 # 🔥 BUILD DATE RANGE FROM FILTERS
 if selected_years and selected_months:
@@ -519,13 +522,13 @@ lm_from, lm_to = get_lmtd_range(cy, cm)
 
 # ⚠️ IMPORTANT: pass same filters
 lmtd_grand, _ = get_grand(
-    tuple(selected_years),
-    tuple(selected_months),
+    (str(lm_from.year),),
+    (lm_from.month,),
     tuple(selected_clients),
     tuple(selected_domains),
     tuple(selected_bhs),
-    lm_from,   # ✅ ADD THIS
-    lm_to      # ✅ ADD THIS
+    lm_from,
+    lm_to
 )
 
 # Previous month for comparison bar
@@ -812,9 +815,13 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
 
 # Fetch & filter
 dod_data = daily_trends_cached(
-    freeze_filter(set(selected_clients)) if selected_clients else None,
-    freeze_filter(set(selected_domains)) if selected_domains else None,
-    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
+    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
+    resolve_client_filter_cached(
+        freeze_filter(set(selected_clients)) if selected_clients else None,
+        freeze_filter(set(selected_domains)) if selected_domains else None,
+        freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    ),
     from_date,
     to_date,
     "day"
@@ -884,13 +891,18 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
 
 # Fetch & filter
 mom_data = daily_trends_cached(
-    freeze_filter(set(selected_clients)) if selected_clients else None,
-    freeze_filter(set(selected_domains)) if selected_domains else None,
-    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
+    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
+    resolve_client_filter_cached(
+        freeze_filter(set(selected_clients)) if selected_clients else None,
+        freeze_filter(set(selected_domains)) if selected_domains else None,
+        freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    ),
     from_date,
     to_date,
     "month"
-)  
+)
+
 mom_series = mom_data.get(ss["mom_metric"], [])
 if ss["mom_from"] and ss["mom_to"]:
     mom_series = filter_series_by_date(mom_series, ss["mom_from"], ss["mom_to"])
