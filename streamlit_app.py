@@ -217,6 +217,30 @@ with st.sidebar:
 # =========================
 # APPLY UI FILTERS (ADD THIS)
 # =========================
+def apply_filters_to_series(series):
+    if not series:
+        return series
+
+    filtered = []
+
+    for row in series:
+        try:
+            d = pd.Timestamp(row["d"])
+
+            # YEAR filter
+            if selected_years and str(d.year) not in selected_years:
+                continue
+
+            # MONTH filter
+            if selected_months and d.month not in selected_months:
+                continue
+
+            filtered.append(row)
+
+        except:
+            filtered.append(row)
+
+    return filtered
 def apply_ui_filters(df):
     if df is None or df.empty:
         return df
@@ -827,6 +851,7 @@ dod_data = daily_trends_cached(
     "day"
 )
 dod_series = dod_data.get(ss["dod_metric"], [])
+dod_series = apply_filters_to_series(dod_series)
 if ss["dod_from"] and ss["dod_to"]:
     dod_series = filter_series_by_date(dod_series, ss["dod_from"], ss["dod_to"])
 else:
