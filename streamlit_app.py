@@ -788,27 +788,36 @@ with st.expander("Raw Data Explorer", expanded=False):
     # Fetch
     raw_df = get_raw_dataset_frame(
     ss["raw_dataset"],
-    year_filter=year_filter,
-    month_filter=month_filter,
+    year_filter=None if raw_from or raw_to else year_filter,
+    month_filter=None if raw_from or raw_to else month_filter,
     client_filter=set(raw_clients) if raw_clients else None,
     from_date=pd.Timestamp(raw_from) if raw_from else None,
     to_date=pd.Timestamp(raw_to) if raw_to else None,
     demand_status=demand_status,
 )
+    
     # 🔥 OVERDUE FILTER
+    # =========================
+# OVERDUE FILTER
+# =========================
     if ss["raw_dataset"] == "overdue":
 
         if "display_date" in raw_df.columns:
+
             raw_df["display_date"] = pd.to_datetime(raw_df["display_date"], errors="coerce")
 
             today = pd.Timestamp.now().normalize()
-        
+
             raw_df = raw_df[
                 (raw_df["display_date"].notna()) &
                 (raw_df["display_date"].dt.normalize() < today)
             ]
     visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
-    ds_label = RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
+    ds_label = (
+    RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
+    if ss["raw_dataset"] in RAW_DATASET_CONFIG
+    else "⏰ Overdue Onboarding"
+)
     st.caption(f"{ds_label}: **{len(raw_df):,}** row(s)")
     if visible_cols:
         st.dataframe(raw_df[visible_cols], width="stretch", hide_index=True)
