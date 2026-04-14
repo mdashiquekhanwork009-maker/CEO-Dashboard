@@ -1,70 +1,139 @@
-# =========================================
-# J2W CEO DASHBOARD (Single File Version)
-# =========================================
-
-import streamlit as st
 import pandas as pd
-import plotly.graph_objects as go
-from datetime import datetime, timedelta
-import calendar
 
-st.set_page_config(page_title="CEO Dashboard", layout="wide")
+# =========================
+# ZERO TEMPLATE
+# =========================
+ZERO = dict(
+    dem=0, dem_u=0,
+    sub=0, sub_fp=0,
+    l1=0, l2=0, l3=0,
+    sel=0,
+    ob_hc=0, ob_po=0.0, ob_mg=0.0,
+    ex_hc=0, ex_po=0.0, ex_mg=0.0,
+    active_hc=0, active_po=0.0, active_mg=0.0,
+    net_hc=0, net_po=0.0, net_mg=0.0
+)
 
-FILE_PATH = "your_data.xlsx"
+# =========================
+# MAIN FUNCTION
+# =========================
+def compute_all(data, year=None, month=None, client_filter=None):
 
-# =========================================
-# LOAD DATA
-# =========================================
-@st.cache_data
-def load_data():
-    df = pd.read_excel(FILE_PATH)
-    df.columns = df.columns.str.strip()
+    res = {}
 
-    df["date"] = pd.to_datetime(df["display_date"], dayfirst=True, errors="coerce")
+    def ensure(cl):
+        if cl not in res:
+            res[cl] = ZERO.copy()
 
-    df["p_o_value"] = pd.to_numeric(df["p_o_value"], errors="coerce").fillna(0)
-    df["margin"] = pd.to_numeric(df["margin"], errors="coerce").fillna(0)
+    # =========================
+    # DEMAND
+    # =========================
+    df = data["demand"]
 
-    return df
+    if year:
+        df = df[df["_date"].dt.year == year]
+    if month:
+        df = df[df["_date"].dt.month == month]
 
-df = load_data()
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["dem"] += len(g)
+        res[cl]["dem_u"] += (g["Status"] == 0).sum()
 
-# =========================================
-# FILTERS
-# =========================================
-st.sidebar.title("🔎 Filters")
+    # =========================
+    # SUBMISSION
+    # =========================
+    df = data["submission"]
 
-years = sorted(df["date"].dt.year.dropna().unique())
-months = list(range(1, 13))
+    if year:
+        df = df[df["_date"].dt.year == year]
+    if month:
+        df = df[df["_date"].dt.month == month]
 
-selected_year = st.sidebar.selectbox("Year", years, index=len(years)-1)
-selected_month = st.sidebar.selectbox("Month", months, index=datetime.now().month-1)
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["sub"] += len(g)
+        res[cl]["sub_fp"] += (g["feedback_status"] == "Pending").sum()
 
-clients = st.sidebar.multiselect("Client", df["company_name"].dropna().unique())
-designations = st.sidebar.multiselect("Designation", df["designation"].dropna().unique())
+    # =========================
+    # INTERVIEW
+    # =========================
+    df = data["interview"]
 
-if st.sidebar.button("🔄 Reset Filters"):
-    st.session_state.clear()
-    st.rerun()
+    if year:
+        df = df[df["_date"].dt.year == year]
+    if month:
+        df = df[df["_date"].dt.month == month]
 
-# =========================================
-# FILTER FUNCTION (SINGLE SOURCE)
-# =========================================
-def apply_filters(data, year, month):
-    data = data[
-        (data["date"].dt.year == year) &
-        (data["date"].dt.month == month)
-    ]
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["l1"] += (g["round"] == "L1").sum()
+        res[cl]["l2"] += (g["round"] == "L2").sum()
+        res[cl]["l3"] += (g["round"] == "L3").sum()
 
-    if clients:
-        data = data[data["company_name"].isin(clients)]
+    # =========================
+    # SELECTION
+    # =========================
+    df = data["selection"]
 
-    if designations:
-        data = data[data["designation"].isin(designations)]
+    if year:
+        df = df[df["_date"].dt.year == year]
+    if month:
+        df = df[df["_date"].dt.month == month]
 
-    return data
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["sel"] += len(g)
 
-data = apply_filters(df.copy(), selected_year, selected_month)
+    # =========================
+    # ONBOARDING
+    # =========================
+    df = data["onboarding"]
 
-# =========================================
-#
+    if year:
+        df = df[df["_date"].dt.year == year]
+    if month:
+        df = df[df["_date"].dt.month == month]
+
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["ob_hc"] += len(g)
+        res[cl]["ob_po"] += g["p_o_value"].sum()
+        res[cl]["ob_mg"] += g["margin"].sum()
+
+    # =========================
+    # EXIT
+    # =========================
+    df = data["exit"]
+
+    if year:
+        df = df[df["_date"].dt.year == year]
+    if month:
+        df = df[df["_date"].dt.month == month]
+
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["ex_hc"] += len(g)
+        res[cl]["ex_po"] += g["p_o_value"].sum()
+        res[cl]["ex_mg"] += g["margin"].sum()
+
+    # =========================
+    # ACTIVE HC
+    # =========================
+    df = data["active"]
+
+    for cl, g in df.groupby("company_name"):
+        ensure(cl)
+        res[cl]["active_hc"] += len(g)
+        res[cl]["active_po"] += g["p_o_value"].sum()
+        res[cl]["active_mg"] += g["margin"].sum()
+
+    # =========================
+    # NET CALCULATION
+    # =========================
+    for cl in res:
+        res[cl]["net_hc"] = res[cl]["ob_hc"] - res[cl]["ex_hc"]
+        res[cl]["net_po"] = res[cl]["ob_po"] - res[cl]["ex_po"]
+        res[cl]["net_mg"] = res[cl]["ob_mg"] - res[cl]["ex_mg"]
+
+    return res
