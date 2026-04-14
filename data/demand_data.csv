@@ -1,4 +1,28 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+109759,Digital : Spring Boot~PL/SQL,Digital : Spring Boot~PL/SQL,TCS,Dhaval Patel,1,2026-04-14 10:39:33,943,0
+109758,SAP Technical Consultant - BTP,SAP Technical Consultant ,BSH,Saravanan P,1,2026-04-14 10:13:05,802,0
+109757,Anupama / Microsoft Power Business Intelligence (BI),Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 10:12:39,925,0
+109756,Pavani - cspm,cspm developer,Cognizant,Syed Waseem,2,2026-04-14 10:09:37,18,0
+109755,INFYSYJP00000746 Java SDET Automation,INFYSYJP00000746 Java SDET Automation,Infosys Consulting,Tara V R,3,2026-04-14 10:00:00,923,0
+109754,INFYSYJP00004125/562329-Service Management Tech Program Manager,INFYSYJP00004125/562329-Service Management Tech Program Manager,Infosys Consulting,Tara V R,1,2026-04-14 09:59:49,923,0
+109753,: Digital : ServiceNow_IT Service Management,: Digital : ServiceNow_IT Service Management,TCS,Dhaval Patel,1,2026-04-14 09:58:06,943,0
+109752,Shiek - MS DEFENDER ,MS DEFENDER,Cognizant,Syed Waseem,2,2026-04-14 09:55:58,18,0
+109751,Microsoft Power Platform,Microsoft Power Platform,TCS,Dhaval Patel,1,2026-04-14 09:45:22,943,0
+109750,Sanjeeva - ZSCALER,Zscaler+Paloalto,Cognizant,Syed Waseem,2,2026-04-14 09:44:46,18,0
+109749,Padmapriya - Checkpoint,Checkpoint developer,Cognizant,Syed Waseem,2,2026-04-14 09:42:51,18,0
+109748,Microsoft Power Platform,Microsoft Power Platform,TCS,Dhaval Patel,1,2026-04-14 09:32:20,943,0
+109747,Keyword: Skills: Playwright,Keyword: Skills: Playwright,TCS,Dhaval Patel,1,2026-04-14 09:29:07,943,0
+109746,Spurthy  / Service Desk Management ,Application Tech Support Practitioner,Accenture_IDB,Priyakanta Choudhary,1,2026-04-14 09:13:30,222,0
+109745, Vidya / Selenium,Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 09:02:22,925,0
+109744,INFYSYJP00004121/562036 - RFP_IDP_Architect,INFYSYJP00004121/562036 - RFP_IDP_Architect,Infosys Consulting,Tara V R,1,2026-04-14 08:32:24,923,0
+109743,Digital: SAP Analytics Cloud,Digital: SAP Analytics Cloud,TCS,Dhaval Patel,1,2026-04-14 08:14:36,943,0
+109742,Moumita / SAP ABAP Development for HANA,SAP ABAP Development for HANA,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 08:08:03,925,0
+109741,Chetna / Spring Boot,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 08:04:34,925,0
+109740,Vidya  / Selenium, Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 08:02:30,925,0
+109739,INFYSYJP00002378/RKCISPC154_Project coordinator,INFYSYJP00002378/RKCISPC154_Project coordinator,Infosys Consulting,Tara V R,1,2026-04-14 07:43:09,923,0
+109738,INFYSYJP00004118/562060_ServiceNow HRSD,INFYSYJP00004118/562060_ServiceNow HRSD,Infosys Consulting,Tara V R,1,2026-04-14 07:40:33,923,0
+109737,SAP PS,SAP PS,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 07:17:03,249,0
+109736,SDM Gurgaon Drive 16th April / Shivani,Application Tech Support Practitioner,Accenture_IDB,Priyakanta Choudhary,15,2026-04-14 07:09:24,222,0
 109735,Digital : User Experience (UX),Digital : User Experience (UX),TCS,Dhaval Patel,1,2026-04-14 06:37:34,943,0
 109734,Data Scientist - Gopal,Data Scientist ,DTICI,Saravanan P,1,2026-04-14 06:17:41,916,0
 109733,Data Engineer - Anand, Data Engineer,DTICI,Saravanan P,1,2026-04-14 06:10:31,916,0
@@ -1510,7 +1534,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108225,Vidya / Asset Life Cycle Management,Asset Life Cycle Management,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-23 12:38:07,925,0
 108224,Radhika / API Management,API Management,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-23 12:33:42,925,0
 108223, React JS Developer (Senior), React JS Developer (Senior),TCS,Dhaval Patel,1,2026-03-23 12:21:34,943,0
-108222,Customer Support Executive-HR BGV,Customer Support Executive,Accenture_BPO,Jawad Ulla Khan,15,2026-03-23 12:19:40,27,0
+108222,Customer Support Executive-HR BGV,Customer Support Executive,Accenture-voice,Jawad Ulla Khan,15,2026-03-23 12:19:40,319,0
 108221,Engineer - Parts Management,Engineer - Parts Management,Trane Technologies,Shailesh Gangwar,3,2026-03-23 12:17:50,919,0
 108220,Radhika / Java Full Stack Development,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-23 12:07:18,925,0
 108219,Anupama /Oracle Security,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-23 12:06:22,925,0
@@ -8139,7 +8163,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101583,IBM DataStage,IBM DataStage,Deloitte_Consulting,Rajat Tyagi,2,2025-11-12 09:17:47,256,0
 101582,Azure Infra,Azure Infra,PricewaterhouseCoopers,Dhaval Patel,2,2025-11-12 09:00:26,249,0
 101581,Consultant,Consultant,TCS,Dhaval Patel,1,2025-11-12 08:27:09,943,0
-101580,VM Bangalore,Customer Support Executive,Accenture_BPO,Jawad Ulla Khan,10,2025-11-12 08:10:15,27,0
+101580,VM Bangalore,Customer Support Executive,Accenture-voice,Jawad Ulla Khan,10,2025-11-12 08:10:15,319,0
 101579,"SAP ABAP - WRICEFW, SAP ABAP for cloud, OData Services, RAP/CAP ","SAP ABAP - WRICEFW, SAP ABAP for cloud, OData Services, RAP/CAP ",PricewaterhouseCoopers,Dhaval Patel,1,2025-11-12 08:09:29,249,0
 101578,Customer Support Executive- All States,Customer Support Executive,Accenture_BPO,Prathyusha Mangalampalli,5,2025-11-12 08:06:49,27,0
 101577,Splunk & ETL,Splunk & ETL,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-12 08:03:04,1006,0
