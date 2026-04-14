@@ -4,3 +4,4 @@
 [Errno 2] No such file or directory: 'C:/Data/exit.csv'
 [Errno 2] No such file or directory: 'C:/Data/exit.csv'
 [Errno 2] No such file or directory: 'C:/Data/exit.csv'
+[Errno 2] No such file or directory: 'C:/Data/exit.csv'
