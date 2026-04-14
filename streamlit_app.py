@@ -257,7 +257,7 @@ def get_previous_month(year, month):
     return (year - 1, 12) if month == 1 else (year, month - 1)
 
 def pct(a, b): return round(a / b * 100) if b else 0
-def L(v):      return f"{abs(float(v)):.2f}"
+def L(v):      return f"{abs(float(v))/100000:.2f}"
 def sign(v):   return "+" if float(v) >= 0 else "−"
 def clr_val(v): return "green" if float(v) >= 0 else "red"
 
