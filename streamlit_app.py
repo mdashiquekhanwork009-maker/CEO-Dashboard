@@ -715,6 +715,7 @@ with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
 
 st.markdown('<div class="sec">Raw Data Explorer</div>', unsafe_allow_html=True)
 with st.expander("Raw Data Explorer", expanded=False):
+    base_dataset = "selpipe" if ss["raw_dataset"] == "overdue" else ss["raw_dataset"]
     today = datetime.now()
     current_year = today.year
     current_month = today.month
