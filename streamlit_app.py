@@ -674,7 +674,7 @@ with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
     ))
     fig_funnel.update_layout(height=300, margin=dict(t=10, b=10, l=10, r=10),
                               plot_bgcolor="white", paper_bgcolor="white")
-    st.plotly_chart(fig_funnel, use_container_width=True, key="funnel_chart")
+    st.plotly_chart(fig_funnel,width="stretch", key="funnel_chart")
 
     # Volume bars using Streamlit progress bars
     st.markdown("**Volume Funnel**")
@@ -707,8 +707,7 @@ for col, (label, val) in zip([dod_r1, dod_r2, dod_r3], dod_range_options):
     with col:
         active = ss["dod_range"] == val and not ss["dod_from"]
         if st.button(label, key=f"dod_{val}",
-                     type="primary" if active else "secondary",
-                     use_container_width=True):
+                     type="primary" if active else "secondary",width="stretch"):
             ss["dod_range"] = val
             ss["dod_from"] = None
             ss["dod_to"] = None
@@ -745,7 +744,7 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
     with col:
         btn_lbl = f"{icon} {label}" if icon else label
         active  = ss["dod_metric"] == key
-        if st.button(btn_lbl, key=f"dod_pill_{key}", use_container_width=True,
+        if st.button(btn_lbl, key=f"dod_pill_{key}", width="stretch",
                      type="primary" if active else "secondary"):
             ss["dod_metric"] = key
             st.rerun()
@@ -775,7 +774,7 @@ dod_series = dod_data.get(ss["dod_metric"], [])
 
 
 dod_label = next((label for _, label, k in dod_metrics if k == ss["dod_metric"]), "")
-st.plotly_chart(trend_chart(dod_series, dod_label), use_container_width=True, key="dod_chart")
+st.plotly_chart(trend_chart(dod_series, dod_label), width="stretch", key="dod_chart")
 
 # ─── MONTH-ON-MONTH TRENDS ────────────────────────────────────────────────────
 st.markdown('<div class="sec">Month-on-Month Trends</div>', unsafe_allow_html=True)
@@ -787,8 +786,7 @@ for col, (label, val) in zip([mom_r1, mom_r2, mom_r3], mom_range_options):
     with col:
         active = ss["mom_range"] == val and not ss["mom_from"]
         if st.button(label, key=f"mom_{val}",
-                     type="primary" if active else "secondary",
-                     use_container_width=True):
+                     type="primary" if active else "secondary", width="stretch"):
             ss["mom_range"] = val
             ss["mom_from"] = None
             ss["mom_to"] = None
@@ -826,7 +824,7 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
     with col:
         btn_lbl = f"{icon} {label}" if icon else label
         active  = ss["mom_metric"] == key
-        if st.button(btn_lbl, key=f"mom_pill_{key}", use_container_width=True,
+        if st.button(btn_lbl, key=f"mom_pill_{key}", width="stretch",
                      type="primary" if active else "secondary"):
             ss["mom_metric"] = key
             st.rerun()
@@ -841,7 +839,7 @@ mom_data = daily_trends_cached(
 mom_series = mom_data.get(ss["mom_metric"], [])
 
 mom_label = next((label for _, label, k in mom_metrics if k == ss["mom_metric"]), "")
-st.plotly_chart(trend_chart(mom_series, mom_label, color="#3498db"), use_container_width=True, key="mom_chart")
+st.plotly_chart(trend_chart(mom_series, mom_label, color="#3498db"), width="stretch", key="mom_chart")
 # ─── CEO INSIGHTS ─────────────────────────────────────────
 st.markdown("### 🧠 CEO Insights")
 
@@ -884,7 +882,7 @@ with st.expander(f"Client Breakdown — {len(rows)} clients", expanded=False):
                 "Net Mgn(L)":  round(float(m.get("net_mg",0)),2),
             })
         df_table = pd.DataFrame(table_rows)
-        st.dataframe(df_table, use_container_width=True, hide_index=True)
+        st.dataframe(df_table, width="stretch", hide_index=True)
     else:
         st.info("No client activity found for the current filter.")
 
@@ -901,7 +899,7 @@ with st.expander("Raw Data Explorer — Filtered source rows for each pipeline s
     if "raw_dataset" not in ss: ss["raw_dataset"] = "demand"
     for col, (key, label) in zip(raw_ds_cols, zip(dataset_options, dataset_labels)):
         with col:
-            if st.button(label, key=f"raw_ds_{key}", use_container_width=True,
+            if st.button(label, key=f"raw_ds_{key}", width="stretch",
                          type="primary" if ss["raw_dataset"] == key else "secondary"):
                 ss["raw_dataset"] = key
                 st.rerun()
@@ -945,6 +943,6 @@ with st.expander("Raw Data Explorer — Filtered source rows for each pipeline s
     ds_label = RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
     st.caption(f"{ds_label}: **{len(raw_df):,}** row(s)")
     if visible_cols:
-        st.dataframe(raw_df[visible_cols], use_container_width=True, hide_index=True)
+        st.dataframe(raw_df[visible_cols], width="stretch", hide_index=True)
     else:
         st.info("No raw records found for the selected filters.")
