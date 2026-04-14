@@ -405,18 +405,6 @@ def get_lmtd_range(year, month):
 
     return from_date, to_date
 
-# ─── SESSION STATE DEFAULTS ───────────────────────────────────────────────────
-ss = st.session_state
-if not ss.get("dod_range"):  ss["dod_range"]  = 7
-if not ss.get("dod_metric"): ss["dod_metric"] = "dem"
-if "dod_from" not in ss:     ss["dod_from"]   = None
-if "dod_to"   not in ss:     ss["dod_to"]     = None
-if not ss.get("mom_range"):  ss["mom_range"]  = 12
-if not ss.get("mom_metric"): ss["mom_metric"] = "dem"
-if "mom_from" not in ss:     ss["mom_from"]   = None
-if "mom_to"   not in ss:     ss["mom_to"]     = None
-
-
 
 # ─── FETCH GRAND DATA ─────────────────────────────────────────────────────────
 grand, rows = get_grand(
@@ -427,12 +415,6 @@ grand, rows = get_grand(
     tuple(selected_bhs),
 )
 
-# 🔥 ADD THIS BLOCK HERE (VERY IMPORTANT)
-resolved_clients = resolve_client_filter_cached(
-    freeze_filter(set(selected_clients)) if selected_clients else None,
-    freeze_filter(set(selected_domains)) if selected_domains else None,
-    freeze_filter(set(selected_bhs)) if selected_bhs else None,
-)
 # 🔥 BUILD DATE RANGE FROM FILTERS
 if selected_years and selected_months:
     year = int(selected_years[0])
