@@ -25,13 +25,17 @@ from dashboard import (
 )
 
 # ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
-st.set_page_config(page_title="J2W Recruitment Dashboard", layout="wide", page_icon="📊")
+st.set_page_config(
+    page_title="J2W Recruitment Dashboard",
+    layout="wide",
+    page_icon="📊",
+    initial_sidebar_state="expanded"
+)
 
 # ─── CSS ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
 /* Background */
-[data-testid="stSidebar"]          { display:none; }
 [data-testid="stMainBlockContainer"] { padding-top: 12px; }
 
 /* KPI Cards */
