@@ -36,6 +36,9 @@ st.set_page_config(
 st.markdown("""
 <style>
 /* Background */
+[data-testid="stSidebar"] {
+    display: block !important;
+}
 [data-testid="stMainBlockContainer"] { padding-top: 12px; }
 
 /* KPI Cards */
