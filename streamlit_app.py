@@ -217,16 +217,6 @@ with st.sidebar:
 # =========================
 # APPLY UI FILTERS (ADD THIS)
 # =========================
-def get_date_column(df):
-    if "_date" in df.columns:
-        return pd.to_datetime(df["_date"], errors="coerce")
-
-    for col in ["display_date", "Created_at", "date", "Interview_date", "selection_date"]:
-        if col in df.columns:
-            return pd.to_datetime(df[col], errors="coerce")
-
-    return None
-
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
 def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None):
@@ -415,48 +405,6 @@ def get_lmtd_range(year, month):
     to_date   = datetime(lm_year, lm_month, day)
 
     return from_date, to_date
-
-def filter_series_by_date(series, from_dt, to_dt):
-    if not series:
-        return series
-    result = []
-    for x in series:
-        try:
-            d = pd.Timestamp(x["d"])
-            if from_dt and d < pd.Timestamp(from_dt): continue
-            if to_dt   and d > pd.Timestamp(to_dt):   continue
-            result.append(x)
-        except Exception:
-            result.append(x)
-    return result
-
-def filter_series_by_months(series, n_months):
-    if not series:
-        return series
-    n_months = int(n_months) if n_months else 12
-    cutoff = datetime.today() - timedelta(days=n_months * 30)
-    result = []
-    for x in series:
-        try:
-            d = pd.Timestamp(x["d"])
-            if d >= pd.Timestamp(cutoff): result.append(x)
-        except Exception:
-            result.append(x)
-    return result
-
-def filter_series_by_days(series, n_days):
-    if not series:
-        return series
-    n_days = int(n_days) if n_days else 7
-    cutoff = datetime.today() - timedelta(days=n_days)
-    result = []
-    for x in series:
-        try:
-            d = pd.Timestamp(x["d"])
-            if d >= pd.Timestamp(cutoff): result.append(x)
-        except Exception:
-            result.append(x)
-    return result
 
 # ─── SESSION STATE DEFAULTS ───────────────────────────────────────────────────
 ss = st.session_state
