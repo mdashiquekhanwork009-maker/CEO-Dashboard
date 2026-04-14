@@ -1245,14 +1245,20 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
 
 
 @lru_cache(maxsize=256)
-def daily_trends_cached(client_filter_key=None, from_date_key=None, to_date_key=None, grain="day"):
-    return daily_trends(
-        load_data_cached(),
-        thaw_filter(client_filter_key),
-        thaw_date(from_date_key),
-        thaw_date(to_date_key),
-        grain=grain,
-    )
+def daily_trends_cached(client_filter_key=None, domain_filter_key=None, bh_filter_key=None, from_date_key=None, to_date_key=None, grain="day"):
+  resolved_clients = resolve_client_filter_cached(
+      client_filter_key,
+      domain_filter_key,
+      bh_filter_key
+      )
+
+  return daily_trends(
+      load_data_cached(),
+      thaw_filter(resolved_clients),
+      thaw_date(from_date_key),
+      thaw_date(to_date_key),
+      grain=grain,
+      )
 
 
 # ─────────────────────────────────────────────────────────────────────────────
