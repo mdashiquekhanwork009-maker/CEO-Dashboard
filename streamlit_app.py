@@ -7,10 +7,13 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 from datetime import datetime, timedelta
-from dashboard import daily_trends_cached, freeze_date
 
-from dashboard import (CAPTIVE_SUFFIX,    compute_all_cached,    load_data_cached,    daily_trends_cached,
+from dashboard import (
+    CAPTIVE_SUFFIX,
+    compute_all_cached,
+    daily_trends_cached,
     freeze_filter,
+    freeze_date,
     get_client_catalog,
     get_mapping_context,
     get_mapped_client_name,
@@ -21,7 +24,6 @@ from dashboard import (CAPTIVE_SUFFIX,    compute_all_cached,    load_data_cache
     resolve_client_filter_cached,
     round_m,
 )
-
 # ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="J2W Recruitment Dashboard",
