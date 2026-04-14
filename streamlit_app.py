@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 from dashboard import (
     CAPTIVE_SUFFIX,
     compute_all_cached,
+    load_data_cached,
     daily_trends_cached,
     freeze_filter,
     get_client_catalog,
