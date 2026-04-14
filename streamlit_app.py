@@ -212,8 +212,9 @@ with st.sidebar:
 
     # RESET
     if st.button("🔄 Reset Filters"):
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
         st.rerun()
-
 # =========================
 # APPLY UI FILTERS (ADD THIS)
 # =========================
@@ -426,6 +427,13 @@ grand, rows = get_grand(
     tuple(selected_clients), 
     tuple(selected_domains), 
     tuple(selected_bhs),
+)
+
+# 🔥 ADD THIS BLOCK HERE (VERY IMPORTANT)
+resolved_clients = resolve_client_filter_cached(
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_filter(set(selected_domains)) if selected_domains else None,
+    freeze_filter(set(selected_bhs)) if selected_bhs else None,
 )
 # 🔥 BUILD DATE RANGE FROM FILTERS
 if selected_years and selected_months:
@@ -825,7 +833,7 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
 
 # Fetch & filter
 mom_data = daily_trends_cached(
-    freeze_filter(set(selected_clients)) if selected_clients else None,
+    resolved_clients,
     None,
     None,
     "month"
