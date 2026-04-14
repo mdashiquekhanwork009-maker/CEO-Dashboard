@@ -258,7 +258,7 @@ def compute_trend_series(metric_key, freq="day"):
         df = df[df["date"].dt.year.astype(str).isin(selected_years)]
 
     if selected_months:
-        df = df[df["display_date"].dt.month.isin(selected_months)]
+        df = df[df["date"].dt.month.isin(selected_months)]
 
     if selected_clients:
         df = df[df["company_name"].isin(selected_clients)]
@@ -267,7 +267,7 @@ def compute_trend_series(metric_key, freq="day"):
     if freq == "day":
         df["group"] = df["date"].dt.date
     else:
-        df["group"] = df["display_date"].dt.to_period("M").astype(str)
+        df["group"] = df["date"].dt.to_period("M").astype(str)
 
     result = df.groupby("group").size().reset_index(name="value")
 
