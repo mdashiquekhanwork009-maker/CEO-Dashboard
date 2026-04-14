@@ -227,76 +227,6 @@ def get_date_column(df):
             return pd.to_datetime(df[col], errors="coerce")
 
     return None
-def compute_trend_series(metric_key, freq="day"):
-    data = load_data_cached()
-
-    df_map = {
-        "dem": data.get("demand"),
-        "dem_u": data.get("demand"),
-        "sub": data.get("sub"),
-        "sub_fp": data.get("sub"),
-        "intv": data.get("intv"),
-        "sel": data.get("sel"),
-        "ob": data.get("ob"),
-        "ex": data.get("exit"),
-    }
-
-    df = df_map.get(metric_key)
-
-    if df is None or df.empty:
-        return []
-
-    df = df.copy()
-
-    # DATE FIX
-    df["date"] = get_date_column(df)
-
-    if df["date"].isna().all():
-        return []
-
-    # FILTERS
-    if selected_years:
-        df = df[df["date"].dt.year.astype(str).isin(selected_years)]
-
-    if selected_months:
-        df = df[df["date"].dt.month.isin(selected_months)]
-
-    if selected_clients:
-        df = df[df["company_name"].isin(selected_clients)]
-
-    # GROUPING
-    if freq == "day":
-        df["group"] = df["date"].dt.date
-    else:
-        df["group"] = df["date"].dt.to_period("M").astype(str)
-
-    result = df.groupby("group").size().reset_index(name="value")
-
-    return [{"d": str(r["group"]), "v": int(r["value"])} for _, r in result.iterrows()]    
-def apply_filters_to_series(series):
-    if not series:
-        return series
-
-    filtered = []
-
-    for row in series:
-        try:
-            d = pd.Timestamp(row["d"])
-
-            # YEAR filter
-            if selected_years and str(d.year) not in selected_years:
-                continue
-
-            # MONTH filter
-            if selected_months and d.month not in selected_months:
-                continue
-
-            filtered.append(row)
-
-        except:
-            filtered.append(row)
-
-    return filtered
 def apply_ui_filters(df):
     if df is None or df.empty:
         return df
@@ -318,11 +248,10 @@ def apply_ui_filters(df):
     # CLIENT
     if selected_clients and "company_name" in df.columns:
         client_cols = ["company_name", "Company_name", "client", "Client"]
-
         client_col = next((c for c in client_cols if c in df.columns), None)
 
-    if selected_clients and client_col:
-        df = df[df[client_col].isin(selected_clients)]
+        if selected_clients and client_col:
+            df = df[df[client_col].isin(selected_clients)]
 
     # DOMAIN
     if selected_domains and "domain" in df.columns:
@@ -902,7 +831,22 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
             st.rerun()
 
 # Fetch & filter
-dod_series = compute_trend_series(ss["dod_metric"], freq="day")
+dod_data = daily_trends_cached(
+    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
+    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
+    resolve_client_filter_cached(
+        freeze_filter(set(selected_clients)) if selected_clients else None,
+        freeze_filter(set(selected_domains)) if selected_domains else None,
+        freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    ),
+    "day"
+)
+
+dod_series = dod_data.get(ss["dod_metric"], [])
+
+# 🔥 APPLY SAME DATE RANGE AS KPI
+if from_date and to_date:
+    dod_series = filter_series_by_date(dod_series, from_date, to_date)
 if ss["dod_from"] and ss["dod_to"]:
     dod_series = filter_series_by_date(dod_series, ss["dod_from"], ss["dod_to"])
 else:
@@ -966,7 +910,22 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
             st.rerun()
 
 # Fetch & filter
-mom_series = compute_trend_series(ss["mom_metric"], freq="month")
+mom_data = daily_trends_cached(
+    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
+    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
+    resolve_client_filter_cached(
+        freeze_filter(set(selected_clients)) if selected_clients else None,
+        freeze_filter(set(selected_domains)) if selected_domains else None,
+        freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    ),
+    "month"
+)
+
+mom_series = mom_data.get(ss["mom_metric"], [])
+
+# 🔥 SAME DATE ALIGNMENT
+if from_date and to_date:
+    mom_series = filter_series_by_date(mom_series, from_date, to_date)
 if ss["mom_from"] and ss["mom_to"]:
     mom_series = filter_series_by_date(mom_series, ss["mom_from"], ss["mom_to"])
 else:
