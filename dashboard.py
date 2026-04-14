@@ -385,19 +385,6 @@ def freeze_date(value):
 def thaw_date(value):
     return pd.Timestamp(value) if value else None
 
-
-def get_resolved_filters():
-    cl_filter = parse_csv_filter_arg("clients")
-    dom_filter = parse_csv_filter_arg("domains")
-    bh_filter = parse_csv_filter_arg("bhs")
-    resolved = resolve_client_filter_cached(
-        freeze_filter(cl_filter),
-        freeze_filter(dom_filter),
-        freeze_filter(bh_filter),
-    )
-    return thaw_filter(resolved), dom_filter, bh_filter
-
-
 def get_period_filters():
     from datetime import datetime
 
