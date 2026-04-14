@@ -785,13 +785,6 @@ with st.expander("Raw Data Explorer", expanded=False):
         all_clients,
         key="raw_clients_sel"
     )
-    # Resolve filters
-    year_filter = month_filter = None
-    if raw_month:
-        ts = pd.Timestamp(raw_month)
-        year_filter  = {int(ts.year)}
-        month_filter = {int(ts.month)}
-
     # Fetch
     raw_df = get_raw_dataset_frame(
     ss["raw_dataset"],
