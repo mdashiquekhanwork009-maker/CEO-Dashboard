@@ -715,7 +715,9 @@ with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
 
 st.markdown('<div class="sec">Raw Data Explorer</div>', unsafe_allow_html=True)
 with st.expander("Raw Data Explorer", expanded=False):
-
+    today = datetime.now()
+    current_year = today.year
+    current_month = today.month
     # Dataset selector
     dataset_options = list(RAW_DATASET_CONFIG.keys()) + ["overdue"]
     dataset_labels = [RAW_DATASET_CONFIG[k]["label"] if k in RAW_DATASET_CONFIG else "⏰ Overdue Onboarding" for k in dataset_options]
@@ -730,27 +732,59 @@ with st.expander("Raw Data Explorer", expanded=False):
                 st.rerun()
 
     st.markdown("---")
-
     # Filters
     rf1, rf2, rf3, rf4 = st.columns([1.5, 1.5, 1.5, 2])
+
     with rf1:
-        raw_month = st.multiselect(
-    "Month",
-    month_names_list,
-    key="raw_month"
-)
+        raw_year = st.selectbox(
+            "Year",
+            sorted(year_options),
+            index=sorted(year_options).index(str(current_year)) if str(current_year) in year_options else 0,
+            key="raw_year"
+        )
+
     with rf2:
-        raw_from  = st.date_input("From Date", value=None, format="YYYY-MM-DD", key="raw_from")
+        raw_month = st.multiselect(
+            "Month",
+            month_names_list,
+            default=[month_map[current_month]] if month_map[current_month] in month_names_list else [],
+            key="raw_month"
+        )
+
     with rf3:
-        raw_to    = st.date_input("To Date",   value=None, format="YYYY-MM-DD", key="raw_to")
+        raw_from = st.date_input("From Date", value=None, format="YYYY-MM-DD", key="raw_from")
+
     with rf4:
-        if ss["raw_dataset"] == "demand":
-            demand_status = st.radio("Demand Filter", ["all", "unserviced", "serviced"], horizontal=True, key="raw_dem_status")
-        else:
-            demand_status = "all"
+        raw_to = st.date_input("To Date", value=None, format="YYYY-MM-DD", key="raw_to")
 
-    raw_clients = st.multiselect("Filter by clients (raw data)", all_clients, key="raw_clients_sel")
+    # Demand filter
+    if ss["raw_dataset"] == "demand":
+        demand_status = st.radio(
+            "Demand Filter",
+            ["all", "unserviced", "serviced"],
+            horizontal=True,
+            key="raw_dem_status"
+        )
+    else:
+        demand_status = "all"
 
+    # =========================
+    # CONVERT YEAR + MONTH
+    # =========================
+
+    year_filter = {int(raw_year)} if raw_year else None
+
+    month_filter = {
+        k for k, v in month_map.items()
+        if v in raw_month
+    } if raw_month else None
+
+    # Client filter
+    raw_clients = st.multiselect(
+        "Filter by clients (raw data)",
+        all_clients,
+        key="raw_clients_sel"
+    )
     # Resolve filters
     year_filter = month_filter = None
     if raw_month:
@@ -760,14 +794,14 @@ with st.expander("Raw Data Explorer", expanded=False):
 
     # Fetch
     raw_df = get_raw_dataset_frame(
-        ss["raw_dataset"],
-        year_filter=year_filter,
-        month_filter=month_filter,
-        client_filter=set(raw_clients) if raw_clients else None,
-        from_date=pd.Timestamp(raw_from) if raw_from else None,
-        to_date=pd.Timestamp(raw_to)     if raw_to   else None,
-        demand_status=demand_status,
-    )
+    ss["raw_dataset"],
+    year_filter=year_filter,
+    month_filter=month_filter,
+    client_filter=set(raw_clients) if raw_clients else None,
+    from_date=pd.Timestamp(raw_from) if raw_from else None,
+    to_date=pd.Timestamp(raw_to) if raw_to else None,
+    demand_status=demand_status,
+)
     # 🔥 OVERDUE FILTER
     if ss["raw_dataset"] == "overdue":
 
