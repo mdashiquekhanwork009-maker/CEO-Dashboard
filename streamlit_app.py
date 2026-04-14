@@ -210,9 +210,13 @@ with st.sidebar:
 
     # RESET
     if st.button("🔄 Reset Filters"):
-        for key in list(st.session_state.keys()):
-            del st.session_state[key]
-        st.rerun()
+        st.session_state["YEAR"] = []
+        st.session_state["MONTH"] = []
+        st.session_state["CLIENTS"] = []
+        st.session_state["DOMAIN"] = []
+        st.session_state["BH"] = []
+
+    st.rerun()
 # =========================
 # APPLY UI FILTERS (ADD THIS)
 # =========================
