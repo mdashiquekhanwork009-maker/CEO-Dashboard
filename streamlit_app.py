@@ -808,8 +808,8 @@ dod_data = daily_trends_cached(
     freeze_filter(set(selected_clients)) if selected_clients else None,
     freeze_filter(set(selected_domains)) if selected_domains else None,
     freeze_filter(set(selected_bhs)) if selected_bhs else None,
-    None,   # from_date
-    None,   # to_date
+    from_date,
+    to_date,
     "day"
 )
 dod_series = dod_data.get(ss["dod_metric"], [])
@@ -880,8 +880,8 @@ mom_data = daily_trends_cached(
     freeze_filter(set(selected_clients)) if selected_clients else None,
     freeze_filter(set(selected_domains)) if selected_domains else None,
     freeze_filter(set(selected_bhs)) if selected_bhs else None,
-    None,
-    None,
+    from_date,
+    to_date,
     "month"
 )  
 mom_series = mom_data.get(ss["mom_metric"], [])
