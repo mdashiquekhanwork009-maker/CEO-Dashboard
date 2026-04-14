@@ -307,8 +307,8 @@ def apply_ui_filters(df):
     if "display_date" in df.columns:
         df["date"] = get_date_column(df)
 
-        if df["date"] is None:
-            return []
+        if df["date"].isna().all():
+            return df
         if selected_years:
             df = df[df["date"].dt.year.astype(str).isin(selected_years)]
 
@@ -317,7 +317,12 @@ def apply_ui_filters(df):
 
     # CLIENT
     if selected_clients and "company_name" in df.columns:
-        df = df[df["company_name"].isin(selected_clients)]
+        client_cols = ["company_name", "Company_name", "client", "Client"]
+
+        client_col = next((c for c in client_cols if c in df.columns), None)
+
+    if selected_clients and client_col:
+        df = df[df[client_col].isin(selected_clients)]
 
     # DOMAIN
     if selected_domains and "domain" in df.columns:
@@ -898,7 +903,6 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
 
 # Fetch & filter
 dod_series = compute_trend_series(ss["dod_metric"], freq="day")
-dod_series = apply_filters_to_series(dod_series)
 if ss["dod_from"] and ss["dod_to"]:
     dod_series = filter_series_by_date(dod_series, ss["dod_from"], ss["dod_to"])
 else:
@@ -963,7 +967,6 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
 
 # Fetch & filter
 mom_series = compute_trend_series(ss["mom_metric"], freq="month")
-mom_series = apply_filters_to_series(mom_series)
 if ss["mom_from"] and ss["mom_to"]:
     mom_series = filter_series_by_date(mom_series, ss["mom_from"], ss["mom_to"])
 else:
