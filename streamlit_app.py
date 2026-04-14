@@ -686,6 +686,7 @@ with st.expander("Raw Data Explorer — Filtered source rows for each pipeline s
     dataset_options = list(RAW_DATASET_CONFIG.keys())
     dataset_labels  = [RAW_DATASET_CONFIG[k]["label"] for k in dataset_options]
     raw_ds_cols = st.columns(len(dataset_options))
+    ss = st.session_state
     if "raw_dataset" not in ss: ss["raw_dataset"] = "demand"
     for col, (key, label) in zip(raw_ds_cols, zip(dataset_options, dataset_labels)):
         with col:
