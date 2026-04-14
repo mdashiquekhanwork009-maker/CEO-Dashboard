@@ -1,4 +1,25 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+109780,INFYSYJP00002409/95351Y26-ETL QA Tester with Capital Market domain,INFYSYJP00002409/95351Y26-ETL QA Tester with Capital Market domain,Infosys Consulting,Tara V R,4,2026-04-14 12:29:55,923,0
+109779,INFYSYJP00003118 /559676 - SAP SD,INFYSYJP00003118 /559676 - SAP SD,Infosys Consulting,Tara V R,1,2026-04-14 12:26:47,923,0
+109778,INFYSYJP00002410/95352Y26-ETL QA Tester with AWS experience,INFYSYJP00002410/95352Y26-ETL QA Tester with AWS experience,Infosys Consulting,Tara V R,4,2026-04-14 12:22:34,923,0
+109777,INFYSYJP00002411/95353Y26-ETL QA Tester with Python Automation,INFYSYJP00002411/95353Y26-ETL QA Tester with Python Automation,Infosys Consulting,Tara V R,4,2026-04-14 12:19:53,923,0
+109776,INFYSYJP00002712 558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated) ,INFYSYJP00002712 558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated) ,Infosys Consulting,Tara V R,4,2026-04-14 12:19:14,923,0
+109775,INFYSYJP00003004/559056_DNACRL_Senior Syndigo Engineer_India,INFYSYJP00003004/559056_DNACRL_Senior Syndigo Engineer_India,Infosys Consulting,Tara V R,1,2026-04-14 12:17:21,923,0
+109774,Siddartha / SAP ABAP Development for HANA,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:16:47,925,0
+109773,"INFYSYJP00002412/95355Y26-ETL QA Tester with API Testing experience, Automation knowledge","INFYSYJP00002412/95355Y26-ETL QA Tester with API Testing experience, Automation knowledge",Infosys Consulting,Tara V R,3,2026-04-14 12:15:07,923,0
+109772,Moumita / Microsoft ASP.NET,Microsoft ASP.NET-,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:14:39,925,0
+109771,INFYSYJP00004138/168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138/168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Tara V R,1,2026-04-14 12:11:42,923,0
+109770,Moumita / Microsoft ASP.NET,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:10:45,925,0
+109769,Moumita  / Microsoft ASP.NET,Microsoft ASP.NET,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:09:38,925,0
+109768,INFYSYJP00004120/561815_Fullstack Developer,INFYSYJP00004120/561815_Fullstack Developer,Infosys Consulting,Tara V R,1,2026-04-14 12:08:44,923,0
+109767,INFYSYJP00003456/559299_DNAFS_WESTPAC_Technology Lead,INFYSYJP00003456/559299_DNAFS_WESTPAC_Technology Lead,Infosys Consulting,Tara V R,2,2026-04-14 12:04:39,923,0
+109766,Digital : Spring Boot~PL/SQL,Digital : Spring Boot~PL/SQL,TCS,Dhaval Patel,1,2026-04-14 12:00:19,943,0
+109765,Data Privacy and protect associate,Data Privacy and protect associate,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 11:56:43,249,0
+109764,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Chiranjeev Desai,3,2026-04-14 11:36:54,923,0
+109763,Sanjeeva - AWS Cloud Security,AWS Cloud Security,Cognizant,Syed Waseem,2,2026-04-14 11:28:01,18,0
+109762,associate - Data Privacy and Protection,associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 11:16:38,249,0
+109761,Oracle Revenue Management Cloud Service Position ,Oracle Revenue Management Cloud Service Position ,Deloitte_Consulting,Rajat Tyagi,1,2026-04-14 11:15:48,256,0
+109760,Python / Nisha,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 11:00:07,925,0
 109759,Digital : Spring Boot~PL/SQL,Digital : Spring Boot~PL/SQL,TCS,Dhaval Patel,1,2026-04-14 10:39:33,943,0
 109758,SAP Technical Consultant - BTP,SAP Technical Consultant ,BSH,Saravanan P,1,2026-04-14 10:13:05,802,0
 109757,Anupama / Microsoft Power Business Intelligence (BI),Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 10:12:39,925,0
@@ -41,7 +62,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109720,SAP PM,SAP PM,Deloitte_Consulting,Rajat Tyagi,1,2026-04-14 05:33:43,256,0
 109719,Pavani - Forgerock Developer,Forgerock Developer,Cognizant,Syed Waseem,2,2026-04-14 05:22:54,18,0
 109718,Senior AWS Engineers,Senior AWS Engineer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-14 05:00:53,493,0
-109717,Anupama / Devops,Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 04:59:03,925,0
+109717,Anupama / Devops,Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,3,2026-04-14 04:59:03,925,0
 109716,DevOps Engineers,DevOps Engineer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-14 04:54:40,493,0
 109715,INFYSYJP00003464/560776_Databricks Admin Senior_DNAHL_India,INFYSYJP00003464/560776_Databricks Admin Senior_DNAHL_India,Infosys Consulting,Tara V R,1,2026-04-14 04:54:23,923,0
 109714,Abragam - JAVA MSB KAFKA,JAVA MSB KAFKA,Cognizant,Syed Waseem,2,2026-04-14 04:52:11,18,0
