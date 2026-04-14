@@ -699,6 +699,7 @@ ZERO = dict(
     ex_hc=0, ex_po=0.0, ex_mg=0.0,
     ex_pipe_hc=0, ex_pipe_po=0.0, ex_pipe_mg=0.0,
     net_hc=0, net_po=0.0, net_mg=0.0,
+    overdue_hc=0,overdue_po=0.0,overdue_mg=0.0
 )
 def apply_date_filter(df, from_date, to_date):
     if df is None or df.empty:
@@ -839,20 +840,39 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             res[cl]["sel"]      += len(g)
             res[cl]["sel_pure"] += len(g)  # same as sel — kept separate for future use
 
-    # SELECTION PIPELINE
+    # SELECTION PIPEPLINE
     df = frames["selpipe"]
+
     cl_col = None
     if not df.empty:
         cl_col = next((c for c in ["Company_name", "company_name", "client", "Client"] if c in df.columns), None)
+
     if not df.empty and cl_col:
+
         if client_filter is not None:
             df = df[df[cl_col].isin(client_filter)]
+
+        today = pd.Timestamp.now().normalize()
+
         for cl, g in df.groupby(cl_col):
             ensure(cl)
+
+            # Pipeline metrics
             res[cl]["sp_hc"] += len(g)
             res[cl]["sp_po"] += float(g["_po"].sum())
             res[cl]["sp_mg"] += float(g["_mg"].sum())
 
+            # 🔥 FIXED OVERDUE LOGIC
+            g["_date"] = pd.to_datetime(g["_date"], errors="coerce")
+
+            overdue_df = g[
+                (g["_date"].notna()) &
+                (g["_date"].dt.normalize() < today)
+            ]
+
+            res[cl]["overdue_hc"] += len(overdue_df)
+            res[cl]["overdue_po"] += float(overdue_df["_po"].sum())
+            res[cl]["overdue_mg"] += float(overdue_df["_mg"].sum())
     # ONBOARDING
     # Rows where p_o_value > 100000 for Flipkart are counted under a
     # separate "Flipkart [Captive]" key so they appear under Captive domain.
@@ -927,6 +947,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         m["net_hc"] = m["ob_hc"] - m["ex_hc"]
         m["net_po"] = m["ob_po"] - m["ex_po"]
         m["net_mg"] = m["ob_mg"] - m["ex_mg"]
+
     return res
 
 

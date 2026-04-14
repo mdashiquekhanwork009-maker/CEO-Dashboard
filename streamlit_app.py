@@ -484,6 +484,10 @@ ex_pipe_mg= grand.get("ex_pipe_mg", 0.0)
 net_hc    = int(grand.get("net_hc", 0))
 net_po    = grand.get("net_po", 0.0)
 net_mg    = grand.get("net_mg", 0.0)
+# 🔥 OVERDUE KPI
+overdue_hc = int(grand.get("overdue_hc", 0))
+overdue_po = grand.get("overdue_po", 0.0)
+overdue_mg = grand.get("overdue_mg", 0.0)
 
 # Conversion rates — same as dashboard.py pc() function
 dem_cov = pct(sub, dem)
@@ -492,8 +496,7 @@ l1_sel  = pct(sel, l1)
 sel_ob  = pct(ob_hc, sel)
 sp_yet  = max(0, round((sel or 0) - (ob_hc or 0) - (sp_hc or 0)))
 
-# ─── ROW 1 KPI CARDS ──────────────────────────────────────────────────────────
-st.markdown('<div class="sec">📊 Recruitment Overview</div>', unsafe_allow_html=True)   
+# ─── ROW 1 KPI CARDS ──────────────────────────────────────────────
 cols = st.columns(6)
 
 with cols[0]:
@@ -537,7 +540,7 @@ with cols[5]:
     
 # ─── ROW 2 KPI CARDS ──────────────────────────────────────────────────────────
 st.markdown("<div style='margin-top:10px'></div>", unsafe_allow_html=True)
-cols2 = st.columns(5)
+cols2 = st.columns(6)
 
 with cols2[0]:
     st.markdown(kpi_card("green","🚀","Onboarded", f"{ob_hc:,}", "green",
@@ -551,8 +554,19 @@ with cols2[1]:
         f"Pipeline <strong>{ex_pipe_hc}</strong> HC · <strong>₹{L(ex_pipe_po)}L</strong> PO · <strong>₹{L(ex_pipe_mg)}L</strong> margin",
         tag_r(f"{ex_hc} headcount lost")),
         unsafe_allow_html=True)
+with cols2[2]:  # shift existing ones right OR add new column layout
 
-with cols2[2]:
+    st.markdown(kpi_card(
+        "red",
+        "⏰",
+        "Overdue Onboarding",
+        f"{overdue_hc:,}",
+        "red",
+        f"<strong>₹{L(overdue_po)}L</strong> PO · <strong>₹{L(overdue_mg)}L</strong> margin",
+        tag_r("Delayed onboarding risk")
+    ), unsafe_allow_html=True)
+
+with cols2[3]:
     net_hc_clr = "green" if net_hc >= 0 else "red"
     net_hc_str = f"{'+'if net_hc>=0 else '−'}{abs(net_hc):,}"
     st.markdown(kpi_card(net_hc_clr,"📈","Net HC", net_hc_str, net_hc_clr,
@@ -560,7 +574,7 @@ with cols2[2]:
         tag_g("▲ Growth") if net_hc >= 0 else tag_r("▼ Decline")),
         unsafe_allow_html=True)
 
-with cols2[3]:
+with cols2[4]:
     net_po_clr = "green" if net_po >= 0 else "red"
     net_po_str = f"{'+'if net_po>=0 else '−'}₹{L(abs(net_po))}L"
     st.markdown(kpi_card(net_po_clr,"💰","Net PO", net_po_str, net_po_clr,
@@ -568,13 +582,14 @@ with cols2[3]:
         tag_g("Positive") if net_po >= 0 else tag_r("Negative")),
         unsafe_allow_html=True)
 
-with cols2[4]:
+with cols2[5]:
     net_mg_clr = "green" if net_mg >= 0 else "red"
     net_mg_str = f"{'+'if net_mg>=0 else '−'}₹{L(abs(net_mg))}L"
     st.markdown(kpi_card(net_mg_clr,"🎯","Net Margin", net_mg_str, net_mg_clr,
         f"Ob <strong>₹{L(ob_mg)}L</strong> – Ex <strong>₹{L(ex_mg)}L</strong>",
         tag_g("Positive") if net_mg >= 0 else tag_r("Negative")),
         unsafe_allow_html=True)
+
 
 # ─── COMPARISON BARS ──────────────────────────────────────────────────────────
 if selected_years and selected_months:
