@@ -239,7 +239,7 @@ def compute_trend_series(metric_key, freq="day"):
         "sel": data.get("sel"),
         "ob": data.get("ob"),
         "ex": data.get("exit"),
-}
+    }
 
     df = df_map.get(metric_key)
 
@@ -248,11 +248,12 @@ def compute_trend_series(metric_key, freq="day"):
 
     df = df.copy()
 
-    # DATE
+    # DATE FIX
     df["date"] = get_date_column(df)
 
-    if df["date"] is None:
+    if df["date"].isna().all():
         return []
+
     # FILTERS
     if selected_years:
         df = df[df["date"].dt.year.astype(str).isin(selected_years)]
@@ -263,7 +264,7 @@ def compute_trend_series(metric_key, freq="day"):
     if selected_clients:
         df = df[df["company_name"].isin(selected_clients)]
 
-    # GROUP
+    # GROUPING
     if freq == "day":
         df["group"] = df["date"].dt.date
     else:
@@ -271,8 +272,7 @@ def compute_trend_series(metric_key, freq="day"):
 
     result = df.groupby("group").size().reset_index(name="value")
 
-    return [{"d": str(r["group"]), "v": int(r["value"])} for _, r in result.iterrows()]
-    
+    return [{"d": str(r["group"]), "v": int(r["value"])} for _, r in result.iterrows()]    
 def apply_filters_to_series(series):
     if not series:
         return series
