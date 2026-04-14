@@ -765,10 +765,10 @@ resolved = resolve_client_filter_cached(
 )
 
 dod_data = daily_trends_cached(
-    resolved,
-    freeze_date(from_date),
-    freeze_date(to_date),
-    "day"
+    resolved_clients=resolved_clients,
+    from_date_key=freeze_date(from_date),
+    to_date_key=freeze_date(to_date),
+    grain="day"
 )
 
 dod_series = dod_data.get(ss["dod_metric"], [])
@@ -833,12 +833,11 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
 
 # Fetch & filter
 mom_data = daily_trends_cached(
-    resolved_clients,
-    None,
-    None,
-    "month"
+    resolved_clients=resolved_clients,
+    from_date_key=None,
+    to_date_key=None,
+    grain="month"
 )
-
 mom_series = mom_data.get(ss["mom_metric"], [])
 
 mom_label = next((label for _, label, k in mom_metrics if k == ss["mom_metric"]), "")
