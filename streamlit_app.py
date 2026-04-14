@@ -841,7 +841,6 @@ with st.expander("Raw Data Explorer", expanded=False):
         st.markdown("### 📊 Client Breakdown")
 
         if "company_name" in raw_df.columns:
-            
             breakdown = (
                 raw_df
                 .groupby("company_name")
