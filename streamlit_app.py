@@ -230,6 +230,7 @@ with st.sidebar:
         st.session_state["CLIENTS"] = []
         st.session_state["DOMAIN"] = []
         st.session_state["BH"] = []
+        st.write("Filters Applied:", selected_years, selected_months, selected_clients)
         st.rerun()
 # =========================
 # APPLY UI FILTERS (ADD THIS)
