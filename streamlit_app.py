@@ -488,7 +488,22 @@ grand, rows = get_grand(
     tuple(selected_years), tuple(selected_months),
     tuple(selected_clients), tuple(selected_domains), tuple(selected_bhs),
 )
+# 🔥 BUILD DATE RANGE FROM FILTERS
+if selected_years and selected_months:
+    year = int(selected_years[0])
 
+    from_date = datetime(year, min(selected_months), 1)
+
+    # safer end date
+    last_month = max(selected_months)
+    if last_month == 12:
+        to_date = datetime(year, 12, 31)
+    else:
+        next_month = datetime(year, last_month + 1, 1)
+        to_date = next_month - timedelta(days=1)
+else:
+    from_date = None
+    to_date = None
 # 🔥 LMTD CALCULATION
 cy = int(selected_years[0]) if selected_years else datetime.now().year
 cm = int(selected_months[0]) if selected_months else datetime.now().month
@@ -790,9 +805,11 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
 
 # Fetch & filter
 dod_data = daily_trends_cached(
-    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
-    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
     freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_filter(set(selected_domains)) if selected_domains else None,
+    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    None,   # from_date
+    None,   # to_date
     "day"
 )
 dod_series = dod_data.get(ss["dod_metric"], [])
@@ -860,9 +877,11 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
 
 # Fetch & filter
 mom_data = daily_trends_cached(
-    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
-    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
     freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_filter(set(selected_domains)) if selected_domains else None,
+    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    None,
+    None,
     "month"
 )  
 mom_series = mom_data.get(ss["mom_metric"], [])
