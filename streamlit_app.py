@@ -711,8 +711,8 @@ st.markdown('<div class="sec">Raw Data Explorer</div>', unsafe_allow_html=True)
 with st.expander("Raw Data Explorer — Filtered source rows for each pipeline stage", expanded=False):
 
     # Dataset selector
-    dataset_options = list(RAW_DATASET_CONFIG.keys())
-    dataset_labels  = [RAW_DATASET_CONFIG[k]["label"] for k in dataset_options]
+    dataset_options = list(RAW_DATASET_CONFIG.keys()) + ["overdue"]
+    dataset_labels = [RAW_DATASET_CONFIG[k]["label"] if k in RAW_DATASET_CONFIG else "⏰ Overdue Onboarding" for k in dataset_options]
     raw_ds_cols = st.columns(len(dataset_options))
     ss = st.session_state
     if "raw_dataset" not in ss: ss["raw_dataset"] = "demand"
@@ -758,6 +758,18 @@ with st.expander("Raw Data Explorer — Filtered source rows for each pipeline s
         to_date=pd.Timestamp(raw_to)     if raw_to   else None,
         demand_status=demand_status,
     )
+    # 🔥 OVERDUE FILTER
+    if ss["raw_dataset"] == "overdue":
+
+        if "display_date" in raw_df.columns:
+            raw_df["display_date"] = pd.to_datetime(raw_df["display_date"], errors="coerce")
+
+            today = pd.Timestamp.now().normalize()
+        
+            raw_df = raw_df[
+                (raw_df["display_date"].notna()) &
+                (raw_df["display_date"].dt.normalize() < today)
+            ]
     visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
     ds_label = RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
     st.caption(f"{ds_label}: **{len(raw_df):,}** row(s)")
