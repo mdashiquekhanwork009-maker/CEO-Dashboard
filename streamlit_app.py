@@ -715,7 +715,7 @@ with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
 
 st.markdown('<div class="sec">Raw Data Explorer</div>', unsafe_allow_html=True)
 with st.expander("Raw Data Explorer", expanded=False):
-    base_dataset = "selpipe" if ss["raw_dataset"] == "overdue" else ss["raw_dataset"]
+    
     today = datetime.now()
     current_year = today.year
     current_month = today.month
@@ -786,41 +786,44 @@ with st.expander("Raw Data Explorer", expanded=False):
         all_clients,
         key="raw_clients_sel"
     )
-    # Fetch
-    raw_df = get_raw_dataset_frame(
-    ss["raw_dataset"],
-    year_filter=None if raw_from or raw_to else year_filter,
-    month_filter=None if raw_from or raw_to else month_filter,
-    client_filter=set(raw_clients) if raw_clients else None,
-    from_date=pd.Timestamp(raw_from) if raw_from else None,
-    to_date=pd.Timestamp(raw_to) if raw_to else None,
-    demand_status=demand_status,
-)
-    
-    # 🔥 OVERDUE FILTER
+
     # =========================
-# OVERDUE FILTER
-# =========================
+    # OVERDUE FILTER
+    # =========================
+    base_dataset = "selpipe" if ss["raw_dataset"] == "overdue" else ss["raw_dataset"]
+
+    if ss["raw_dataset"] == "overdue":
+        year_filter = None
+        month_filter = None
+
+    # =========================
+    # FETCH
+    # =========================
+    raw_df = get_raw_dataset_frame(
+        base_dataset,
+        year_filter=None if raw_from or raw_to else year_filter,
+        month_filter=None if raw_from or raw_to else month_filter,
+        client_filter=set(raw_clients) if raw_clients else None,
+        from_date=pd.Timestamp(raw_from) if raw_from else None,
+        to_date=pd.Timestamp(raw_to) if raw_to else None,
+        demand_status=demand_status,
+    )
+
+    # =========================
+    # OVERDUE FILTER
+    # =========================
+    # =========================
+    # OVERDUE FILTER
+    # =========================
     if ss["raw_dataset"] == "overdue":
 
         if "display_date" in raw_df.columns:
 
-            raw_df["display_date"] = pd.to_datetime(raw_df["display_date"], errors="coerce")
+            df_dates = pd.to_datetime(raw_df["display_date"], errors="coerce")
 
-            today = pd.Timestamp.now().normalize()
+            today_ts = pd.Timestamp.now().normalize()
 
             raw_df = raw_df[
-                (raw_df["display_date"].notna()) &
-                (raw_df["display_date"].dt.normalize() < today)
+                (df_dates.notna()) &
+                (df_dates.dt.normalize() < today_ts)
             ]
-    visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
-    ds_label = (
-    RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
-    if ss["raw_dataset"] in RAW_DATASET_CONFIG
-    else "⏰ Overdue Onboarding"
-)
-    st.caption(f"{ds_label}: **{len(raw_df):,}** row(s)")
-    if visible_cols:
-        st.dataframe(raw_df[visible_cols], width="stretch", hide_index=True)
-    else:
-        st.info("No raw records found for the selected filters.")
