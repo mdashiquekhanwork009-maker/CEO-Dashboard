@@ -825,11 +825,8 @@ with st.expander("Raw Data Explorer", expanded=False):
     else:
         st.info("No raw records found for the selected filters.")
     # =========================
-    # OVERDUE FILTER
-    # =========================
-    # ========================= 
-    # OVERDUE FILTER
-    # =========================
+# OVERDUE FILTER (WITH YEAR)
+# =========================
     if ss["raw_dataset"] == "overdue":
 
         if "display_date" in raw_df.columns:
@@ -838,7 +835,21 @@ with st.expander("Raw Data Explorer", expanded=False):
 
             today_ts = pd.Timestamp.now().normalize()
 
-            raw_df = raw_df[
-                (df_dates.notna()) &
+            mask = (
+                df_dates.notna() &
                 (df_dates.dt.normalize() < today_ts)
-            ]
+            )
+
+            # ✅ APPLY YEAR FILTER
+            if raw_year:
+                mask &= (df_dates.dt.year == int(raw_year))
+
+            # ✅ APPLY MONTH FILTER (optional)
+            if raw_month:
+                selected_month_nums = {
+                    k for k, v in month_map.items()
+                    if v in raw_month
+                }
+                mask &= df_dates.dt.month.isin(selected_month_nums)
+
+            raw_df = raw_df[mask]
