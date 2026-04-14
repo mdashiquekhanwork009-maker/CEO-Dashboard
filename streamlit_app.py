@@ -809,9 +809,55 @@ with st.expander("Raw Data Explorer", expanded=False):
         demand_status=demand_status,
     )
     # =========================
-    # DISPLAY SAFE
+    # OVERDUE FILTER (FIRST)
     # =========================
+    if ss["raw_dataset"] == "overdue":
+        if "display_date" in raw_df.columns:
+            df_dates = pd.to_datetime(raw_df["display_date"], errors="coerce")
+            today_ts = pd.Timestamp.now().normalize()
 
+            mask = (
+                df_dates.notna() &
+                (df_dates.dt.normalize() < today_ts)
+            )
+
+            if raw_year:
+                mask &= (df_dates.dt.year == int(raw_year))
+
+            if raw_month:
+                selected_month_nums = {
+                    k for k, v in month_map.items()
+                    if v in raw_month
+                }
+                mask &= df_dates.dt.month.isin(selected_month_nums)
+
+            raw_df = raw_df[mask]
+
+    # =========================
+    # CLIENT BREAKDOWN
+    # =========================
+    if raw_df is not None and not raw_df.empty:
+
+        st.markdown("### 📊 Client Breakdown")
+
+        if "company_name" in raw_df.columns:
+            breakdown = (
+                raw_df
+                .groupby("company_name")
+                .agg(
+                    HC=("company_name", "count"),
+                    PO=("p_o_value", "sum"),
+                    Margin=("margin", "sum")
+                )
+                .reset_index()
+                .sort_values("HC", ascending=False)
+            )
+
+            st.dataframe(breakdown, width="stretch", hide_index=True)
+
+    # =========================
+    # RAW TABLE
+    # =========================
     if raw_df is not None and not raw_df.empty:
 
         visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
@@ -824,36 +870,3 @@ with st.expander("Raw Data Explorer", expanded=False):
 
     else:
         st.info("No raw records found for the selected filters.")
-    # =========================
-    # OVERDUE FILTER (FINAL FIX)
-    # =========================
-    if ss["raw_dataset"] == "overdue":
-
-        if "display_date" in raw_df.columns:
-
-            df_dates = pd.to_datetime(raw_df["display_date"], errors="coerce")
-            today_ts = pd.Timestamp.now().normalize()
-
-            # Base overdue condition
-            mask = (
-                df_dates.notna() &
-                (df_dates.dt.normalize() < today_ts)
-            )
-
-            # =========================
-            # APPLY YEAR FILTER
-            # =========================
-            if raw_year:
-                mask &= (df_dates.dt.year == int(raw_year))
-
-            # =========================
-            # APPLY MONTH FILTER
-            # =========================
-            if raw_month:
-                selected_month_nums = {
-                    k for k, v in month_map.items()
-                    if v in raw_month
-                }
-                mask &= df_dates.dt.month.isin(selected_month_nums)
-
-            raw_df = raw_df[mask]
