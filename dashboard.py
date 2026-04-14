@@ -1297,10 +1297,12 @@ def api_daily_trends():
     if to_date is not None and hasattr(to_date, 'tzinfo') and to_date.tzinfo:
         to_date = to_date.tz_localize(None)
 
-    cl_filter, _, _ = get_resolved_filters()
+    cl_filter, dom_filter, bh_filter = get_resolved_filters()
 
     result = daily_trends_cached(
         freeze_filter(cl_filter),
+        freeze_filter(dom_filter),
+        freeze_filter(bh_filter),
         freeze_date(from_date),
         freeze_date(to_date),
         grain,

@@ -162,6 +162,83 @@ client_meta, year_options, month_options, domain_options, bh_options = init_data
 all_clients = [c["name"] for c in client_meta]
 month_map   = {i: calendar.month_abbr[i] for i in range(1, 13)}
 
+# ─── SIDEBAR FILTERS ──────────────────────────────────────────────────────────
+now = datetime.now()
+
+with st.sidebar:
+
+    st.markdown("## 🔎 Filters")
+
+    # YEAR
+    current_year = str(now.year)
+    selected_years = st.multiselect(
+        "YEAR",
+        year_options,
+        default=[current_year] if current_year in year_options else [year_options[0]]
+    )
+
+    # MONTH
+    current_month_name = month_map[now.month]
+    month_names_list = [month_map[m] for m in month_options]
+
+    if current_month_name in month_names_list:
+        default_month = [current_month_name]
+    else:
+        default_month = [month_map[month_options[-1]]] if month_options else []
+
+    selected_month_names = st.multiselect(
+        "MONTH",
+        month_names_list,
+        default=default_month
+    )
+
+    selected_months = [k for k, v in month_map.items() if v in selected_month_names]
+
+    # CLIENT
+    selected_clients = st.multiselect("CLIENTS", all_clients)
+
+    # DOMAIN
+    selected_domains = st.multiselect("DOMAIN", domain_options)
+
+    # BH
+    selected_bhs = st.multiselect("BH", bh_options)
+
+    # RESET
+    if st.button("🔄 Reset Filters"):
+        st.rerun()
+
+# =========================
+# APPLY UI FILTERS (ADD THIS)
+# =========================
+def apply_ui_filters(df):
+    if df is None or df.empty:
+        return df
+
+    df = df.copy()
+
+    # YEAR (based on date column)
+    if "display_date" in df.columns:
+        df["display_date"] = pd.to_datetime(df["display_date"], dayfirst=True, errors="coerce")
+        if selected_years:
+            df = df[df["display_date"].dt.year.astype(str).isin(selected_years)]
+
+        if selected_months:
+            df = df[df["display_date"].dt.month.isin(selected_months)]
+
+    # CLIENT
+    if selected_clients and "company_name" in df.columns:
+        df = df[df["company_name"].isin(selected_clients)]
+
+    # DOMAIN
+    if selected_domains and "domain" in df.columns:
+        df = df[df["domain"].isin(selected_domains)]
+
+    # BH
+    if selected_bhs and "bh" in df.columns:
+        df = df[df["bh"].isin(selected_bhs)]
+
+    return df
+
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
 def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None):
@@ -353,71 +430,7 @@ if not ss.get("mom_metric"): ss["mom_metric"] = "dem"
 if "mom_from" not in ss:     ss["mom_from"]   = None
 if "mom_to"   not in ss:     ss["mom_to"]     = None
 
-# ─── TOP FILTER BAR ───────────────────────────────────────────────────────────
-now = datetime.now()
-c_logo, c_date, c_yr, c_mo, c_cl, c_dom, c_bh, c_reset = st.columns([1,1.5,1.2,1.2,1.6,1.4,1.4,1])
 
-with c_logo:
-    st.markdown("""
-    <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
-        <span style="font-size:18px;font-weight:800;color:#e8453c">J2W</span>
-        <span style="font-size:12px;color:var(--text-color);opacity:0.7">Dashboard</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-with c_date:
-    st.markdown(f"""<div style="background: var(--secondary-background-color);border-radius:10px;padding:7px 10px;
-        box-shadow:0 1px 4px rgba(0,0,0,0.08);font-size:11px;color: var(--text-color);font-weight:600;margin-top:4px">
-        🕐 Updated: {now.strftime('%d %b %Y %H:%M')}</div>""", unsafe_allow_html=True)
-
-with c_yr:
-    current_year = str(datetime.now().year)
-    selected_years = st.multiselect(
-        "YEAR",
-        year_options,
-        default=[current_year] if current_year in year_options else [year_options[0]],
-        placeholder="Select Years"
-    )
-
-with c_mo:
-    current_month_num = datetime.now().month
-    current_month_name = month_map[current_month_num]
-
-    month_names_list = [month_map[m] for m in month_options]
-
-    # ✅ Default logic
-    if current_month_name in month_names_list:
-        default_month = [current_month_name]
-    else:
-        default_month = [month_map[month_options[-1]]] if month_options else []
-
-    # ✅ APPLY DEFAULT HERE
-    sel_month_names = st.multiselect(
-        "MONTH",
-        month_names_list,
-        default=default_month,
-        placeholder="Select Months"
-    )
-
-    selected_months = [k for k, v in month_map.items() if v in sel_month_names]
-
-
-
-with c_cl:
-    selected_clients = st.multiselect("CLIENTS", all_clients, placeholder="Select Clients")
-
-with c_dom:
-    selected_domains = st.multiselect("DOMAIN", domain_options, placeholder="Select Domain")
-
-with c_bh:
-    selected_bhs = st.multiselect("BH", bh_options, placeholder="Select BH")
-
-with c_reset:
-    st.markdown("<div style='margin-top:4px'></div>", unsafe_allow_html=True)
-    if st.button("Reset", use_container_width=True):
-        for key in ["dod_range","dod_metric","dod_from","dod_to","mom_range","mom_metric","mom_from","mom_to"]:
-            if key in ss: del ss[key]
-        st.rerun()
 
 # ─── FETCH GRAND DATA ─────────────────────────────────────────────────────────
 grand, rows = get_grand(
@@ -725,7 +738,12 @@ for col, (icon, label, key) in zip(dod_pill_cols, dod_metrics):
             st.rerun()
 
 # Fetch & filter
-dod_data = daily_trends_cached(None, None, None, "day")
+dod_data = daily_trends_cached(
+    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
+    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    "day"
+)
 dod_series = dod_data.get(ss["dod_metric"], [])
 if ss["dod_from"] and ss["dod_to"]:
     dod_series = filter_series_by_date(dod_series, ss["dod_from"], ss["dod_to"])
@@ -790,7 +808,12 @@ for col, (icon, label, key) in zip(mom_pill_cols, mom_metrics):
             st.rerun()
 
 # Fetch & filter
-mom_data = daily_trends_cached(None, None, None, "month")
+mom_data = daily_trends_cached(
+    freeze_filter({int(y) for y in selected_years}) if selected_years else None,
+    freeze_filter({int(m) for m in selected_months}) if selected_months else None,
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    "month"
+)  
 mom_series = mom_data.get(ss["mom_metric"], [])
 if ss["mom_from"] and ss["mom_to"]:
     mom_series = filter_series_by_date(mom_series, ss["mom_from"], ss["mom_to"])
