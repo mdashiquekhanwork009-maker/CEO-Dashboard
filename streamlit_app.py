@@ -734,7 +734,11 @@ with st.expander("Raw Data Explorer", expanded=False):
     # Filters
     rf1, rf2, rf3, rf4 = st.columns([1.5, 1.5, 1.5, 2])
     with rf1:
-        raw_month = st.date_input("Month picker", value=None, format="MMM", key="raw_month")
+        raw_month = st.multiselect(
+    "Month",
+    month_names_list,
+    key="raw_month"
+)
     with rf2:
         raw_from  = st.date_input("From Date", value=None, format="YYYY-MM-DD", key="raw_from")
     with rf3:
