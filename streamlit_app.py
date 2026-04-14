@@ -677,83 +677,63 @@ with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
         if base:
             c4.caption(f"{pct(val,base)}%")
 
-# =========================================================
-# 📋 RAW DATA EXPLORER (SINGLE FILE VERSION)
-# =========================================================
+# ─── RAW DATA EXPLORER ────────────────────────────────────────────────────────
 
-st.markdown('<div class="sec">📋 Raw Data Explorer</div>', unsafe_allow_html=True)
+st.markdown('<div class="sec">Raw Data Explorer</div>', unsafe_allow_html=True)
+with st.expander("Raw Data Explorer — Filtered source rows for each pipeline stage", expanded=False):
 
-with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
-
+    # Dataset selector
+    dataset_options = list(RAW_DATASET_CONFIG.keys())
+    dataset_labels  = [RAW_DATASET_CONFIG[k]["label"] for k in dataset_options]
+    raw_ds_cols = st.columns(len(dataset_options))
     ss = st.session_state
-
-    # -----------------------------
-    # DEFAULT STATE
-    # -----------------------------
-    if "raw_dataset" not in ss:
-        ss["raw_dataset"] = "All Data"
-
-    # -----------------------------
-    # DATASET BUTTONS (SIMPLIFIED)
-    # -----------------------------
-    dataset_options = ["All Data", "Active HC", "Exited", "High Margin"]
-
-    cols = st.columns(len(dataset_options))
-
-    for col, option in zip(cols, dataset_options):
+    if "raw_dataset" not in ss: ss["raw_dataset"] = "demand"
+    for col, (key, label) in zip(raw_ds_cols, zip(dataset_options, dataset_labels)):
         with col:
-            if st.button(option, key=f"raw_{option}", use_container_width=True):
-                ss["raw_dataset"] = option
+            if st.button(label, key=f"raw_ds_{key}", width="stretch",
+                         type="primary" if ss["raw_dataset"] == key else "secondary"):
+                ss["raw_dataset"] = key
                 st.rerun()
 
     st.markdown("---")
 
-    # -----------------------------
-    # FILTERS
-    # -----------------------------
-    f1, f2, f3 = st.columns(3)
+    # Filters
+    rf1, rf2, rf3, rf4 = st.columns([1.5, 1.5, 1.5, 2])
+    with rf1:
+        raw_month = st.date_input("Month picker", value=None, format="YYYY-MM-DD", key="raw_month")
+    with rf2:
+        raw_from  = st.date_input("From Date", value=None, format="YYYY-MM-DD", key="raw_from")
+    with rf3:
+        raw_to    = st.date_input("To Date",   value=None, format="YYYY-MM-DD", key="raw_to")
+    with rf4:
+        if ss["raw_dataset"] == "demand":
+            demand_status = st.radio("Demand Filter", ["all", "unserviced", "serviced"], horizontal=True, key="raw_dem_status")
+        else:
+            demand_status = "all"
 
-    with f1:
-        raw_client = st.multiselect("Client", df["company_name"].dropna().unique())
+    raw_clients = st.multiselect("Filter by clients (raw data)", all_clients, key="raw_clients_sel")
 
-    with f2:
-        raw_from = st.date_input("From Date", value=None)
+    # Resolve filters
+    year_filter = month_filter = None
+    if raw_month:
+        ts = pd.Timestamp(raw_month)
+        year_filter  = {int(ts.year)}
+        month_filter = {int(ts.month)}
 
-    with f3:
-        raw_to = st.date_input("To Date", value=None)
-
-    # -----------------------------
-    # APPLY FILTERS
-    # -----------------------------
-    raw_df = df.copy()
-
-    # Dataset logic
-    if ss["raw_dataset"] == "Active HC":
-        raw_df = raw_df[raw_df["Status"] == "Active"]
-
-    elif ss["raw_dataset"] == "Exited":
-        raw_df = raw_df[raw_df["Status"] == "Exit"]
-
-    elif ss["raw_dataset"] == "High Margin":
-        raw_df = raw_df[raw_df["margin"] > raw_df["margin"].median()]
-
-    # Client filter
-    if raw_client:
-        raw_df = raw_df[raw_df["company_name"].isin(raw_client)]
-
-    # Date filter
-    if raw_from:
-        raw_df = raw_df[raw_df["date"] >= pd.Timestamp(raw_from)]
-
-    if raw_to:
-        raw_df = raw_df[raw_df["date"] <= pd.Timestamp(raw_to)]
-
-    # -----------------------------
-    # OUTPUT
-    # -----------------------------
-    st.caption(f"Rows: {len(raw_df):,}")
-
-    st.dataframe(
-        raw_df,
-        width="stretch"
+    # Fetch
+    raw_df = get_raw_dataset_frame(
+        ss["raw_dataset"],
+        year_filter=year_filter,
+        month_filter=month_filter,
+        client_filter=set(raw_clients) if raw_clients else None,
+        from_date=pd.Timestamp(raw_from) if raw_from else None,
+        to_date=pd.Timestamp(raw_to)     if raw_to   else None,
+        demand_status=demand_status,
     )
+    visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
+    ds_label = RAW_DATASET_CONFIG[ss["raw_dataset"]]["label"]
+    st.caption(f"{ds_label}: **{len(raw_df):,}** row(s)")
+    if visible_cols:
+        st.dataframe(raw_df[visible_cols], width="stretch", hide_index=True)
+    else:
+        st.info("No raw records found for the selected filters.")
