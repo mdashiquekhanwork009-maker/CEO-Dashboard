@@ -472,7 +472,30 @@ def get_raw_period_filters():
     years = {year} if year else None
     months = {month} if month else None
     return years, months
+def apply_filters_to_series(series):
+    if not series:
+        return series
 
+    filtered = []
+
+    for row in series:
+        try:
+            d = pd.Timestamp(row["d"])
+
+            # YEAR filter
+            if selected_years and str(d.year) not in selected_years:
+                continue
+
+            # MONTH filter
+            if selected_months and d.month not in selected_months:
+                continue
+
+            filtered.append(row)
+
+        except:
+            filtered.append(row)
+
+    return filtered
 
 def filter_clients(df, file_key, client_filter=None):
     if df.empty or not client_filter:
