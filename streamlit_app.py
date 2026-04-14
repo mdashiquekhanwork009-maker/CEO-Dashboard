@@ -808,11 +808,26 @@ with st.expander("Raw Data Explorer", expanded=False):
         to_date=pd.Timestamp(raw_to) if raw_to else None,
         demand_status=demand_status,
     )
+    # =========================
+    # DISPLAY SAFE
+    # =========================
 
+    if raw_df is not None and not raw_df.empty:
+
+        visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
+
+        st.dataframe(
+            raw_df[visible_cols] if visible_cols else raw_df,
+            width="stretch",
+            hide_index=True
+        )
+
+    else:
+        st.info("No raw records found for the selected filters.")
     # =========================
     # OVERDUE FILTER
     # =========================
-    # =========================
+    # ========================= 
     # OVERDUE FILTER
     # =========================
     if ss["raw_dataset"] == "overdue":
