@@ -358,6 +358,57 @@ def trend_chart(series, label, color="#e74c3c"):
         showlegend=False,
     )
     return fig
+def generate_ceo_insights(current, previous):
+    insights = []
+
+    def pct_change(cur, prev):
+        if prev == 0:
+            return 0
+        return round((cur - prev) / prev * 100)
+
+    # Demand servicing
+    dem = current.get("dem", 0)
+    dem_u = current.get("dem_u", 0)
+
+    if dem > 0:
+        unserv_pct = round(dem_u / dem * 100)
+        if unserv_pct > 20:
+            insights.append(f"⚠️ {unserv_pct}% demands are unserviced — risk to delivery")
+        else:
+            insights.append(f"✅ Demand servicing healthy ({100 - unserv_pct}% covered)")
+
+    # Submissions
+    sub_change = pct_change(current.get("sub", 0), previous.get("sub", 0))
+    if sub_change < -10:
+        insights.append(f"📉 Submissions dropped {abs(sub_change)}% vs last period")
+    elif sub_change > 10:
+        insights.append(f"🚀 Submissions increased {sub_change}%")
+
+    # Onboarding
+    ob_change = pct_change(current.get("ob_hc", 0), previous.get("ob_hc", 0))
+    if ob_change > 10:
+        insights.append(f"🚀 Onboarding improved {ob_change}%")
+    elif ob_change < -10:
+        insights.append(f"📉 Onboarding declined {abs(ob_change)}%")
+
+    # Conversion
+    l1 = current.get("l1", 0)
+    sel = current.get("sel", 0)
+    if l1 > 0:
+        conv = round(sel / l1 * 100)
+        if conv < 40:
+            insights.append(f"⚠️ Low L1→Selection conversion ({conv}%)")
+        else:
+            insights.append(f"✅ Strong L1→Selection conversion ({conv}%)")
+
+    # Net HC
+    net_hc = current.get("net_hc", 0)
+    if net_hc < 0:
+        insights.append(f"📉 Net HC declined by {abs(net_hc)}")
+    elif net_hc > 0:
+        insights.append(f"📈 Net HC grew by {net_hc}")
+
+    return insights
 def get_lmtd_range(year, month):
     today = datetime.now()
 
@@ -822,7 +873,16 @@ else:
 
 mom_label = next((label for _, label, k in mom_metrics if k == ss["mom_metric"]), "")
 st.plotly_chart(trend_chart(mom_series, mom_label, color="#3498db"), use_container_width=True, key="mom_chart")
+# ─── CEO INSIGHTS ─────────────────────────────────────────
+st.markdown("### 🧠 CEO Insights")
 
+insights = generate_ceo_insights(grand, prev_grand)
+
+if insights:
+    for ins in insights:
+        st.markdown(f"- {ins}")
+else:
+    st.info("No major signals detected.")
 # ─── CLIENT BREAKDOWN TABLE ───────────────────────────────────────────────────
 st.markdown('<div class="sec">Client Breakdown — MTD</div>', unsafe_allow_html=True)
 with st.expander(f"Client Breakdown — {len(rows)} clients", expanded=False):
