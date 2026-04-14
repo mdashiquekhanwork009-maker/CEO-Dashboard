@@ -750,8 +750,14 @@ if ss["dod_from"] and ss["dod_to"]:
     from_date = ss["dod_from"]
     to_date   = ss["dod_to"]
 
-dod_data = daily_trends_cached(
+resolved = resolve_client_filter_cached(
     freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_filter(set(selected_domains)) if selected_domains else None,
+    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+)
+
+dod_data = daily_trends_cached(
+    resolved,
     freeze_date(from_date),
     freeze_date(to_date),
     "day"
@@ -759,13 +765,6 @@ dod_data = daily_trends_cached(
 
 dod_series = dod_data.get(ss["dod_metric"], [])
 
-# 🔥 APPLY SAME DATE RANGE AS KPI
-if from_date and to_date:
-    dod_series = filter_series_by_date(dod_series, from_date, to_date)
-if ss["dod_from"] and ss["dod_to"]:
-    dod_series = filter_series_by_date(dod_series, ss["dod_from"], ss["dod_to"])
-else:
-    dod_series = filter_series_by_days(dod_series, ss["dod_range"])
 
 dod_label = next((label for _, label, k in dod_metrics if k == ss["dod_metric"]), "")
 st.plotly_chart(trend_chart(dod_series, dod_label), use_container_width=True, key="dod_chart")
@@ -833,13 +832,6 @@ mom_data = daily_trends_cached(
 )
 
 mom_series = mom_data.get(ss["mom_metric"], [])
-# 🔥 SAME DATE ALIGNMENT
-if from_date and to_date:
-    mom_series = filter_series_by_date(mom_series, from_date, to_date)
-if ss["mom_from"] and ss["mom_to"]:
-    mom_series = filter_series_by_date(mom_series, ss["mom_from"], ss["mom_to"])
-else:
-    mom_series = filter_series_by_months(mom_series, ss["mom_range"])
 
 mom_label = next((label for _, label, k in mom_metrics if k == ss["mom_metric"]), "")
 st.plotly_chart(trend_chart(mom_series, mom_label, color="#3498db"), use_container_width=True, key="mom_chart")
