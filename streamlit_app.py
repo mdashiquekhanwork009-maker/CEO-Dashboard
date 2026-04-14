@@ -221,28 +221,28 @@ with st.sidebar:
 def compute_trend_series(metric_key, freq="day"):
     data = load_data_cached()
 
-    # pick correct dataset
     df_map = {
-        "dem": data["demand"],
-        "dem_u": data["demand"],
-        "sub": data["submission"],
-        "sub_fp": data["submission"],
-        "intv": data["interview"],
-        "sel": data["selection"],
-        "ob": data["onboarding"],
-        "ex": data["exit"],
+        "dem": data.get("demand_df"),
+        "dem_u": data.get("demand_df"),
+        "sub": data.get("submission_df"),
+        "sub_fp": data.get("submission_df"),
+        "intv": data.get("interview_df"),
+        "sel": data.get("selection_df"),
+        "ob": data.get("onboarding_df"),
+        "ex": data.get("exit_df"),
     }
 
     df = df_map.get(metric_key)
+
     if df is None or df.empty:
         return []
 
     df = df.copy()
 
-    # DATE COLUMN
+    # DATE
     df["display_date"] = pd.to_datetime(df["display_date"], dayfirst=True, errors="coerce")
 
-    # 🔥 APPLY FILTERS (SAME AS KPI)
+    # FILTERS
     if selected_years:
         df = df[df["display_date"].dt.year.astype(str).isin(selected_years)]
 
@@ -252,33 +252,7 @@ def compute_trend_series(metric_key, freq="day"):
     if selected_clients:
         df = df[df["company_name"].isin(selected_clients)]
 
-    # 🔥 DOMAIN + BH FILTER (IMPORTANT)
-    if selected_domains or selected_bhs:
-        client_to_domain, client_to_bh, client_lookup, _, _ = get_mapping_context()
-
-        valid_clients = []
-        for cl in df["company_name"].unique():
-            mapped = get_mapped_client_name(cl, client_lookup)
-            domain = client_to_domain.get(mapped, "")
-            bh = normalize_bh_label(client_to_bh.get(mapped, ""))
-
-            if selected_domains and domain not in selected_domains:
-                continue
-            if selected_bhs and bh not in selected_bhs:
-                continue
-
-            valid_clients.append(cl)
-
-        df = df[df["company_name"].isin(valid_clients)]
-
-    # 🔥 METRIC CALCULATION
-    if metric_key == "dem_u":
-        df = df[df["id_status"] == 0]
-
-    if metric_key == "sub_fp":
-        df = df[df["feedback_status"] == "Pending"]
-
-    # GROUPING
+    # GROUP
     if freq == "day":
         df["group"] = df["display_date"].dt.date
     else:
@@ -287,6 +261,7 @@ def compute_trend_series(metric_key, freq="day"):
     result = df.groupby("group").size().reset_index(name="value")
 
     return [{"d": str(r["group"]), "v": int(r["value"])} for _, r in result.iterrows()]
+    
 def apply_filters_to_series(series):
     if not series:
         return series
