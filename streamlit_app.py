@@ -681,10 +681,6 @@ with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
 # 📋 RAW DATA EXPLORER (SINGLE FILE VERSION)
 # =========================================================
 
-# =========================================================
-# 📋 RAW DATA EXPLORER (ADVANCED BI VERSION)
-# =========================================================
-
 st.markdown('<div class="sec">📋 Raw Data Explorer</div>', unsafe_allow_html=True)
 
 with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
@@ -698,7 +694,7 @@ with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
         ss["raw_dataset"] = "All Data"
 
     # -----------------------------
-    # DATASET BUTTONS
+    # DATASET BUTTONS (SIMPLIFIED)
     # -----------------------------
     dataset_options = ["All Data", "Active HC", "Exited", "High Margin"]
 
@@ -706,7 +702,7 @@ with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
 
     for col, option in zip(cols, dataset_options):
         with col:
-            if st.button(option, key=f"raw_{option}", width="stretch"):
+            if st.button(option, key=f"raw_{option}", use_container_width=True):
                 ss["raw_dataset"] = option
                 st.rerun()
 
@@ -727,10 +723,11 @@ with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
         raw_to = st.date_input("To Date", value=None)
 
     # -----------------------------
-    # APPLY BASE FILTERS
+    # APPLY FILTERS
     # -----------------------------
     raw_df = df.copy()
 
+    # Dataset logic
     if ss["raw_dataset"] == "Active HC":
         raw_df = raw_df[raw_df["Status"] == "Active"]
 
@@ -740,9 +737,11 @@ with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
     elif ss["raw_dataset"] == "High Margin":
         raw_df = raw_df[raw_df["margin"] > raw_df["margin"].median()]
 
+    # Client filter
     if raw_client:
         raw_df = raw_df[raw_df["company_name"].isin(raw_client)]
 
+    # Date filter
     if raw_from:
         raw_df = raw_df[raw_df["date"] >= pd.Timestamp(raw_from)]
 
@@ -750,52 +749,11 @@ with st.expander("View Raw Data (Filtered / Custom)", expanded=False):
         raw_df = raw_df[raw_df["date"] <= pd.Timestamp(raw_to)]
 
     # -----------------------------
-    # 🔍 GLOBAL SEARCH
-    # -----------------------------
-    search_term = st.text_input("🔍 Search (any column)")
-
-    if search_term:
-        search_term = str(search_term).lower()
-        raw_df = raw_df[
-            raw_df.astype(str)
-                  .apply(lambda row: row.str.lower().str.contains(search_term).any(), axis=1)
-        ]
-
-    # -----------------------------
-    # 📊 COLUMN SELECTOR
-    # -----------------------------
-    all_cols = list(raw_df.columns)
-
-    selected_cols = st.multiselect(
-        "Select Columns",
-        all_cols,
-        default=all_cols[:10]  # show first 10 by default
-    )
-
-    if selected_cols:
-        display_df = raw_df[selected_cols]
-    else:
-        display_df = raw_df
-
-    # -----------------------------
-    # 📥 DOWNLOAD BUTTON
-    # -----------------------------
-    def convert_to_excel(df):
-        return df.to_csv(index=False).encode("utf-8")
-
-    st.download_button(
-        label="⬇ Download Data",
-        data=convert_to_excel(display_df),
-        file_name="raw_data.csv",
-        mime="text/csv"
-    )
-
-    # -----------------------------
     # OUTPUT
     # -----------------------------
-    st.caption(f"Rows: {len(display_df):,}")
+    st.caption(f"Rows: {len(raw_df):,}")
 
     st.dataframe(
-        display_df,
+        raw_df,
         width="stretch"
     )
