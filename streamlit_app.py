@@ -18,6 +18,7 @@ from dashboard import RAW_DATASET_CONFIG, get_raw_dataset_frame
 from dashboard import (
     CAPTIVE_SUFFIX,
     compute_all_cached,
+    daily_trends_cached,
     freeze_filter,
     get_client_catalog,
     get_runtime_cache_signature,
@@ -447,6 +448,88 @@ def trend_chart(series, label, color="#e74c3c"):
         plot_bgcolor="white", paper_bgcolor="white",
         xaxis=dict(showgrid=False, tickfont=dict(size=10, color="#52586a")),
         yaxis=dict(showgrid=True, gridcolor="#f0f0f0", tickfont=dict(size=10, color="#52586a"), rangemode="tozero"),
+        showlegend=False,
+    )
+    return fig
+
+
+DAY_TREND_CONFIG = {
+    "dem": {"label": "Demand", "title": "Demand", "icon": "📋", "color": "#e74c3c"},
+    "dem_u": {"label": "Unserviced Demands", "title": "Unserviced Demands", "icon": "⏳", "color": "#ff6b57"},
+    "sub": {"label": "Submission", "title": "Submission", "icon": "📤", "color": "#5b6578"},
+    "sub_fp": {"label": "Feedback Pending", "title": "Feedback Pending", "icon": "🧾", "color": "#7c8799"},
+    "intv": {"label": "Interview", "title": "Interview", "icon": "🎯", "color": "#ff9f43"},
+    "sel": {"label": "Selection", "title": "Selection", "icon": "✅", "color": "#2ecc71"},
+    "ob": {"label": "Onboarding", "title": "Onboarding", "icon": "🚀", "color": "#1db85a"},
+    "ex": {"label": "Exit", "title": "Exit", "icon": "🚪", "color": "#c97c4d"},
+}
+
+
+def complete_daily_series(series, from_date, to_date):
+    lookup = {entry["d"]: int(entry.get("v", 0)) for entry in series}
+    days = pd.date_range(pd.Timestamp(from_date), pd.Timestamp(to_date), freq="D")
+    return [{"d": day.strftime("%d %b"), "v": lookup.get(day.strftime("%d %b %Y"), 0)} for day in days]
+
+
+def day_trend_chart(series, metric_key, from_date, to_date):
+    config = DAY_TREND_CONFIG[metric_key]
+    chart_series = complete_daily_series(series, from_date, to_date)
+    df = pd.DataFrame(chart_series)
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=df["d"],
+        y=df["v"],
+        mode="lines+markers+text",
+        text=["" if int(value) == 0 else str(int(value)) for value in df["v"]],
+        textposition="top center",
+        textfont=dict(size=11, color="#52586a"),
+        line=dict(color=config["color"], width=3, shape="spline", smoothing=0.65),
+        marker=dict(size=10, color="#fff", line=dict(color=config["color"], width=2.5)),
+        fill="tozeroy",
+        fillcolor=hex_to_rgba(config["color"], 0.16),
+        hovertemplate="%{x}<br>Value: %{y}<extra></extra>",
+    ))
+
+    average = round(float(df["v"].mean()), 1) if not df.empty else 0.0
+    fig.add_annotation(
+        x=1,
+        y=1,
+        xref="paper",
+        yref="paper",
+        xanchor="right",
+        yanchor="top",
+        text=f"<b>Average: {average}</b>",
+        showarrow=False,
+        bgcolor="rgba(255,255,255,0.92)",
+        bordercolor="rgba(0,0,0,0.12)",
+        borderwidth=1,
+        borderpad=10,
+        font=dict(size=12, color="#52586a"),
+    )
+    fig.update_layout(
+        height=360,
+        margin=dict(t=44, b=24, l=12, r=12),
+        plot_bgcolor="white",
+        paper_bgcolor="white",
+        title=dict(
+            text=f"<b>{config['title'].upper()} — DAILY TREND</b>",
+            x=0.01,
+            xanchor="left",
+            y=0.98,
+            font=dict(size=14, color="#7c8799"),
+        ),
+        xaxis=dict(
+            showgrid=True,
+            gridcolor="rgba(0,0,0,0.05)",
+            tickfont=dict(size=11, color="#52586a"),
+        ),
+        yaxis=dict(
+            showgrid=True,
+            gridcolor="rgba(0,0,0,0.06)",
+            tickfont=dict(size=11, color="#52586a"),
+            rangemode="tozero",
+        ),
         showlegend=False,
     )
     return fig
