@@ -20,6 +20,7 @@ from dashboard import (
     compute_all_cached,
     freeze_filter,
     get_client_catalog,
+    get_runtime_cache_signature,
     get_mapping_context,
     get_mapped_client_name,
     get_periods_cached,
@@ -79,6 +80,8 @@ with st.sidebar:
         dashboard.load_mapping.cache_clear()
         dashboard.compute_all_cached.cache_clear()
         dashboard.resolve_client_filter_cached.cache_clear()
+        init_data.clear()
+        get_grand.clear()
         st.success("Dashboard cache cleared. Reloading...")
         st.rerun()
 
@@ -209,7 +212,7 @@ MON = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec
 
 # ─── DATA INIT ────────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
-def init_data():
+def init_data(cache_signature):
     periods     = get_periods_cached()
     client_meta = list(get_client_catalog())
     years       = sorted({str(p[0]) for p in periods}, reverse=True)
@@ -217,7 +220,8 @@ def init_data():
     _, _, domains, business_heads = load_mapping()
     return client_meta, years, months, domains, business_heads
 
-client_meta, year_options, month_options, domain_options, bh_options = init_data()
+cache_signature = get_runtime_cache_signature()
+client_meta, year_options, month_options, domain_options, bh_options = init_data(cache_signature)
 all_clients = [c["name"] for c in client_meta]
 month_map   = {i: calendar.month_abbr[i] for i in range(1, 13)}
 
