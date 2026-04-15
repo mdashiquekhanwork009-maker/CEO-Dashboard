@@ -38,7 +38,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# removed debug sidebar block
+if False:
     st.markdown("### 🔍 Debug: Data Check")
     data_folder_candidates = [
         os.environ.get('DASHBOARD_DATA_DIR', '').strip(),
@@ -213,36 +213,77 @@ client_meta, year_options, month_options, domain_options, bh_options = init_data
 all_clients = [c["name"] for c in client_meta]
 month_map   = {i: calendar.month_abbr[i] for i in range(1, 13)}
 
+
+def default_year_selection(options, current_dt):
+    if not options:
+        return []
+    current_year = str(current_dt.year)
+    return [current_year] if current_year in options else [options[0]]
+
+
+def default_month_selection(options, month_lookup, current_dt):
+    if not options:
+        return []
+    available_months = [month_lookup[m] for m in options]
+    current_month = month_lookup.get(current_dt.month)
+    if current_month in available_months:
+        return [current_month]
+    return [available_months[-1]] if available_months else []
+
+
+def sync_multiselect_state(key, options, default_values=None):
+    valid_values = [value for value in (st.session_state.get(key) or []) if value in options]
+    if key not in st.session_state:
+        st.session_state[key] = [value for value in (default_values or []) if value in options]
+    elif valid_values != st.session_state.get(key):
+        st.session_state[key] = valid_values
+
+
+def money_value_lac(value):
+    return f"{abs(float(value)):.2f}"
+
+
+def money_text_lac(value, with_symbol=True):
+    prefix = "₹" if with_symbol else ""
+    return f"{prefix}{money_value_lac(value)} Lac"
+
+
+def money_columns_in_lac(df, columns):
+    display_df = df.copy()
+    column_config = {}
+    for column in columns:
+        if column not in display_df.columns:
+            continue
+        display_df[column] = pd.to_numeric(display_df[column], errors="coerce").fillna(0.0) / 1e5
+        column_config[column] = st.column_config.NumberColumn(f"{column} (Lac)", format="%.2f")
+    return display_df, column_config
+
 # ─── SIDEBAR FILTERS ──────────────────────────────────────────────────────────
 now = datetime.now()
+month_names_list = [month_map[m] for m in month_options]
+
+sync_multiselect_state("YEAR", year_options, default_year_selection(year_options, now))
+sync_multiselect_state("MONTH", month_names_list, default_month_selection(month_options, month_map, now))
+sync_multiselect_state("CLIENTS", all_clients, [])
+sync_multiselect_state("DOMAIN", domain_options, [])
+sync_multiselect_state("BH", bh_options, [])
 
 with st.sidebar:
 
     st.markdown("## 🔎 Filters")
 
     # YEAR
-    current_year = str(now.year)
     selected_years = st.multiselect(
     "YEAR",
     year_options,
-    default=[current_year] if current_year in year_options else [year_options[0]],
     key="YEAR"
 )
 
 
     # MONTH
-    current_month_name = month_map[now.month]
-    month_names_list = [month_map[m] for m in month_options]
-
-    if current_month_name in month_names_list:
-        default_month = [current_month_name]
-    else:
-        default_month = [month_map[month_options[-1]]] if month_options else []
-
     selected_month_names = st.multiselect(
     "MONTH",
     month_names_list,
-    default=default_month,
     key="MONTH"
 )
 
@@ -271,9 +312,11 @@ with st.sidebar:
 
     # RESET
     if st.button("🔄 Reset Filters"):
-        for key in ["YEAR", "MONTH", "CLIENTS", "DOMAIN", "BH", "raw_dataset"]:
-            st.session_state[key] = []
-        st.success("Filters reset!")
+        st.session_state["YEAR"] = default_year_selection(year_options, now)
+        st.session_state["MONTH"] = default_month_selection(month_options, month_map, now)
+        st.session_state["CLIENTS"] = []
+        st.session_state["DOMAIN"] = []
+        st.session_state["BH"] = []
         st.rerun()
 # =========================
 # APPLY UI FILTERS (ADD THIS)
