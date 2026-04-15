@@ -225,12 +225,9 @@ with st.sidebar:
 
     # RESET
     if st.button("🔄 Reset Filters"):
-        st.session_state["YEAR"] = []
-        st.session_state["MONTH"] = []
-        st.session_state["CLIENTS"] = []
-        st.session_state["DOMAIN"] = []
-        st.session_state["BH"] = []
-        st.write("Filters Applied:", selected_years, selected_months, selected_clients)
+        for key in ["YEAR", "MONTH", "CLIENTS", "DOMAIN", "BH", "raw_dataset"]:
+            st.session_state[key] = []
+        st.success("Filters reset!")
         st.rerun()
 # =========================
 # APPLY UI FILTERS (ADD THIS)
@@ -458,16 +455,10 @@ cy = int(selected_years[0]) if selected_years else datetime.now().year
 cm = int(selected_months[0]) if selected_months else datetime.now().month
 
 lm_from, lm_to = get_lmtd_range(cy, cm)
-
-# ⚠️ IMPORTANT: pass same filters
 lmtd_grand, _ = get_grand(
-    (str(lm_from.year),),
-    (lm_from.month,),
-    tuple(selected_clients),
-    tuple(selected_domains),
-    tuple(selected_bhs),
-    lm_from.isoformat(),   # ← was: lm_from (datetime object)
-    lm_to.isoformat(),     # ← was: lm_to (datetime object)
+    (str(lm_from.year),), (lm_from.month,),
+    tuple(selected_clients or []), tuple(selected_domains or []), tuple(selected_bhs or []),
+    lm_from.isoformat(), lm_to.isoformat()
 )
 
 # Previous month for comparison bar
