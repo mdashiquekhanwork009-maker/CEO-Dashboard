@@ -959,12 +959,12 @@ def grand_total(res):
     for m in res.values():
         for k in g:
             g[k] += m.get(k, 0)
-    g["net_hc"] = g["ob_hc"] - g["ex_hc"]
-    g["net_po"] = g["ob_po"] - g["ex_po"]
-    g["net_mg"] = g["ob_mg"] - g["ex_mg"]
-    g["sel_pure"] = g["sel"]  # grand total pure sel = grand total sel
-    # Keep legacy key aligned to selection pipeline headcount for the KPI card.
-    g["sel_not_ob"] = g["sp_hc"]
+        g["net_hc"] = g["ob_hc"] - g["ex_hc"]
+        g["net_po"] = g["ob_po"] - g["ex_po"]
+        g["net_mg"] = g["ob_mg"] - g["ex_mg"]
+        g["sel_pure"] = g["sel"]  # grand total pure sel = grand total sel
+        # Keep legacy key aligned to selection pipeline headcount for the KPI card.
+        g["sel_not_ob"] = g["sp_hc"]
     return g
 
 
