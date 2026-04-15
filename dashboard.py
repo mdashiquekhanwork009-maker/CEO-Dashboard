@@ -50,7 +50,32 @@ FILE_PATHS = {
     "exitpipe": "exit_pipeline_data.csv",
 }
 
-
+COLUMN_MAPPING = {
+    "selpipe": {
+        "po": "p_o_value",
+        "margin": "margin"
+    },
+    "ob": {
+        "po": "p_o_value",
+        "margin": "margin"
+    },
+    "exit": {
+        "po": "p_o_value",
+        "margin": "margin"
+    },
+    "exitpipe": {
+        "po": "p_o_value",
+        "margin": "margin"
+    },
+    "activehc": {
+        "po": "p_o_value",
+        "margin": "margin"
+    },
+    "sel": {
+        "po": "po",
+        "margin": "margin"
+    }
+}
 def _existing_path(candidates, must_exist=True):
     for candidate in candidates:
         if candidate and (not must_exist or os.path.exists(candidate)):
@@ -200,26 +225,14 @@ def _prepare_frame(df, file_key):
     else:
         df["_po_end_date"] = pd.NaT
 
-    def find_po_col(df):
-        for col in df.columns:
-            if "po" in col.lower():
-                return col
-        return None
-
-    def find_margin_col(df):
-        for col in df.columns:
-            if "margin" in col.lower():
-                return col
-        return None
-
-
     if file_key in PO_COL_KEYS:
-        po_col = find_po_col(df)
-        mg_col = find_margin_col(df)
+        mapping = COLUMN_MAPPING.get(file_key, {})
 
-        df["_po"] = _flt(df[po_col]) if po_col else pd.Series(0.0, index=df.index)
-        df["_mg"] = _flt(df[mg_col]) if mg_col else pd.Series(0.0, index=df.index)
+        po_col = mapping.get("po")
+        mg_col = mapping.get("margin")
 
+        df["_po"] = _flt(df[po_col]) if po_col in df.columns else pd.Series(0.0, index=df.index)
+        df["_mg"] = _flt(df[mg_col]) if mg_col in df.columns else pd.Series(0.0, index=df.index)
     if file_key == "demand":
         opening_col = next((c for c in OPENING_COL_CANDIDATES if c in df.columns), None)
         if opening_col:
