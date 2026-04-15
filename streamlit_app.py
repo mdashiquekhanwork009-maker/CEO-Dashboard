@@ -836,6 +836,77 @@ with mrr3:
       </div></div>""", unsafe_allow_html=True)
 
 # ─── PIPELINE FUNNEL ──────────────────────────────────────────────────────────
+st.markdown('<div class="sec">Day-on-Day Trends</div>', unsafe_allow_html=True)
+
+today_date = datetime.now().date()
+if "dod_from" not in st.session_state:
+    st.session_state["dod_from"] = today_date - timedelta(days=6)
+if "dod_to" not in st.session_state:
+    st.session_state["dod_to"] = today_date
+if "dod_metric" not in st.session_state:
+    st.session_state["dod_metric"] = "dem"
+
+
+def apply_day_range(days):
+    st.session_state["dod_to"] = today_date
+    st.session_state["dod_from"] = today_date - timedelta(days=days - 1)
+
+
+range_specs = [("Last 7 Days", 7), ("Last 15 Days", 15), ("Last 30 Days", 30)]
+range_cols = st.columns(5)
+for idx, (label, days) in enumerate(range_specs):
+    expected_from = today_date - timedelta(days=days - 1)
+    is_active = (
+        st.session_state.get("dod_from") == expected_from and
+        st.session_state.get("dod_to") == today_date
+    )
+    with range_cols[idx]:
+        if st.button(
+            label,
+            key=f"dod_range_{days}",
+            type="primary" if is_active else "secondary",
+            width="stretch"
+        ):
+            apply_day_range(days)
+
+date_cols = st.columns(4)
+with date_cols[0]:
+    dod_from = st.date_input("From", key="dod_from", format="YYYY-MM-DD")
+with date_cols[1]:
+    dod_to = st.date_input("To", key="dod_to", format="YYYY-MM-DD")
+
+if dod_from > dod_to:
+    st.warning("The selected start date is after the end date, so the range was swapped.")
+    dod_from, dod_to = dod_to, dod_from
+    st.session_state["dod_from"] = dod_from
+    st.session_state["dod_to"] = dod_to
+
+metric_cols = st.columns(len(DAY_TREND_CONFIG))
+for idx, (metric_key, config) in enumerate(DAY_TREND_CONFIG.items()):
+    with metric_cols[idx]:
+        if st.button(
+            f"{config['icon']} {config['label']}",
+            key=f"dod_metric_{metric_key}",
+            type="primary" if st.session_state["dod_metric"] == metric_key else "secondary",
+            width="stretch"
+        ):
+            st.session_state["dod_metric"] = metric_key
+
+day_trend_data = daily_trends_cached(
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_filter(set(selected_domains)) if selected_domains else None,
+    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    pd.Timestamp(dod_from),
+    pd.Timestamp(dod_to),
+    grain="day",
+)
+selected_day_metric = st.session_state["dod_metric"]
+st.plotly_chart(
+    day_trend_chart(day_trend_data.get(selected_day_metric, []), selected_day_metric, dod_from, dod_to),
+    width="stretch",
+    key="day_on_day_trend_chart",
+)
+
 st.markdown('<div class="sec">Recruitment Pipeline</div>', unsafe_allow_html=True)
 with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
     stages = [
