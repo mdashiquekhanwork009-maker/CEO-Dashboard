@@ -38,18 +38,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-FILE_NAMES = [
-    'demand_data.csv',
-    'submission.csv',
-    'interview.csv',
-    'selection.csv',
-    'selection_pipeline.csv',
-    'onboarding_data.csv',
-    'activeheadcount.csv',
-    'exit.csv',
-    'exit_pipeline_data.csv'
-]
-
 with st.sidebar:
     st.markdown("### 🔍 Debug: Data Check")
     data_folder_candidates = [
