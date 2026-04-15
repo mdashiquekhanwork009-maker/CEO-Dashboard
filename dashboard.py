@@ -611,6 +611,13 @@ def filter_clients(df, file_key, client_filter=None):
         return df[df[client_col].isin(client_filter)]
     return df
 
+
+def filter_id_status_zero(df):
+    if df.empty or "id_status" not in df.columns:
+        return df
+    return df[df["id_status"].astype(str).str.strip() == "0"]
+
+
 def filter_unserviced_demands(df):
     if df.empty:
         return df
@@ -630,12 +637,7 @@ def filter_unserviced_demands(df):
     demand_ids = df[id_col_dem].dropna().astype(str).str.strip()
     unsubmitted = df.loc[~demand_ids.isin(submitted_ids)]
 
-    # Only treat as unserviced if id_status == "0" (when column exists)
-    if "id_status" in unsubmitted.columns:
-        unsubmitted = unsubmitted[
-            unsubmitted["id_status"].astype(str).str.strip() == "0"
-        ]
-    return unsubmitted
+    return filter_id_status_zero(unsubmitted)
 
 
 def get_raw_dataset_frame(dataset_key, year_filter=None, month_filter=None, client_filter=None, from_date=None, to_date=None, demand_status="all"):
@@ -936,13 +938,11 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             df = df[df[cl_col].isin(client_filter)]
         unserviced_counts = {}
 
-        if "_id_norm" in df.columns:
-            unserviced_df = df.loc[~df["_id_norm"].isin(submitted_ids)]
-
-            if "id_status" in unserviced_df.columns:
-                unserviced_df = unserviced_df[
-                    unserviced_df["id_status"].astype(str).str.strip() == "0"
-                ]
+        id_col_dem = "_id_norm" if "_id_norm" in df.columns else next((c for c in ID_COL_CANDIDATES if c in df.columns), None)
+        if id_col_dem:
+            demand_ids = df[id_col_dem].dropna().astype(str).str.strip()
+            unserviced_df = df.loc[~demand_ids.isin(submitted_ids)]
+            unserviced_df = filter_id_status_zero(unserviced_df)
             unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
         for cl, g in df.groupby(cl_col):
             ensure(cl)
@@ -1404,11 +1404,7 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
         if id_col_dem:
             demand_ids = work_dem[id_col_dem].astype(str).str.strip()
             work_dem = work_dem[~demand_ids.isin(submitted_ids)]
-            # Also require id_status == "0"
-            if "id_status" in work_dem.columns:
-                work_dem = work_dem[
-                    work_dem["id_status"].astype(str).str.strip() == "0"
-                ]
+            work_dem = filter_id_status_zero(work_dem)
 
         if not work_dem.empty:
             work_dem = work_dem.assign(__ds=period_key(work_dem["_date"]))
@@ -1785,6 +1781,7 @@ def api_aging_demands():
     else:
         unserviced = dem_df.copy()
 
+    unserviced = filter_id_status_zero(unserviced)
     unserviced = unserviced.dropna(subset=["_date"])
     unserviced["_age"] = (today - unserviced["_date"]).dt.days
 
