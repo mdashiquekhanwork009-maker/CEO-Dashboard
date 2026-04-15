@@ -8,6 +8,12 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 from datetime import datetime, timedelta
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+os.environ["DASHBOARD_DATA_DIR"] = DATA_DIR
+os.environ["DASHBOARDDATAFOLDER"] = DATA_DIR
+
 from dashboard import RAW_DATASET_CONFIG, get_raw_dataset_frame
 from dashboard import (
     CAPTIVE_SUFFIX,
@@ -24,28 +30,59 @@ from dashboard import (
     round_m,
 )
 
-st.sidebar.markdown("### 🔍 Debug: Data Check")
-data_folder_candidates = [
-    os.environ.get('DASHBOARDDATAFOLDER', './data'),
-    os.path.join(os.path.dirname(__file__), 'data'),
-    './data',
-    os.getcwd()
-]
-for path in data_folder_candidates:
-    if os.path.exists(path):
-        st.sidebar.write(f"✅ Folder: {path}")
-        for f in ['demanddata.csv', 'submission.csv', 'interview.csv']:  # Add your files
-            full = os.path.join(path, f)
-            st.sidebar.write(f"  - {f}: {'✅' if os.path.exists(full) else '❌'}")
-    else:
-        st.sidebar.write(f"❌ Folder: {path}")
-# ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="J2W Recruitment Dashboard",
     layout="wide",
     page_icon="📊",
     initial_sidebar_state="expanded"
 )
+
+FILE_NAMES = [
+    'demand_data.csv',
+    'submission.csv',
+    'interview.csv',
+    'selection.csv',
+    'selection_pipeline.csv',
+    'onboarding_data.csv',
+    'activeheadcount.csv',
+    'exit.csv',
+    'exit_pipeline_data.csv'
+]
+
+with st.sidebar:
+    st.markdown("### 🔍 Debug: Data Check")
+    data_folder_candidates = [
+        os.environ.get('DASHBOARD_DATA_DIR', '').strip(),
+        os.environ.get('DASHBOARDDATAFOLDER', '').strip(),
+        os.path.join(os.path.dirname(__file__), 'data'),
+        './data',
+        os.getcwd(),
+    ]
+    seen = set()
+    for path in data_folder_candidates:
+        if not path or path in seen:
+            continue
+        seen.add(path)
+        if os.path.exists(path):
+            st.write(f"✅ Folder: {path}")
+            for f in FILE_NAMES:
+                full = os.path.join(path, f)
+                st.write(f"- {f}: {'✅' if os.path.exists(full) else '❌'}")
+        else:
+            st.write(f"❌ Folder: {path}")
+
+    if st.button("♻️ Clear cached data"):
+        import dashboard
+        dashboard.load_data_cached.cache_clear()
+        dashboard.get_periods_cached.cache_clear()
+        dashboard.get_client_catalog.cache_clear()
+        dashboard.load_mapping.cache_clear()
+        dashboard.compute_all_cached.cache_clear()
+        dashboard.resolve_client_filter_cached.cache_clear()
+        st.success("Dashboard cache cleared. Reloading...")
+        st.rerun()
+
+# ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
 
 # ─── CSS ──────────────────────────────────────────────────────────────────────
 st.markdown("""

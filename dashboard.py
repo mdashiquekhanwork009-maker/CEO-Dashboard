@@ -94,11 +94,13 @@ def resolve_logo_file():
 def resolve_data_folder():
     candidate_folders = [
         os.environ.get("DASHBOARD_DATA_DIR", "").strip(),
+        os.environ.get("DASHBOARDDATAFOLDER", "").strip(),
         REPO_DATA_FOLDER,
+        os.path.join(os.path.dirname(__file__), "data"),
         APP_ROOT,
         WINDOWS_DATA_FOLDER,
     ]
-    best_folder = APP_ROOT
+    best_folder = os.path.join(os.path.dirname(__file__), "data")
     best_matches = -1
     for folder in candidate_folders:
         if not folder or not os.path.isdir(folder):
@@ -268,6 +270,9 @@ def _prepare_frame(df, file_key):
 # ─────────────────────────────────────────────────────────────────────────────
 
 def load_data():
+    global DATA_FOLDER, MAPPING_FILE
+    DATA_FOLDER = resolve_data_folder()
+    MAPPING_FILE = resolve_mapping_file(DATA_FOLDER)
     data = {}
     for key, filename in FILE_PATHS.items():
         path = os.path.join(DATA_FOLDER, filename)
@@ -276,12 +281,17 @@ def load_data():
                 if filename.endswith(".xlsx"):
                     df = pd.read_excel(path, dtype=str).fillna("")
                 else:
-                    df = pd.read_csv(path, dtype=str).fillna("")
+                    try:
+                        df = pd.read_csv(path, dtype=str).fillna("")
+                    except UnicodeDecodeError:
+                        df = pd.read_csv(path, dtype=str, encoding="latin1").fillna("")
                 data[key] = _prepare_frame(df, key)
+                print(f"[OK] Loaded {filename} from {path} with {len(data[key])} rows")
             except Exception as e:
-                print(f"  x {filename}: {e}")
+                print(f"[ERROR] {filename}: {e}")
                 data[key] = pd.DataFrame()
         else:
+            print(f"[MISSING] {path}")
             data[key] = pd.DataFrame()
     return data
 
