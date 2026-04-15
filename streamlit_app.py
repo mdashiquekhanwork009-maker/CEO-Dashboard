@@ -365,7 +365,7 @@ def get_previous_month(year, month):
     return (year - 1, 12) if month == 1 else (year, month - 1)
 
 def pct(a, b): return round(a / b * 100) if b else 0
-def L(v):      return f"{abs(float(v)):.2f}"
+def L(v):      return money_value_lac(v)
 def sign(v):   return "+" if float(v) >= 0 else "−"
 def clr_val(v): return "green" if float(v) >= 0 else "red"
 
@@ -404,7 +404,7 @@ def comp_bar(title, cur, prev):
         pct_chg = round(abs(diff) / abs(float(p)) * 100) if float(p) != 0 else 0
         clr = "#1db85a" if diff >= 0 else "#e8453c"
         arrow = ("▲ " if diff > 0 else "▼ ") + str(pct_chg) + "%" if diff != 0 else "—"
-        val_str = f"₹{L(abs(float(p)))}L" if is_l else f"{round(float(p)):,}"
+        val_str = money_text_lac(abs(float(p))) if is_l else f"{round(float(p)):,}"
         sep = '<span class="sep"></span>' if i > 0 else ""
         items += f"""{sep}<div class="pm">
             <span class="pml">{lbl}</span>&nbsp;
@@ -628,7 +628,7 @@ with cols[3]:
 
 with cols[4]:
     st.markdown(kpi_card("blue","📑","Selection Pipeline", f"{sp_hc:,}", "blue",
-        f"<strong>₹{L(sp_po)}L</strong> PO value · <strong>₹{L(sp_mg)}L</strong> margin",
+        f"<strong>{money_text_lac(sp_po)}</strong> PO value · <strong>{money_text_lac(sp_mg)}</strong> margin",
         tag_b(f"{sp_yet} Yet to be Onboarded")),
         unsafe_allow_html=True)
 
@@ -637,7 +637,7 @@ with cols[5]:
     active_mg = grand.get("active_mg", 0.0)
     st.markdown(kpi_card("blue","👥","Active Headcount", f"{active_hc:,}", "blue",
         f"<strong>{active_hc:,}</strong> active (filter-adjusted)<br>"
-        f"<strong>₹{L(active_po)}L</strong> PO value · <strong>₹{L(active_mg)}L</strong> margin",
+        f"<strong>{money_text_lac(active_po)}</strong> PO value · <strong>{money_text_lac(active_mg)}</strong> margin",
         tag_b("Selected-period onboarding excluded")),
         unsafe_allow_html=True)
     
@@ -647,14 +647,14 @@ cols2 = st.columns(6)
 
 with cols2[0]:
     st.markdown(kpi_card("green","🚀","Onboarded", f"{ob_hc:,}", "green",
-        f"<strong>₹{L(ob_po)}L</strong> PO value · <strong>₹{L(ob_mg)}L</strong> margin",
+        f"<strong>{money_text_lac(ob_po)}</strong> PO value · <strong>{money_text_lac(ob_mg)}</strong> margin",
         tag_g(f"{sel_ob}% sel→joined")),
         unsafe_allow_html=True)
 
 with cols2[1]:
     st.markdown(kpi_card("red","🚪","Exits", f"{ex_hc:,}", "red",
-        f"<strong>₹{L(ex_po)}L</strong> PO value · <strong>₹{L(ex_mg)}L</strong> margin<br>"
-        f"Pipeline <strong>{ex_pipe_hc}</strong> HC · <strong>₹{L(ex_pipe_po)}L</strong> PO · <strong>₹{L(ex_pipe_mg)}L</strong> margin",
+        f"<strong>{money_text_lac(ex_po)}</strong> PO value · <strong>{money_text_lac(ex_mg)}</strong> margin<br>"
+        f"Pipeline <strong>{ex_pipe_hc}</strong> HC · <strong>{money_text_lac(ex_pipe_po)}</strong> PO · <strong>{money_text_lac(ex_pipe_mg)}</strong> margin",
         tag_r(f"{ex_hc} headcount lost")),
         unsafe_allow_html=True)
 with cols2[2]:  # shift existing ones right OR add new column layout
@@ -665,7 +665,7 @@ with cols2[2]:  # shift existing ones right OR add new column layout
         "Overdue Onboarding",
         f"{overdue_hc:,}",
         "red",
-        f"<strong>₹{L(overdue_po)}L</strong> PO · <strong>₹{L(overdue_mg)}L</strong> margin",
+        f"<strong>{money_text_lac(overdue_po)}</strong> PO · <strong>{money_text_lac(overdue_mg)}</strong> margin",
         tag_r("Delayed onboarding risk")
     ), unsafe_allow_html=True)
 
@@ -673,23 +673,23 @@ with cols2[3]:
     net_hc_clr = "green" if net_hc >= 0 else "red"
     net_hc_str = f"{'+'if net_hc>=0 else '−'}{abs(net_hc):,}"
     st.markdown(kpi_card(net_hc_clr,"📈","Net HC", net_hc_str, net_hc_clr,
-        f"<strong>₹{L(abs(net_po))}L</strong> net PO movement",
+        f"<strong>{money_text_lac(abs(net_po))}</strong> net PO movement",
         tag_g("▲ Growth") if net_hc >= 0 else tag_r("▼ Decline")),
         unsafe_allow_html=True)
 
 with cols2[4]:
     net_po_clr = "green" if net_po >= 0 else "red"
-    net_po_str = f"{'+'if net_po>=0 else '−'}₹{L(abs(net_po))}L"
+    net_po_str = f"{'+'if net_po>=0 else '−'}{money_text_lac(abs(net_po))}"
     st.markdown(kpi_card(net_po_clr,"💰","Net PO", net_po_str, net_po_clr,
-        f"Ob <strong>₹{L(ob_po)}L</strong> – Ex <strong>₹{L(ex_po)}L</strong>",
+        f"Ob <strong>{money_text_lac(ob_po)}</strong> – Ex <strong>{money_text_lac(ex_po)}</strong>",
         tag_g("Positive") if net_po >= 0 else tag_r("Negative")),
         unsafe_allow_html=True)
 
 with cols2[5]:
     net_mg_clr = "green" if net_mg >= 0 else "red"
-    net_mg_str = f"{'+'if net_mg>=0 else '−'}₹{L(abs(net_mg))}L"
+    net_mg_str = f"{'+'if net_mg>=0 else '−'}{money_text_lac(abs(net_mg))}"
     st.markdown(kpi_card(net_mg_clr,"🎯","Net Margin", net_mg_str, net_mg_clr,
-        f"Ob <strong>₹{L(ob_mg)}L</strong> – Ex <strong>₹{L(ex_mg)}L</strong>",
+        f"Ob <strong>{money_text_lac(ob_mg)}</strong> – Ex <strong>{money_text_lac(ex_mg)}</strong>",
         tag_g("Positive") if net_mg >= 0 else tag_r("Negative")),
         unsafe_allow_html=True)
 
@@ -720,8 +720,8 @@ with mrr1:
       <div class="kpi-lbl" style="color:#1db85a">🚀 Onboarding</div>
       <div class="mrr-grid" style="margin-top:8px">
         <div class="mrr-c"><div class="mrr-v" style="color:#1db85a">{ob_hc}</div><div class="mrr-l">HC</div></div>
-        <div class="mrr-c"><div class="mrr-v" style="color:#17a050">₹{L(ob_po)}L</div><div class="mrr-l">PO Value</div></div>
-        <div class="mrr-c"><div class="mrr-v" style="color:#17a050">₹{L(ob_mg)}L</div><div class="mrr-l">Margin</div></div>
+        <div class="mrr-c"><div class="mrr-v" style="color:#17a050">{money_text_lac(ob_po)}</div><div class="mrr-l">PO Value</div></div>
+        <div class="mrr-c"><div class="mrr-v" style="color:#17a050">{money_text_lac(ob_mg)}</div><div class="mrr-l">Margin</div></div>
       </div></div>""", unsafe_allow_html=True)
 
 with mrr2:
@@ -729,8 +729,8 @@ with mrr2:
       <div class="kpi-lbl" style="color:#e8453c">🚪 Exits</div>
       <div class="mrr-grid" style="margin-top:8px">
         <div class="mrr-c"><div class="mrr-v" style="color:#e8453c">{ex_hc}</div><div class="mrr-l">HC</div></div>
-        <div class="mrr-c"><div class="mrr-v" style="color:#e8453c">₹{L(ex_po)}L</div><div class="mrr-l">PO Value</div></div>
-        <div class="mrr-c"><div class="mrr-v" style="color:#e8453c">₹{L(ex_mg)}L</div><div class="mrr-l">Margin</div></div>
+        <div class="mrr-c"><div class="mrr-v" style="color:#e8453c">{money_text_lac(ex_po)}</div><div class="mrr-l">PO Value</div></div>
+        <div class="mrr-c"><div class="mrr-v" style="color:#e8453c">{money_text_lac(ex_mg)}</div><div class="mrr-l">Margin</div></div>
       </div></div>""", unsafe_allow_html=True)
 
 with mrr3:
@@ -741,8 +741,8 @@ with mrr3:
       <div class="kpi-lbl" style="color:{nc}">📊 Net MRR</div>
       <div class="mrr-grid" style="margin-top:8px">
         <div class="mrr-c"><div class="mrr-v" style="color:{nc}">{'+'if net_hc>=0 else '−'}{abs(net_hc)}</div><div class="mrr-l">Net HC</div></div>
-        <div class="mrr-c"><div class="mrr-v" style="color:{npc}">{'+'if net_po>=0 else '−'}₹{L(abs(net_po))}L</div><div class="mrr-l">Net PO</div></div>
-        <div class="mrr-c"><div class="mrr-v" style="color:{nmc}">{'+'if net_mg>=0 else '−'}₹{L(abs(net_mg))}L</div><div class="mrr-l">Net Margin</div></div>
+        <div class="mrr-c"><div class="mrr-v" style="color:{npc}">{'+'if net_po>=0 else '−'}{money_text_lac(abs(net_po))}</div><div class="mrr-l">Net PO</div></div>
+        <div class="mrr-c"><div class="mrr-v" style="color:{nmc}">{'+'if net_mg>=0 else '−'}{money_text_lac(abs(net_mg))}</div><div class="mrr-l">Net Margin</div></div>
       </div></div>""", unsafe_allow_html=True)
 
 # ─── PIPELINE FUNNEL ──────────────────────────────────────────────────────────
@@ -937,7 +937,13 @@ with st.expander("Raw Data Explorer", expanded=False):
                 .sort_values("HC", ascending=False)
             )
 
-            st.dataframe(breakdown, width="stretch", hide_index=True)
+            breakdown_display, breakdown_config = money_columns_in_lac(breakdown, ["PO", "Margin"])
+            st.dataframe(
+                breakdown_display,
+                column_config=breakdown_config,
+                width="stretch",
+                hide_index=True
+            )
 
     # =========================
     # RAW TABLE
@@ -946,8 +952,12 @@ with st.expander("Raw Data Explorer", expanded=False):
 
         visible_cols = [c for c in raw_df.columns if not c.startswith("_")]
 
+        raw_display = raw_df[visible_cols].copy() if visible_cols else raw_df.copy()
+        raw_display, raw_config = money_columns_in_lac(raw_display, ["p_o_value", "po", "margin"])
+
         st.dataframe(
-            raw_df[visible_cols] if visible_cols else raw_df,
+            raw_display,
+            column_config=raw_config,
             width="stretch",
             hide_index=True
         )
