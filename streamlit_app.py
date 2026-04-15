@@ -38,7 +38,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-with st.sidebar:
+# removed debug sidebar block
     st.markdown("### 🔍 Debug: Data Check")
     data_folder_candidates = [
         os.environ.get('DASHBOARD_DATA_DIR', '').strip(),
