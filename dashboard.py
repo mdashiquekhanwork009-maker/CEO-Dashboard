@@ -704,7 +704,6 @@ ZERO = dict(
 def apply_date_filter(df, from_date, to_date):
     if df is None or df.empty:
         return df
-
     # ✅ PRIORITIZE CORRECT DATE COLUMN
     if "display_date" in df.columns:
         col = "display_date"
@@ -715,12 +714,10 @@ def apply_date_filter(df, from_date, to_date):
     else:
         return df
     df[col] = pd.to_datetime(df[col], dayfirst=True, errors="coerce")
-
     if from_date:
         df = df[df[col] >= pd.Timestamp(from_date)]
     if to_date:
         df = df[df[col] <= pd.Timestamp(to_date)]
-
     return df
 
 def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, to_date=None):
@@ -787,20 +784,15 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
                 unserviced_df = unserviced_df[
                     unserviced_df["id_status"].astype(str).str.strip() == "0"
                 ]
-
             unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
             unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
         for cl, g in df.groupby(cl_col):
             ensure(cl)
-
             total_dem = len(g)
             unserv = int(unserviced_counts.get(cl, 0))
-
             res[cl]["dem"] += total_dem
             res[cl]["dem_open"] += float(g["_openings"].sum()) if "_openings" in g.columns else total_dem
             res[cl]["dem_u"] += unserv
-
-    # ✅ ADD THIS
             res[cl]["serviced_dem"] += (total_dem - unserv)
 
     # SUBMISSION
@@ -886,7 +878,6 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         for cl, g in df.groupby(cl_col):
             add_po_metrics(g, cl, "ob_hc", "ob_po", "ob_mg")
 
-    # ACTIVE HEADCOUNT
     # ACTIVE HEADCOUNT
     df = data["activehc"]
 
