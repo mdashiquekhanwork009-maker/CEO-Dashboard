@@ -238,6 +238,9 @@ with st.sidebar:
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
 def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None):
+    
+    from_date = pd.Timestamp(from_date) if from_date else None
+    to_date   = pd.Timestamp(to_date)   if to_date   else None
     resolved = resolve_client_filter_cached(
         freeze_filter(set(c_tup)) if c_tup else None,
         freeze_filter(set(d_tup)) if d_tup else None,
@@ -463,8 +466,8 @@ lmtd_grand, _ = get_grand(
     tuple(selected_clients),
     tuple(selected_domains),
     tuple(selected_bhs),
-    lm_from,
-    lm_to
+    lm_from.isoformat(),   # ← was: lm_from (datetime object)
+    lm_to.isoformat(),     # ← was: lm_to (datetime object)
 )
 
 # Previous month for comparison bar
@@ -513,8 +516,7 @@ dem_cov = pct(sub, dem)
 sub_l1  = pct(l1, sub)
 l1_sel  = pct(sel, l1)
 sel_ob  = pct(ob_hc, sel)
-sp_yet  = max(0, round((sel or 0) - (ob_hc or 0) - (sp_hc or 0)))
-
+sp_yet  = sp_hc - ob_hc
 # ─── ROW 1 KPI CARDS ──────────────────────────────────────────────
 cols = st.columns(6)
 
