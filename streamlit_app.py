@@ -231,10 +231,13 @@ def default_month_selection(options, month_lookup, current_dt):
     return [available_months[-1]] if available_months else []
 
 
-def sync_multiselect_state(key, options, default_values=None):
+def sync_multiselect_state(key, options, default_values=None, force_default_when_empty=False):
     valid_values = [value for value in (st.session_state.get(key) or []) if value in options]
+    default_values = [value for value in (default_values or []) if value in options]
     if key not in st.session_state:
-        st.session_state[key] = [value for value in (default_values or []) if value in options]
+        st.session_state[key] = default_values
+    elif force_default_when_empty and not valid_values and default_values:
+        st.session_state[key] = default_values
     elif valid_values != st.session_state.get(key):
         st.session_state[key] = valid_values
 
@@ -266,8 +269,8 @@ def first_existing_column(df, candidates):
 now = datetime.now()
 month_names_list = [month_map[m] for m in month_options]
 
-sync_multiselect_state("YEAR", year_options, default_year_selection(year_options, now))
-sync_multiselect_state("MONTH", month_names_list, default_month_selection(month_options, month_map, now))
+sync_multiselect_state("YEAR", year_options, default_year_selection(year_options, now), force_default_when_empty=True)
+sync_multiselect_state("MONTH", month_names_list, default_month_selection(month_options, month_map, now), force_default_when_empty=True)
 sync_multiselect_state("CLIENTS", all_clients, [])
 sync_multiselect_state("DOMAIN", domain_options, [])
 sync_multiselect_state("BH", bh_options, [])
