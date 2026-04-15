@@ -237,6 +237,11 @@ def _prepare_frame(df, file_key):
     if file_key == "selpipe":
       print("SELPIPE PO SUM:", df["_po"].sum())
       print("SELPIPE SAMPLE:", df[[po_col]].head())
+
+    if file_key == "selpipe":
+        print("COLUMNS:", [repr(c) for c in df.columns])
+        print("RAW VALUES SAMPLE:", df["p_o_value"].head().tolist())
+        print("AFTER FLT:", df["_po"].head().tolist())
     if file_key == "demand":
         opening_col = next((c for c in OPENING_COL_CANDIDATES if c in df.columns), None)
         if opening_col:
