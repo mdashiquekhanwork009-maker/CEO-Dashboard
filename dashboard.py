@@ -179,6 +179,48 @@ def get_runtime_cache_signature():
     mapping_signature = ("mapping", *_file_signature(mapping_file))
     return (data_signature, mapping_signature)
 
+
+def clear_runtime_caches():
+    global _LAST_CACHE_SIGNATURE, LAST_REFRESHED_AT
+
+    for cached_func_name in (
+        "_load_data_cached",
+        "_load_mapping_cached",
+        "_get_periods_cached",
+        "_get_client_catalog_cached",
+        "_resolve_client_filter_cached",
+        "_compute_all_cached",
+        "_mom_trends_cached",
+        "_daily_trends_cached",
+    ):
+        cached_func = globals().get(cached_func_name)
+        if cached_func is not None:
+            cached_func.cache_clear()
+
+    _LAST_CACHE_SIGNATURE = None
+    LAST_REFRESHED_AT = datetime.now()
+
+
+def refresh_runtime_caches_if_needed(force=False):
+    global _LAST_CACHE_SIGNATURE, DATA_FOLDER, MAPPING_FILE, LAST_REFRESHED_AT
+
+    current_signature = get_runtime_cache_signature()
+    if force or current_signature != _LAST_CACHE_SIGNATURE:
+        clear_runtime_caches()
+        DATA_FOLDER = resolve_data_folder()
+        MAPPING_FILE = resolve_mapping_file(DATA_FOLDER)
+        _LAST_CACHE_SIGNATURE = current_signature
+        LAST_REFRESHED_AT = datetime.now()
+    return current_signature
+
+
+def _current_data_signature():
+    return refresh_runtime_caches_if_needed()[0]
+
+
+def _current_mapping_signature():
+    return refresh_runtime_caches_if_needed()[1]
+
 ID_COL_CANDIDATES = ["id", "ID", "job_id", "Job_ID", "job_ID"]
 OPENING_COL_CANDIDATES = [
     "no.of opening", "No.of opening", "No.Of Opening",
@@ -225,7 +267,7 @@ def _prepare_frame(df, file_key):
     if file_key == "selpipe":
         parsed = pd.Series(pd.NaT, index=df.index)
         # Selection pipeline metrics should follow the display date for dashboard filters.
-        for candidate in ["display_date", "offer_created_date", "Selection_date"]:
+        for candidate in ["display_date", "offer_created_date", "selection_date"]:
             if candidate in df.columns:
                 candidate_parsed = pd.to_datetime(df[candidate], errors="coerce")
                 if getattr(candidate_parsed.dt, "tz", None) is not None:
@@ -263,15 +305,6 @@ def _prepare_frame(df, file_key):
 
         df["_po"] = _flt(df[po_col]) if po_col in df.columns else pd.Series(0.0, index=df.index)
         df["_mg"] = _flt(df[mg_col]) if mg_col in df.columns else pd.Series(0.0, index=df.index)
-
-    if file_key == "selpipe":
-      print("SELPIPE PO SUM:", df["_po"].sum())
-      print("SELPIPE SAMPLE:", df[[po_col]].head())
-
-    if file_key == "selpipe":
-        print("COLUMNS:", [repr(c) for c in df.columns])
-        print("RAW VALUES SAMPLE:", df["p_o_value"].head().tolist())
-        print("AFTER FLT:", df["_po"].head().tolist())
     if file_key == "demand":
         opening_col = next((c for c in OPENING_COL_CANDIDATES if c in df.columns), None)
         if opening_col:
@@ -322,16 +355,22 @@ def load_data():
             data[key] = pd.DataFrame()
     return data
 
-@lru_cache(maxsize=1)
-def load_data_cached():
+@lru_cache(maxsize=4)
+def _load_data_cached(data_signature):
     return load_data()
+
+
+def load_data_cached():
+    return _load_data_cached(_current_data_signature())
+
+
+load_data_cached.cache_clear = clear_runtime_caches
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CLIENT MAPPING
 # ─────────────────────────────────────────────────────────────────────────────
 
-@lru_cache(maxsize=1)
-def load_mapping():
+def _load_mapping_impl():
     client_to_domain = {}
     client_to_bh = {}
 
@@ -376,6 +415,18 @@ def load_mapping():
     business_heads = sorted(set(client_to_bh.values()),     key=str.lower)
 
     return client_to_domain, client_to_bh, domains, business_heads
+
+
+@lru_cache(maxsize=4)
+def _load_mapping_cached(mapping_signature):
+    return _load_mapping_impl()
+
+
+def load_mapping():
+    return _load_mapping_cached(_current_mapping_signature())
+
+
+load_mapping.cache_clear = clear_runtime_caches
 
 
 def normalize_domain_label(value):
@@ -459,7 +510,9 @@ def freeze_date(value):
 
 
 def thaw_date(value):
-    return pd.Timestamp(value) if value else None
+    if value is None or value == "":
+        return None
+    return pd.Timestamp(value)
 
 def get_period_filters():
     from datetime import datetime
@@ -713,13 +766,20 @@ def collect_all_clients(data):
     return sorted(clients, key=str.lower)
 
 
-@lru_cache(maxsize=1)
-def get_periods_cached():
+@lru_cache(maxsize=4)
+def _get_periods_cached(data_signature):
     return tuple(collect_periods(load_data_cached()))
 
 
-@lru_cache(maxsize=1)
-def get_client_catalog():
+def get_periods_cached():
+    return _get_periods_cached(_current_data_signature())
+
+
+get_periods_cached.cache_clear = clear_runtime_caches
+
+
+@lru_cache(maxsize=4)
+def _get_client_catalog_cached(data_signature, mapping_signature):
     data = load_data_cached()
     clients = collect_all_clients(data)
     client_to_domain, client_to_bh, _, _ = load_mapping()
@@ -734,6 +794,13 @@ def get_client_catalog():
             "bh": normalize_bh_label(client_to_bh.get(mapped, "")),
         })
     return tuple(catalog)
+
+
+def get_client_catalog():
+    return _get_client_catalog_cached(_current_data_signature(), _current_mapping_signature())
+
+
+get_client_catalog.cache_clear = clear_runtime_caches
 
 
 def get_shareable_urls(port):
@@ -1019,7 +1086,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
 
 @lru_cache(maxsize=256)
-def compute_all_cached(sel_year, sel_month, client_filter_key=None, from_date_key=None, to_date_key=None):
+def _compute_all_cached(data_signature, sel_year, sel_month, client_filter_key=None, from_date_key=None, to_date_key=None):
     return compute_all(
         load_data_cached(),
         sel_year,
@@ -1028,6 +1095,20 @@ def compute_all_cached(sel_year, sel_month, client_filter_key=None, from_date_ke
         thaw_date(from_date_key),
         thaw_date(to_date_key),
     )
+
+
+def compute_all_cached(sel_year, sel_month, client_filter_key=None, from_date_key=None, to_date_key=None):
+    return _compute_all_cached(
+        _current_data_signature(),
+        sel_year,
+        sel_month,
+        client_filter_key,
+        freeze_date(from_date_key) if not isinstance(from_date_key, str) else from_date_key,
+        freeze_date(to_date_key) if not isinstance(to_date_key, str) else to_date_key,
+    )
+
+
+compute_all_cached.cache_clear = clear_runtime_caches
 
 
 def grand_total(res):
@@ -1073,7 +1154,7 @@ def resolve_client_filter(cl_filter, dom_filter, bh_filter):
 
 
 @lru_cache(maxsize=256)
-def resolve_client_filter_cached(cl_filter_key=None, dom_filter_key=None, bh_filter_key=None):
+def _resolve_client_filter_cached(data_signature, mapping_signature, cl_filter_key=None, dom_filter_key=None, bh_filter_key=None):
     return freeze_filter(
         resolve_client_filter(
             thaw_filter(cl_filter_key),
@@ -1081,6 +1162,19 @@ def resolve_client_filter_cached(cl_filter_key=None, dom_filter_key=None, bh_fil
             thaw_filter(bh_filter_key),
         )
     )
+
+
+def resolve_client_filter_cached(cl_filter_key=None, dom_filter_key=None, bh_filter_key=None):
+    return _resolve_client_filter_cached(
+        _current_data_signature(),
+        _current_mapping_signature(),
+        cl_filter_key,
+        dom_filter_key,
+        bh_filter_key,
+    )
+
+
+resolve_client_filter_cached.cache_clear = clear_runtime_caches
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1100,8 +1194,8 @@ def mom_trends(data, client_filter=None):
         return f"{MON_NAMES_PY[month]}'{str(year)[2:]}"
 
     df = add_ym(data.get("demand", pd.DataFrame()), "demand")
-    if not df.empty and "Company_name" in df.columns:
-        df = df[df["Company_name"].apply(include)]
+    if not df.empty and "company_name" in df.columns:
+        df = df[df["company_name"].apply(include)]
         for (yr, mo), g in df.groupby(["_year","_month"]):
             if pd.isna(yr) or pd.isna(mo): continue
             p = period_str(int(yr), int(mo))
@@ -1140,8 +1234,15 @@ def mom_trends(data, client_filter=None):
 
 
 @lru_cache(maxsize=256)
-def mom_trends_cached(client_filter_key=None):
+def _mom_trends_cached(data_signature, client_filter_key=None):
     return mom_trends(load_data_cached(), thaw_filter(client_filter_key))
+
+
+def mom_trends_cached(client_filter_key=None):
+    return _mom_trends_cached(_current_data_signature(), client_filter_key)
+
+
+mom_trends_cached.cache_clear = clear_runtime_caches
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1322,20 +1423,36 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
 
 
 @lru_cache(maxsize=256)
-def daily_trends_cached(client_filter_key=None, domain_filter_key=None, bh_filter_key=None, from_date_key=None, to_date_key=None, grain="day"):
-  resolved_clients = resolve_client_filter_cached(
-      client_filter_key,
-      domain_filter_key,
-      bh_filter_key
-      )
+def _daily_trends_cached(data_signature, mapping_signature, client_filter_key=None, domain_filter_key=None, bh_filter_key=None, from_date_key=None, to_date_key=None, grain="day"):
+    resolved_clients = resolve_client_filter_cached(
+        client_filter_key,
+        domain_filter_key,
+        bh_filter_key
+    )
 
-  return daily_trends(
-      load_data_cached(),
-      thaw_filter(resolved_clients),
-      thaw_date(from_date_key),
-      thaw_date(to_date_key),
-      grain=grain,
-      )
+    return daily_trends(
+        load_data_cached(),
+        thaw_filter(resolved_clients),
+        thaw_date(from_date_key),
+        thaw_date(to_date_key),
+        grain=grain,
+    )
+
+
+def daily_trends_cached(client_filter_key=None, domain_filter_key=None, bh_filter_key=None, from_date_key=None, to_date_key=None, grain="day"):
+    return _daily_trends_cached(
+        _current_data_signature(),
+        _current_mapping_signature(),
+        client_filter_key,
+        domain_filter_key,
+        bh_filter_key,
+        freeze_date(from_date_key) if not isinstance(from_date_key, str) else from_date_key,
+        freeze_date(to_date_key) if not isinstance(to_date_key, str) else to_date_key,
+        grain,
+    )
+
+
+daily_trends_cached.cache_clear = clear_runtime_caches
 
 
 # ─────────────────────────────────────────────────────────────────────────────
