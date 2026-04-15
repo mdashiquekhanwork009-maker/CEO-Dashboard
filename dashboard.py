@@ -370,12 +370,64 @@ load_data_cached.cache_clear = clear_runtime_caches
 # CLIENT MAPPING
 # ─────────────────────────────────────────────────────────────────────────────
 
+def _mapping_column(df, candidates):
+    normalized = {
+        re.sub(r"[^a-z0-9]+", "", str(column).strip().lower()): column
+        for column in df.columns
+    }
+    for candidate in candidates:
+        match = normalized.get(re.sub(r"[^a-z0-9]+", "", candidate.strip().lower()))
+        if match:
+            return match
+    return None
+
+
 def _load_mapping_impl():
     client_to_domain = {}
     client_to_bh = {}
-    domains        = sorted(set(client_to_domain.values()), key=str.lower)
-    business_heads = sorted(set(client_to_bh.values()),     key=str.lower)
 
+    if not MAPPING_FILE or not os.path.exists(MAPPING_FILE):
+        return client_to_domain, client_to_bh, [], []
+
+    try:
+        mapping_df = pd.read_excel(MAPPING_FILE, dtype=str)
+    except Exception as exc:
+        print(f"[WARN] Unable to read mapping file '{MAPPING_FILE}': {exc}")
+        return client_to_domain, client_to_bh, [], []
+
+    if mapping_df.empty:
+        return client_to_domain, client_to_bh, [], []
+
+    mapping_df = mapping_df.copy()
+    mapping_df.columns = [str(col).strip() for col in mapping_df.columns]
+
+    client_col = _mapping_column(mapping_df, ["client", "client name", "company", "company name"])
+    domain_col = _mapping_column(mapping_df, ["domain", "client domain"])
+    bh_col = _mapping_column(mapping_df, ["bh tag", "bh", "business head", "business head tag"])
+
+    if not client_col:
+        return client_to_domain, client_to_bh, [], []
+
+    for _, row in mapping_df.iterrows():
+        client_name = str(row.get(client_col, "") or "").strip()
+        if not client_name or client_name.lower() in {"nan", "none"}:
+            continue
+
+        domain = normalize_domain_label(row.get(domain_col, "")) if domain_col else ""
+        bh = normalize_bh_label(row.get(bh_col, "")) if bh_col else ""
+
+        if domain.lower() == "none":
+            domain = ""
+        if bh.lower() == "none":
+            bh = ""
+
+        if client_name not in client_to_domain or domain:
+            client_to_domain[client_name] = domain
+        if client_name not in client_to_bh or bh:
+            client_to_bh[client_name] = bh
+
+    domains = sorted({value for value in client_to_domain.values() if value}, key=str.lower)
+    business_heads = sorted({value for value in client_to_bh.values() if value}, key=str.lower)
     return client_to_domain, client_to_bh, domains, business_heads
 
 
@@ -1111,7 +1163,6 @@ def resolve_client_filter(cl_filter, dom_filter, bh_filter):
         if dom_ok and bh_ok:
             allowed.add(actual_cl)
 
-    print(f"[DEBUG] resolve_client_filter: dom={dom_filter} bh={bh_filter} -> {len(allowed)} clients matched")
     return (cl_filter & allowed) if cl_filter else allowed
 
 
@@ -1363,12 +1414,6 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
             work_dem = work_dem.assign(__ds=period_key(work_dem["_date"]))
             dem_u_counts = work_dem.groupby("__ds").size().to_dict()
 
-    print(f"[DEBUG] daily_trends from={from_ts} to={to_ts} | dem={sum(dem_counts.values())} sub={sum(sub_counts.values())} intv={sum(intv_counts.values())} sel={sum(sel_counts.values())} ob={sum(ob_counts.values())} ex={sum(ex_counts.values())}")
-    if not dem_counts and not dem_df.empty and "created_at" in dem_df.columns:
-        sample = pd.to_datetime(dem_df["created_at"], errors="coerce").dropna()
-        if not sample.empty:
-            print(f"[DEBUG] demand CSV date range: {sample.min()} -> {sample.max()}")
-
     all_counts = {"dem": dem_counts, "dem_u": dem_u_counts, "sub": sub_counts, "sub_fp": sub_fp_counts, "intv": intv_counts, "sel": sel_counts, "ob": ob_counts, "hc": hc_movement_counts, "ex": ex_counts}
     def sort_period(value):
         if grain == "month":
@@ -1467,8 +1512,12 @@ def api_daily_trends():
     # Fallback to full dataset if date filter returns nothing
     total_all = sum(sum(x['v'] for x in v) for v in result.values())
     if total_all == 0 and (from_date is not None or to_date is not None):
-        print("[DEBUG] No data matched date filter - falling back to full dataset")
-        result = daily_trends_cached(freeze_filter(cl_filter), None, None, grain)
+        result = daily_trends_cached(
+            freeze_filter(cl_filter),
+            freeze_filter(dom_filter),
+            freeze_filter(bh_filter),
+            grain=grain,
+        )
 
     return jsonify(result)
 
