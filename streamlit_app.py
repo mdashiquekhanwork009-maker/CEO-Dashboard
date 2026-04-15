@@ -537,7 +537,7 @@ def day_trend_chart(series, metric_key, from_date, to_date):
         ),
         showlegend=False,
     )
-    fig.update_layout(title_text=f"<b>{config['title'].upper()} - MONTH-ON-MONTH TREND</b>")
+    fig.update_layout(title_text=f"<b>{config['title'].upper()} - DAILY TREND</b>")
     return fig
 
 
@@ -612,6 +612,7 @@ def month_trend_chart(series, metric_key, from_date, to_date):
         ),
         showlegend=False,
     )
+    fig.update_layout(title_text=f"<b>{config['title'].upper()} - MONTH-ON-MONTH TREND</b>")
     return fig
 
 
