@@ -643,6 +643,8 @@ def _flt(series):
         series.astype(str)
         .str.replace(",", "", regex=False)
         .str.replace("₹", "", regex=False)
+        .str.replace("INR", "", regex=False)
+        .str.replace("L", "00000", regex=False)   # handles "2L"
         .str.replace(" ", "", regex=False)
         .replace({"": None, "nan": None, "None": None}),
         errors="coerce"
