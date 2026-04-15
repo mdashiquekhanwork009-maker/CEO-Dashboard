@@ -46,7 +46,7 @@ FILE_PATHS = {
     "selpipe":  "selection_pipeline.csv",
     "ob":       "onboarding_data.csv",
     "activehc": "activeheadcount.csv",
-    "exit":     "exit_data.csv",
+    "exit":     "exit.csv",
     "exitpipe": "exit_pipeline_data.csv",
 }
 
