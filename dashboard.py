@@ -186,7 +186,8 @@ def _prepare_frame(df, file_key):
 
     df = df.copy()
     df.columns = df.columns.str.strip()
-
+    df.columns = df.columns.str.lower()
+    
     client_col = CLIENT_COLS.get(file_key)
     if client_col and client_col in df.columns:
         df[client_col] = df[client_col].str.strip()
