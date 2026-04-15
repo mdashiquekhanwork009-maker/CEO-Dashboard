@@ -466,7 +466,7 @@ DAY_TREND_CONFIG = {
 
 MONTH_TREND_CONFIG = {
     **DAY_TREND_CONFIG,
-    "hc": {"label": "Headcount", "title": "Headcount", "icon": "Headcount", "color": "#6f42c1"},
+    "hc": {"label": "Headcount", "title": "Headcount", "icon": "HC", "color": "#6f42c1"},
 }
 
 
@@ -1024,6 +1024,115 @@ st.plotly_chart(
     width="stretch",
     key="day_on_day_trend_chart",
 )
+
+st.markdown('<div class="sec">Month-on-Month Trends</div>', unsafe_allow_html=True)
+
+current_month_start = pd.Timestamp(today_date).to_period("M").to_timestamp().date()
+if "mom_from" not in st.session_state:
+    st.session_state["mom_from"] = (pd.Timestamp(today_date).to_period("M") - 11).to_timestamp().date()
+if "mom_to" not in st.session_state:
+    st.session_state["mom_to"] = today_date
+if "mom_metric" not in st.session_state:
+    st.session_state["mom_metric"] = "dem"
+
+
+def apply_month_range(months):
+    st.session_state["mom_from"] = (pd.Timestamp(today_date).to_period("M") - (months - 1)).to_timestamp().date()
+    st.session_state["mom_to"] = today_date
+
+
+month_range_specs = [("Last 3 Months", 3), ("Last 6 Months", 6), ("Last 12 Months", 12)]
+month_range_cols = st.columns(5)
+for idx, (label, months) in enumerate(month_range_specs):
+    expected_from = (pd.Timestamp(today_date).to_period("M") - (months - 1)).to_timestamp().date()
+    is_active = (
+        st.session_state.get("mom_from") == expected_from and
+        st.session_state.get("mom_to") == today_date
+    )
+    with month_range_cols[idx]:
+        if st.button(
+            label,
+            key=f"mom_range_{months}",
+            type="primary" if is_active else "secondary",
+            width="stretch"
+        ):
+            apply_month_range(months)
+
+month_date_cols = st.columns(4)
+with month_date_cols[0]:
+    mom_from = st.date_input("From", key="mom_from", format="YYYY-MM-DD")
+with month_date_cols[1]:
+    mom_to = st.date_input("To", key="mom_to", format="YYYY-MM-DD")
+
+if mom_from > mom_to:
+    st.warning("The month-on-month start date is after the end date, so the range was swapped.")
+    mom_from, mom_to = mom_to, mom_from
+    st.session_state["mom_from"] = mom_from
+    st.session_state["mom_to"] = mom_to
+
+month_metric_cols = st.columns(len(MONTH_TREND_CONFIG))
+for idx, (metric_key, config) in enumerate(MONTH_TREND_CONFIG.items()):
+    with month_metric_cols[idx]:
+        if st.button(
+            f"{config['icon']} {config['label']}",
+            key=f"mom_metric_{metric_key}",
+            type="primary" if st.session_state["mom_metric"] == metric_key else "secondary",
+            width="stretch"
+        ):
+            st.session_state["mom_metric"] = metric_key
+
+month_trend_data = daily_trends_cached(
+    freeze_filter(set(selected_clients)) if selected_clients else None,
+    freeze_filter(set(selected_domains)) if selected_domains else None,
+    freeze_filter(set(selected_bhs)) if selected_bhs else None,
+    pd.Timestamp(mom_from),
+    pd.Timestamp(mom_to),
+    grain="month",
+)
+selected_month_metric = st.session_state["mom_metric"]
+st.plotly_chart(
+    month_trend_chart(month_trend_data.get(selected_month_metric, []), selected_month_metric, mom_from, mom_to),
+    width="stretch",
+    key="month_on_month_trend_chart",
+)
+
+st.markdown('<div class="sec">Client Breakdown - MTD</div>', unsafe_allow_html=True)
+st.caption(f"{len(rows):,} clients in current filter")
+
+client_breakdown_df = build_client_breakdown_df(rows)
+if client_breakdown_df.empty:
+    st.info("No client rows are available for the current filter.")
+else:
+    client_breakdown_config = {
+        "Client": st.column_config.TextColumn("Client", width="medium"),
+        "Domain": st.column_config.TextColumn("Domain", width="small"),
+        "Demands": st.column_config.NumberColumn("Demands", format="%d"),
+        "Unsvc": st.column_config.NumberColumn("Unsvc", format="%d"),
+        "Submissions": st.column_config.NumberColumn("Submissions", format="%d"),
+        "F/B Pend": st.column_config.NumberColumn("F/B Pend", format="%d"),
+        "L1": st.column_config.NumberColumn("L1", format="%d"),
+        "L2": st.column_config.NumberColumn("L2", format="%d"),
+        "L3": st.column_config.NumberColumn("L3", format="%d"),
+        "Selections": st.column_config.NumberColumn("Selections", format="%d"),
+        "Sel Pipe HC": st.column_config.NumberColumn("Sel Pipe HC", format="%d"),
+        "Sel Pipe PO (Lac)": st.column_config.NumberColumn("Sel Pipe PO (Lac)", format="%.2f"),
+        "Sel Pipe Mgn (Lac)": st.column_config.NumberColumn("Sel Pipe Mgn (Lac)", format="%.2f"),
+        "Onboard HC": st.column_config.NumberColumn("Onboard HC", format="%d"),
+        "Onboard PO (Lac)": st.column_config.NumberColumn("Onboard PO (Lac)", format="%.2f"),
+        "Onboard Mgn (Lac)": st.column_config.NumberColumn("Onboard Mgn (Lac)", format="%.2f"),
+        "Exit HC": st.column_config.NumberColumn("Exit HC", format="%d"),
+        "Exit PO (Lac)": st.column_config.NumberColumn("Exit PO (Lac)", format="%.2f"),
+        "Net HC": st.column_config.NumberColumn("Net HC", format="%d"),
+        "Net PO (Lac)": st.column_config.NumberColumn("Net PO (Lac)", format="%.2f"),
+        "Net Mgn (Lac)": st.column_config.NumberColumn("Net Mgn (Lac)", format="%.2f"),
+    }
+    st.dataframe(
+        client_breakdown_df,
+        column_config=client_breakdown_config,
+        width="stretch",
+        hide_index=True,
+        height=min(max(320, 36 * (len(client_breakdown_df) + 1)), 680),
+    )
 
 st.markdown('<div class="sec">Recruitment Pipeline</div>', unsafe_allow_html=True)
 with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
