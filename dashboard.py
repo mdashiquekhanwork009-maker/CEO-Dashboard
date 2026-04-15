@@ -233,6 +233,10 @@ def _prepare_frame(df, file_key):
 
         df["_po"] = _flt(df[po_col]) if po_col in df.columns else pd.Series(0.0, index=df.index)
         df["_mg"] = _flt(df[mg_col]) if mg_col in df.columns else pd.Series(0.0, index=df.index)
+
+    if file_key == "selpipe":
+      print("SELPIPE PO SUM:", df["_po"].sum())
+      print("SELPIPE SAMPLE:", df[[po_col]].head())
     if file_key == "demand":
         opening_col = next((c for c in OPENING_COL_CANDIDATES if c in df.columns), None)
         if opening_col:
