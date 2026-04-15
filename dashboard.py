@@ -1301,12 +1301,12 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
     hc_df   = data.get("activehc", pd.DataFrame())
     ex_df   = data.get("exit",   pd.DataFrame())
 
-    dem_counts  = count_by_date(dem_df,  "Created_at",     cl(dem_df,  ["Company_name","company_name","client","Client"]))
+    dem_counts  = count_by_date(dem_df,  "created_at",     cl(dem_df,  ["company_name","client"]))
     sub_counts  = count_by_date(sub_df,  "date",           cl(sub_df,  ["client","Client"]))
-    intv_counts = count_by_date(intv_df, "Interview_date", cl(intv_df, ["company_name","Company_name","client","Client"]))
-    sel_counts  = count_by_date(sel_df,  "selection_date", cl(sel_df,  ["company_name","Company_name","client","Client"]))
-    ob_counts   = count_by_date(ob_df,   "display_date",   cl(ob_df,   ["company_name","Company_name","client","Client"]))
-    hc_counts   = count_by_date(hc_df,   "display_date",   cl(hc_df,   ["company_name","Company_name","client","Client"]))
+    intv_counts = count_by_date(intv_df, "interview_date", cl(intv_df, ["company_name","client"]))
+    sel_counts  = count_by_date(sel_df,  "selection_date", cl(sel_df,  ["company_name","client"]))
+    ob_counts   = count_by_date(ob_df,   "display_date",   cl(ob_df,   ["company_name","client"]))
+    hc_counts   = count_by_date(hc_df,   "display_date",   cl(hc_df,   ["company_name","client"]))
 
     # For month grain, convert total headcount snapshots into month-over-month
     # movement so the chart shows additions (+) and reductions (-).
@@ -1322,7 +1322,7 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
             total = hc_counts.get(month_key, 0)
             hc_movement_counts[month_key] = 0 if prev_total is None else total - prev_total
             prev_total = total
-    ex_counts   = count_by_date(ex_df,   "last_work_day",  cl(ex_df,   ["company_name","Company_name","client","Client"]))
+    ex_counts   = count_by_date(ex_df,   "last_work_day",  cl(ex_df,   ["company_name","client"]))
 
     sub_fp_counts = {}
     if not sub_df.empty:
@@ -1354,13 +1354,13 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
     if not dem_df.empty:
         work_dem = dem_df.copy()
         if "_date" not in work_dem.columns:
-            if "Created_at" in work_dem.columns:
-                work_dem["_date"] = pd.to_datetime(work_dem["Created_at"], errors="coerce")
+            if "created_at" in work_dem.columns:
+                work_dem["_date"] = pd.to_datetime(work_dem["created_at"], errors="coerce")
             else:
                 work_dem["_date"] = pd.NaT
         work_dem = work_dem[work_dem["_date"].notna()]
 
-        demand_client_col = cl(work_dem, ["Company_name","company_name","client","Client"])
+        demand_client_col = cl(work_dem, ["company_name","client"])
         if client_filter is not None and demand_client_col and demand_client_col in work_dem.columns:
             work_dem = work_dem[work_dem[demand_client_col].isin(client_filter)]
 
@@ -1402,8 +1402,8 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
             dem_u_counts = work_dem.groupby("__ds").size().to_dict()
 
     print(f"[DEBUG] daily_trends from={from_ts} to={to_ts} | dem={sum(dem_counts.values())} sub={sum(sub_counts.values())} intv={sum(intv_counts.values())} sel={sum(sel_counts.values())} ob={sum(ob_counts.values())} ex={sum(ex_counts.values())}")
-    if not dem_counts and not dem_df.empty and "Created_at" in dem_df.columns:
-        sample = pd.to_datetime(dem_df["Created_at"], errors="coerce").dropna()
+    if not dem_counts and not dem_df.empty and "created_at" in dem_df.columns:
+        sample = pd.to_datetime(dem_df["created_at"], errors="coerce").dropna()
         if not sample.empty:
             print(f"[DEBUG] demand CSV date range: {sample.min()} -> {sample.max()}")
 
@@ -1756,7 +1756,7 @@ def api_aging_demands():
     dem_df = data.get("demand", pd.DataFrame())
     sub_df = data.get("sub",    pd.DataFrame())
 
-    if dem_df.empty or "Created_at" not in dem_df.columns:
+    if dem_df.empty or "created_at" not in dem_df.columns:
         return jsonify({"buckets": [], "top_clients": []})
 
     submitted_ids = set()
@@ -1765,7 +1765,7 @@ def api_aging_demands():
         submitted_ids = set(sub_df[id_col].astype(str).str.strip().unique())
 
     dem_df = dem_df.copy()
-    dem_df["_date"] = pd.to_datetime(dem_df["Created_at"], errors="coerce")
+    dem_df["_date"] = pd.to_datetime(dem_df["created_at"], errors="coerce")
     today = pd.Timestamp.now().normalize()
 
     id_col_d = next((c for c in ["id","ID","job_id","Job_ID"] if c in dem_df.columns), None)

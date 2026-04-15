@@ -292,7 +292,7 @@ with st.sidebar:
 # =========================
 # ─── DATA FETCH ───────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
-def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None):
+def get_grand(y_tup, m_tup, c_tup, d_tup, b_tup, from_date=None, to_date=None, cache_signature=None):
     
     from_date = pd.Timestamp(from_date) if from_date else None
     to_date   = pd.Timestamp(to_date)   if to_date   else None
@@ -490,6 +490,7 @@ grand, rows = get_grand(
     tuple(selected_clients), 
     tuple(selected_domains), 
     tuple(selected_bhs),
+    cache_signature=cache_signature,
 )
 
 # 🔥 BUILD DATE RANGE FROM FILTERS
@@ -516,7 +517,7 @@ lm_from, lm_to = get_lmtd_range(cy, cm)
 lmtd_grand, _ = get_grand(
     (str(lm_from.year),), (lm_from.month,),
     tuple(selected_clients or []), tuple(selected_domains or []), tuple(selected_bhs or []),
-    lm_from.isoformat(), lm_to.isoformat()
+    lm_from.isoformat(), lm_to.isoformat(), cache_signature
 )
 
 # Previous month for comparison bar
@@ -526,6 +527,7 @@ py, pm = get_previous_month(cy, cm)
 prev_grand, _ = get_grand(
     (str(py),), (pm,),
     tuple(selected_clients), tuple(selected_domains), tuple(selected_bhs),
+    cache_signature=cache_signature,
 )
 
 # ─── KPI VALUES (matching dashboard.py formulas exactly) ─────────────────────
