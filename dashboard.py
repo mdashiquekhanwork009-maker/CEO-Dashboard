@@ -200,9 +200,25 @@ def _prepare_frame(df, file_key):
     else:
         df["_po_end_date"] = pd.NaT
 
+    def find_po_col(df):
+        for col in df.columns:
+            if "po" in col.lower():
+                return col
+        return None
+
+    def find_margin_col(df):
+        for col in df.columns:
+            if "margin" in col.lower():
+                return col
+        return None
+
+
     if file_key in PO_COL_KEYS:
-        df["_po"] = _flt(df["p_o_value"]) if "p_o_value" in df.columns else pd.Series(0.0, index=df.index)
-        df["_mg"] = _flt(df["margin"]) if "margin" in df.columns else pd.Series(0.0, index=df.index)
+        po_col = find_po_col(df)
+        mg_col = find_margin_col(df)
+
+        df["_po"] = _flt(df[po_col]) if po_col else pd.Series(0.0, index=df.index)
+        df["_mg"] = _flt(df[mg_col]) if mg_col else pd.Series(0.0, index=df.index)
 
     if file_key == "demand":
         opening_col = next((c for c in OPENING_COL_CANDIDATES if c in df.columns), None)
