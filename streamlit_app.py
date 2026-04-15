@@ -258,6 +258,10 @@ def money_columns_in_lac(df, columns):
         column_config[column] = st.column_config.NumberColumn(f"{column} (Lac)", format="%.2f")
     return display_df, column_config
 
+
+def first_existing_column(df, candidates):
+    return next((column for column in candidates if column in df.columns), None)
+
 # ─── SIDEBAR FILTERS ──────────────────────────────────────────────────────────
 now = datetime.now()
 month_names_list = [month_map[m] for m in month_options]
