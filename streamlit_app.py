@@ -464,6 +464,11 @@ DAY_TREND_CONFIG = {
     "ex": {"label": "Exit", "title": "Exit", "icon": "🚪", "color": "#c97c4d"},
 }
 
+MONTH_TREND_CONFIG = {
+    **DAY_TREND_CONFIG,
+    "hc": {"label": "Headcount", "title": "Headcount", "icon": "Headcount", "color": "#6f42c1"},
+}
+
 
 def complete_daily_series(series, from_date, to_date):
     lookup = {entry["d"]: int(entry.get("v", 0)) for entry in series}
@@ -533,6 +538,119 @@ def day_trend_chart(series, metric_key, from_date, to_date):
         showlegend=False,
     )
     return fig
+
+
+def complete_monthly_series(series, from_date, to_date):
+    lookup = {entry["d"]: int(entry.get("v", 0)) for entry in series}
+    month_periods = pd.period_range(
+        pd.Timestamp(from_date).to_period("M"),
+        pd.Timestamp(to_date).to_period("M"),
+        freq="M"
+    )
+    return [{"d": period.strftime("%b %y"), "v": lookup.get(str(period), 0)} for period in month_periods]
+
+
+def month_trend_chart(series, metric_key, from_date, to_date):
+    config = MONTH_TREND_CONFIG[metric_key]
+    chart_series = complete_monthly_series(series, from_date, to_date)
+    df = pd.DataFrame(chart_series)
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=df["d"],
+        y=df["v"],
+        mode="lines+markers+text",
+        text=[str(int(value)) for value in df["v"]],
+        textposition="top center",
+        textfont=dict(size=11, color="#52586a"),
+        line=dict(color=config["color"], width=3, shape="spline", smoothing=0.65),
+        marker=dict(size=10, color="#fff", line=dict(color=config["color"], width=2.5)),
+        fill="tozeroy",
+        fillcolor=hex_to_rgba(config["color"], 0.16),
+        hovertemplate="%{x}<br>Value: %{y}<extra></extra>",
+    ))
+
+    average = round(float(df["v"].mean()), 1) if not df.empty else 0.0
+    fig.add_annotation(
+        x=1,
+        y=1,
+        xref="paper",
+        yref="paper",
+        xanchor="right",
+        yanchor="top",
+        text=f"<b>Average: {average}</b>",
+        showarrow=False,
+        bgcolor="rgba(255,255,255,0.92)",
+        bordercolor="rgba(0,0,0,0.12)",
+        borderwidth=1,
+        borderpad=10,
+        font=dict(size=12, color="#52586a"),
+    )
+    fig.update_layout(
+        height=360,
+        margin=dict(t=44, b=24, l=12, r=12),
+        plot_bgcolor="white",
+        paper_bgcolor="white",
+        title=dict(
+            text=f"<b>{config['title'].upper()} â€” MONTH-ON-MONTH TREND</b>",
+            x=0.01,
+            xanchor="left",
+            y=0.98,
+            font=dict(size=14, color="#7c8799"),
+        ),
+        xaxis=dict(
+            showgrid=True,
+            gridcolor="rgba(0,0,0,0.05)",
+            tickfont=dict(size=11, color="#52586a"),
+        ),
+        yaxis=dict(
+            showgrid=True,
+            gridcolor="rgba(0,0,0,0.06)",
+            tickfont=dict(size=11, color="#52586a"),
+            rangemode="tozero",
+        ),
+        showlegend=False,
+    )
+    return fig
+
+
+def build_client_breakdown_df(client_rows):
+    records = []
+    for row in client_rows:
+        metrics = row["metrics"]
+        records.append({
+            "Client": row["label"],
+            "Domain": row["domain"],
+            "Demands": int(metrics.get("dem", 0)),
+            "Unsvc": int(metrics.get("dem_u", 0)),
+            "Submissions": int(metrics.get("sub", 0)),
+            "F/B Pend": int(metrics.get("sub_fp", 0)),
+            "L1": int(metrics.get("l1", 0)),
+            "L2": int(metrics.get("l2", 0)),
+            "L3": int(metrics.get("l3", 0)),
+            "Selections": int(metrics.get("sel", 0)),
+            "Sel Pipe HC": int(metrics.get("sp_hc", 0)),
+            "Sel Pipe PO (Lac)": round(float(metrics.get("sp_po", 0.0)), 2),
+            "Sel Pipe Mgn (Lac)": round(float(metrics.get("sp_mg", 0.0)), 2),
+            "Onboard HC": int(metrics.get("ob_hc", 0)),
+            "Onboard PO (Lac)": round(float(metrics.get("ob_po", 0.0)), 2),
+            "Onboard Mgn (Lac)": round(float(metrics.get("ob_mg", 0.0)), 2),
+            "Exit HC": int(metrics.get("ex_hc", 0)),
+            "Exit PO (Lac)": round(float(metrics.get("ex_po", 0.0)), 2),
+            "Net HC": int(metrics.get("net_hc", 0)),
+            "Net PO (Lac)": round(float(metrics.get("net_po", 0.0)), 2),
+            "Net Mgn (Lac)": round(float(metrics.get("net_mg", 0.0)), 2),
+        })
+
+    if not records:
+        return pd.DataFrame()
+
+    return pd.DataFrame(records).sort_values(
+        by=["Domain", "Demands", "Submissions", "Client"],
+        ascending=[True, False, False, True]
+    )
+
+
 def generate_ceo_insights(current, previous):
     insights = []
 
