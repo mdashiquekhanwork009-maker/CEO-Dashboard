@@ -537,6 +537,7 @@ def day_trend_chart(series, metric_key, from_date, to_date):
         ),
         showlegend=False,
     )
+    fig.update_layout(title_text=f"<b>{config['title'].upper()} - MONTH-ON-MONTH TREND</b>")
     return fig
 
 
@@ -1027,7 +1028,6 @@ st.plotly_chart(
 
 st.markdown('<div class="sec">Month-on-Month Trends</div>', unsafe_allow_html=True)
 
-current_month_start = pd.Timestamp(today_date).to_period("M").to_timestamp().date()
 if "mom_from" not in st.session_state:
     st.session_state["mom_from"] = (pd.Timestamp(today_date).to_period("M") - 11).to_timestamp().date()
 if "mom_to" not in st.session_state:
