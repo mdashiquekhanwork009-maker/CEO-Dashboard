@@ -373,44 +373,6 @@ load_data_cached.cache_clear = clear_runtime_caches
 def _load_mapping_impl():
     client_to_domain = {}
     client_to_bh = {}
-
-    if os.path.exists(MAPPING_FILE):
-        try:
-            if MAPPING_FILE.endswith(".xlsx"):
-                df = pd.read_excel(MAPPING_FILE, dtype=str).fillna("")
-            else:
-                df = pd.read_csv(MAPPING_FILE, dtype=str).fillna("")
-
-            # Normalize column names
-            df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_", regex=False)
-
-            # Flexible column detection
-            cl_col  = next((c for c in df.columns if c in ["client","clients","client_name","company","company_name"]), None)
-            dom_col = next((c for c in df.columns if "domain" in c or "category" in c), None)
-            bh_col  = next((c for c in df.columns if "business_head" in c or c == "bh" or "head" in c), None)
-
-            print(f"[DEBUG] Detected -> client_col={cl_col}  domain_col={dom_col}  bh_col={bh_col}")
-
-            if cl_col is None:
-                print("[DEBUG] WARNING: Could not find client column in mapping file!")
-            else:
-                clients = df[cl_col].astype(str).str.strip()
-                valid = clients.ne("") & clients.str.lower().ne("nan")
-
-                if dom_col:
-                    domains = df[dom_col].astype(str).map(normalize_domain_label)
-                    domain_valid = valid & domains.ne("") & domains.str.lower().ne("nan")
-                    client_to_domain = dict(zip(clients[domain_valid], domains[domain_valid]))
-
-                if bh_col:
-                    bhs = df[bh_col].astype(str).map(normalize_bh_label)
-                    bh_valid = valid & bhs.ne("") & bhs.str.lower().ne("nan")
-                    client_to_bh = dict(zip(clients[bh_valid], bhs[bh_valid]))
-
-        except Exception as e:
-            print("Mapping error:", e)
-            import traceback; traceback.print_exc()
-
     domains        = sorted(set(client_to_domain.values()), key=str.lower)
     business_heads = sorted(set(client_to_bh.values()),     key=str.lower)
 
