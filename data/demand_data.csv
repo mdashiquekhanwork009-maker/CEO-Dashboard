@@ -1,4 +1,8 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+109784,OCI AIDP Position,OCI AIDP Position,Deloitte_Consulting,Rajat Tyagi,1,2026-04-15 04:27:48,256,0
+109783,INFYSYJP00002712/558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated),INFYSYJP00002712/558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated),Infosys Consulting,Tara V R,2,2026-04-14 13:03:09,923,0
+109782,INFYSYJP00003137/ENGMHTCH170302026 - Embedded Software Engineer / Firmware Engineer - C++ (Refloating -1),INFYSYJP00003137/ENGMHTCH170302026 - Embedded Software Engineer / Firmware Engineer - C++ (Refloating -1),Infosys Consulting,Tara V R,2,2026-04-14 13:00:04,923,0
+109781,SDE - Vishesh,SDE - Vishesh,FlipkartIT,Mehr Hashim,2,2026-04-14 12:58:40,1017,0
 109780,INFYSYJP00002409/95351Y26-ETL QA Tester with Capital Market domain,INFYSYJP00002409/95351Y26-ETL QA Tester with Capital Market domain,Infosys Consulting,Tara V R,4,2026-04-14 12:29:55,923,0
 109779,INFYSYJP00003118 /559676 - SAP SD,INFYSYJP00003118 /559676 - SAP SD,Infosys Consulting,Tara V R,1,2026-04-14 12:26:47,923,0
 109778,INFYSYJP00002410/95352Y26-ETL QA Tester with AWS experience,INFYSYJP00002410/95352Y26-ETL QA Tester with AWS experience,Infosys Consulting,Tara V R,4,2026-04-14 12:22:34,923,0
@@ -1011,7 +1015,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108769,INFYSYJP00003598/560778- Full stack(ReactJS+node+graphQL) - India- DX,INFYSYJP00003598/560778- Full stack(ReactJS+node+graphQL) - India- DX,Infosys Consulting,Tara V R,1,2026-04-01 08:24:52,923,0
 108768,"INFYSYJP00003555/560742_SRE, Payments","INFYSYJP00003555/560742_SRE, Payments",Infosys Consulting,Tara V R,1,2026-04-01 08:19:01,923,0
 108767,Leena / SAP HCM Payroll,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 08:14:40,925,0
-108766,: Digital : Microsoft Azure~Identity and Access Management Implementation| Design & Architecture~Multifactor Authentication (MFA),: Digital : Microsoft Azure~Identity and Access Management Implementation| Design & Architecture~Multifactor Authentication (MFA),TCS,Dhaval Patel,1,2026-04-01 08:09:03,943,0
+108766,: Digital : Microsoft Azure~Identity and Access Management Implementation| Design & Architecture~Multifactor Authentication (MFA),: Digital : Microsoft Azure~Identity and Access Management Implementation| Design & Architecture~Multifactor Authentication (MFA),TCS,Dhaval Patel,1,2026-04-01 08:09:03,943,1
 108765,Jagmohan / AWS Glue,AWS Glue,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 08:00:24,925,0
 108764,Chetna / Microsoft Front End Development (FED) Angular,Microsoft Front End Development (FED) Angular,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 07:59:53,925,0
 108763,Shivani / Oracle Database Administration (DBA),Database Administrator,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 07:50:57,925,0
@@ -1049,7 +1053,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108731,C# WPF ,C# WPF ,Boston Scientific,Sushma K M,1,2026-04-01 06:06:06,514,0
 108730,Power BI Developer ,Power BI Developer ,DTICI,Saravanan P,1,2026-04-01 06:06:05,916,0
 108729,Chetna / Java Full Stack Development,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 06:05:59,925,0
-108728,: Servicer desk,: Servicer desk,TCS,Dhaval Patel,1,2026-04-01 06:03:52,943,0
+108728,: Servicer desk,: Servicer desk,TCS,Dhaval Patel,1,2026-04-01 06:03:52,943,1
 108727,Vidya / ServiceNow Hardware Asset Management,ServiceNow Hardware Asset Management,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 06:02:22,925,0
 108726,Network  Engineer ,Network  Engineer ,Harman,Tamil C,1,2026-04-01 06:01:46,90,0
 108725,QA Automation ,QA Automation ,Boston Scientific,Sushma K M,1,2026-04-01 06:01:21,514,0
@@ -1066,7 +1070,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108714,Lead  Platform Engineer,Lead  Platform Engineer,Bread Financials_Support,Sushma K M,1,2026-04-01 05:37:17,828,0
 108713,Lead systems engineer  - (25000PV4),Lead systems engineer,Socgen_GTS,Surya S,1,2026-04-01 05:35:47,1028,0
 108712,INFYSYJP00001667/554733 - Test Automation Consultant (Refloating - 2),INFYSYJP00001667/554733 - Test Automation Consultant (Refloating - 2),Infosys Consulting,Tara V R,2,2026-04-01 05:35:12,923,0
-108711,Azure Devops,Azure Devops,TCS,Dhaval Patel,1,2026-04-01 05:34:39,943,0
+108711,Azure Devops,Azure Devops,TCS,Dhaval Patel,1,2026-04-01 05:34:39,943,1
 108710,"Specialist Software Engineer - JAVA , Spring boot, DevOps  - (2600075N)","Specialist Software Engineer - JAVA , Spring boot, DevOps",Socgen_GTS,Surya S,1,2026-04-01 05:33:44,1028,0
 108709,Senior Platform Engineer,Senior Platform Engineer,Bread Financials_Support,Sushma K M,1,2026-04-01 05:33:22,828,0
 108708,Shiek - Palo Alto,Palo Alto,Cognizant,Sushma Hegde,2,2026-04-01 05:31:36,18,0
