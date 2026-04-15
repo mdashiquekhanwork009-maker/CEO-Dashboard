@@ -2,6 +2,7 @@
 J2W Recruitment Dashboard — Streamlit
 Mirrors dashboard.py layout, KPI formulas, filter logic, and trend sections exactly.
 """
+import os
 import calendar
 import pandas as pd
 import plotly.graph_objects as go
@@ -22,6 +23,22 @@ from dashboard import (
     resolve_client_filter_cached,
     round_m,
 )
+
+st.sidebar.markdown("### 🔍 Debug: Data Check")
+data_folder_candidates = [
+    os.environ.get('DASHBOARDDATAFOLDER', './data'),
+    os.path.join(os.path.dirname(__file__), 'data'),
+    './data',
+    os.getcwd()
+]
+for path in data_folder_candidates:
+    if os.path.exists(path):
+        st.sidebar.write(f"✅ Folder: {path}")
+        for f in ['demanddata.csv', 'submission.csv', 'interview.csv']:  # Add your files
+            full = os.path.join(path, f)
+            st.sidebar.write(f"  - {f}: {'✅' if os.path.exists(full) else '❌'}")
+    else:
+        st.sidebar.write(f"❌ Folder: {path}")
 # ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="J2W Recruitment Dashboard",
