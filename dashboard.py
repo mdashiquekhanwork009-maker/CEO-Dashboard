@@ -826,7 +826,6 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
                     unserviced_df["id_status"].astype(str).str.strip() == "0"
                 ]
             unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
-            unserviced_counts = unserviced_df.groupby(cl_col).size().to_dict()
         for cl, g in df.groupby(cl_col):
             ensure(cl)
             total_dem = len(g)
@@ -920,7 +919,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             add_po_metrics(g, cl, "ob_hc", "ob_po", "ob_mg")
 
     # ACTIVE HEADCOUNT
-    df = data["activehc"]
+    df = frames["activehc"]
 
     cl_col = None
     if not df.empty:
@@ -1544,15 +1543,15 @@ def api_lmtd():
     prev_end = prev_start.replace(day=prev_end_day)
 
     current_res = compute_all_cached(
-        sel_year,
-        sel_month,
+        freeze_filter({sel_year}),
+        freeze_filter({sel_month}),
         freeze_filter(cl_filter),
         freeze_date(current_start),
         freeze_date(today),
-    )
+        )
     prev_res = compute_all_cached(
-        prev_start.year,
-        prev_start.month,
+        freeze_filter({prev_start.year}),
+        freeze_filter({prev_start.month}),
         freeze_filter(cl_filter),
         freeze_date(prev_start),
         freeze_date(prev_end),
