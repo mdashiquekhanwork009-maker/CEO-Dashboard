@@ -50,6 +50,8 @@ FILE_PATHS = {
     "exitpipe": "exit_pipeline_data.csv",
 }
 
+_LAST_CACHE_SIGNATURE = None
+
 COLUMN_MAPPING = {
     "selpipe": {
         "po": "p_o_value",
@@ -129,9 +131,9 @@ MAPPING_FILE = resolve_mapping_file(DATA_FOLDER)
 LOGO_FILE = resolve_logo_file()
 
 DATE_COLS = {
-    "demand":   "Created_at",
+    "demand":   "created_at",
     "sub":      "date",
-    "intv":     "Interview_date",
+    "intv":     "interview_date",
     "sel":      "selection_date",
     "selpipe":  "display_date",
     "ob":       "display_date",
@@ -141,7 +143,7 @@ DATE_COLS = {
 }
 
 CLIENT_COLS = {
-    "demand":   "Company_name",
+    "demand":   "company_name",
     "sub":      "client",
     "intv":     "company_name",
     "sel":      "company_name",
@@ -151,6 +153,31 @@ CLIENT_COLS = {
     "exit":     "company_name",
     "exitpipe": "company_name",
 }
+
+
+def _file_signature(path):
+    if not path:
+        return ("", False, 0, 0)
+    abs_path = os.path.abspath(path)
+    try:
+        stat = os.stat(abs_path)
+        return (abs_path, True, int(stat.st_mtime_ns), int(stat.st_size))
+    except OSError:
+        return (abs_path, False, 0, 0)
+
+
+def get_runtime_cache_signature():
+    data_folder = resolve_data_folder()
+    mapping_file = resolve_mapping_file(data_folder)
+    data_signature = (
+        os.path.abspath(data_folder),
+        tuple(
+            (key, filename, *_file_signature(os.path.join(data_folder, filename)))
+            for key, filename in sorted(FILE_PATHS.items())
+        ),
+    )
+    mapping_signature = ("mapping", *_file_signature(mapping_file))
+    return (data_signature, mapping_signature)
 
 ID_COL_CANDIDATES = ["id", "ID", "job_id", "Job_ID", "job_ID"]
 OPENING_COL_CANDIDATES = [
