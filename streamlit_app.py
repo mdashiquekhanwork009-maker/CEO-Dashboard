@@ -28,6 +28,7 @@ from dashboard import (
     grand_total,
     load_mapping,
     normalize_bh_label,
+    resolve_client_filter,
     resolve_client_filter_cached,
     round_m,
 )
@@ -243,6 +244,17 @@ def sync_multiselect_state(key, options, default_values=None, force_default_when
         st.session_state[key] = valid_values
 
 
+def get_available_client_options(selected_domains=None, selected_bhs=None):
+    resolved_clients = resolve_client_filter(
+        None,
+        set(selected_domains) if selected_domains else None,
+        set(selected_bhs) if selected_bhs else None,
+    )
+    if resolved_clients is None:
+        return list(all_clients)
+    return sorted(resolved_clients, key=str.lower)
+
+
 def money_value_lac(value):
     return f"{abs(float(value)):.2f}"
 
@@ -290,9 +302,13 @@ month_names_list = [month_map[m] for m in month_options]
 
 sync_multiselect_state("YEAR", year_options, default_year_selection(year_options, now), force_default_when_empty=True)
 sync_multiselect_state("MONTH", month_names_list, default_month_selection(month_options, month_map, now), force_default_when_empty=True)
-sync_multiselect_state("CLIENTS", all_clients, [])
 sync_multiselect_state("DOMAIN", domain_options, [])
 sync_multiselect_state("BH", bh_options, [])
+available_clients = get_available_client_options(
+    st.session_state.get("DOMAIN"),
+    st.session_state.get("BH"),
+)
+sync_multiselect_state("CLIENTS", available_clients, [])
 
 with st.sidebar:
 
@@ -320,7 +336,7 @@ with st.sidebar:
     # CLIENT
     selected_clients = st.multiselect(
     "CLIENTS",
-    all_clients,
+    available_clients,
     key="CLIENTS"
 )   
     # DOMAIN
