@@ -263,7 +263,7 @@ def _prepare_frame(df, file_key):
         # Selection pipeline metrics should follow the display date for dashboard filters.
         for candidate in ["display_date", "offer_created_date", "selection_date"]:
             if candidate in df.columns:
-                candidate_parsed = pd.to_datetime(df[candidate], format="mixed", dayfirst=True, errors="coerce")
+                candidate_parsed = pd.to_datetime(df[candidate], errors="coerce")
                 if getattr(candidate_parsed.dt, "tz", None) is not None:
                     candidate_parsed = candidate_parsed.dt.tz_localize(None)
                 parsed = parsed.where(parsed.notna(), candidate_parsed)
