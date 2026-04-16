@@ -1,10 +1,15 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+109919,Selenium Test Automation & Functional Testing,Selenium Test Automation & Functional Tester,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:42:35,1018,0
+109918,O2C- Mumbai,Order to Cash ,Accenture_BPO,Jawad Ulla Khan,6,2026-04-16 12:41:03,27,0
+109917,Contact Centre Testing & Automation ,Contact Centre Testing & Automation ,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:39:14,1018,0
+109916,Maria /SAP ABAP Development for HANA+ BN4L,SAP ABAP Development for HANA+ BN4L,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-16 12:38:19,925,0
+109915,QA Automation Engineer,QA Automation Engineer,Koch Industries,Anuradha Murthy,1,2026-04-16 12:34:59,353,0
 109914,INFYSYJP00000873/529698_Senior UI Developer,INFYSYJP00000873/529698_Senior UI Developer,Infosys Consulting,Tara V R,2,2026-04-16 12:25:29,923,0
 109913,SAP TM,SAP TM,Deloitte_Consulting,Rajat Tyagi,1,2026-04-16 12:18:57,256,0
 109912,INFYSYJP00004210 562449-Salesforce/Web application testing ,INFYSYJP00004210 562449-Salesforce/Web application testing ,Infosys Consulting,Tara V R,4,2026-04-16 12:15:45,923,0
 109911,INFYSYJP00001420 555103_D365 Commerce Technical Lead ,INFYSYJP00001420 555103_D365 Commerce Technical Lead ,Infosys Consulting,Tara V R,3,2026-04-16 12:14:04,923,0
 109910,Data Analyst,Data Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-16 12:06:58,249,0
-109909,Developer ,Developer ,TCS,Dhaval Patel,1,2026-04-16 12:01:26,943,0
+109909,Developer ,Developer ,TCS,Dhaval Patel,1,2026-04-16 12:01:26,943,2
 109908,Pramod - Business analyst,Business Analyst,Cognizant,Syed Waseem,2,2026-04-16 11:44:28,18,0
 109907,Ravi - Python WITH FAST API,Python FAST API,Cognizant,Syed Waseem,2,2026-04-16 11:40:48,18,0
 109906,Oracle Cloud Infrastructure Administration / Shivani,Infra Tech Support Practitioner,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-16 11:39:13,925,0
@@ -8381,7 +8386,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101520,Anupama Python,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-11 08:03:38,925,0
 101519,"JCL, Cobol __Regions Bank","JCL, Cobol __Regions Bank",Infosys Consulting,Chiranjeev Desai,1,2025-11-11 07:43:41,923,0
 101518,Accounts Executive- R2R,Accounts Executive- R2R,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:39:30,27,1
-101517,Python,Python,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:29:31,27,0
+101517,Python,Python,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:29:31,27,2
 101516,"ReactJS, Redux, NodeJS, ExpressJS","ReactJS, Redux, NodeJS, ExpressJS",Infosys Consulting,Chiranjeev Desai,1,2025-11-11 07:20:14,923,0
 101515,ASP .NET,ASP.Net,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:18:45,27,0
 101514,Senior SailPoint Developer,Senior SailPoint Developer,TCS,Manisha Sh,1,2025-11-11 06:58:39,943,0
@@ -8427,7 +8432,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101474,Java Backend Developer ( Mitul BU ),Java Backend Developer,GE Healthcare Global Private Limited.,Mehr Hashim,3,2025-11-10 09:50:47,493,0
 101473,Technical lead ( Mitul BU ),Technical lead ,GE Healthcare Global Private Limited.,Mehr Hashim,1,2025-11-10 09:48:29,493,0
 101472,"ADM-Python, Robotic framework","ADM-Python, Robotic framework",Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-10 09:46:55,1006,0
-101471,Content Writing and Management,Instructor Specialist,Accenture_BPO,Jawad Ulla Khan,1,2025-11-10 09:46:13,27,0
+101471,Content Writing and Management,Instructor Specialist,Accenture_BPO,Jawad Ulla Khan,1,2025-11-10 09:46:13,27,1
 101470,Developer,Developer,TCS,Soniya Sabnani,1,2025-11-10 09:44:26,943,0
 101469,Digital : Databricks~Digital : PySpark~PL/SQL,Digital : Databricks~Digital : PySpark~PL/SQL,TCS,Dhaval Patel,1,2025-11-10 09:43:32,943,0
 101468,IFS PSO,IFS PSO,Deloitte_Consulting,Rajat Tyagi,1,2025-11-10 09:40:44,256,0
@@ -8547,7 +8552,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101353,System Engineer ,System Engineer ,GE Healthcare Global Private Limited.,Mehr Hashim,1,2025-11-06 10:10:30,493,0
 101352,Senior Engineer,Senior Engineer,TCS,Soniya Sabnani,1,2025-11-06 09:58:52,943,0
 101351,Shivani Network Infrastructures, Application Tech Support Practitioner,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-06 09:52:19,925,0
-101350,ESI_ Mumbai ,Back Office,Accenture_BPO,Jawad Ulla Khan,10,2025-11-06 09:38:45,27,0
+101350,ESI_ Mumbai ,Back Office,Accenture_BPO,Jawad Ulla Khan,10,2025-11-06 09:38:45,27,1
 101349,"Kraft Heinz _ Azure, Python","Kraft Heinz _ Azure, Python",Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-06 09:31:40,1006,0
 101348,"Python, SQL, Object Oriented programming, Azure","Python, SQL, Object Oriented programming, Azure",Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-06 09:26:26,1006,0
 101347,SAP ABAP Vidya,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,2,2025-11-06 09:26:16,925,0
@@ -9147,7 +9152,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 100749,Business Analyst,Business Analyst,Johnson Electric,Shivam Prasad,1,2025-10-23 07:52:39,940,0
 100748,React + Java MS with Lead ,React + Java MS with Lead ,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-10-23 07:49:43,1006,0
 100747,QA web automation,QA web automation,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-10-23 07:46:15,1006,0
-100746,HCSC_Exp,Claim Processing Represntative,Accenture_BPO,Jawad Ulla Khan,8,2025-10-23 07:24:45,27,0
+100746,HCSC_Exp,Claim Processing Represntative,Accenture_BPO,Jawad Ulla Khan,8,2025-10-23 07:24:45,27,1
 100745,Data Cloud Consultants,Data Cloud Consultants,PricewaterhouseCoopers,Dhaval Patel,2,2025-10-23 07:17:15,249,0
 100744,SCALA,SCALA,Accenture_ATCI,Tamil C,1,2025-10-23 06:59:52,1015,0
 100743,ReactJS,ReactJS,TCS,Soniya Sabnani,1,2025-10-23 06:55:26,943,0
