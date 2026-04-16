@@ -238,6 +238,7 @@ RAW_DATASET_CONFIG = {
     "sel": {"label": "Selections"},
     "selpipe": {"label": "Selection Pipeline"},
     "ob": {"label": "Onboardings"},
+    "activehc": {"label": "Active Headcount"},
     "exitpipe": {"label": "Exit Pipeline"},
     "exit": {"label": "Exit"},
 }
