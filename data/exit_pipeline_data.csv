@@ -1,5 +1,6 @@
 recruiter_name,manager_name,full_name,employee_type,employee_id,joining_date,p_o_value,margin,exit_type,company_name,status,tentative_exit_date
 Sumanth VM,Fazila Khanum,Gourishetty Saikiran,2,C36230783,2023-06-05,189000.0,22334.0,Contract Closure,Infosys ADM,5,2026-04-30
+Ashwini Vishwakarma,Vinod K,Arjun Tyagi,2,C36230832,2023-06-07,291648.0,105290.0,Contract Closure,CME,5,2026-05-29
 Shikha Rana,Shikha Rana,Kamadi Abhinav Reddy,1,,2022-02-14,42483.0,7483.0,No Show,UHG,7,
 Abhishek B,Harshavardhan Reddy,Sushma K,6,C36210643,2021-03-17,35685.0,5185.0,Contract Closure,HP,5,2026-10-15
 Sunaina Mehra,Harshavardhan Reddy,Pavithra P,6,C36220182,2022-01-17,35685.0,5185.0,Contract Closure,HP,5,2026-09-16
@@ -73,9 +74,11 @@ Ebi Thambu,Linu P Mathew,Kavya M S,1,C36250347,2025-03-10,78624.0,28624.0,Conver
 Siva Darsana,Afzal Mohammed,Ananthakrishnan G,1,C36250396,2025-03-17,78624.0,32791.0,Conversion,Socgen,5,2026-05-06
 Shreyashi Kundu,Afzal Mohammed,Shaik Kather S J,1,C36250511,2025-04-03,78624.0,32791.0,Contract Closure,Socgen,5,2026-05-06
 Jothipriya R,M Jagadish Kumar,Pasumarthi Venkata Naga Abhishek ,1,C36250585,2025-04-07,78624.0,16124.0,Resignation,Socgen,5,2026-05-06
+Jothipriya R,M Jagadish Kumar,R Ajay,1,C36250664,2025-04-21,78624.0,16124.0,Contract Closure,Socgen,5,2026-05-20
 Aniskeh Manick S N,Afzal Mohammed,Meena Girishan,1,C36250626,2025-04-10,78624.0,28624.0,Contract Closure,Socgen,5,2026-05-06
 Madhuri Ps,Afzal Mohammed,Ravikumar,1,C36250670,2025-04-17,140049.0,56716.0,Contract Closure,Socgen,5,2026-04-22
 Mokshithraj M,Saravanan P,Harish P,1,C36250992,2025-05-29,46683.0,5850.0,Contract Closure,Socgen,5,2026-05-28
+Asuri Tejaswi,Linu P Mathew,Pooja Upadhyay,1,C36252415,2025-11-20,169533.0,82033.0,Contract Closure,Socgen,5,2026-05-12
 Harshitha S,Tamil C,Srinivas Katta,4,O36240157,2024-10-30,267044.33,33711.33,Contract Closure,DXC,5,2026-05-04
 Jackson Mathew S,Tamil C,Boorla Sreeja,4,O36250005,2025-01-06,333333.33,0.0,Contract Closure,DXC,5,2026-04-30
 Tanya Angeline S,Tamil C,Guru Prasad Reddy K,4,O36250023,2025-01-20,285714.29,77381.29,Project Roll Off,DXC,6,2025-03-15
@@ -162,6 +165,7 @@ Prateek A,Mehr Hashim,SHAIK ABDUL AZEEZ,2,C36241038,2024-07-04,85000.0,23750.0,C
 Hrithik Selvan,Mehr Hashim,Sreesailam Vishal Gowd,2,C36252147,2025-10-23,130000.0,30000.0,Resignation,SONY Software Development Centre,5,2026-06-02
 Ponduru Sarath kumar,Anuradha M,Rishi Sharma,2,C36260083,2026-01-21,277200.0,127200.0,No Show,Koch Industries,3,2026-01-21
 Rashmi Kulkarni,Linu P Mathew,Bhavana Borkar,2,C36242566,2024-12-13,409920.0,93254.0,Resignation,JLL,5,2026-04-30
+Rashmi Kulkarni,Linu P Mathew,Akshay Shrivastav,2,C36250804,2025-05-09,92400.0,29900.0,Contract Closure,JLL,5,2026-05-29
 Manjunath R,Shivam Prasad,Shreyas Vilas Kshirsagar,2,C36252277,2025-10-31,325600.0,75600.0,Conversion,Veritas,5,2026-05-30
 Manjunath R,Shivam Prasad,Nilesh Chandrakant Borate,2,C36252278,2025-10-31,391600.0,33267.0,Resignation,Veritas,5,2026-04-30
 Harrish Seenivasan,Deepthi David,Varun  Kumar,2,C36212917,2021-09-20,107688.0,41022.0,Project Roll Off,IBM -Mercedes,5,2026-04-30
@@ -196,6 +200,7 @@ Krishna Priya,Mehr Hashim,Babu  Gopal,2,C36240324,2024-02-29,285000.24,60000.24,
 Babu H,Shivam Prasad,Akhil Chandrakant Belanekar,2,C36250857,2025-05-19,188500.0,13500.0,Conversion,Bread Financials_Support,5,2026-04-24
 Manju B,Dipika Saha,Vishal  Kumar,2,C36251370,2025-07-21,318750.0,18750.0,Conversion,Bread Financials_Support,5,2026-04-17
 Siva Darsana,Afzal Mohammed,Swati Bhargava,2,C36250767,2025-05-02,134592.0,5426.0,Contract Closure,Lumen routing ,5,2026-05-29
+Aniskeh Manick S N,Karan Lalchandani,Shemonti  Rakshit,2,C36252305,2025-11-05,60783.0,2450.0,Contract Closure,Lumen routing ,5,2026-05-15
 Ilakiya A,Saravanan P,Veeresh Nayaka,2,C36250741,2025-04-29,195888.0,95888.0,Project Roll Off,DTICI,5,2026-05-06
 Pawan SL,Saravanan P,Anupama  M,2,C36251710,2025-08-25,240408.0,115408.0,Contract Closure,DTICI,5,2026-04-17
 Nayna N,Tara V R,Nitesh Shankar Shelar,2,C36251299,2025-07-07,126000.0,26000.0,Conversion,Infosys Consulting,5,2026-04-22
