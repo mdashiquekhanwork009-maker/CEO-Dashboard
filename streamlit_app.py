@@ -1284,13 +1284,6 @@ with st.expander("Raw Data Explorer", expanded=False):
         if v in raw_month
     } if raw_month else None
 
-    # Client filter
-    raw_clients = st.multiselect(
-        "Filter by clients (raw data)",
-        all_clients,
-        key="raw_clients_sel"
-    )
-
     # =========================
     # OVERDUE FILTER
     # =========================
@@ -1299,6 +1292,42 @@ with st.expander("Raw Data Explorer", expanded=False):
     if ss["raw_dataset"] == "overdue":
         year_filter = None
         month_filter = None
+
+    raw_client_source_df = get_raw_dataset_frame(
+        base_dataset,
+        year_filter=None if raw_from or raw_to else year_filter,
+        month_filter=None if raw_from or raw_to else month_filter,
+        client_filter=None,
+        from_date=pd.Timestamp(raw_from) if raw_from else None,
+        to_date=pd.Timestamp(raw_to) if raw_to else None,
+        demand_status=demand_status,
+    )
+    if ss["raw_dataset"] == "overdue":
+        raw_client_source_df = apply_overdue_raw_filter(
+            raw_client_source_df,
+            raw_year=raw_year,
+            raw_month=raw_month,
+            month_lookup=month_map,
+        )
+
+    raw_client_col = first_existing_column(raw_client_source_df, ["company_name", "Company_name", "client", "Client"])
+    raw_client_options = []
+    if raw_client_col and raw_client_col in raw_client_source_df.columns:
+        raw_client_options = sorted(
+            {
+                str(value).strip()
+                for value in raw_client_source_df[raw_client_col].dropna().tolist()
+                if str(value).strip()
+            },
+            key=str.lower,
+        )
+    sync_multiselect_state("raw_clients_sel", raw_client_options, [])
+
+    raw_clients = st.multiselect(
+        "Filter by clients (raw data)",
+        raw_client_options,
+        key="raw_clients_sel"
+    )
 
     # =========================
     # FETCH
@@ -1312,30 +1341,13 @@ with st.expander("Raw Data Explorer", expanded=False):
         to_date=pd.Timestamp(raw_to) if raw_to else None,
         demand_status=demand_status,
     )
-    # =========================
-    # OVERDUE FILTER (FIRST)
-    # =========================
     if ss["raw_dataset"] == "overdue":
-        if "display_date" in raw_df.columns:
-            df_dates = pd.to_datetime(raw_df["display_date"], errors="coerce")
-            today_ts = pd.Timestamp.now().normalize()
-
-            mask = (
-                df_dates.notna() &
-                (df_dates.dt.normalize() < today_ts)
-            )
-
-            if raw_year:
-                mask &= (df_dates.dt.year == int(raw_year))
-
-            if raw_month:
-                selected_month_nums = {
-                    k for k, v in month_map.items()
-                    if v in raw_month
-                }
-                mask &= df_dates.dt.month.isin(selected_month_nums)
-
-            raw_df = raw_df[mask]
+        raw_df = apply_overdue_raw_filter(
+            raw_df,
+            raw_year=raw_year,
+            raw_month=raw_month,
+            month_lookup=month_map,
+        )
 
     # =========================
     # CLIENT BREAKDOWN
