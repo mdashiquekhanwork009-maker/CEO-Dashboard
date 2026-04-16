@@ -284,7 +284,7 @@ def _prepare_frame(df, file_key):
         df["_month"] = pd.Series(pd.NA, index=df.index, dtype="Int64")
 
     if "po_end_date" in df.columns:
-        po_end_parsed = pd.to_datetime(df["po_end_date"], format="mixed", dayfirst=True, errors="coerce")
+        po_end_parsed = pd.to_datetime(df["po_end_date"], errors="coerce")
         if getattr(po_end_parsed.dt, "tz", None) is not None:
             po_end_parsed = po_end_parsed.dt.tz_localize(None)
         df["_po_end_date"] = po_end_parsed
