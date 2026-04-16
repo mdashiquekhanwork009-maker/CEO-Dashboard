@@ -1037,7 +1037,10 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             add_po_metrics(g, cl, "ob_hc", "ob_po", "ob_mg")
 
     # ACTIVE HEADCOUNT
-    df = frames["activehc"]
+    # Follow the Flask dashboard logic: start from the full active HC sheet
+    # and, for filtered views, back out onboarding that happened inside the
+    # selected period so the KPI shows the opening active base.
+    df = data["activehc"]
 
     cl_col = None
     if not df.empty:
@@ -1049,15 +1052,16 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
 
         for cl, g in df.groupby(cl_col):
             ensure(cl)
-
             res[cl]["active_hc"] += len(g)
-
             if "_po" in g.columns:
                 res[cl]["active_po"] = res[cl].get("active_po", 0) + float(g["_po"].sum())
-
             if "_mg" in g.columns:
                 res[cl]["active_mg"] = res[cl].get("active_mg", 0) + float(g["_mg"].sum())
-        # For filtered views, show opening active HC for the selected period by
+    if sel_year or sel_month or from_date is not None or to_date is not None:
+        for m in res.values():
+            m["active_hc"] = max(0, m["active_hc"] - m["ob_hc"])
+            m["active_po"] = max(0.0, m["active_po"] - m["ob_po"])
+            m["active_mg"] = max(0.0, m["active_mg"] - m["ob_mg"])
     
 
     # EXIT
