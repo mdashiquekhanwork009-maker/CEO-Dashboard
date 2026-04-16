@@ -1092,7 +1092,7 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
         for k in [
             "sp_po", "sp_mg", "ob_po", "ob_mg",
             "ex_po", "ex_mg", "ex_pipe_po", "ex_pipe_mg",
-            "active_po", "active_mg"
+            "active_po", "active_mg", "overdue_po", "overdue_mg"
         ]:
             m[k] = m[k] / 1e5  # Always convert to Lakhs
 
