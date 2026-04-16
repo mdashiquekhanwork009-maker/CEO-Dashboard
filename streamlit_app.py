@@ -1235,16 +1235,21 @@ with st.expander("Raw Data Explorer", expanded=False):
             ss["raw_dem_status"] = "all"
             st.rerun()
     with note_col:
-        st.caption("Date range takes priority over year and month when either date is selected.")
+        if ss["raw_dataset"] == "activehc":
+            st.caption("For Active Headcount, only client and from/to date filters are applied.")
+        else:
+            st.caption("Date range takes priority over year and month when either date is selected.")
     # Filters
     rf1, rf2, rf3, rf4 = st.columns([1.5, 1.5, 1.5, 2])
+    activehc_raw_mode = ss["raw_dataset"] == "activehc"
 
     with rf1:
         raw_year = st.selectbox(
             "Year",
             sorted(year_options),
             index=sorted(year_options).index(str(current_year)) if str(current_year) in year_options else 0,
-            key="raw_year"
+            key="raw_year",
+            disabled=activehc_raw_mode,
         )
 
     with rf2:
@@ -1252,7 +1257,8 @@ with st.expander("Raw Data Explorer", expanded=False):
             "Month",
             month_names_list,
             default=[month_map[current_month]] if month_map[current_month] in month_names_list else [],
-            key="raw_month"
+            key="raw_month",
+            disabled=activehc_raw_mode,
         )
 
     with rf3:
@@ -1289,14 +1295,14 @@ with st.expander("Raw Data Explorer", expanded=False):
     # =========================
     base_dataset = "selpipe" if ss["raw_dataset"] == "overdue" else ss["raw_dataset"]
 
-    if ss["raw_dataset"] == "overdue":
+    if ss["raw_dataset"] in {"overdue", "activehc"}:
         year_filter = None
         month_filter = None
 
     raw_client_source_df = get_raw_dataset_frame(
         base_dataset,
-        year_filter=None if raw_from or raw_to else year_filter,
-        month_filter=None if raw_from or raw_to else month_filter,
+        year_filter=None if raw_from or raw_to or activehc_raw_mode else year_filter,
+        month_filter=None if raw_from or raw_to or activehc_raw_mode else month_filter,
         client_filter=None,
         from_date=pd.Timestamp(raw_from) if raw_from else None,
         to_date=pd.Timestamp(raw_to) if raw_to else None,
@@ -1334,8 +1340,8 @@ with st.expander("Raw Data Explorer", expanded=False):
     # =========================
     raw_df = get_raw_dataset_frame(
         base_dataset,
-        year_filter=None if raw_from or raw_to else year_filter,
-        month_filter=None if raw_from or raw_to else month_filter,
+        year_filter=None if raw_from or raw_to or activehc_raw_mode else year_filter,
+        month_filter=None if raw_from or raw_to or activehc_raw_mode else month_filter,
         client_filter=set(raw_clients) if raw_clients else None,
         from_date=pd.Timestamp(raw_from) if raw_from else None,
         to_date=pd.Timestamp(raw_to) if raw_to else None,
