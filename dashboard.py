@@ -1,10 +1,3 @@
-"""J2W  —  CEO Dashboard  v5
-─────────────────────────────────
-Run:   py -3.11 dashboard.py
-Open:  http://localhost:5050
-
-Requirements: pip install flask pandas openpyxl
-"""
 from functools import lru_cache
 from io import BytesIO
 import os
