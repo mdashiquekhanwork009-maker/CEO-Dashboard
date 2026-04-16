@@ -266,6 +266,24 @@ def money_columns_in_lac(df, columns):
 def first_existing_column(df, candidates):
     return next((column for column in candidates if column in df.columns), None)
 
+
+def apply_overdue_raw_filter(df, raw_year=None, raw_month=None, month_lookup=None):
+    if df is None or df.empty or "display_date" not in df.columns:
+        return df
+
+    df_dates = pd.to_datetime(df["display_date"], errors="coerce")
+    today_ts = pd.Timestamp.now().normalize()
+    mask = df_dates.notna() & (df_dates.dt.normalize() < today_ts)
+
+    if raw_year:
+        mask &= (df_dates.dt.year == int(raw_year))
+
+    if raw_month and month_lookup:
+        selected_month_nums = {month for month, name in month_lookup.items() if name in raw_month}
+        mask &= df_dates.dt.month.isin(selected_month_nums)
+
+    return df[mask]
+
 # ─── SIDEBAR FILTERS ──────────────────────────────────────────────────────────
 now = datetime.now()
 month_names_list = [month_map[m] for m in month_options]
