@@ -1224,6 +1224,18 @@ with st.expander("Raw Data Explorer", expanded=False):
                 st.rerun()
 
     st.markdown("---")
+    reset_col, note_col = st.columns([1, 3])
+    with reset_col:
+        if st.button("Reset Raw Filters", key="reset_raw_filters", width="stretch"):
+            ss["raw_year"] = str(current_year) if str(current_year) in year_options else year_options[0]
+            ss["raw_month"] = [month_map[current_month]] if month_map[current_month] in month_names_list else []
+            ss["raw_from"] = None
+            ss["raw_to"] = None
+            ss["raw_clients_sel"] = []
+            ss["raw_dem_status"] = "all"
+            st.rerun()
+    with note_col:
+        st.caption("Date range takes priority over year and month when either date is selected.")
     # Filters
     rf1, rf2, rf3, rf4 = st.columns([1.5, 1.5, 1.5, 2])
 
@@ -1258,6 +1270,7 @@ with st.expander("Raw Data Explorer", expanded=False):
             key="raw_dem_status"
         )
     else:
+        ss["raw_dem_status"] = "all"
         demand_status = "all"
 
     # =========================
