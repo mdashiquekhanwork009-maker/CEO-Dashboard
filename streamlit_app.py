@@ -1097,43 +1097,43 @@ st.plotly_chart(
     key="month_on_month_trend_chart",
 )
 
-st.markdown('<div class="sec">Client Breakdown - MTD</div>', unsafe_allow_html=True)
-st.caption(f"{len(rows):,} clients in current filter")
+with st.expander("Client Breakdown - MTD", expanded=False):
+    st.caption(f"{len(rows):,} clients in current filter")
 
-client_breakdown_df = build_client_breakdown_df(rows)
-if client_breakdown_df.empty:
-    st.info("No client rows are available for the current filter.")
-else:
-    client_breakdown_config = {
-        "Client": st.column_config.TextColumn("Client", width="medium"),
-        "Domain": st.column_config.TextColumn("Domain", width="small"),
-        "Demands": st.column_config.NumberColumn("Demands", format="%d"),
-        "Unsvc": st.column_config.NumberColumn("Unsvc", format="%d"),
-        "Submissions": st.column_config.NumberColumn("Submissions", format="%d"),
-        "F/B Pend": st.column_config.NumberColumn("F/B Pend", format="%d"),
-        "L1": st.column_config.NumberColumn("L1", format="%d"),
-        "L2": st.column_config.NumberColumn("L2", format="%d"),
-        "L3": st.column_config.NumberColumn("L3", format="%d"),
-        "Selections": st.column_config.NumberColumn("Selections", format="%d"),
-        "Sel Pipe HC": st.column_config.NumberColumn("Sel Pipe HC", format="%d"),
-        "Sel Pipe PO (Lac)": st.column_config.NumberColumn("Sel Pipe PO (Lac)", format="%.2f"),
-        "Sel Pipe Mgn (Lac)": st.column_config.NumberColumn("Sel Pipe Mgn (Lac)", format="%.2f"),
-        "Onboard HC": st.column_config.NumberColumn("Onboard HC", format="%d"),
-        "Onboard PO (Lac)": st.column_config.NumberColumn("Onboard PO (Lac)", format="%.2f"),
-        "Onboard Mgn (Lac)": st.column_config.NumberColumn("Onboard Mgn (Lac)", format="%.2f"),
-        "Exit HC": st.column_config.NumberColumn("Exit HC", format="%d"),
-        "Exit PO (Lac)": st.column_config.NumberColumn("Exit PO (Lac)", format="%.2f"),
-        "Net HC": st.column_config.NumberColumn("Net HC", format="%d"),
-        "Net PO (Lac)": st.column_config.NumberColumn("Net PO (Lac)", format="%.2f"),
-        "Net Mgn (Lac)": st.column_config.NumberColumn("Net Mgn (Lac)", format="%.2f"),
-    }
-    st.dataframe(
-        client_breakdown_df,
-        column_config=client_breakdown_config,
-        width="stretch",
-        hide_index=True,
-        height=min(max(320, 36 * (len(client_breakdown_df) + 1)), 680),
-    )
+    client_breakdown_df = build_client_breakdown_df(rows)
+    if client_breakdown_df.empty:
+        st.info("No client rows are available for the current filter.")
+    else:
+        client_breakdown_config = {
+            "Client": st.column_config.TextColumn("Client", width="medium"),
+            "Domain": st.column_config.TextColumn("Domain", width="small"),
+            "Demands": st.column_config.NumberColumn("Demands", format="%d"),
+            "Unsvc": st.column_config.NumberColumn("Unsvc", format="%d"),
+            "Submissions": st.column_config.NumberColumn("Submissions", format="%d"),
+            "F/B Pend": st.column_config.NumberColumn("F/B Pend", format="%d"),
+            "L1": st.column_config.NumberColumn("L1", format="%d"),
+            "L2": st.column_config.NumberColumn("L2", format="%d"),
+            "L3": st.column_config.NumberColumn("L3", format="%d"),
+            "Selections": st.column_config.NumberColumn("Selections", format="%d"),
+            "Sel Pipe HC": st.column_config.NumberColumn("Sel Pipe HC", format="%d"),
+            "Sel Pipe PO (Lac)": st.column_config.NumberColumn("Sel Pipe PO (Lac)", format="%.2f"),
+            "Sel Pipe Mgn (Lac)": st.column_config.NumberColumn("Sel Pipe Mgn (Lac)", format="%.2f"),
+            "Onboard HC": st.column_config.NumberColumn("Onboard HC", format="%d"),
+            "Onboard PO (Lac)": st.column_config.NumberColumn("Onboard PO (Lac)", format="%.2f"),
+            "Onboard Mgn (Lac)": st.column_config.NumberColumn("Onboard Mgn (Lac)", format="%.2f"),
+            "Exit HC": st.column_config.NumberColumn("Exit HC", format="%d"),
+            "Exit PO (Lac)": st.column_config.NumberColumn("Exit PO (Lac)", format="%.2f"),
+            "Net HC": st.column_config.NumberColumn("Net HC", format="%d"),
+            "Net PO (Lac)": st.column_config.NumberColumn("Net PO (Lac)", format="%.2f"),
+            "Net Mgn (Lac)": st.column_config.NumberColumn("Net Mgn (Lac)", format="%.2f"),
+        }
+        st.dataframe(
+            client_breakdown_df,
+            column_config=client_breakdown_config,
+            width="stretch",
+            hide_index=True,
+            height=min(max(320, 36 * (len(client_breakdown_df) + 1)), 680),
+        )
 
 st.markdown('<div class="sec">Recruitment Pipeline</div>', unsafe_allow_html=True)
 with st.expander("Stage Snapshot & Volume Funnel", expanded=False):
