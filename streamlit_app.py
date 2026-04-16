@@ -1350,46 +1350,6 @@ with st.expander("Raw Data Explorer", expanded=False):
         )
 
     # =========================
-    # CLIENT BREAKDOWN
-    # =========================
-    if raw_df is not None and not raw_df.empty:
-
-        st.markdown("### 📊 Client Breakdown")
-
-        client_col = first_existing_column(raw_df, ["company_name", "Company_name", "client", "Client"])
-        po_col = first_existing_column(raw_df, ["p_o_value", "po"])
-        margin_col = first_existing_column(raw_df, ["margin"])
-
-        if client_col:
-            agg_spec = {"HC": (client_col, "count")}
-            lac_columns = []
-            if po_col:
-                agg_spec["PO"] = (po_col, "sum")
-                lac_columns.append("PO")
-            if margin_col:
-                agg_spec["Margin"] = (margin_col, "sum")
-                lac_columns.append("Margin")
-
-            breakdown = (
-                raw_df
-                .groupby(client_col, dropna=False)
-                .agg(**agg_spec)
-                .reset_index()
-                .rename(columns={client_col: "Client"})
-                .sort_values("HC", ascending=False)
-            )
-
-            breakdown_display, breakdown_config = money_columns_in_lac(breakdown, lac_columns)
-            st.dataframe(
-                breakdown_display,
-                column_config=breakdown_config,
-                width="stretch",
-                hide_index=True
-            )
-        else:
-            st.caption("Client breakdown is unavailable for this dataset because no client/company column was found.")
-
-    # =========================
     # RAW TABLE
     # =========================
     if raw_df is not None and not raw_df.empty:
