@@ -1,4 +1,6 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+109921,Risk & Compliance ,Risk & Compliance ,Accenture_BPO,Jawad Ulla Khan,1,2026-04-16 12:59:33,27,0
+109920,Manual & API Testing,Manual & API Tester,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:48:36,1018,0
 109919,Selenium Test Automation & Functional Testing,Selenium Test Automation & Functional Tester,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:42:35,1018,0
 109918,O2C- Mumbai,Order to Cash ,Accenture_BPO,Jawad Ulla Khan,6,2026-04-16 12:41:03,27,0
 109917,Contact Centre Testing & Automation ,Contact Centre Testing & Automation ,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:39:14,1018,0
@@ -8388,7 +8390,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101518,Accounts Executive- R2R,Accounts Executive- R2R,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:39:30,27,1
 101517,Python,Python,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:29:31,27,2
 101516,"ReactJS, Redux, NodeJS, ExpressJS","ReactJS, Redux, NodeJS, ExpressJS",Infosys Consulting,Chiranjeev Desai,1,2025-11-11 07:20:14,923,0
-101515,ASP .NET,ASP.Net,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:18:45,27,0
+101515,ASP .NET,ASP.Net,Accenture_BPO,Jawad Ulla Khan,1,2025-11-11 07:18:45,27,1
 101514,Senior SailPoint Developer,Senior SailPoint Developer,TCS,Manisha Sh,1,2025-11-11 06:58:39,943,0
 101513, SOC Operations, SOC Operations,PricewaterhouseCoopers,Dhaval Patel,1,2025-11-11 06:56:44,249,0
 101512,Analytics_Python+ML+Time Series Analysis,Analytics_Python+ML+Time Series Analysis,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-11 06:16:55,1006,0
@@ -12431,7 +12433,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 97427,Data Engineer (Alteryx),Data Engineer (Alteryx),PricewaterhouseCoopers,Subhash Kumar,1,2025-08-05 09:55:11,249,0
 97426,"ReactJS, Digital: MuleSoft","ReactJS, Digital: MuleSoft",TCS,Subhash Kumar,1,2025-08-05 09:48:21,943,0
 97425,Database Engineer – Azure & Cloud Stack ,Database Engineer – Azure & Cloud Stack ,Infosys Consulting,Sushma Hegde,1,2025-08-05 09:39:55,923,0
-97424,ESI_Mumbai,Claims Management,Accenture_BPO,Jawad Ulla Khan,25,2025-08-05 09:37:48,27,0
+97424,ESI_Mumbai,Claims Management,Accenture_BPO,Jawad Ulla Khan,25,2025-08-05 09:37:48,27,1
 97423,Oracle DB Engineer,Oracle DB Engineer,Deloitte_Consulting,Arun Jyothi M,1,2025-08-05 09:33:44,256,0
 97422,Retention Marketing Manager,Retention Marketing Manager,Meolaa,Jawad Ulla Khan,2,2025-08-05 07:49:59,512,1
 97421,Java Developer ,Java Developer ,Flipkart,Mehr Hashim,1,2025-08-05 07:45:16,228,0
