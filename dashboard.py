@@ -268,7 +268,7 @@ def _prepare_frame(df, file_key):
                     candidate_parsed = candidate_parsed.dt.tz_localize(None)
                 parsed = parsed.where(parsed.notna(), candidate_parsed)
     elif date_col and date_col in df.columns:
-        parsed = pd.to_datetime(df[date_col], errors="coerce")
+        parsed = pd.to_datetime(df[date_col], format="mixed", dayfirst=True, errors="coerce")
         if getattr(parsed.dt, "tz", None) is not None:
             parsed = parsed.dt.tz_localize(None)
     else:
