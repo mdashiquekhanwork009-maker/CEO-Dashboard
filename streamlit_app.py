@@ -864,9 +864,9 @@ with cols[5]:
     active_po = grand.get("active_po", 0.0)
     active_mg = grand.get("active_mg", 0.0)
     st.markdown(kpi_card("blue","👥","Active Headcount", f"{active_hc:,}", "blue",
-        f"<strong>{active_hc:,}</strong> active (filter-adjusted)<br>"
+        f"<strong>{active_hc:,}</strong> cumulative active HC<br>"
         f"<strong>{money_text_lac(active_po)}</strong> PO value · <strong>{money_text_lac(active_mg)}</strong> margin",
-        tag_b("Selected-period onboarding excluded")),
+        tag_b("Counted through selected period end")),
         unsafe_allow_html=True)
     
 # ─── ROW 2 KPI CARDS ──────────────────────────────────────────────────────────

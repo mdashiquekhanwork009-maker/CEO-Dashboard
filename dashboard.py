@@ -875,6 +875,76 @@ def apply_date_filter(df, from_date, to_date):
         df = df[df[col] <= pd.Timestamp(to_date)]
     return df
 
+
+def resolve_activehc_cutoff(sel_year, sel_month, from_date=None, to_date=None):
+    if to_date is not None:
+        cutoff = pd.Timestamp(to_date)
+        return cutoff.tz_localize(None) if cutoff.tzinfo else cutoff
+
+    years = set(sel_year) if isinstance(sel_year, (set, tuple, list)) else ({sel_year} if sel_year else set())
+    months = set(sel_month) if isinstance(sel_month, (set, tuple, list)) else ({sel_month} if sel_month else set())
+
+    if years and months:
+        return max(
+            pd.Timestamp(year=int(year), month=int(month), day=1) + pd.offsets.MonthEnd(1)
+            for year in years
+            for month in months
+        )
+    if years:
+        return pd.Timestamp(year=max(int(year) for year in years), month=12, day=31)
+    if from_date is not None:
+        cutoff = pd.Timestamp(from_date)
+        return cutoff.tz_localize(None) if cutoff.tzinfo else cutoff
+    return None
+
+
+def cumulative_activehc_counts(df, date_col, cl_col, client_filter=None, from_date=None, to_date=None, grain="day"):
+    if df.empty:
+        return {}
+    if "_date" in df.columns:
+        df = df[df["_date"].notna()].copy()
+    elif date_col in df.columns:
+        df = df.copy()
+        dates = pd.to_datetime(df[date_col], errors="coerce")
+        if getattr(dates.dt, "tz", None) is not None:
+            dates = dates.dt.tz_localize(None)
+        df["_date"] = dates
+        df = df[df["_date"].notna()]
+    else:
+        return {}
+
+    if df.empty:
+        return {}
+    if client_filter is not None and cl_col and cl_col in df.columns:
+        df = df[df[cl_col].isin(client_filter)]
+    if df.empty:
+        return {}
+
+    date_series = df["_date"].dt.normalize()
+    if to_date is not None:
+        upper = pd.Timestamp(to_date)
+        upper = upper.tz_localize(None) if upper.tzinfo else upper
+        date_series = date_series[date_series <= upper.normalize()]
+    if date_series.empty:
+        return {}
+
+    if grain == "month":
+        start_period = (pd.Timestamp(from_date) if from_date is not None else date_series.min()).to_period("M")
+        end_period = (pd.Timestamp(to_date) if to_date is not None else date_series.max()).to_period("M")
+        periods = pd.period_range(start=start_period, end=end_period, freq="M")
+        additions = date_series.dt.to_period("M").value_counts().reindex(periods, fill_value=0).sort_index()
+        base_total = int((df["_date"].dt.normalize() < start_period.to_timestamp()).sum())
+        cumulative = additions.cumsum() + base_total
+        return {str(period): int(value) for period, value in cumulative.items()}
+
+    start_day = (pd.Timestamp(from_date) if from_date is not None else date_series.min()).normalize()
+    end_day = (pd.Timestamp(to_date) if to_date is not None else date_series.max()).normalize()
+    days = pd.date_range(start=start_day, end=end_day, freq="D")
+    additions = date_series.value_counts().reindex(days, fill_value=0).sort_index()
+    base_total = int((df["_date"].dt.normalize() < start_day).sum())
+    cumulative = additions.cumsum() + base_total
+    return {day.strftime("%d %b %Y"): int(value) for day, value in cumulative.items()}
+
 def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, to_date=None):
     frames = {
         k: filter_date_range(filter_ym(add_ym(df, k), sel_year, sel_month), from_date, to_date)
@@ -1031,16 +1101,19 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
             add_po_metrics(g, cl, "ob_hc", "ob_po", "ob_mg")
 
     # ACTIVE HEADCOUNT
-    # Follow the Flask dashboard logic: start from the full active HC sheet
-    # and, for filtered views, back out onboarding that happened inside the
-    # selected period so the KPI shows the opening active base.
+    # Count cumulatively by display_date only. Active HC ignores lower-bound
+    # period filters and uses the selected period only as an upper cutoff.
     df = data["activehc"]
+    activehc_cutoff = resolve_activehc_cutoff(sel_year, sel_month, from_date, to_date)
 
     cl_col = None
     if not df.empty:
         cl_col = next((c for c in ["company_name", "Company_name", "client", "Client"] if c in df.columns), None)
 
     if not df.empty and cl_col:
+        df = df[df["_date"].notna()].copy()
+        if activehc_cutoff is not None:
+            df = df[df["_date"] <= activehc_cutoff]
         if client_filter is not None:
             df = df[df[cl_col].isin(client_filter)]
 
@@ -1051,11 +1124,6 @@ def compute_all(data, sel_year, sel_month, client_filter=None, from_date=None, t
                 res[cl]["active_po"] = res[cl].get("active_po", 0) + float(g["_po"].sum())
             if "_mg" in g.columns:
                 res[cl]["active_mg"] = res[cl].get("active_mg", 0) + float(g["_mg"].sum())
-    if sel_year or sel_month or from_date is not None or to_date is not None:
-        for m in res.values():
-            m["active_hc"] = max(0, m["active_hc"] - m["ob_hc"])
-            m["active_po"] = max(0.0, m["active_po"] - m["ob_po"])
-            m["active_mg"] = max(0.0, m["active_mg"] - m["ob_mg"])
     
 
     # EXIT
@@ -1317,22 +1385,15 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
     intv_counts = count_by_date(intv_df, "interview_date", cl(intv_df, ["company_name","client"]))
     sel_counts  = count_by_date(sel_df,  "selection_date", cl(sel_df,  ["company_name","client"]))
     ob_counts   = count_by_date(ob_df,   "display_date",   cl(ob_df,   ["company_name","client"]))
-    hc_counts   = count_by_date(hc_df,   "display_date",   cl(hc_df,   ["company_name","client"]))
-
-    # For month grain, convert total headcount snapshots into month-over-month
-    # movement so the chart shows additions (+) and reductions (-).
-    hc_movement_counts = hc_counts
-    if grain == "month" and hc_counts:
-        ordered_months = sorted(
-            hc_counts.keys(),
-            key=lambda value: pd.Period(value, freq="M").to_timestamp()
-        )
-        hc_movement_counts = {}
-        prev_total = None
-        for month_key in ordered_months:
-            total = hc_counts.get(month_key, 0)
-            hc_movement_counts[month_key] = 0 if prev_total is None else total - prev_total
-            prev_total = total
+    hc_counts   = cumulative_activehc_counts(
+        hc_df,
+        "display_date",
+        cl(hc_df, ["company_name", "client"]),
+        client_filter=client_filter,
+        from_date=from_ts,
+        to_date=to_ts,
+        grain=grain,
+    )
     ex_counts   = count_by_date(ex_df,   "last_work_day",  cl(ex_df,   ["company_name","client"]))
 
     sub_fp_counts = {}
@@ -1408,7 +1469,7 @@ def daily_trends(data, client_filter=None, from_date=None, to_date=None, grain="
             work_dem = work_dem.assign(__ds=period_key(work_dem["_date"]))
             dem_u_counts = work_dem.groupby("__ds").size().to_dict()
 
-    all_counts = {"dem": dem_counts, "dem_u": dem_u_counts, "sub": sub_counts, "sub_fp": sub_fp_counts, "intv": intv_counts, "sel": sel_counts, "ob": ob_counts, "hc": hc_movement_counts, "ex": ex_counts}
+    all_counts = {"dem": dem_counts, "dem_u": dem_u_counts, "sub": sub_counts, "sub_fp": sub_fp_counts, "intv": intv_counts, "sel": sel_counts, "ob": ob_counts, "hc": hc_counts, "ex": ex_counts}
     def sort_period(value):
         if grain == "month":
             return pd.Period(value, freq="M").to_timestamp()
