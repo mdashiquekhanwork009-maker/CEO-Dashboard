@@ -1,4 +1,79 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+109996,Chetna / Microsoft Azure Databricks,Application Support Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 11:13:36,925,0
+109995,Chetna Microsoft Robotic Process Automation,Microsoft Robotic Process Automation,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 11:07:11,925,0
+109994,SAP MDM,SAP MDM,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 10:58:17,249,0
+109993,SAP MDM,SAP MDM,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 10:57:15,249,0
+109992,INFYSYJP00003246 559782_Vmware + OCPV + Vcloud,INFYSYJP00003246 559782_Vmware + OCPV + Vcloud,Infosys Consulting,Chiranjeev Desai,2,2026-04-17 10:23:57,923,0
+109991,MDM Engineer,MDM Engineer,TCS,Dhaval Patel,1,2026-04-17 10:20:14,943,0
+109990,INFYSYJP00004158/562364-Worksoft SAP Test Automation,INFYSYJP00004158/562364-Worksoft SAP Test Automation,Infosys Consulting,Chiranjeev Desai,1,2026-04-17 10:09:17,923,0
+109989,QA Engineer - Merc,QA Engineer - Merc,Deloitte Mercedes Benz,Saravanan P,1,2026-04-17 09:54:50,1018,0
+109988,INFYSYJP00003612 560927_DNACRL_Informatica C360 & B360 SaaS Developer_India,INFYSYJP00003612 560927_DNACRL_Informatica C360 & B360 SaaS Developer_India,Infosys Consulting,Chiranjeev Desai,2,2026-04-17 09:52:48,923,0
+109987,Anupama  / Oracle JD Edwards Enterprise CNC,Oracle JD Edwards Enterprise CNC,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 09:43:24,925,0
+109986,INFYSYJP00003929/493495 - SAP S/4HANA Treasury & Cash Management,INFYSYJP00003929/493495 - SAP S/4HANA Treasury & Cash Management,Infosys Consulting,Tara V R,1,2026-04-17 09:31:28,923,0
+109985,Internal Audit,Internal Audit,TCS,Dhaval Patel,1,2026-04-17 08:58:08,943,0
+109984,internal audit,internal audit,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 08:50:57,249,0
+109983,Data Warehouse~Azure Data Factory,Data Warehouse~Azure Data Factory,TCS,Dhaval Patel,1,2026-04-17 08:39:10,943,0
+109982,Data Entry_DDC5,Data Entry ,Accenture_BPO,Jawad Ulla Khan,5,2026-04-17 08:18:12,27,0
+109981, HiTech : Automation Testing, HiTech : Automation Testing,TCS,Dhaval Patel,1,2026-04-17 08:01:34,943,0
+109980,Change Management,Change Management,TCS,Dhaval Patel,1,2026-04-17 08:00:00,943,0
+109979,Docusign Lead Developer,Docusign Lead Developer,Infosys Consulting,Tara V R,1,2026-04-17 07:53:46,923,0
+109978,Senior Software Engineer - Test Automation - (25000N8F),Senior Software Engineer - Test Automation - (25000N8F),Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-17 07:44:25,1034,0
+109977,Cloud Infrastructure Engineer,Cloud Infrastructure Engineer,JLL,Anuradha Murthy,1,2026-04-17 07:41:48,416,0
+109976, Tester - Tosca Automation, Tester - Tosca Automation,TCS,Dhaval Patel,1,2026-04-17 07:37:14,943,0
+109975,Parveen/ Neo4j,Neo4J,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 07:36:28,925,0
+109974,Springboot,Springboot,TCS,Dhaval Patel,1,2026-04-17 07:35:31,943,0
+109973,Python Developer (FAST API & Kubernetes) ,Python Developer (FAST API & Kubernetes) ,Deloitte Mercedes Benz,Saravanan P,1,2026-04-17 07:20:46,1018,0
+109972,INFYSYJP00004233 562523 _ DNACRL _ Front end Developer _ India ,INFYSYJP00004233 562523 _ DNACRL _ Front end Developer _ India ,Infosys Consulting,Tara V R,2,2026-04-17 07:18:58,923,0
+109971,INFYSYJP00001490 AWS Data Engineer,INFYSYJP00001490 AWS Data Engineer,Infosys Consulting,Tara V R,2,2026-04-17 07:17:48,923,0
+109970,AWS Cloud DevOps ,AWS Cloud DevOps ,DTICI,Saravanan P,1,2026-04-17 07:07:50,916,0
+109969,INFYSYJP00004219/562680 - OpenText ECM - BLR/HYD - DX,INFYSYJP00004219/562680 - OpenText ECM - BLR/HYD - DX,Infosys Consulting,Chiranjeev Desai,1,2026-04-17 07:05:34,923,0
+109968,SAP Datasphere,SAP Datasphere,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 07:04:17,1018,0
+109967,Data Modeller,Data Modeller ,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 07:01:21,1018,0
+109966,Vidya /  ServiceNow Configuration Management Database,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 07:00:14,925,0
+109965,INFYSYJP00004221/562333-Senior Systems Engineer (Adobe)- India DX,INFYSYJP00004221/562333-Senior Systems Engineer (Adobe)- India DX,Infosys Consulting,Chiranjeev Desai,1,2026-04-17 06:57:23,923,0
+109964,Archana / Adobe Journey Optimizer,Adobe Journey Optimizer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 06:56:54,925,0
+109963, Spring Boot~Core Java, Spring Boot~Core Java,TCS,Dhaval Patel,1,2026-04-17 06:55:35,943,0
+109962,Data bricks / Data Engineer ,Data bricks / Data Engineer ,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 06:54:32,1018,0
+109961,INFYSYJP00004220/562490- Senior Associate Consultant (Adobe)- India- DX,INFYSYJP00004220/562490- Senior Associate Consultant (Adobe)- India- DX,Infosys Consulting,Chiranjeev Desai,1,2026-04-17 06:52:50,923,0
+109960,INFYSYJP00004222/562822- Docusign- India- DX,INFYSYJP00004222/562822- Docusign- India- DX,Infosys Consulting,Chiranjeev Desai,1,2026-04-17 06:50:53,923,0
+109959,Specialist Software Engineer|Developer |PHP |SQL |SSE |FTE - (2600097K),Specialist Software Engineer|Developer |PHP,Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-17 06:35:57,1034,0
+109958,Software Engineer | Tester  - (260009AH),Software Engineer | Tester,Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-17 06:33:56,1034,0
+109957,Nisha / Selenium,Test Automation Lead ,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 06:30:20,925,0
+109956,INFYSYJP00004221 562333-Senior Systems Engineer (Adobe)- India DX ,INFYSYJP00004221 562333-Senior Systems Engineer (Adobe)- India DX ,Infosys Consulting,Tara V R,2,2026-04-17 06:24:29,923,0
+109955,INFYSYJP00004220 562490- Senior Associate Consultant (Adobe)- India- DX,INFYSYJP00004220 562490- Senior Associate Consultant (Adobe)- India- DX,Infosys Consulting,Chiranjeev Desai,3,2026-04-17 06:19:24,923,0
+109954,INFYSYJP00004141 562136_SAP TM_India ,INFYSYJP00004141 562136_SAP TM_India ,Infosys Consulting,Tara V R,2,2026-04-17 06:13:12,923,0
+109953,INFYSYJP00002673 553336-Oracle RODOD Test Analyst / Consultant ,INFYSYJP00002673 553336-Oracle RODOD Test Analyst / Consultant ,Infosys Consulting,Tara V R,2,2026-04-17 06:11:47,923,0
+109952,"INFYSYJP00001328 555163-Python, Automation testing, AWS","INFYSYJP00001328 555163-Python, Automation testing, AWS",Infosys Consulting,Tara V R,3,2026-04-17 06:10:17,923,0
+109951,INFYSYJP00004232 561994 - OSS Solution Architecture & Solution Design ,INFYSYJP00004232 561994 - OSS Solution Architecture & Solution Design ,Infosys Consulting,Tara V R,2,2026-04-17 06:08:51,923,0
+109950,INFYSYJP00004229 562617-Business Analyst,INFYSYJP00004229 562617-Business Analyst,Infosys Consulting,Tara V R,4,2026-04-17 06:07:39,923,0
+109949,SAP EWM ,SAP EWM,Deloitte_Consulting,Rajat Tyagi,1,2026-04-17 06:04:17,256,0
+109948,SAP MDG 8 - 10 years,SAP MDG 8 - 10 years,Deloitte_Consulting,Rajat Tyagi,1,2026-04-17 06:02:30,256,0
+109947,Siddhartha / ServiceNow IT Service Management ,ServiceNow IT Service Management-,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 05:56:11,925,0
+109946,Pramod - Product Owner ,Product Owner,Cognizant,Syed Waseem,2,2026-04-17 05:56:10,18,0
+109945,Pramod - Technical Product owner,Technical Product Owner,Cognizant,Syed Waseem,2,2026-04-17 05:49:15,18,0
+109944, Sourcing & NPD Manager, Sourcing & NPD Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-17 05:49:03,512,0
+109943,Spurthy  / Service Desk Management,Application Support Engineer,Accenture_IDB,Priyakanta Choudhary,1,2026-04-17 05:45:38,222,0
+109942,GCC Support & Talent Acquisition Specialist,GCC Support & Talent Acquisition Specialist,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 05:36:46,249,0
+109941,Scrum master,Scrum master,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 05:35:00,1018,0
+109940,SAP CPI,SAP CPI,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 05:32:46,1018,0
+109939,Cyber Security Engineer,Cyber Security Engineer,DTICI,Saravanan P,1,2026-04-17 05:32:33,916,0
+109938,Python Automation Engineer,Python Automation Engineer,FlipkartIT,Mehr Hashim,1,2026-04-17 05:31:37,1017,0
+109937,SAP ABAP Odata,SAP ABAP Odata,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 05:30:47,1018,0
+109936,Maria / TIBCO BusinessWorks,Tibco,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 05:29:34,925,0
+109935,Automation Test Engineer,Automation Test Engineer,Infosys Consulting,Tara V R,1,2026-04-17 05:26:50,923,0
+109934,Full Stack Development,Full Stack Development,DTICI,Saravanan P,1,2026-04-17 05:25:58,916,0
+109933,Anupama / Splunck, Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 05:21:29,925,0
+109932,Pramod - Offshore system analyst,Offshore System Analyst,Cognizant-FTE,Syed Waseem,2,2026-04-17 05:07:19,776,0
+109931,Oracle Finalcial,Oracle Finalcial,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 04:57:34,925,0
+109930, Core Java, Core Java,TCS,Dhaval Patel,1,2026-04-17 04:56:52,943,0
+109929,INFYSYJP00001854 556493 - Senior Camunda Developer (Refloating - Updated 3),INFYSYJP00001854 556493 - Senior Camunda Developer (Refloating - Updated 3),Infosys Consulting,Tara V R,4,2026-04-17 04:09:19,923,0
+109928,PSE_Devops,PSE_Devops,FlipkartIT,Mehr Hashim,1,2026-04-17 04:09:03,1017,0
+109927,Shivani / Red Hat OS Administration,Customer Service Representative,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-16 13:21:19,925,0
+109926,Nisha / Oracle Financials,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-16 13:18:05,925,0
+109925,Communication Trainer, Engagement and Communications Practitioner,Accenture_BPO,Jawad Ulla Khan,2,2026-04-16 13:13:53,27,0
+109924,INFYSYJP00004195/562616 - HC-ADM - FACETS Lead Developer - India,INFYSYJP00004195/562616 - HC-ADM - FACETS Lead Developer - India,Infosys Consulting,Chiranjeev Desai,1,2026-04-16 13:11:23,923,0
+109923,Shivani  / Microsoft Windows Desktop Management,Microsoft Windows Desktop Management,Accenture_IDB,Priyakanta Choudhary,1,2026-04-16 13:05:07,222,0
+109922,Leena / Infosys Finacle,Application Support Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-16 13:02:42,925,0
 109921,Risk & Compliance ,Risk & Compliance ,Accenture_BPO,Jawad Ulla Khan,1,2026-04-16 12:59:33,27,0
 109920,Manual & API Testing,Manual & API Tester,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:48:36,1018,0
 109919,Selenium Test Automation & Functional Testing,Selenium Test Automation & Functional Tester,Deloitte Mercedes Benz,Saravanan P,1,2026-04-16 12:42:35,1018,0
@@ -226,7 +301,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109697,Anupama / Microsoft PowerShell,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:24:27,925,0
 109696,Chetna / Spring Boot,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:20:03,925,0
 109695,General Manager – Founder’s Office,General Manager – Founder’s Office,Meolaa,Prathyusha Mangalampalli,1,2026-04-13 12:14:30,512,0
-109694,Design Manager,Design Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-13 12:09:36,512,0
+109694,Design Manager,Design Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-13 12:09:36,512,1
 109693,Parveen /Google BigQuery,Parveen /Google BigQuery,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:04:21,925,0
 109692,Lead Software Engineer - Bigdata - (2600059Z),Lead Software Engineer - Bigdata,Socgen_GTS,Surya S,1,2026-04-13 12:03:42,1028,0
 109691,"rawat, Chetna / Spring Boot","rawat, Chetna / Spring Boot",Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 11:59:19,925,0
@@ -1795,7 +1870,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108126, INFYSYJP00003213/559598_NodeJS Backend Developer_PAN India,NodeJS Backend Developer,Infosys Consulting,Tara V R,1,2026-03-20 09:48:01,923,0
 108125,DevX Infrastructure Engineer,DevX Infrastructure Engineer,Veritas,Sushma K M,1,2026-03-20 09:46:58,439,0
 108124,Vidya / ServiceNow IT Service Management,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-20 09:45:34,925,0
-108123,Vidya / ServiceNow QA ,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-20 09:42:35,925,0
+108123,Vidya / ServiceNow QA ,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,3,2026-03-20 09:42:35,925,0
 108122,Senior Software Engineer | Tester | Manual Testing,Tester | Manual Testing,Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-03-20 09:40:12,1034,0
 108121,Python Data Analytics Engineer (Machine Control), Python Data Analytics Engineer (Machine Control),Infosys Consulting,Tara V R,4,2026-03-20 09:38:00,923,0
 108120,Chetna / Microsoft SQL Server Integration Services (SSIS),Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-20 09:37:08,925,0
@@ -2042,7 +2117,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 107879,"rawat, Chetna / SAP FI S/4HANA Accounting",SAP FI S/4HANA Accounting,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-16 09:35:18,925,0
 107878,PLSQL,PLSQL,TCS,Dhaval Patel,1,2026-03-16 09:24:04,943,0
 107877,"INFYSYJP00003083 558980 - Azure Integration Services Consultant - Che, Blr, Hyd - EAIS","INFYSYJP00003083 558980 - Azure Integration Services Consultant - Che, Blr, Hyd - EAIS",Infosys Consulting,Sushma Hegde,4,2026-03-16 09:22:55,923,0
-107876,Siddartha /ServiceNow IT Service Management,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-16 08:57:09,925,0
+107876,Siddartha /ServiceNow IT Service Management,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,2,2026-03-16 08:57:09,925,0
 107875,Radhika / Workday Core Integrations,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-16 08:52:53,925,0
 107874,Essbase Administrator - Alifya,Essbase Administrator,DTICI,Saravanan P,1,2026-03-16 08:42:07,916,0
 107873,Syed Mujahid/ react.JS,react.JS,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-16 07:59:00,925,0
@@ -3742,7 +3817,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 106176,Penetration Tester - Cybersecurity - Rahul,Penetration Tester - Cybersecurity,DTICI,Saravanan P,3,2026-02-12 08:05:11,916,0
 106175,Spurthy SDM Bangalore 14th Drive,Application Tech Support Practitioner,Accenture_IDB,Priyakanta Choudhary,40,2026-02-12 07:45:39,222,0
 106174,Device Management Operations & Support - Navaneeth,Device Management Operations & Support ,DTICI,Saravanan P,2,2026-02-12 07:44:13,916,0
-106173,Cybersecurity - Cloud Application Security - Prashant,Cybersecurity - Cloud Application Security,DTICI,Saravanan P,1,2026-02-12 07:39:20,916,0
+106173,Cybersecurity - Cloud Application Security - Prashant,Cybersecurity - Cloud Application Security,DTICI,Saravanan P,1,2026-02-12 07:39:20,916,1
 106172,Digital : Amazon Web Service(AWS) Cloud Computing~Digital : Microsoft Power BI~Digital : Databricks,Digital : Amazon Web Service(AWS) Cloud Computing~Digital : Microsoft Power BI~Digital : Databricks,TCS,Dhaval Patel,1,2026-02-12 07:25:09,943,0
 106171,TPC High Priority Requirements,TPC High Priority Requirements,Tata Elxsi,Tara V R,5,2026-02-12 07:22:21,807,0
 106170,Incident Management,Incident Management,TCS,Dhaval Patel,1,2026-02-12 07:05:14,943,0
@@ -8107,9 +8182,9 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101802,AEM Front End Developer,AEM Front End Developer,JLL,Anuradha Murthy,1,2025-11-18 08:44:32,416,0
 101801, Core Java~Selenium, Core Java~Selenium,TCS,Manisha Sh,1,2025-11-18 08:12:09,943,0
 101800,"4 Years-Golang Developer, 3+ Years-Devops,","4 Years-Golang Developer, 3+ Years-Devops,",TCS,Manisha Sh,1,2025-11-18 08:10:01,943,0
-101799,"RPA Developer (UI path, VBA, Agentic)","RPA Developer (UI path, VBA, Agentic)",Accenture_BPO,Jawad Ulla Khan,1,2025-11-18 07:57:22,27,0
+101799,"RPA Developer (UI path, VBA, Agentic)","RPA Developer (UI path, VBA, Agentic)",Accenture_BPO,Jawad Ulla Khan,1,2025-11-18 07:57:22,27,1
 101798,Key Account Manager ,Key Account Manager ,Wartsila,Shivam Prasad,1,2025-11-18 07:51:29,854,0
-101797,Procure to Pay Processor_Bangalore,Procure to Pay Processor,Accenture_BPO,Jawad Ulla Khan,3,2025-11-18 07:48:00,27,0
+101797,Procure to Pay Processor_Bangalore,Procure to Pay Processor,Accenture_BPO,Jawad Ulla Khan,3,2025-11-18 07:48:00,27,1
 101796,eDiscovery specialist - Gaurav Phutela,eDiscovery specialist,DTICI,Saravanan P,1,2025-11-18 07:30:16,916,0
 101795,Spring Boot~Core Java,Spring Boot~Core Java,TCS,Manisha Sh,1,2025-11-18 07:26:07,943,0
 101794,Barry Callebaut- Senior PAM Engineer,Barry Callebaut- Senior PAM Engineer,Infosys-India Pvt Ltd,Chiranjeev Desai,1,2025-11-18 07:18:38,1006,0
@@ -8251,7 +8326,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101657,Moumita Automation Testing,Automation Testing,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-13 10:32:04,925,0
 101656,Nisha ServiceNow GRC,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-13 10:28:22,925,0
 101655,Nisha SAS Base,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-13 10:22:02,925,0
-101654,RPA Developer (Blue prism & Ui Path),RPA Developer (Blue prism & Ui Path),Accenture_BPO,Jawad Ulla Khan,1,2025-11-13 09:50:13,27,0
+101654,RPA Developer (Blue prism & Ui Path),RPA Developer (Blue prism & Ui Path),Accenture_BPO,Jawad Ulla Khan,1,2025-11-13 09:50:13,27,1
 101653,Digital : Google Cloud,Google Cloud Engineer,TCS,Manisha Sh,1,2025-11-13 09:47:47,943,0
 101652,GCP DevOps Engineer,GCP DevOps Engineer,TCS,Manisha Sh,1,2025-11-13 09:43:37,943,0
 101651,SAP FI-AP Senior Consultant,SAP FI-AP Senior Consultant,Deloitte_Consulting,Rajat Tyagi,1,2025-11-13 09:38:38,256,0
@@ -8294,7 +8369,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101614,Vidya Python, Full Stack Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-12 13:34:10,925,0
 101613,Chetna Data Engineer ,Data Engineer ,Accenture_IDB_1,Priyakanta Choudhary,3,2025-11-12 13:22:51,925,0
 101612,Moumita Salesforce,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-12 13:14:56,925,0
-101611,Accounts Executive- P2P,P2P Operations,Accenture_BPO,Jawad Ulla Khan,2,2025-11-12 13:13:52,27,0
+101611,Accounts Executive- P2P,P2P Operations,Accenture_BPO,Jawad Ulla Khan,2,2025-11-12 13:13:52,27,1
 101610,AT&T |Technical Release Manager ,AT&T |Technical Release Manager ,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-12 12:57:26,1006,0
 101609,Maria SAP ABAP HANA,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-12 12:49:35,925,0
 101608,Payal TOSCA Testsuite,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-12 12:44:16,925,0
@@ -8321,13 +8396,13 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 101587,AWS Aurora PostgreSQL DBA,AWS Aurora PostgreSQL DBA,Deloitte_Consulting,Rajat Tyagi,1,2025-11-12 11:01:05,256,0
 101586,Developer,Developer,TCS,Dhaval Patel,1,2025-11-12 09:43:26,943,0
 101585,Developer,Developer,TCS,Dhaval Patel,1,2025-11-12 09:37:25,943,0
-101584,Walgreens- Mumbai,Customer Support Executive,Accenture_BPO,Jawad Ulla Khan,5,2025-11-12 09:30:38,27,0
+101584,Walgreens- Mumbai,Customer Support Executive,Accenture_BPO,Jawad Ulla Khan,18,2025-11-12 09:30:38,27,1
 101583,IBM DataStage,IBM DataStage,Deloitte_Consulting,Rajat Tyagi,2,2025-11-12 09:17:47,256,0
 101582,Azure Infra,Azure Infra,PricewaterhouseCoopers,Dhaval Patel,2,2025-11-12 09:00:26,249,0
 101581,Consultant,Consultant,TCS,Dhaval Patel,1,2025-11-12 08:27:09,943,0
 101580,VM Bangalore,Customer Support Executive,Accenture-voice,Jawad Ulla Khan,10,2025-11-12 08:10:15,319,0
 101579,"SAP ABAP - WRICEFW, SAP ABAP for cloud, OData Services, RAP/CAP ","SAP ABAP - WRICEFW, SAP ABAP for cloud, OData Services, RAP/CAP ",PricewaterhouseCoopers,Dhaval Patel,1,2025-11-12 08:09:29,249,0
-101578,Customer Support Executive- All States,Customer Support Executive,Accenture_BPO,Prathyusha Mangalampalli,5,2025-11-12 08:06:49,27,0
+101578,Customer Support Executive- All States,Customer Support Executive,Accenture_BPO,Prathyusha Mangalampalli,5,2025-11-12 08:06:49,27,1
 101577,Splunk & ETL,Splunk & ETL,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-11-12 08:03:04,1006,0
 101576,Vidya Snowflake Data Warehouse,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-11-12 07:43:33,925,0
 101575,Trainer ,Trainer ,Flipkart,Mehr Hashim,1,2025-11-12 07:40:15,228,0
@@ -8993,7 +9068,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 100910,SAP Demands,Application Developer,Accenture_IDB_1,Naveen Goud,10,2025-10-28 06:21:56,925,0
 100909,HRD Talent Requisition ,HRD Talent Requisition ,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-10-28 06:04:23,1006,0
 100908,CIS_ServiceNow HRSD Product Analyst,CIS_ServiceNow HRSD Product Analyst,Infosys Consulting,Chiranjeev Desai,10,2025-10-28 05:57:04,923,0
-100907,Sourcing Representative_Ahmedabad,Sourcing Representative,Accenture_BPO,Jawad Ulla Khan,4,2025-10-28 05:46:12,27,0
+100907,Sourcing Representative_Ahmedabad,Sourcing Representative,Accenture_BPO,Jawad Ulla Khan,2,2025-10-28 05:46:12,27,1
 100906,Developer,Developer,TCS,Dhaval Patel,1,2025-10-28 05:10:14,943,0
 100905,SAP ABAP with S4 HANA,SAP ABAP with S4 HANA,PricewaterhouseCoopers,Dhaval Patel,2,2025-10-28 05:07:42,249,0
 100904, Automation Testing, Automation Testing,TCS,Dhaval Patel,2,2025-10-28 05:05:54,943,0
@@ -9135,7 +9210,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 100768,Golang Developer,Golang Developer,Harman,Tamil C,1,2025-10-24 03:10:09,90,1
 100767,C++ Python ,C++ Python ,Harman,Tamil C,1,2025-10-24 02:58:51,90,0
 100766,Vidya DAI Sourcing,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,5,2025-10-23 13:18:17,925,0
-100765,O2C_Bangalore,Order to Cash Processor,Accenture_BPO,Jawad Ulla Khan,5,2025-10-23 13:10:42,27,0
+100765,O2C_Bangalore,Order to Cash Processor,Accenture_BPO,Jawad Ulla Khan,5,2025-10-23 13:10:42,27,1
 100764,Workday,Workday,TCS,Dhaval Patel,1,2025-10-23 12:46:28,943,0
 100763,Akamai-PLSQL Python Developer,Akamai-PLSQL Python Developer,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-10-23 12:35:09,1006,0
 100762,Devops,Devops,Harman,Tamil C,1,2025-10-23 11:02:02,90,0
@@ -9177,7 +9252,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 100726,DevOps Architect,DevOps Architect,Infosys Consulting,Sandhya Kumari Sahani,1,2025-10-22 12:17:39,923,0
 100725,Engineer,Engineer,TCS,Soniya Sabnani,1,2025-10-22 12:14:48,943,0
 100724,1794 Submitted - Contractor – Senior Software Engineer,Senior Software Engineer,Koch Industries,Gourab S,1,2025-10-22 12:08:48,353,0
-100723,Learning and Development ,Learning and Development ,Accenture_BPO,Jawad Ulla Khan,8,2025-10-22 11:55:24,27,0
+100723,Learning and Development ,Learning and Development ,Accenture_BPO,Jawad Ulla Khan,8,2025-10-22 11:55:24,27,1
 100722,ReactJS~Core Java,UI React,TCS,Dhaval Patel,1,2025-10-22 11:39:09,943,0
 100721,Firewall Support Analyst,Firewall Support Analyst,Cognizant,Sandhya Kumari Sahani,1,2025-10-22 11:14:11,18,0
 100720, Robotic Process Automation - Automation Anywhere~Digital : Robotic Process Automation - UiPath, Robotic Process Automation - Automation Anywhere~Digital : Robotic Process Automation - UiPath,TCS,Soniya Sabnani,2,2025-10-22 10:51:58,943,0
@@ -9531,7 +9606,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 100370,Platform Developer,Platform Developer,Coupang,Mehr Hashim,1,2025-10-10 10:32:40,958,0
 100369,Capital Market,Capital Market,Accenture_BPO,Jawad Ulla Khan,1,2025-10-10 10:18:48,27,1
 100368,Payal .Net Full Stack Development,Full Stack Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-10-10 10:10:35,925,0
-100367,OTC- Bangalore,Accounts Executive,Accenture_BPO,Jawad Ulla Khan,5,2025-10-10 09:52:30,27,0
+100367,OTC- Bangalore,Accounts Executive,Accenture_BPO,Jawad Ulla Khan,5,2025-10-10 09:52:30,27,1
 100366,SAP Alliance Operations,SAP Alliance Operations,PricewaterhouseCoopers,Dhaval Patel,2,2025-10-10 09:50:16,249,0
 100365,Tableau,Tableau,TCS,Dhaval Patel,1,2025-10-10 09:37:55,943,0
 100364,Java developer,Java FSD,TCS,Dhaval Patel,1,2025-10-10 09:33:54,943,0
@@ -10203,7 +10278,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99695,ATT - Technical Release Manager,ATT - Technical Release Manager,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-25 05:35:22,1006,0
 99694,Maria Drive, Application Developer,Accenture_IDB_1,Naveen Goud,1,2025-09-25 05:31:27,925,0
 99693,SAP BW / SAP BW4HANA,SAP BW / SAP BW4HANA,PricewaterhouseCoopers,Dhaval Patel,2,2025-09-25 05:07:04,249,0
-99692,HCSC Special Project_Mumbai,Transaction Processing representative,Accenture_BPO,Jawad Ulla Khan,20,2025-09-25 05:01:47,27,0
+99692,HCSC Special Project_Mumbai,Transaction Processing representative,Accenture_BPO,Jawad Ulla Khan,20,2025-09-25 05:01:47,27,1
 99691,AWS Cloud Engineer,AWS Cloud Engineer,TCS,Dhaval Patel,1,2025-09-25 04:49:45,943,1
 99690,Belvac Engineer ,Belvac Engineer ,Harman,Tamil C,2,2025-09-25 04:29:11,90,1
 99689,Xamarin Developer,Xamarin Developer,Harman,Tamil C,1,2025-09-25 04:27:47,90,1
@@ -12484,7 +12559,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 97376,Senior DevOps & Cloud Infrastructure Engineer ,Senior DevOps & Cloud Infrastructure Engineer ,Infosys Consulting,Sushma Hegde,1,2025-08-04 11:06:48,923,0
 97375,Java Backend - Runa,Java Backend Developer,DTICI,Saravanan P,1,2025-08-04 11:05:19,916,0
 97374,SAP PP (production planning),SAP PP (production planning),Infosys Consulting,Sushma Hegde,2,2025-08-04 10:37:51,923,0
-97373,HR Recruiter, Recruiter,Accenture_BPO,Jawad Ulla Khan,1,2025-08-04 10:36:30,27,0
+97373,HR Recruiter, Recruiter,Accenture_BPO,Jawad Ulla Khan,1,2025-08-04 10:36:30,27,1
 97372,Aligne Technical Business Analyst ,Aligne Technical Business Analyst ,PricewaterhouseCoopers,Subhash Kumar,1,2025-08-04 10:35:03,249,0
 97371,IT Project Business Analyst (IRM and Compliance Domain) ,IT Project Business Analyst (IRM and Compliance Domain) ,PricewaterhouseCoopers,Dhaval Patel,1,2025-08-04 10:33:03,249,0
 97370,SAP MM Master Specialist / Material Engineer  ,SAP MM Master Specialist / Material Engineer  ,L&T-Cont,Tamil C,1,2025-08-04 10:30:06,50,0
@@ -15365,7 +15440,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 94474,526814,Backend: Java,Infosys ADM,Sushma Hegde,1,2025-05-20 07:46:42,7,0
 94473,Seeburger,Seeburger,Infosys ADM,Sushma Hegde,1,2025-05-20 07:45:01,7,0
 94472,Maintenance Install Base,Maintenance Install Base,Deloitte_Consulting,Arun Jyothi M,1,2025-05-20 07:39:20,256,0
-94471,ESI_Hiring 2025,Transaction Processing Representative,Accenture_BPO,Jawad Ulla Khan,25,2025-05-20 07:28:27,27,0
+94471,ESI_Hiring 2025,Transaction Processing Representative,Accenture_BPO,Jawad Ulla Khan,25,2025-05-20 07:28:27,27,1
 94470,ECM Analyst,ECM Analyst,Deloitte_Consulting,Arun Jyothi M,1,2025-05-20 07:17:20,256,0
 94469,python,python,Infosys ADM,Sushma Hegde,1,2025-05-20 07:02:50,7,0
 94468,Cloud Security Analyst ,analyst,Socgen,Dhaval Patel,1,2025-05-20 06:55:52,65,0
