@@ -842,7 +842,7 @@ dem_cov = pct(sub, dem)
 sub_l1  = pct(l1, sub)
 l1_sel  = pct(sel, l1)
 sel_ob  = pct(ob_hc, sel)
-# sp_yet  = sp_hc - ob_hc
+sp_yet  = sp_hc - ob_hc
 # ─── ROW 1 KPI CARDS ──────────────────────────────────────────────
 cols = st.columns(6)
 
