@@ -873,7 +873,6 @@ with cols[3]:
 with cols[4]:
     st.markdown(kpi_card("blue","📑","Selection Pipeline", f"{sp_hc:,}", "blue",
         f"<strong>{money_text_lac(sp_po)}</strong> PO value · <strong>{money_text_lac(sp_mg)}</strong> margin",
-        tag_b(f"{sp_yet} Yet to be Onboarded")),
         unsafe_allow_html=True)
 
 with cols[5]:
