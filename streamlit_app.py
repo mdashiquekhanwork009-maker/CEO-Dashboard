@@ -842,7 +842,6 @@ dem_cov = pct(sub, dem)
 sub_l1  = pct(l1, sub)
 l1_sel  = pct(sel, l1)
 sel_ob  = pct(ob_hc, sel)
-sp_yet  = sp_hc - ob_hc
 # ─── ROW 1 KPI CARDS ──────────────────────────────────────────────
 cols = st.columns(6)
 
@@ -873,6 +872,7 @@ with cols[3]:
 with cols[4]:
     st.markdown(kpi_card("blue","📑","Selection Pipeline", f"{sp_hc:,}", "blue",
         f"<strong>{money_text_lac(sp_po)}</strong> PO value · <strong>{money_text_lac(sp_mg)}</strong> margin",
+        ""),
         unsafe_allow_html=True)
 
 with cols[5]:
