@@ -1,4 +1,7 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110054,Specialist System Engineer - Storage - (2600066V),Specialist System Engineer - Storage,Socgen_GTS,Surya S,1,2026-04-20 09:52:24,1028,0
+110053,	 Cloud Sr Engineer,	 Cloud Sr Engineer,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 09:50:58,249,0
+110052,"INFYSYJP00003898 560910-Python, Robot automation framework, gRPC API ","INFYSYJP00003898 560910-Python, Robot automation framework, gRPC API ",Infosys Consulting,Tara V R,1,2026-04-20 09:07:58,923,0
 110051,Oracle PLSQL| Data Warehousing|Unix Shell Scripting,Oracle PLSQL| Data Warehousing|Unix Shell Scripting,TCS,Dhaval Patel,1,2026-04-20 07:53:09,943,0
 110050,"Java Springboot, exposure on cloud","Java Springboot, exposure on cloud",PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 07:50:27,249,0
 110049,Pyspark / Parveen,Data Engineer ,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 07:44:43,925,0
@@ -6,7 +9,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110047,Microsoft 365 SharePoint Online Development / Vidya,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 07:37:59,925,0
 110046,Kotlin Programming Language / Chetna,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 07:32:39,925,0
 110045,"INFYSYJP00004223 562724- Python, AWS, Apache -BLR- DX","INFYSYJP00004223 562724- Python, AWS, Apache -BLR- DX",Infosys Consulting,Tara V R,2,2026-04-20 07:19:06,923,0
-110044,Chetna / Microsoft Azure IaaS,Microsoft Azure IaaS,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 07:13:41,925,0
+110044,Anupama / Oracle JD Edwards EnterpriseOne Manufacturing Management,Oracle JD Edwards EnterpriseOne Manufacturing Management,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 07:13:41,925,0
 110043,Cyber Security Engineer - Abul BU,Cyber Security Engineer,GE Healthcare Global Private Limited.,Mehr Hashim,3,2026-04-20 07:09:41,493,0
 110042,Scrum master,Scrum master,TCS,Dhaval Patel,1,2026-04-20 07:07:37,943,0
 110041,INFYSYJP00004269 561919 - Engineering Analyst - Aerospace Manufacturing (ME),INFYSYJP00004269 561919 - Engineering Analyst - Aerospace Manufacturing (ME),Infosys Consulting,Tara V R,1,2026-04-20 07:05:50,923,0
