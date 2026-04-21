@@ -1,4 +1,17 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110191,Senior Software Test Engineer,Senior Software Test Engineer,Trane Technologies,Shailesh Gangwar,1,2026-04-21 12:38:17,919,0
+110190,Diagnostic Support,Diagnostic Support,DTICI,Saravanan P,1,2026-04-21 12:29:31,916,0
+110189,Network Admin,Network Admin,Infosys Consulting,Tara V R,1,2026-04-21 12:21:16,923,0
+110188, SAP Informatica, SAP Informatica,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 12:20:19,249,0
+110187,Leena / Payments Fundamentals ,Payments Fundamentals ,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 11:49:13,925,0
+110186,SAP MDG,SAP MDG,Deloitte_Consulting,Rajat Tyagi,1,2026-04-21 11:43:04,256,0
+110185,Specialist ,Specialist ,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 11:31:40,249,0
+110184,Nisha / Salesforce Development,Technology Architect,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 11:22:45,925,0
+110183,Identity & Access Management - Okta,Identity & Access Management - Okta,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 11:13:09,249,0
+110182,Cybersecurity Engineering - API Security,Cybersecurity Engineering - API Security,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 10:42:04,249,0
+110181,Visual Design - RRD,Visual Design - RRD,RR Donnelley,Surya S,3,2026-04-21 10:39:21,408,0
+110180,Leena / Infosys Finacle,Infosys Finacle,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 10:34:35,925,0
+110179,Archana / Microsoft Azure Data Services,Azure Data Services,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 10:24:42,925,0
 110178,"INFYSYJP00003431 560312, 560313_ DevSecOp Developer_ Pan India","INFYSYJP00003431 560312, 560313_ DevSecOp Developer_ Pan India",Infosys Consulting,Tara V R,1,2026-04-21 09:58:57,923,0
 110177,Cybersecurity Engineering- Network Security,Cybersecurity Engineering- Network Security,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-21 09:54:34,249,0
 110176,Python QA Lead,Python QA Lead,Deloitte Mercedes Benz,Saravanan P,1,2026-04-21 09:52:28,1018,0
@@ -2130,7 +2143,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108048,Senior Software Engineer - Agentic AI Architecture,Senior Software Engineer - Agentic AI Architecture,JLL,Anuradha Murthy,1,2026-03-18 09:24:24,416,0
 108047,Senior Software Engineer,Senior Software Engineer,JLL,Anuradha Murthy,1,2026-03-18 09:21:36,416,0
 108046, Senior AWS Serverless Technical Lead, Senior AWS Serverless Technical Lead,Infosys Consulting,Chiranjeev Desai,1,2026-03-18 09:19:26,923,0
-108045,Cloud Operations Engineer (Azure – IaaS/PaaS/VDI/IAM) - Senior Associate,Cloud Operations Engineer (Azure – IaaS/PaaS/VDI/IAM) - Senior Associate,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-18 09:14:29,249,0
+108045,Cloud Operations Engineer (Azure – IaaS/PaaS/VDI/IAM) - Senior Associate,Cloud Operations Engineer (Azure – IaaS/PaaS/VDI/IAM) - Senior Associate,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-18 09:14:29,249,1
 108044,Software Engineer - Application Development and Support,Software Engineer - Application Development and Support,Socgen_GTS,Anuradha Murthy,1,2026-03-18 09:10:09,1028,0
 108043,Software Engineer - Production Support,Software Engineer - Production Support,Socgen_GTS,Anuradha Murthy,1,2026-03-18 09:06:36,1028,0
 108042,Pratish - SAP Succesfactor,SAP SUCCESSFACTOR,Cognizant,Sushma Hegde,2,2026-03-18 09:00:09,18,0
@@ -6330,7 +6343,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 103843,Core Java,Core Java,TCS,Manisha Sh,1,2025-12-26 08:30:42,943,0
 103842,Creo Parametric~EIS : Plant Design Engineering - Electrical,Creo Parametric~EIS : Plant Design Engineering - Electrical,TCS,Manisha Sh,1,2025-12-26 08:25:39,943,0
 103841,Teamcenter Product (PLM),Teamcenter Product (PLM),TCS,Manisha Sh,1,2025-12-26 08:22:41,943,0
-103840,PL SQL Developer  ,PL SQL Developer  111,PricewaterhouseCoopers,Manisha Sh,1,2025-12-26 08:01:29,249,0
+103840,PL SQL Developer  ,PL SQL Developer  111,PricewaterhouseCoopers,Manisha Sh,1,2025-12-26 08:01:29,249,1
 103839,"Banking and Financial Technology, Data Analytics & Insights : ignio AIOps, Data Migration, MySQL","Banking and Financial Technology, Data Analytics & Insights : ignio AIOps, Data Migration, MySQL",TCS,Manisha Sh,1,2025-12-26 07:59:16,943,0
 103838,"551984 - ENGNE - Network Core Automation Specialist - Python, Robot Framework ","551984 - ENGNE - Network Core Automation Specialist - Python, Robot Framework ",Infosys-India Pvt Ltd,Chiranjeev Desai,1,2025-12-26 07:55:26,1006,0
 103837,552162 - Microservices Developer,552162 - Microservices Developer,Infosys Consulting,Chiranjeev Desai,1,2025-12-26 07:35:24,923,0
