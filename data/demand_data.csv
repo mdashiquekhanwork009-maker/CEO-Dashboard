@@ -1,5 +1,16 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
-110100, HC Ops Executive, HC Ops Executive,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 04:56:01,249,0
+110111,Technical Specialist - Operations Automation (Ansible & Gitlab),Technical Specialist - Operations Automation (Ansible & Gitlab),SONY Software Development Centre,Mehr Hashim,1,2026-04-21 05:29:53,345,0
+110110,Data Analyst,Data Analyst,Harman,Tamil C,2,2026-04-21 05:29:16,90,0
+110109,Leena / ServiceNow Configuration Management Database (CMDB),Application Support Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 05:27:08,925,0
+110108,Oracle Applications Development / Raju,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 05:21:23,925,0
+110107,"Snowflake, Airflow, SQL","Snowflake, Airflow, SQL",Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-21 05:21:13,1034,0
+110106,"Talend, Snowflake, SQL and Data warehousing","Talend, Snowflake, SQL and Data warehousing",Infosys Consulting,Tara V R,1,2026-04-21 05:21:03,923,0
+110105,Oracle Applications Development / Raju,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 05:17:51,925,0
+110104,SPFx Senior Developer - India,SPFx Senior Developer - India,Infosys Consulting,Tara V R,2,2026-04-21 05:17:27,923,0
+110103,"INFYSYJP00004341/559843 - Java, springboot, sprinbatch -India- DX","INFYSYJP00004341/559843 - Java, springboot, sprinbatch -India- DX",Infosys Consulting,Tara V R,1,2026-04-21 05:13:38,923,0
+110102,Cyber Security Architect,Cyber Security Architect,RR Donnelley,Surya S,1,2026-04-21 05:11:13,408,0
+110101,SDET -  Aashish BU ,Software Development Engineer Test ,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-21 05:08:39,493,0
+110100, HC Ops Executive, HC Ops Executive,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 04:56:01,249,2
 110099,Automotive Security Engineer ,Automotive Security Engineer ,DTICI,Saravanan P,1,2026-04-21 04:53:12,916,0
 110098,Java Developer,Java Developer,DTICI,Saravanan P,1,2026-04-21 04:50:06,916,0
 110097,Associate - Cybersecurity Engineering |,Associate - Cybersecurity Engineering |,PricewaterhouseCoopers,Dhaval Patel,6,2026-04-21 04:48:32,249,0
