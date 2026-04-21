@@ -1,4 +1,23 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110173,INFYSYJP00000126/545255_Palo Alto Senior SME,INFYSYJP00000126/545255_Palo Alto Senior SME,Infosys Consulting,Tara V R,1,2026-04-21 09:16:33,923,0
+110172,associate - OT Security 	,associate - OT Security 	,PricewaterhouseCoopers,Dhaval Patel,28,2026-04-21 08:54:50,249,0
+110171,INFYSYJP00000798 24273Y26-Java Software Engineer,INFYSYJP00000798 24273Y26-Java Software Engineer,Infosys Consulting,Tara V R,2,2026-04-21 08:48:32,923,0
+110170,INFYSYJP00003166 559735-TDM Lead Delphix,INFYSYJP00003166 559735-TDM Lead Delphix,Infosys Consulting,Tara V R,2,2026-04-21 08:43:43,923,0
+110169,SAP FICO Consultant,SAP FICO Consultant,DTICI,Saravanan P,1,2026-04-21 08:13:27,916,0
+110168,Project Manager,Project Manager,DTICI,Saravanan P,1,2026-04-21 08:09:58,916,0
+110167,Scrum Master,Scrum Master,DTICI,Saravanan P,1,2026-04-21 08:07:02,916,0
+110166,Business Analysis,Business Analysis,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 07:54:27,249,0
+110165,Chetna / ServiceNow,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:52:29,925,0
+110164,data privacy and protect,data privacy and protect,PricewaterhouseCoopers,Dhaval Patel,26,2026-04-21 07:51:56,249,0
+110163,L1 Application Support,L1 Application Support,DTICI,Saravanan P,1,2026-04-21 07:48:53,916,0
+110162,Anupama / Microsoft Azure Data Services,Microsoft Azure Data Services,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:48:44,925,0
+110161,SAP ERP ,SAP ERP ,TCS,Soniya Sabnani,1,2026-04-21 07:48:34,943,0
+110160,Tosca Automation Tester,Tosca Automation Tester,BSH,Saravanan P,1,2026-04-21 07:45:44,802,0
+110159,Maria / Data Engineering,Data Engineering,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:44:32,925,0
+110158,TOSCA Test Automation & Manual Testing,TOSCA Test Automation & Manual Testing,BSH,Saravanan P,1,2026-04-21 07:41:42,802,0
+110157,Pavani - CISCO FTD,CISCO FTD,Cognizant,Syed Waseem,2,2026-04-21 07:40:48,18,0
+110156,Pavani - Sailpoint IIQ,Sailpoint,Cognizant,Syed Waseem,2,2026-04-21 07:31:05,18,0
+110155,System Administrator,System Administrator,TCS,Soniya Sabnani,1,2026-04-21 07:30:56,943,0
 110154,C++ Developer - Sumit BU ,C++ Developer,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-21 07:27:06,493,0
 110153,SAP Financial Planning and Analysis ,SAP Financial Planning and Analysis ,Deloitte_Consulting,Rajat Tyagi,1,2026-04-21 07:23:56,256,0
 110152,UI Developer - Anshul BU ,UI Developer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-21 07:10:47,493,0
@@ -15,7 +34,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110141,INFYSYJP00004321/562962 _ DNACMT _ Apache Nifi SQL _ India,INFYSYJP00004321/562962 _ DNACMT _ Apache Nifi SQL _ India,Infosys Consulting,Tara V R,2,2026-04-21 06:35:40,923,0
 110140,INFYSYJP00004336 176931Y26_IT Asset Management (ITAM) ,INFYSYJP00004336 176931Y26_IT Asset Management (ITAM) ,Infosys Consulting,Tara V R,1,2026-04-21 06:32:32,923,0
 110139,Senior Engineer – Electrical Engineering,Senior Engineer – Electrical Engineering,Trane Technologies,Shailesh Gangwar,1,2026-04-21 06:31:34,919,0
-110138,INFYSYJP00004342/563083-Test Data Management & Delphix Lead,INFYSYJP00004342/563083-Test Data Management & Delphix Lead,Infosys Consulting,Tara V R,1,2026-04-21 06:31:09,923,0
+110138,INFYSYJP00004342/563083-Test Data Management & Delphix Lead,INFYSYJP00004342/563083-Test Data Management & Delphix Lead,Infosys Consulting,Tara V R,1,2026-04-21 06:31:09,923,1
 110137,INFYSYJP00004346/562529 - React Js/ Java Full Stack React Js,INFYSYJP00004346/562529 - React Js/ Java Full Stack React Js,Infosys Consulting,Tara V R,1,2026-04-21 06:29:09,923,0
 110136,INFYSYJP00003054 559216_Java Angular Full Stack,INFYSYJP00003054 559216_Java Angular Full Stack,Infosys Consulting,Tara V R,1,2026-04-21 06:28:42,923,0
 110135,Engineer-Electrical Design,Engineer-Electrical Design,Trane Technologies,Shailesh Gangwar,1,2026-04-21 06:23:00,919,0
@@ -56,7 +75,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110100, HC Ops Executive, HC Ops Executive,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 04:56:01,249,2
 110099,Automotive Security Engineer ,Automotive Security Engineer ,DTICI,Saravanan P,1,2026-04-21 04:53:12,916,0
 110098,Java Developer,Java Developer,DTICI,Saravanan P,1,2026-04-21 04:50:06,916,0
-110097,Associate - Cybersecurity Engineering |,Associate - Cybersecurity Engineering |,PricewaterhouseCoopers,Dhaval Patel,6,2026-04-21 04:48:32,249,0
+110097,Associate - Cybersecurity Engineering |,Cybersecurity Engineering |,PricewaterhouseCoopers,Dhaval Patel,26,2026-04-21 04:48:32,249,0
 110096,Talend Big Data ETL Developer,Talend Big Data ETL Developer,Socgen-MIBS-RBS-AVYENS,Anuradha Murthy,10,2026-04-21 04:44:24,1034,0
 110095,Data Governance,Data Governance,TCS,Soniya Sabnani,1,2026-04-21 04:29:56,943,0
 110094,Microsoft Fabric,Microsoft Fabric,TCS,Soniya Sabnani,1,2026-04-21 04:22:36,943,0
@@ -76,7 +95,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110080,Anupama  / Mendix ,Mendix ,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 12:16:45,925,0
 110079,Natwest_Data Analyst,Natwest_Data Analyst,Infosys Consulting,Tara V R,3,2026-04-20 12:05:23,923,0
 110078,"INFYSYJP00003384 560230_DNAFS_NATWEST_Data Engineer- Python , aws ,SQL , snowflake ","INFYSYJP00003384 560230_DNAFS_NATWEST_Data Engineer- Python , aws ,SQL , snowflake ",Infosys Consulting,Tara V R,2,2026-04-20 12:04:35,923,0
-110077,Senior Business Analyst,Senior Business Analyst,TCS,Dhaval Patel,1,2026-04-20 12:03:27,943,0
+110077,Senior Business Analyst,Senior Business Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 12:03:27,249,0
 110076,"Saini, Jagmohan M./ Genrative AI",Genrative Ai,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 11:58:20,925,0
 110075,PMO Support,PMO Support,Swiss Re,Anuradha Murthy,1,2026-04-20 11:52:19,337,0
 110074,Business Analysis - Senior Business Analyst,Business Analysis - Senior Business Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 11:44:22,249,0
@@ -391,7 +410,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109765,Data Privacy and protect associate,Data Privacy and protect associate,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 11:56:43,249,0
 109764,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Chiranjeev Desai,3,2026-04-14 11:36:54,923,0
 109763,Sanjeeva - AWS Cloud Security,AWS Cloud Security,Cognizant,Syed Waseem,2,2026-04-14 11:28:01,18,0
-109762,associate - Data Privacy and Protection,associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 11:16:38,249,0
+109762,associate - Data Privacy and Protection,associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,26,2026-04-14 11:16:38,249,0
 109761,Oracle Revenue Management Cloud Service Position ,Oracle Revenue Management Cloud Service Position ,Deloitte_Consulting,Rajat Tyagi,1,2026-04-14 11:15:48,256,0
 109760,Python / Nisha,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 11:00:07,925,0
 109759,Digital : Spring Boot~PL/SQL,Digital : Spring Boot~PL/SQL,TCS,Dhaval Patel,1,2026-04-14 10:39:33,943,0
@@ -715,7 +734,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109440,Spurthy / Service Desk Management, Application Tech Support Practitioner,Accenture_IDB,Priyakanta Choudhary,1,2026-04-08 11:12:45,222,0
 109439,Site Reliability Engineer (SRE) – Cloud DevOps Engineer,Site Reliability Engineer (SRE) – Cloud DevOps Engineer,Deloitte Mercedes Benz,Saravanan P,1,2026-04-08 10:59:14,1018,0
 109438,HiTech : Automation Testing~Manual Testing Processes and Management,HiTech : Automation Testing~Manual Testing Processes and Management,TCS,Dhaval Patel,1,2026-04-08 10:55:49,943,0
-109437,Chetna / Selenium,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-08 10:54:31,925,0
+109437,Chetna / Selenium,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,5,2026-04-08 10:54:31,925,0
 109436,IICS Solution Designer – Manager (Salesforce Integrations) – Z3 Category,IICS Solution Designer – Manager (Salesforce Integrations) – Z3 Category,Deloitte Mercedes Benz,Saravanan P,1,2026-04-08 10:53:55,1018,0
 109435,IICS Administrator – Consultant (Z2 Category),IICS Administrator – Consultant (Z2 Category),Deloitte Mercedes Benz,Saravanan P,1,2026-04-08 10:48:56,1018,0
 109434,IICS Solution Designer – Manager (Salesforce Integrations),IICS Solution Designer – Manager (Salesforce Integrations),Deloitte Mercedes Benz,Saravanan P,1,2026-04-08 10:48:09,1018,0
@@ -1179,7 +1198,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108975,SAP ABAP with RAP,SAP ABAP with RAP,PricewaterhouseCoopers,Dhaval Patel,3,2026-04-02 09:10:27,249,0
 108974,Power bi,Power bi,PricewaterhouseCoopers,Dhaval Patel,3,2026-04-02 09:09:29,249,0
 108973,ERP–Kinaxis Integration Analyst/Developer (MFG/PRO),ERP–Kinaxis Integration Analyst/Developer (MFG/PRO),PricewaterhouseCoopers,Dhaval Patel,4,2026-04-02 09:06:15,249,0
-108972,associate - Identity & Access Management,associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,2,2026-04-02 09:05:12,249,0
+108972,associate - Identity & Access Management,associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,2,2026-04-02 09:05:12,249,1
 108971,Backend Engineer,Backend Engineer,PricewaterhouseCoopers,Dhaval Patel,2,2026-04-02 09:03:40,249,0
 108970,"SAP ABAP Cloud, (Cloud Public / Cloud Private)","SAP ABAP Cloud, (Cloud Public / Cloud Private)",PricewaterhouseCoopers,Dhaval Patel,3,2026-04-02 09:02:33,249,0
 108969,SAP PP/QM,SAP PP/QM,PricewaterhouseCoopers,Dhaval Patel,2,2026-04-02 09:01:13,249,0
@@ -1199,9 +1218,9 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108955,Supply Chain Product Manager,Supply Chain Product Manager,PricewaterhouseCoopers,Dhaval Patel,2,2026-04-02 08:43:45,249,0
 108954,Associate - Cyber Governance Risk & Compliance,Associate - Cyber Governance Risk & Compliance,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:42:09,249,0
 108953,Cybersecurity Engineering,Cybersecurity Engineering,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:40:58,249,0
-108952,Associate - IoT/Auto Cyber,Associate - IoT/Auto Cyber,PricewaterhouseCoopers,Dhaval Patel,2,2026-04-02 08:39:39,249,0
+108952,Associate - IoT/Auto Cyber,Associate - IoT/Auto Cyber,PricewaterhouseCoopers,Dhaval Patel,18,2026-04-02 08:39:39,249,0
 108951,v/Network Assurance Engineer/Specialist (L2–L3) & Network Assurance Lead,INFYSYJP00003620/Network Assurance Engineer/Specialist (L2–L3) & Network Assurance Lead,Infosys Consulting,Tara V R,20,2026-04-02 08:39:15,923,0
-108950,Associate - Identity & Access Management,Associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:38:12,249,0
+108950,Associate - Identity & Access Management,Associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,23,2026-04-02 08:38:12,249,0
 108949,Associate - OT Security,Associate - OT Security,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:36:08,249,0
 108948,Engineer,Engineer,TCS,Soniya Sabnani,1,2026-04-02 08:34:18,943,0
 108947,Associate - Data Privacy and Protection,Associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:34:07,249,0
@@ -1581,7 +1600,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108573,Java Developer,Java Developer,TCS,Soniya Sabnani,1,2026-03-30 08:12:23,943,0
 108572,INFYSYJP00002907/558949 - Technical Project Manager -CIS-India,INFYSYJP00002907/558949 - Technical Project Manager -CIS-India,Infosys Consulting,Chiranjeev Desai,1,2026-03-30 08:05:37,923,0
 108571,INFYSYJP00003247/559570 - SD-WAN Architect-CIS-India,INFYSYJP00003247/559570 - SD-WAN Architect-CIS-India,Infosys Consulting,Chiranjeev Desai,1,2026-03-30 07:55:11,923,0
-108570,Chetna  / SAP Basis Administration,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-30 07:52:28,925,0
+108570,Chetna  / SAP Basis Administration,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,2,2026-03-30 07:52:28,925,0
 108569,Payal / Microsoft Azure Databricks,Databricks,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-30 07:47:16,925,0
 108568, Payal / Python on Azure,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-30 07:42:58,925,0
 108567,"INFYSYJP00003513 560837-Playwright MCP, AI Usage (copilot,etc)","INFYSYJP00003513 560837-Playwright MCP, AI Usage (copilot,etc)",Infosys Consulting,Tara V R,4,2026-03-30 07:35:57,923,0
@@ -2087,7 +2106,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108067,Nisha / Data Analytics,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-18 12:39:08,925,0
 108066,Simran / Google Cloud DevOps Services,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-18 12:35:50,925,0
 108065,Maria / Unix Shell Scripting,software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-18 12:33:27,925,0
-108064,Network Security L2,Network Security L2,PricewaterhouseCoopers,Dhaval Patel,1,2026-03-18 12:30:14,249,0
+108064,Network Security L2,Network Security L2,PricewaterhouseCoopers,Dhaval Patel,1,2026-03-18 12:30:14,249,1
 108063,Nisha /Data Analytics,Quality Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-18 11:47:23,925,0
 108062,Office 365 Administration~Desktop Management - Infrastructure Services (IS),Office 365 Administration~Desktop Management - Infrastructure Services (IS),TCS,Dhaval Patel,1,2026-03-18 11:46:17,943,0
 108061,Lead Software Engineer-Testing Automation,Lead Software Engineer-Testing Automation,Socgen-MIBS-RBS-AVYENS,Anuradha Murthy,1,2026-03-18 11:37:27,1034,0
@@ -2301,7 +2320,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 107853,Sunil - Multiple,Crowdstrike,Cognizant,Sushma Hegde,2,2026-03-16 06:31:13,18,0
 107852,Radhika / ASP.NET MVC,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-16 06:31:04,925,0
 107851,"INFYSYJP00003061 556949-ETL testing, Python/PySpark , SQL, Azure Databricks","INFYSYJP00003061 556949-ETL testing, Python/PySpark , SQL, Azure Databricks",Infosys Consulting,Sushma Hegde,4,2026-03-16 06:29:50,923,0
-107850,Internal audit,Internal audit,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-16 06:29:28,249,0
+107850,Internal audit,Internal audit,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-16 06:29:28,249,1
 107849,INFYSYJP00003056 559374 - Data Engineer - AWS & Python ,INFYSYJP00003056 559374 - Data Engineer - AWS & Python ,Infosys Consulting,Sushma Hegde,4,2026-03-16 06:28:07,923,0
 107848,INFYSYJP00003051 557782 - DevOps Engineer/Lead (BOFA),INFYSYJP00003051 557782 - DevOps Engineer/Lead (BOFA),Infosys Consulting,Sushma Hegde,4,2026-03-16 06:25:22,923,0
 107847,Leena / DevOps+Airflow,Devops,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-16 06:11:52,925,0
@@ -6156,12 +6175,12 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 103993,Developer,Developer,TCS,Soniya Sabnani,1,2026-01-02 06:29:08,943,0
 103992,Digital : Microsoft Azure~Digital : Amazon Web Service(AWS) Cloud Computing~Digital : Kubernetes~PL/SQL~IT IS_AMS_Database_MS SQL Server,Digital : Microsoft Azure~Digital : Amazon Web Service(AWS) Cloud Computing~Digital : Kubernetes~PL/SQL~IT IS_AMS_Database_MS SQL Server,TCS,Soniya Sabnani,1,2026-01-02 06:16:42,943,0
 103991,Master Data Management_Informatica (MDM),Master Data Management_Informatica (MDM),TCS,Soniya Sabnani,1,2026-01-02 06:14:02,943,0
-103990,Senior Engineer,Senior Engineer ,TCS,Soniya Sabnani,1,2026-01-02 05:14:41,943,0
-103989,Analysts ,Analyst,TCS,Soniya Sabnani,1,2026-01-02 05:12:56,943,0
-103988,Developer,Developer,TCS,Soniya Sabnani,1,2026-01-02 05:08:30,943,0
-103987,Analyst,Analyst,TCS,Soniya Sabnani,1,2026-01-02 05:05:28,943,0
+103990,Senior Engineer,Senior Engineer ,TCS,Soniya Sabnani,1,2026-01-02 05:14:41,943,1
+103989,Analysts ,Analyst,TCS,Soniya Sabnani,1,2026-01-02 05:12:56,943,1
+103988,Developer,Developer,TCS,Soniya Sabnani,1,2026-01-02 05:08:30,943,1
+103987,Analyst,Analyst,TCS,Soniya Sabnani,1,2026-01-02 05:05:28,943,1
 103986,SAP BASIS ADMIN,SAP BASIS ADMIN,Deloitte_Consulting,Rajat Tyagi,1,2025-12-31 12:19:32,256,0
-103985,ASP.NET,ASP.NET,TCS,Soniya Sabnani,1,2025-12-31 11:51:03,943,0
+103985,ASP.NET,ASP.NET,TCS,Soniya Sabnani,1,2025-12-31 11:51:03,943,1
 103984,552499_CIS_ Java Linux,552499_CIS_ Java Linux,Infosys Consulting,Chiranjeev Desai,1,2025-12-31 11:44:56,923,0
 103983,Snowflake,Snowflake,TCS,Soniya Sabnani,1,2025-12-31 11:31:45,943,0
 103982,Network Administrator Incident Management~IT IS_CNS_Contact Center_Cisco,Network Administrator Incident Management~IT IS_CNS_Contact Center_Cisco,TCS,Soniya Sabnani,1,2025-12-31 11:13:31,943,0
