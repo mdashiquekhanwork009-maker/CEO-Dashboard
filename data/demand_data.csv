@@ -1,4 +1,14 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110132,INFYSYJP00002947 559119 || ORC || McLaren || Kronos WFD and Dell Boomi || Senior Associate Consultant || India ,INFYSYJP00002947 559119 || ORC || McLaren || Kronos WFD and Dell Boomi || Senior Associate Consultant || India ,Infosys Consulting,Tara V R,2,2026-04-21 06:14:27,923,0
+110131,INFYSYJP00004234 562168 - Senior Process Engineer - GT & BOP (Power Plant),INFYSYJP00004234 562168 - Senior Process Engineer - GT & BOP (Power Plant),Infosys Consulting,Tara V R,2,2026-04-21 06:12:16,923,0
+110130,Functional Test Planning / Raju,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 06:09:21,925,0
+110129,Chetna / ServiceNow,ServiceNow,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 06:06:31,925,0
+110128,Antarikhya - Legal Compliance,Business Analyst,Cognizant,Syed Waseem,2,2026-04-21 06:05:41,18,0
+110127,CRM Manager,CRM Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-21 06:05:08,512,0
+110126,Python Developer ,Python Developer ,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-21 06:05:02,493,0
+110125,Antarikhya - Senior PO/PM Haelon,Product Manager,Cognizant,Syed Waseem,2,2026-04-21 06:03:31,18,0
+110124,Antarikhya - RLT Cleanup,Data Analysis,Cognizant,Syed Waseem,2,2026-04-21 06:01:09,18,0
+110123,Full Stack Python Developer with AWS,Full Stack Python Developer with AWS,Deloitte Mercedes Benz,Saravanan P,1,2026-04-21 06:00:15,1018,0
 110122,Antarikhya - BA Organon,Business Analyst,Cognizant,Syed Waseem,2,2026-04-21 05:57:36,18,0
 110121,"INFYSYJP00003730 561108_VAT, SAF-T, e-invoicing, AP, AR, Billing & GL_ECSSAP","INFYSYJP00003730 561108_VAT, SAF-T, e-invoicing, AP, AR, Billing & GL_ECSSAP",Infosys Consulting,Chiranjeev Desai,2,2026-04-21 05:52:36,923,0
 110120,Oracle Cloud GTM,Oracle Cloud GTM,Deloitte_Consulting,Rajat Tyagi,1,2026-04-21 05:50:35,256,0
@@ -177,7 +187,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109947,Siddhartha / ServiceNow IT Service Management ,ServiceNow IT Service Management-,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 05:56:11,925,0
 109946,Pramod - Product Owner ,Product Owner,Cognizant,Syed Waseem,2,2026-04-17 05:56:10,18,0
 109945,Pramod - Technical Product owner,Technical Product Owner,Cognizant,Syed Waseem,2,2026-04-17 05:49:15,18,0
-109944, Sourcing & NPD Manager, Sourcing & NPD Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-17 05:49:03,512,0
+109944, Sourcing & NPD Manager, Sourcing & NPD Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-17 05:49:03,512,1
 109943,Spurthy  / Service Desk Management,Application Support Engineer,Accenture_IDB,Priyakanta Choudhary,1,2026-04-17 05:45:38,222,0
 109942,GCC Support & Talent Acquisition Specialist,GCC Support & Talent Acquisition Specialist,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 05:36:46,249,0
 109941,Scrum master,Scrum master,Deloitte Mercedes Benz,Tamil C,1,2026-04-17 05:35:00,1018,0
@@ -426,7 +436,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109698,Jagmohan / ServiceNow App Engine,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:27:01,925,0
 109697,Anupama / Microsoft PowerShell,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:24:27,925,0
 109696,Chetna / Spring Boot,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:20:03,925,0
-109695,General Manager – Founder’s Office,General Manager – Founder’s Office,Meolaa,Prathyusha Mangalampalli,1,2026-04-13 12:14:30,512,0
+109695,General Manager – Founder’s Office,General Manager – Founder’s Office,Meolaa,Prathyusha Mangalampalli,1,2026-04-13 12:14:30,512,1
 109694,Design Manager,Design Manager,Meolaa,Prathyusha Mangalampalli,1,2026-04-13 12:09:36,512,1
 109693,Parveen /Google BigQuery,Parveen /Google BigQuery,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:04:21,925,0
 109692,Lead Software Engineer - Bigdata - (2600059Z),Lead Software Engineer - Bigdata,Socgen_GTS,Surya S,1,2026-04-13 12:03:42,1028,0
@@ -5362,7 +5372,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 104757,Marketing - Graphic Designer ,Graphic Designer ,Meolaa,Jawad Ulla Khan,1,2026-01-22 06:06:28,512,0
 104756,Marketing - Motion Graphic Designer ,Motion Graphic Designer ,Meolaa,Jawad Ulla Khan,1,2026-01-22 06:01:36,512,0
 104755,Sales - MIS Executive,MIS Executive,Meolaa,Jawad Ulla Khan,1,2026-01-22 05:57:26,512,0
-104754,Key Account Manager – Marketplaces,Key Account Manager – Marketplaces,Meolaa,Jawad Ulla Khan,2,2026-01-22 05:51:57,512,0
+104754,Key Account Manager – Marketplaces,Key Account Manager – Marketplaces,Meolaa,Jawad Ulla Khan,2,2026-01-22 05:51:57,512,1
 104753,Key Account Manager – Quick Commerce,Key Account Manager ,Meolaa,Jawad Ulla Khan,2,2026-01-22 05:45:19,512,1
 104752,Growth - Customer relationship management,Growth - Customer relationship management,Meolaa,Jawad Ulla Khan,1,2026-01-22 05:39:36,512,0
 104751,Growth - Shopify Developer,Growth - Shopify Developer,Meolaa,Jawad Ulla Khan,1,2026-01-22 05:27:43,512,0
@@ -5651,7 +5661,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 104468,CRM Functional Consultant - Trupti,Support and Operations Responsible ,BSH,Saravanan P,1,2026-01-13 06:40:25,802,0
 104467,SAP IBP for Supply & Response - Ziauddin,SAP IBP for Supply & Response,BSH,Saravanan P,1,2026-01-13 06:37:58,802,0
 104466,SNP Migration Consultant - Umang,SNP Migration Consultant ,BSH,Saravanan P,1,2026-01-13 06:33:17,802,0
-104465,EDI Developer - Lokesh,EDI Developer,BSH,Saravanan P,1,2026-01-13 06:28:53,802,0
+104465,EDI Developer - Lokesh,EDI Developer,BSH,Saravanan P,1,2026-01-13 06:28:53,802,1
 104464,SAP CPQ Consultant - Thirumal,SAP CPQ Consultant ,BSH,Saravanan P,1,2026-01-13 06:26:17,802,1
 104463,13th jan requirements,Automation Tester,Infosys-India Pvt Ltd,Sushma Hegde,10,2026-01-13 06:24:10,1006,0
 104462,Microsoft Power Platform,Microsoft Power Platform,Infosys Consulting,Tara V R,1,2026-01-13 06:23:54,923,0
