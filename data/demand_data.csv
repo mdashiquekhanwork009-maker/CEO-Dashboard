@@ -1,4 +1,8 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110178,"INFYSYJP00003431 560312, 560313_ DevSecOp Developer_ Pan India","INFYSYJP00003431 560312, 560313_ DevSecOp Developer_ Pan India",Infosys Consulting,Tara V R,1,2026-04-21 09:58:57,923,0
+110177,Cybersecurity Engineering- Network Security,Cybersecurity Engineering- Network Security,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-21 09:54:34,249,0
+110176,Python QA Lead,Python QA Lead,Deloitte Mercedes Benz,Saravanan P,1,2026-04-21 09:52:28,1018,0
+110175,CTS SAP Financial Planning and Analysis,SAP Financial Planning and Analysis,Deloitte_Consulting,Rajat Tyagi,1,2026-04-21 09:51:24,256,1
 110174,IT Customer Service Representative_Mumbai,IT Customer Service Representative,Accenture_BPO,Jawad Ulla Khan,2,2026-04-21 09:26:46,27,0
 110173,INFYSYJP00000126/545255_Palo Alto Senior SME,INFYSYJP00000126/545255_Palo Alto Senior SME,Infosys Consulting,Tara V R,1,2026-04-21 09:16:33,923,0
 110172,associate - OT Security 	,associate - OT Security 	,PricewaterhouseCoopers,Dhaval Patel,28,2026-04-21 08:54:50,249,0
@@ -13,9 +17,9 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110163,L1 Application Support,L1 Application Support,DTICI,Saravanan P,1,2026-04-21 07:48:53,916,0
 110162,Anupama / Microsoft Azure Data Services,Microsoft Azure Data Services,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:48:44,925,0
 110161,SAP ERP ,SAP ERP ,TCS,Soniya Sabnani,1,2026-04-21 07:48:34,943,0
-110160,Tosca Automation Tester,Tosca Automation Tester,Deloitte Mercedes Benz,Saravanan P,1,2026-04-21 07:45:44,1018,0
+110160,Tosca Automation Tester,Tosca Automation Tester,Deloitte Mercedes Benz,Saravanan P,15,2026-04-21 07:45:44,1018,0
 110159,Maria / Data Engineering,Data Engineering,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:44:32,925,0
-110158,TOSCA Test Automation & Manual Testing,TOSCA Test Automation & Manual Testing,BSH,Saravanan P,1,2026-04-21 07:41:42,802,0
+110158,TOSCA Test Automation & Manual Testing,TOSCA Test Automation & Manual Testing,Deloitte Mercedes Benz,Saravanan P,1,2026-04-21 07:41:42,1018,0
 110157,Pavani - CISCO FTD,CISCO FTD,Cognizant,Syed Waseem,2,2026-04-21 07:40:48,18,0
 110156,Pavani - Sailpoint IIQ,Sailpoint,Cognizant,Syed Waseem,2,2026-04-21 07:31:05,18,0
 110155,System Administrator,System Administrator,TCS,Soniya Sabnani,1,2026-04-21 07:30:56,943,0
@@ -5743,7 +5747,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 104428,Java Developer,Java Developer,CME_C2H,Anuradha Murthy,5,2026-01-12 10:26:08,190,0
 104427,Angular 13+~Core .NET Technologies,Angular 13+~Core .NET Technologies,TCS,Dhaval Patel,1,2026-01-12 10:25:00,943,0
 104426, Data Migration, Data Migration,TCS,Dhaval Patel,1,2026-01-12 10:22:44,943,0
-104425, JAVA SPRINGBOOT MICROSERVICES, JAVA SPRINGBOOT MICROSERVICES,TCS,Dhaval Patel,1,2026-01-12 10:20:45,943,0
+104425, JAVA SPRINGBOOT MICROSERVICES, JAVA SPRINGBOOT MICROSERVICES,TCS,Dhaval Patel,1,2026-01-12 10:20:45,943,1
 104424,.Net Developer,.Net Developer,TCS,Dhaval Patel,1,2026-01-12 10:17:06,943,0
 104423,Java - Fullstack Developer,Java Fullstack,Deloitte Mercedes Benz,Saravanan P,2,2026-01-12 09:45:49,1018,0
 104422,Oracle APPS DBA :,Oracle APPS DBA :,TCS,Dhaval Patel,1,2026-01-12 09:21:52,943,0
@@ -5880,7 +5884,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 104291,8620Y26 - TIBCO Platform/Admin Support,8620Y26 - TIBCO Platform/Admin Support,Infosys Consulting,Chiranjeev Desai,1,2026-01-08 06:22:49,923,0
 104290,ETL QA,ETL QA,Deloitte_Consulting,Rajat Tyagi,2,2026-01-08 06:15:32,256,0
 104289,Java Backend Developer,Java Backend Developer,Deloitte Mercedes Benz,Saravanan P,1,2026-01-08 06:14:25,1018,0
-104288, SAP ERP Plant Maintenance (PM), SAP ERP Plant Maintenance (PM),TCS,Soniya Sabnani,1,2026-01-08 05:39:01,943,0
+104288, SAP ERP Plant Maintenance (PM), SAP ERP Plant Maintenance (PM),TCS,Soniya Sabnani,1,2026-01-08 05:39:01,943,1
 104287, Java Full stack +Angular, Java Full stack +Angular,TCS,Soniya Sabnani,1,2026-01-08 05:33:53,943,0
 104286,Oracle DBA~Oracle E-Business Suite - Application Database Administration (DBA),Oracle DBA~Oracle E-Business Suite - Application Database Administration (DBA),TCS,Soniya Sabnani,1,2026-01-08 05:32:13,943,0
 104285,SAP BODS,SAP BODS,TCS,Dhaval Patel,1,2026-01-08 05:24:27,943,0
@@ -5994,7 +5998,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 104177,Vidya Microsoft Windows Desktop Management, IT Customer Service Representative,Accenture_IDB,Priyakanta Choudhary,1,2026-01-06 10:55:22,222,0
 104176,553249 - Kubernetes Admin,553249 - Kubernetes Admin,Infosys Consulting,Chiranjeev Desai,1,2026-01-06 10:54:43,923,0
 104175,UX designer ,UX designer ,Fluence Energy,Tamil C,1,2026-01-06 10:45:47,814,0
-104174,PostgreSQL DBA,PostgreSQL DBA,TCS,Dhaval Patel,1,2026-01-06 10:21:01,943,0
+104174,PostgreSQL DBA,PostgreSQL DBA,TCS,Dhaval Patel,1,2026-01-06 10:21:01,943,1
 104173,Oracle Data Integrator (ODI),DLTJP00050946,Deloitte_Consulting,Rajat Tyagi,1,2026-01-06 10:17:44,256,0
 104172,ITIL Incident Management,Specialist Software Engineer,Socgen,Menaka Prasad,1,2026-01-06 10:04:10,65,0
 104171,OSS Engineer,OSS Engineer,HP (SH),Monisha R,18,2026-01-06 09:52:38,1025,0
