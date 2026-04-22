@@ -1,4 +1,12 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110239,Maria  / Spring Boot,Spring Boot,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-22 06:26:46,925,0
+110238, Maria/ Spring Boot,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-22 06:17:27,925,0
+110237,Cybersecurity Engineering- Cloud Secuirty,Cybersecurity Engineering- Cloud Secuirty,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-22 06:16:14,249,2
+110236,Adobe Campaign,Adobe Campaign,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-22 06:12:47,249,0
+110235,Specialist Software Engineer-Test Automation Expert - (2600037G),Specialist Software Engineer-Test Automation Expert - (2600037G),Socgen-CFT,Surya S,1,2026-04-22 06:08:28,1035,0
+110234,INFYSYJP00004403/562811- iOS Mobile Development- India- DX,INFYSYJP00004403/562811- iOS Mobile Development- India- DX,Infosys Consulting,Tara V R,1,2026-04-22 06:08:05,923,0
+110233,"INFYSYJP00002131 557159 - Java Spring Boot & Kafka Developer - Pune, Che, Hyd, Blr - EAIS ","INFYSYJP00002131 557159 - Java Spring Boot & Kafka Developer - Pune, Che, Hyd, Blr - EAIS ",Infosys Consulting,Tara V R,2,2026-04-22 06:05:59,923,0
+110232,"INFYSYJP00004394 561062 - Java Full stack(Java, Microservices, Springboot, AWS cloud) + Angular ","INFYSYJP00004394 561062 - Java Full stack(Java, Microservices, Springboot, AWS cloud) + Angular ",Infosys Consulting,Chiranjeev Desai,2,2026-04-22 06:04:29,923,0
 110231,Identity & Access Management - Sailpoint Identity IQ ,Identity & Access Management - Sailpoint Identity IQ ,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-22 05:59:35,249,0
 110230,Ramya / ServiceNow,ServiceNow,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-22 05:40:16,925,0
 110229,Manual Testing Lead,Manual Testing Lead,Deloitte Mercedes Benz,Saravanan P,1,2026-04-22 05:39:17,1018,0
@@ -133,7 +141,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110100, HC Ops Executive, HC Ops Executive,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 04:56:01,249,2
 110099,Automotive Security Engineer ,Automotive Security Engineer ,DTICI,Saravanan P,1,2026-04-21 04:53:12,916,0
 110098,Java Developer,Java Developer,DTICI,Saravanan P,1,2026-04-21 04:50:06,916,0
-110097,Associate - Cybersecurity Engineering |,Cybersecurity Engineering |,PricewaterhouseCoopers,Dhaval Patel,26,2026-04-21 04:48:32,249,0
+110097,Associate - Cybersecurity Engineering |,Cybersecurity Engineering |,PricewaterhouseCoopers,Dhaval Patel,20,2026-04-21 04:48:32,249,0
 110096,Talend Big Data ETL Developer,Talend Big Data ETL Developer,Socgen-MIBS-RBS-AVYENS,Anuradha Murthy,10,2026-04-21 04:44:24,1034,0
 110095,Data Governance,Data Governance,TCS,Soniya Sabnani,1,2026-04-21 04:29:56,943,0
 110094,Microsoft Fabric,Microsoft Fabric,TCS,Soniya Sabnani,1,2026-04-21 04:22:36,943,0
@@ -153,7 +161,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110080,Anupama  / Mendix ,Mendix ,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 12:16:45,925,0
 110079,Natwest_Data Analyst,Natwest_Data Analyst,Infosys Consulting,Tara V R,3,2026-04-20 12:05:23,923,0
 110078,"INFYSYJP00003384 560230_DNAFS_NATWEST_Data Engineer- Python , aws ,SQL , snowflake ","INFYSYJP00003384 560230_DNAFS_NATWEST_Data Engineer- Python , aws ,SQL , snowflake ",Infosys Consulting,Tara V R,2,2026-04-20 12:04:35,923,0
-110077,Senior Business Analyst,Senior Business Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 12:03:27,249,0
+110077,Senior Business Analyst,Senior Business Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 12:03:27,249,2
 110076,"Saini, Jagmohan M./ Genrative AI",Genrative Ai,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 11:58:20,925,0
 110075,PMO Support,PMO Support,Swiss Re,Anuradha Murthy,1,2026-04-20 11:52:19,337,0
 110074,Business Analysis - Senior Business Analyst,Business Analysis - Senior Business Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 11:44:22,249,0
@@ -320,7 +328,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109913,SAP TM,SAP TM,Deloitte_Consulting,Rajat Tyagi,1,2026-04-16 12:18:57,256,0
 109912,INFYSYJP00004210 562449-Salesforce/Web application testing ,INFYSYJP00004210 562449-Salesforce/Web application testing ,Infosys Consulting,Tara V R,4,2026-04-16 12:15:45,923,0
 109911,INFYSYJP00001420 555103_D365 Commerce Technical Lead ,INFYSYJP00001420 555103_D365 Commerce Technical Lead ,Infosys Consulting,Tara V R,3,2026-04-16 12:14:04,923,0
-109910,Data Analyst,Data Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-16 12:06:58,249,0
+109910,Data Analyst,Data Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-16 12:06:58,249,2
 109909,Developer ,Developer ,TCS,Dhaval Patel,1,2026-04-16 12:01:26,943,2
 109908,Pramod - Business analyst,Business Analyst,Cognizant,Syed Waseem,2,2026-04-16 11:44:28,18,0
 109907,Ravi - Python WITH FAST API,Python FAST API,Cognizant,Syed Waseem,2,2026-04-16 11:40:48,18,0
@@ -1278,7 +1286,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108953,Cybersecurity Engineering,Cybersecurity Engineering,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:40:58,249,0
 108952,Associate - IoT/Auto Cyber,Associate - IoT/Auto Cyber,PricewaterhouseCoopers,Dhaval Patel,18,2026-04-02 08:39:39,249,0
 108951,v/Network Assurance Engineer/Specialist (L2–L3) & Network Assurance Lead,INFYSYJP00003620/Network Assurance Engineer/Specialist (L2–L3) & Network Assurance Lead,Infosys Consulting,Tara V R,20,2026-04-02 08:39:15,923,0
-108950,Associate - Identity & Access Management,Associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,23,2026-04-02 08:38:12,249,0
+108950,Associate - Identity & Access Management,Associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,23,2026-04-02 08:38:12,249,1
 108949,Associate - OT Security,Associate - OT Security,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:36:08,249,0
 108948,Engineer,Engineer,TCS,Soniya Sabnani,1,2026-04-02 08:34:18,943,0
 108947,Associate - Data Privacy and Protection,Associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 08:34:07,249,0
@@ -3237,7 +3245,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 106992,Siddartha / Red Hat OpenShift,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-02 08:11:59,925,0
 106991,Nisha  / Angular,Full Stack Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-02 08:09:18,925,0
 106990,Payal  / Selenium,Selenium,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-02 08:03:39,925,0
-106989,associate - Identity & Access Management,associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-02 07:50:00,249,0
+106989,associate - Identity & Access Management,associate - Identity & Access Management,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-02 07:50:00,249,1
 106988,Infosys Consulting | Multiple Req. - 2nd March,Infosys Consulting | Multiple Req. - 2nd March,Infosys Consulting,Chiranjeev Desai,6,2026-03-02 07:42:14,923,0
 106987,Digital : Robotic Process Automation - UiPath,Digital : Robotic Process Automation - UiPath,TCS,Dhaval Patel,1,2026-03-02 07:26:32,943,0
 106986,Data Engineer ,Data Engineer ,FlipkartIT,Mehr Hashim,6,2026-03-02 07:19:37,1017,0
@@ -18571,7 +18579,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 91559,Insurance Processor_Chennai,Transaction processing Representative,Accenture_BPO,Jawad Ulla Khan,4,2025-02-11 10:02:27,27,1
 91558,Business Analyst_Bangalore_Fresher,Business Analyst,Accenture_BPO,Jawad Ulla Khan,2,2025-02-11 09:59:15,27,1
 91557,Quality Assurance Engineer,Quality Assurance Engineer,CME_C2H,Santhosh G,1,2025-02-11 09:52:13,190,0
-91556,Identity & Access Management | Mumbai| 1455,Identity & Access Management,PricewaterhouseCoopers,Vamsi Sankaran,1,2025-02-11 09:43:24,249,0
+91556,Identity & Access Management | Mumbai| 1455,Identity & Access Management,PricewaterhouseCoopers,Vamsi Sankaran,1,2025-02-11 09:43:24,249,1
 91555,Dot Net - FS,Specialist Software Engineer ,Socgen,Menaka Prasad,1,2025-02-11 09:26:30,65,0
 91554,  Business Analyst,Specialist Software Engineer ,Socgen,Menaka Prasad,1,2025-02-11 09:20:18,65,0
 91553,Dot NET,Specialist Software Engineer ,Socgen,Menaka Prasad,1,2025-02-11 09:17:59,65,0
