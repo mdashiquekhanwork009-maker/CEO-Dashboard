@@ -1,4 +1,4 @@
-recruiter_name,â€˜Leadâ€™,manager_name,full_name,employee_type,employee_id,display_date,p_o_value,margin,job_posting_id,company_name,Status,Selection_date,offer_created_date
+recruiter_name,Lead1,manager_name,full_name,employee_type,employee_id,display_date,p_o_value,margin,job_posting_id,company_name,Status,Selection_date,offer_created_date
 M Jagadish Kumar,M Jagadish Kumar,M Jagadish Kumar,Vidhi Arya,2,C36250030,2025-01-09,128100.0,23934.0,88209,DTICI,6,2024-11-05 11:28:52,2024-11-07 10:30:47
 Ilakiya A,Santhosh G,Karan Lalchandani,Pate Bhavani Priya ,2,C36250002,2025-01-02,117600.0,30100.0,88191,DTICI,6,2024-11-13 12:48:46,2024-11-14 12:03:59
 Shreyashi Kundu,Bijoy Anand Jha,Sunora P,Mohammed Sahil Abdulla,2,C36250019,2025-01-06,35000.0,10000.0,89545,ANZ OPS,6,2024-11-15 04:56:15,2024-11-26 09:12:58
@@ -4008,7 +4008,6 @@ Muskan S,Sachin K,Prathyusha Mangalampalli,Nisarga K R,2,C36260536,2026-04-07,26
 Muskan S,Sachin K,Prathyusha Mangalampalli,Monica Shetty N,2,C36260535,2026-04-07,26550.0,4050.0,108222,Accenture_BPO,5,,2026-04-06 05:36:46
 Muskan S,Sachin K,Prathyusha Mangalampalli,Farazuddin Quresh,2,C36260596,2026-04-15,55000.0,11000.0,101580,Accenture_BPO,5,2026-04-01 12:48:45,2026-04-06 05:51:23
 Mahalakshmi S,Priya b,Prathyusha Mangalampalli,Vasupalli Aditya Vardhan ,2,C36260548,2026-04-06,59166.0,5000.0,102740,Meolaa,5,2026-04-06 06:08:43,2026-04-06 06:17:11
-Muskan S,Sachin K,Prathyusha Mangalampalli,Prakruthi Raghu,2,C36260547,2026-04-07,26550.0,4050.0,108222,Accenture_BPO,5,2026-03-31 07:01:41,2026-04-06 06:27:43
 Vinodhini E,Deepthi C,Jawad u,Ankitha ,2,C36260545,2026-04-07,26550.0,4050.0,108222,Accenture_BPO,5,,2026-04-06 07:46:24
 Archana Sunkad,Gunupati Reddy,Tara V R,Sadique Kodalam Pallath,2,C36260592,2026-04-14,231000.0,51834.0,107223,Infosys Consulting,5,2026-03-23 07:23:58,2026-04-06 09:10:31
 Amrutha G,Manjunath R,Shivam Prasad, Arunraj  Mani,1,C36260582,2026-04-13,285000.0,35000.0,106933,Schneider Electric,5,,2026-04-06 10:21:50
@@ -4027,7 +4026,7 @@ Ningappa M Donni,Sachin K,Prathyusha Mangalampalli,Sweety  Erudayaraj Fernandes,
 Prathima R,Manjunath R,Shivam Prasad,Hari Kannan,2,C36260579,2026-04-13,193200.0,76533.33,104386,Trane Technologies,5,2026-04-07 11:13:02,2026-04-07 11:33:33
 Gopinath S N,Sandipta  P,Mehr Hashim,Jagnya Narayan Panda,2,C36260578,2026-04-13,192000.0,42000.0,109094,FlipkartIT,5,,2026-04-07 12:50:26
 Laxmitha  D,Sachin K,Prathyusha Mangalampalli,A Nisha Sree ,2,C36260595,2026-04-15,27105.0,4134.0,108222,Accenture_BPO,5,2026-04-07 12:58:08,2026-04-07 13:08:24
-Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Sneha Vikas Karekar,2,,2026-04-20,29500.0,4500.0,108198,Accenture_BPO,5,2026-04-08 04:53:34,2026-04-08 05:23:32
+Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Sneha Vikas Karekar,2,C36260681,2026-04-20,29500.0,4500.0,108198,Accenture_BPO,5,2026-04-08 04:53:34,2026-04-08 05:23:32
 Sachin K,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Jatin Pramod Alandkar ,2,C36260572,2026-04-10,24898.0,3798.0,97189,Accenture_BPO,5,,2026-04-08 05:58:30
 Ashwini Jekinakatti,Priya b,Prathyusha Mangalampalli,Jasmine Vinnarasi G,2,C36260557,2026-04-09,27105.0,4134.0,108222,Accenture_BPO,5,,2026-04-08 05:59:12
 Mahadevaprasad N,Priya b,Prathyusha Mangalampalli,Toorbazarwale Rohan Singh,1,C36260570,2026-04-09,50000.0,15000.0,108293,RealPage,5,,2026-04-08 06:09:27
@@ -4062,18 +4061,19 @@ Jishnu Sabarish,Amrithesh Sairam,Jawad u,Debasis Padhy,2,C36260606,2026-04-16,37
 Jishnu Prasad MV,Amrithesh Sairam,Jawad u,Gaurav Singh,2,C36260605,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-13 07:33:04,2026-04-13 07:59:24
 Mahalakshmi S,Priya b,Prathyusha Mangalampalli,Lokesh N,2,C36260630,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-13 05:43:20,2026-04-13 08:40:22
 Vinodhini E,Deepthi C,Jawad u,Emmanuel ,2,C36260604,2026-04-16,37090.0,12090.0,103403,Lenovo,5,2026-02-25 11:39:26,2026-04-13 08:47:12
-Vasukuri sirisha,Arun Jyothi M,Rajat Tyagi,Deshaboina Naresh,1,,2026-04-20,226800.0,101800.0,108982,Deloitte_Consulting,5,2026-04-09 03:36:17,2026-04-13 09:48:26
+Vasukuri sirisha,Arun Jyothi M,Rajat Tyagi,Deshaboina Naresh,1,C36260680,2026-04-20,226800.0,101800.0,108982,Deloitte_Consulting,5,2026-04-09 03:36:17,2026-04-13 09:48:26
 Gopinath S N,Sandipta  P,Mehr Hashim,Sujata Kumari,2,C36260633,2026-04-17,192000.0,92000.0,109094,FlipkartIT,5,2026-04-13 07:55:56,2026-04-13 11:02:41
 Srilekha G,Bijoy Anand Jha,Bijoy Anand Jha,Aliva Joshi ,2,C36260648,2026-04-17,192000.0,92000.0,109094,FlipkartIT,5,,2026-04-13 13:01:38
 Ashwini Jekinakatti,Priya b,Prathyusha Mangalampalli,Soni Kumari,2,C36260627,2026-04-16,130000.0,5000.0,109694,Meolaa,5,2026-04-13 12:19:47,2026-04-13 13:02:37
 Agnus Biju,Sandipta  P,Mehr Hashim,Princy Soni,2,C36260637,2026-04-16,39750.0,2250.0,109178,Flipkart,5,2026-04-13 13:03:56,2026-04-13 13:24:21
 Rakshitha BR ,Sandipta  P,Mehr Hashim,Vivek Singh ,2,C36260638,2026-04-16,39750.0,2250.0,109178,Flipkart,5,2026-04-13 12:48:44,2026-04-13 13:29:12
-Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Balaram  Murthy C,2,,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:30:39
+Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Balaram  Murthy C,2,C36260678,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:30:39
 Mahalakshmi S,Priya b,Prathyusha Mangalampalli,Kavya N,2,C36260665,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:32:35
 Sachin K,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Mohammed  Arfath ,2,C36260647,2026-04-16,26250.0,1250.0,109637,HP 70,5,,2026-04-13 13:33:11
 Basavaraj B,Priya b,Prathyusha Mangalampalli,Manjeet Kumar,2,C36260664,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:33:44
 Daniel  Fernandes,Monisha R,Monisha R,Poola Devika,2,C36260663,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:33:55
 Shahid Afridi,Amrithesh Sairam,Jawad u,Sharad Ramrao Suryawanshi,2,C36260662,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:36:19
+Harshitha V,Monisha R,Monisha R,Matcha Mineetha Susan,2,C36260689,2026-04-16,35000.0,1667.0,109637,HP 70,5,,2026-04-13 13:36:57
 Ashwini Jekinakatti,Priya b,Prathyusha Mangalampalli,Mohammed Mateen,2,C36260661,2026-04-16,74113.0,3530.0,109637,HP 70,5,,2026-04-13 13:37:46
 Naga sankeerthana,Sachin K,Prathyusha Mangalampalli,Bhageerathi N,2,C36260646,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-13 13:38:13
 Anjana Manoj,Monisha R,Monisha R,Vidyasagar Kanneganti,2,C36260660,2026-04-16,50050.0,2383.0,109637,HP 70,5,,2026-04-13 13:38:35
@@ -4085,14 +4085,16 @@ Shweta Dubey,Sandipta  P,Mehr Hashim,Md Gufran Alam,2,C36260621,2026-04-17,19200
 Mahadevaprasad N,Priya b,Prathyusha Mangalampalli,Kanaga Sri.M,2,C36260639,2026-04-16,22066.0,3366.0,108924,Accenture_BPO,5,,2026-04-14 04:36:58
 Ashwini Jekinakatti,Priya b,Prathyusha Mangalampalli,Chitrashree M S,2,C36260599,2026-04-15,27105.0,4134.0,108222,Accenture_BPO,5,2026-04-14 04:41:58,2026-04-14 04:57:51
 Mahalakshmi S,Priya b,Prathyusha Mangalampalli,Venkatesh,2,C36260657,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:27:46
-Ningappa M Donni,Sachin K,Prathyusha Mangalampalli,Esha Aravind,2,,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:28:41
+Ningappa M Donni,Sachin K,Prathyusha Mangalampalli,Esha Aravind,2,C36260677,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:28:41
 Ashwini Jekinakatti,Priya b,Prathyusha Mangalampalli,Leena A Jain ,2,C36260644,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:29:35
 Laxmitha  D,Sachin K,Prathyusha Mangalampalli,Srinidhi  G Ganachari,2,C36260656,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:29:37
 Vinodhini E,Deepthi C,Jawad u,Shruthi S,2,C36260643,2026-04-16,26250.0,1250.0,109637,HP 70,5,,2026-04-14 05:31:47
 LOKESH RAMESH BABU,Deepthi C,Jawad u,Abhishek Chakraborty,2,C36260655,2026-04-16,131250.0,6250.0,109637,HP 70,5,,2026-04-14 05:32:07
-Kaleem Khan,Priya b,Prathyusha Mangalampalli,K R  Amrutha,2,,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:36:43
+Mahadevaprasad N,Priya b,Prathyusha Mangalampalli,Noor Aseema,2,C36260688,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:33:29
+Kaleem Khan,Priya b,Prathyusha Mangalampalli,K R  Amrutha,2,C36260676,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 05:36:43
+Laxmitha  D,Sachin K,Prathyusha Mangalampalli,Uthkarsh Datt Guttedar,2,C36260687,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 06:29:58
 Shahid Afridi,Amrithesh Sairam,Jawad u,I Mohammed Irfan,2,C36260654,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 07:05:17
-Jishnu Sabarish,Amrithesh Sairam,Jawad u,Pooja M,2,,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 07:08:01
+Jishnu Sabarish,Amrithesh Sairam,Jawad u,Pooja M,2,C36260675,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 07:08:01
 Shweta Dubey,Sandipta  P,Mehr Hashim,Mohd Asad,2,C36260634,2026-04-17,192000.0,100333.33,109330,FlipkartIT,5,,2026-04-14 07:09:27
 Sai Ganesh R,Priyakanta Choudhary,Priyakanta Choudhary,Naveen Kumar,7,C36260601,2026-04-15,48457.0,2087.0,59340,ZTE_payroll,5,2026-04-14 07:23:07,2026-04-14 07:36:44
 Hari Krishna,Sandipta  P,Mehr Hashim,Nidhi  T,2,C36260635,2026-04-17,192000.0,42000.0,109330,FlipkartIT,5,,2026-04-14 07:47:08
@@ -4101,27 +4103,30 @@ Jishnu Sabarish,Amrithesh Sairam,Jawad u,Tanzil  Ahmed,2,C36260603,2026-04-16,37
 Prateek A,Sandipta  P,Mehr Hashim,Bhavya Jain,2,C36260672,2026-04-20,66250.0,3750.0,109330,FlipkartIT,5,2026-04-14 09:49:05,2026-04-14 10:04:53
 Shahid Afridi,Amrithesh Sairam,Jawad u,Navyashri  P A,2,C36260602,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-13 12:30:27,2026-04-14 10:36:30
 Gopinath S N,Sandipta  P,Mehr Hashim,Nallapu Rishikesh,2,C36260670,2026-04-17,192000.0,42000.0,109330,FlipkartIT,5,2026-04-14 06:59:47,2026-04-14 10:44:12
-Daniel  Fernandes,Monisha R,Monisha R,Suhas  S,2,,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 10:53:33
+Daniel  Fernandes,Monisha R,Monisha R,Suhas  S,2,C36260674,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 10:53:33
 Anjana Manoj,Monisha R,Monisha R,Umme Ayman,2,C36260669,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 11:02:55
 Daniel  Fernandes,Monisha R,Monisha R,Shayak Nandi,6,C36260600,2026-04-15,44362.0,6446.0,90654,HP,5,2026-04-14 11:20:11,2026-04-14 11:32:34
 Naga sankeerthana,Sachin K,Prathyusha Mangalampalli,Jude Israel,2,C36260642,2026-04-16,52938.0,2521.0,109637,HP 70,5,,2026-04-14 12:17:09
 Basavaraj B,Priya b,Prathyusha Mangalampalli,Shreema Shetty,2,C36260641,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 12:51:48
+Akash Jena,Deepthi C,Jawad u,Akshay Hanumant Dange,2,C36260686,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 13:02:34
 Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Insha Riaz Khan,2,C36260653,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 14:30:13
 Laxmitha  D,Sachin K,Prathyusha Mangalampalli,Manoj Kumar S,2,C36260652,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-14 14:43:45
 Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Mayank Garg,2,C36260649,2026-04-15,280000.0,5000.0,109695,Meolaa,5,2026-04-13 13:00:43,2026-04-15 04:28:28
 Vinodhini E,Deepthi C,Jawad u,Sara  ,2,C36260651,2026-04-16,28875.0,1375.0,109637,HP 70,5,,2026-04-15 05:06:54
-Muskan S,Sachin K,Prathyusha Mangalampalli,Aaliya Ahmed K,2,,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-15 05:09:11
+Muskan S,Sachin K,Prathyusha Mangalampalli,Aaliya Ahmed K,2,C36260673,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-15 05:09:11
+Harshitha V,Monisha R,Monisha R,Nitin Raju C S,2,C36260685,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-15 06:04:17
 Sristy Saha,Amrithesh Sairam,Jawad u,Usman Shariff,2,C36260650,2026-04-16,48125.0,2292.0,109637,HP 70,5,,2026-04-15 06:57:06
 Shahid Afridi,Amrithesh Sairam,Jawad u,Mohammed  Saif M A,2,C36260616,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-15 09:30:24,2026-04-15 09:40:37
 Shahid Afridi,Amrithesh Sairam,Jawad u,Shafayath  Ulla Khan,2,C36260620,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-15 09:42:05,2026-04-15 09:50:44
-Ningappa M Donni,Sachin K,Prathyusha Mangalampalli,S Sanjana Das,2,,2026-04-21,27105.0,4134.0,108317,Accenture_BPO,5,2026-04-15 12:55:08,2026-04-15 13:02:43
+Ashwini Jekinakatti,Priya b,Prathyusha Mangalampalli,Manisha G,2,C36260684,2026-04-16,32025.0,1525.0,109637,HP 70,5,,2026-04-15 10:26:03
+Ningappa M Donni,Sachin K,Prathyusha Mangalampalli,S Sanjana Das,2,C36260683,2026-04-21,27105.0,4134.0,108317,Accenture_BPO,5,2026-04-15 12:55:08,2026-04-15 13:02:43
 Shahid Afridi,Amrithesh Sairam,Jawad u,Syed  Mohammed Farhan ,2,C36260625,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-15 13:12:35,2026-04-15 13:27:36
 Jishnu Prasad MV,Amrithesh Sairam,Jawad u,Javeed S D,2,C36260624,2026-04-16,37090.0,12090.0,105201,Lenovo,5,,2026-04-15 14:04:43
 Jishnu Prasad MV,Amrithesh Sairam,Jawad u,Parveez Ahmed ,2,C36260623,2026-04-16,37090.0,12090.0,105201,Lenovo,5,2026-04-15 13:50:57,2026-04-15 14:11:38
 Kaleem Khan,Priya b,Prathyusha Mangalampalli,Mehanaaz Banu ,2,C36260622,2026-04-16,37090.0,12090.0,102150,Lenovo,5,,2026-04-15 14:59:57
 Naga sankeerthana,Sachin K,Prathyusha Mangalampalli,Blessy Jayasingh  ,2,C36260668,2026-04-20,35400.0,5400.0,104929,Accenture_BPO,5,2026-04-07 12:02:26,2026-04-16 04:38:30
 Sai Ganesh R,Priyakanta Choudhary,Priyakanta Choudhary,Bathini Venkata Sai Krishna,2,C36260667,2026-04-20,175500.0,42166.67,107298,Accenture_IDB_1,5,,2026-04-16 14:11:08
-Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Nabanita Paul,2,,2026-04-21,29500.0,4500.0,108180,Accenture_BPO,5,2026-04-17 04:55:43,2026-04-17 05:13:06
+Priya b,Prathyusha Mangalampalli,Prathyusha Mangalampalli,Nabanita Paul,2,C36260682,2026-04-21,29500.0,4500.0,108180,Accenture_BPO,5,2026-04-17 04:55:43,2026-04-17 05:13:06
 Basavaraj B,Priya b,Prathyusha Mangalampalli,Huma Nazneen,2,C36260666,2026-04-20,84167.0,5000.0,109944,Meolaa,5,2026-04-17 06:50:36,2026-04-17 07:11:10
-Sandipta Panigrahi,Mehr Hashim,Mehr Hashim,Swaraj Sekhar Biswal,2,,2026-04-17,555000.0,96666.67,106948,Coupang,5,,2026-04-17 10:55:57
+Sandipta Panigrahi,Mehr Hashim,Mehr Hashim,Swaraj Sekhar Biswal,2,C36260679,2026-04-17,555000.0,96666.67,106948,Coupang,5,,2026-04-17 10:55:57
 Manoj Kumar KR,Chiranjeev DL,Chiranjeev Desai,Kantamneni Sravya ,2,C36260671,2026-04-20,279300.0,70966.67,108645,Infosys Consulting,5,2026-04-17 09:26:36,2026-04-17 11:01:54
