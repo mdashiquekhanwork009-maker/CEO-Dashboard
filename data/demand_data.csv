@@ -1,8 +1,11 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110318,Maria / Kofax Intelligent Automation Platform, Test Automation Lead,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 08:51:20,925,0
+110317,Vidya / ServiceNow IT Service Management,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 08:47:48,925,0
+110316,Developer,Developer,TCS,Soniya Sabnani,1,2026-04-23 08:36:19,943,0
 110315,Strategic Account Manager,Strategic Account Manager,Flipkart,Mehr Hashim,5,2026-04-23 08:28:00,228,0
 110314,Developer,Developer,TCS,Soniya Sabnani,1,2026-04-23 08:21:47,943,0
-110313,ServiceNow,ServiceNow,TCS,Soniya Sabnani,1,2026-04-23 08:14:48,943,0
-110312,: ServiceNow_IT Service Management~ServiceNow,: ServiceNow_IT Service Management~ServiceNow,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-23 08:03:06,249,0
+110313,ServiceNow,ServiceNow,TCS,Soniya Sabnani,1,2026-04-23 08:14:48,943,1
+110312,: ServiceNow_IT Service Management~ServiceNow,: ServiceNow_IT Service Management~ServiceNow,TCS,Dhaval Patel,1,2026-04-23 08:03:06,943,0
 110311,Customer Contact Communications Representative_BDC-9,Customer Support Representative,Accenture_BPO,Jawad Ulla Khan,4,2026-04-23 07:57:37,27,0
 110310,UI Developer,UI Developer,TCS,Soniya Sabnani,1,2026-04-23 07:52:53,943,0
 110309,SAP MDG,SAP MDG,PricewaterhouseCoopers,Dhaval Patel,4,2026-04-23 07:48:06,249,0
@@ -2596,7 +2599,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 107719,: Python~Digital : ReactJS~Digital : Kubernetes,: Python~Digital : ReactJS~Digital : Kubernetes,TCS,Dhaval Patel,1,2026-03-13 05:26:38,943,0
 107718,"Nanda, Nisha / Salesforce Development ",Salesforce Development-,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-13 05:23:08,925,0
 107717,INFYSYJP00002636 558033_AWS,INFYSYJP00002636 558033_AWS,Infosys Consulting,Sushma Hegde,4,2026-03-13 05:22:49,923,0
-107716,Senior Associate,Senior Associate,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-13 05:22:14,249,0
+107716,Senior Associate,Senior Associate,PricewaterhouseCoopers,Dhaval Patel,5,2026-03-13 05:22:14,249,1
 107715,Service Desk Management,Service Desk Management (P1 - Beginner),Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-13 05:20:07,925,0
 107714,"Anchan Ramananda, Spurthy /Service Desk Management",Service Desk Management,Accenture_IDB,Priyakanta Choudhary,1,2026-03-13 05:19:18,222,0
 107713,"Anchan Ramananda, Spurthy / Service Desk Management",Service Desk Managemen,Accenture_IDB,Priyakanta Choudhary,1,2026-03-13 05:15:36,222,0
@@ -2642,7 +2645,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 107673, Databricks~Azure Data Factory~Github Enterprise, Databricks~Azure Data Factory~Github Enterprise,TCS,Dhaval Patel,1,2026-03-12 10:48:41,943,0
 107672,Core .NET Technologies~ASP.NET 4.5,Core .NET Technologies~ASP.NET 4.5,TCS,Dhaval Patel,1,2026-03-12 10:46:25,943,0
 107671,Core .NET Technologies~ASP.NET 4.5,Core .NET Technologies~ASP.NET 4.5,TCS,Dhaval Patel,1,2026-03-12 10:44:18,943,0
-107670,Oracle BPBCS ,Oracle BPBCS ,PricewaterhouseCoopers,Dhaval Patel,1,2026-03-12 10:32:02,249,0
+107670,Oracle BPBCS ,Oracle BPBCS ,PricewaterhouseCoopers,Dhaval Patel,1,2026-03-12 10:32:02,249,1
 107669,Parveen / Google BigQuery,BigQuery,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-12 10:17:16,925,0
 107668,Customer Experience~Incident Management~Communication~Service Management,Customer Experience~Incident Management~Communication~Service Management,TCS,Dhaval Patel,1,2026-03-12 10:14:26,943,0
 107667,Radhika / Automated Testing,Quality Engineer (Tester),Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-12 10:08:22,925,0
@@ -3785,7 +3788,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 106528,Mohammed Rayan / Angular,Angular,Accenture_IDB_1,Priyakanta Choudhary,1,2026-02-20 07:02:31,925,0
 106527,Frontend Developer – SAP Commerce for a Technology Global Capability Center (GCC) ,Frontend Developer ,Arcelor Mittal,Rajat Tyagi,2,2026-02-20 07:00:21,1022,0
 106526,.Net,.Net Developer Drive,Arcelor Mittal,Rajat Tyagi,1,2026-02-20 06:49:21,1022,0
-106525,PMO,Project Lead,PricewaterhouseCoopers,Dhaval Patel,1,2026-02-20 06:47:36,249,0
+106525,PMO,Project Lead,PricewaterhouseCoopers,Dhaval Patel,1,2026-02-20 06:47:36,249,1
 106524,INFYSYJP00002218/.Net Developer (with Azure),INFYSYJP00002218/.Net Developer (with Azure),Infosys Consulting,Chiranjeev Desai,2,2026-02-20 06:41:05,923,0
 106523,AWS Cloud Engineer - Sudhakar Nagireddy,AWS Cloud Engineer,DTICI,Saravanan P,1,2026-02-20 05:59:09,916,0
 106522,Data Scientist - Abhinav,Data Scientist ,DTICI,Saravanan P,1,2026-02-20 05:56:54,916,0
@@ -5280,7 +5283,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 105032,C# Testing,C# Testing,Infosys-India Pvt Ltd,Sushma Hegde,2,2026-01-29 05:13:09,1006,0
 105031,AI Senior Developer,AI Senior Developer,Infosys-India Pvt Ltd,Sushma Hegde,1,2026-01-29 05:11:19,1006,0
 105030,Salesforce Development, Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-01-29 05:09:57,925,0
-105029,Change analyst,Change analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-01-29 04:58:24,249,0
+105029,Change analyst,Change analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-01-29 04:58:24,249,1
 105028,Senior Security Analyst,Senior Security Analyst,TCS,Dhaval Patel,1,2026-01-29 04:56:38,943,0
 105027,Node.js~Digital : Mongo DB,Node.js~Digital : Mongo DB,TCS,Dhaval Patel,1,2026-01-29 04:54:36,943,0
 105026,Microsoft Azure~Digital : NOSQL~Digital : GoLang~Digital : ReactJS,Microsoft Azure~Digital : NOSQL~Digital : GoLang~Digital : ReactJS,TCS,Dhaval Patel,1,2026-01-29 04:52:35,943,2
@@ -6844,7 +6847,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 103466,Stores and Point of Sales,Stores and Point of Sales,TCS,Manisha Sh,1,2025-12-17 04:53:57,943,0
 103465,	 Informatica MDM Developer,	 Informatica MDM Developer,Deloitte_Consulting,Rajat Tyagi,2,2025-12-17 04:52:35,256,0
 103464,SAP Security,SAP Security,PricewaterhouseCoopers,Manisha Sh,1,2025-12-17 04:49:05,249,1
-103463,"Accounts payable, AP Team Lead","Accounts payable, AP Team Lead",PricewaterhouseCoopers,Manisha Sh,1,2025-12-17 04:34:45,249,0
+103463,"Accounts payable, AP Team Lead","Accounts payable, AP Team Lead",PricewaterhouseCoopers,Manisha Sh,1,2025-12-17 04:34:45,249,1
 103462,Mobility Coordinator ,Mobility Coordinator ,Accenture_BPO,Jawad Ulla Khan,1,2025-12-16 13:14:28,27,0
 103461,"551321 - IQE -Playwright, Cypress, Selenium","551321 - IQE -Playwright, Cypress, Selenium",Infosys-India Pvt Ltd,Chiranjeev Desai,1,2025-12-16 12:13:38,1006,0
 103460,548015 _ DNACRL _ Talend Studio,548015 _ DNACRL _ Talend Studio,Infosys-India Pvt Ltd,Chiranjeev Desai,1,2025-12-16 12:12:06,1006,0
