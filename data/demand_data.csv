@@ -1,7 +1,15 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110311,Customer Contact Communications Representative_BDC-9,Customer Support Representative,Accenture_BPO,Jawad Ulla Khan,4,2026-04-23 07:57:37,27,0
+110310,UI Developer,UI Developer,TCS,Soniya Sabnani,1,2026-04-23 07:52:53,943,0
+110309,SAP MDG,SAP MDG,PricewaterhouseCoopers,Dhaval Patel,4,2026-04-23 07:48:06,249,0
+110308,Data Engineer,Data Engineer,TCS,Soniya Sabnani,1,2026-04-23 07:46:32,943,0
+110307,SAP CO Management Accounting,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 07:36:01,925,0
+110306,API testing,API testing,Deloitte Mercedes Benz,Tamil C,1,2026-04-23 07:31:55,1018,0
+110305,Salesforce testing ,Salesforce testing ,Deloitte Mercedes Benz,Tamil C,1,2026-04-23 07:29:48,1018,0
+110304,Siddartha / Oracle Applications Development,Oracle Applications Development,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 07:28:09,925,0
 110303,INFYSYJP00004405/ENGMHTFS22042026 - Full stack Developer,INFYSYJP00004405/ENGMHTFS22042026 - Full stack Developer,Infosys Consulting,Tara V R,1,2026-04-23 07:12:04,923,0
 110302,INFYSYJP00004421 562815_Business Analyst – Operations Regulatory Reporting (Axiom / RBI),INFYSYJP00004421 562815_Business Analyst – Operations Regulatory Reporting (Axiom / RBI),Infosys Consulting,Chiranjeev Desai,2,2026-04-23 07:11:05,923,0
-110301,"INFYSYJP00004415/563166, 563171 - HC ADM - .NET Developer","INFYSYJP00004415/563166, 563171 - HC ADM - .NET Developer",Infosys Consulting,Tara V R,1,2026-04-23 07:06:11,923,0
+110301,"INFYSYJP00004415/563166, 563171 - HC ADM - .NET Developer","INFYSYJP00004415/563166, 563171 - HC ADM - .NET Developer",Infosys Consulting,Tara V R,1,2026-04-23 07:06:11,923,1
 110300,Teamcenter Admin,Teamcenter Admin,DTICI,Saravanan P,1,2026-04-23 06:46:13,916,0
 110299,Senior AWS Cloud Architect - Sudhakar Nagireddy,Senior AWS Cloud Architect - Sudhakar Nagireddy,DTICI,Saravanan P,1,2026-04-23 06:33:03,916,0
 110298,1815 – QA Engineer(TOSCA),QA engineer,Koch Industries,Joyesh Banerjee,1,2026-04-23 06:28:47,353,0
