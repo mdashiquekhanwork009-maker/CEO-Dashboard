@@ -1,4 +1,5 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110353,"INFYSYJP00004492 562163 - Test Automation Engineer, Selenium WebDriver, Cucumber (BDD) & TestNG","INFYSYJP00004492 562163 - Test Automation Engineer, Selenium WebDriver, Cucumber (BDD) & TestNG",Infosys Consulting,Tara V R,1,2026-04-24 04:25:16,923,0
 110352,AP Manager,AP Manager,Flipkart,Mehr Hashim,1,2026-04-24 03:50:46,228,0
 110351,Datastax Cassandra DBA,Datastax Cassandra DBA,Deloitte_Consulting,Rajat Tyagi,2,2026-04-24 03:44:42,256,0
 110350,"INFYSYJP00004485/563576 - Senior Golang Engineer - Blr, Pune - EAIS","INFYSYJP00004485/563576 - Senior Golang Engineer - Blr, Pune - EAIS",Infosys Consulting,Chiranjeev Desai,1,2026-04-23 13:15:35,923,0
@@ -2686,7 +2687,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 107666,SAP ABAP Consultant,SAP ABAP Consultant,Deloitte_Consulting,Rajat Tyagi,1,2026-03-12 09:56:13,256,0
 107665, Database Admin - Sreejith, Database Admin ,DTICI,Saravanan P,1,2026-03-12 09:49:46,916,0
 107664, Vidya / Pyspark, Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-12 09:48:05,925,0
-107663,SAP FICO,SAP FICO,PricewaterhouseCoopers,Dhaval Patel,1,2026-03-12 09:43:56,249,0
+107663,SAP FICO,SAP FICO,PricewaterhouseCoopers,Dhaval Patel,1,2026-03-12 09:43:56,249,1
 107662,Vidya / React.js,Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-03-12 09:31:16,925,0
 107661,INFYSYJP00002975 558824_MS/.Net Full Stack (with Angular),INFYSYJP00002975 558824_MS/.Net Full Stack (with Angular),Infosys Consulting,Sushma Hegde,4,2026-03-12 09:30:57,923,0
 107660,SAP EHS Consultant,SAP EHS Consultant,Deloitte_Consulting,Rajat Tyagi,1,2026-03-12 09:15:18,256,0
