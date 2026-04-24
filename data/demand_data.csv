@@ -1,4 +1,18 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110431,Google Cloud Platform /  Ramya, Infrastructure Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 12:13:10,925,0
+110430,Radhika / Data Engineering,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 12:01:35,925,0
+110429,"Informatica (IICS/IDMC), Mainframe","Informatica (IICS/IDMC), Mainframe",Infosys Consulting,Tara V R,1,2026-04-24 11:38:18,923,0
+110428,Shalini - QA Automation,QA Automation,Cognizant,Syed Waseem,1,2026-04-24 11:27:07,18,0
+110427,INFYSYJP00004514 561903 - Oracle Integration Consultant - India - EAIS ,INFYSYJP00004514 561903 - Oracle Integration Consultant - India - EAIS ,Infosys Consulting,Chiranjeev Desai,1,2026-04-24 11:25:04,923,0
+110426,INFYSYJP00002066 557050-IAM concepts,INFYSYJP00002066 557050-IAM concepts,Infosys Consulting,Chiranjeev Desai,2,2026-04-24 11:23:24,923,0
+110425,Lead C++ Developer,Lead C++ Developer,SONY Software Development Centre,Mehr Hashim,1,2026-04-24 11:21:51,345,0
+110424,Java Full Stack Development,Java Full Stack Development,Accenture_ATCI,Tamil C,1,2026-04-24 11:19:39,1015,0
+110423,Radhika / React.js,React.js,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 11:07:35,925,0
+110422,React.JS,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 10:49:48,925,0
+110421,Techno Functional Business Analyst - STA - (260005K8),Techno Functional Business Analyst - STA ,Socgen-CFT,Surya S,1,2026-04-24 10:49:23,1035,0
+110420,"Specialist Software Engineer - JAVA , Spring boot, DevOps  - (26000759)","Specialist Software Engineer - JAVA , Spring boot, DevOps",Socgen_GTS,Surya S,1,2026-04-24 10:44:20,1028,0
+110419,INFYSYJP00002410 95352Y26-ETL QA Tester with AWS experience,INFYSYJP00002410 95352Y26-ETL QA Tester with AWS experience,Infosys Consulting,Tara V R,4,2026-04-24 10:40:37,923,0
+110418,Senior dotNet Developer with Cosmos DB ,Senior dotNet Developer with Cosmos DB ,DTICI,Saravanan P,1,2026-04-24 10:38:35,916,0
 110417,AWS Glue / Parveen,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 10:21:19,925,0
 110416,Parveen / AWS Glue,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 10:21:10,925,0
 110415,"INFYSYJP00004529/563640, 563639, 563638_INS-ADM_Business Analysis_India","INFYSYJP00004529/563640, 563639, 563638_INS-ADM_Business Analysis_India",Infosys Consulting,Tara V R,3,2026-04-24 10:12:57,923,0
@@ -10695,7 +10709,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99699,Shivani Saturday Drive, Application Tech Support Practitione,Accenture_IDB,Archana B. K,14,2025-09-25 06:15:06,222,0
 99698,Senior HR Partner ,Senior HR Partner ,Fluence Energy,Tamil C,1,2025-09-25 06:02:25,814,0
 99697,Automation Engineer ,Automation Engineer ,Wolters Kluwer,Tamil C,2,2025-09-25 05:58:32,521,0
-99696,Firmware Development,Firmware Development,Cognizant,Sandhya Kumari Sahani,1,2025-09-25 05:40:15,18,0
+99696,Firmware Development,Firmware Development,Cognizant,Sandhya Kumari Sahani,1,2025-09-25 05:40:15,18,1
 99695,ATT - Technical Release Manager,ATT - Technical Release Manager,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-25 05:35:22,1006,0
 99694,Maria Drive, Application Developer,Accenture_IDB_1,Naveen Goud,1,2025-09-25 05:31:27,925,0
 99693,SAP BW / SAP BW4HANA,SAP BW / SAP BW4HANA,PricewaterhouseCoopers,Dhaval Patel,2,2025-09-25 05:07:04,249,0
@@ -10758,7 +10772,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99636,Business Analyst,Business Analyst,Infosys Consulting,Tara V R,2,2025-09-24 06:27:04,923,0
 99635,Computer vision & Deep learning Engineer,Computer vision & Deep learning Engineer,SONY Software Development Centre,Mehr Hashim,1,2025-09-24 05:52:32,345,0
 99634,Ruby on Rails,Ruby on Rails,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-24 05:33:20,1006,0
-99633,"C#Net, Asp net , react JS","C#Net, Asp net , react JS",Cognizant,Sandhya Kumari Sahani,1,2025-09-24 05:22:30,18,0
+99633,"C#Net, Asp net , react JS","C#Net, Asp net , react JS",Cognizant,Sandhya Kumari Sahani,1,2025-09-24 05:22:30,18,1
 99632,SAP BusinessObjects Data Services,SAP BusinessObjects Data Services,TCS,Dhaval Patel,2,2025-09-24 05:13:51,943,0
 99631,Azure Devops Engineer - Babilesh,Azure Devops Engineer,DTICI,Saravanan P,1,2025-09-24 05:12:46,916,0
 99630,Shivani 29th sep Drive,Application Support Engineer,Accenture_IDB,Archana B. K,5,2025-09-24 04:44:08,222,0
@@ -10778,7 +10792,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99616,SAP Variant Configuration (VC),SAP Variant Configuration (VC),TCS,Manisha Sh,2,2025-09-23 10:22:48,943,0
 99615,Python PostgreSQL Digital: Databricks Azure Data Factory,Python PostgreSQL Digital: Databricks Azure Data Factory,TCS,Dhaval Patel,2,2025-09-23 10:05:42,943,0
 99614,MUSTHAFA Oracle EBS Tax., Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-09-23 10:01:23,925,0
-99613,Workday,Workday,Cognizant,Sandhya Kumari Sahani,7,2025-09-23 09:31:54,18,0
+99613,Workday,Workday,Cognizant,Sandhya Kumari Sahani,7,2025-09-23 09:31:54,18,1
 99612,Proximus GCC - Full Stack Developer,Proximus GCC - Full Stack Developer,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-23 09:24:54,1006,0
 99611,AEM Modernization Roles,"AEM Architect, AEM Front End Developer, AEM Back End Developer, AEM Full Stack Developer", Lumen C2H,Frederick L,4,2025-09-23 09:13:41,884,0
 99610, Oracle Hyperion Financial Management (HFM), Oracle Hyperion Financial Management (HFM),TCS,Dhaval Patel,2,2025-09-23 09:03:04,943,0
@@ -10858,10 +10872,10 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99536,Radhika  Automission, Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2025-09-19 11:44:39,925,0
 99535,Angular 13+,Angular 13+,TCS,Dhaval Patel,2,2025-09-19 11:39:31,943,0
 99534,Python & JavaScript Developer,Python & JavaScript Developer,Xylem INC,Aranza Dubey,1,2025-09-19 10:57:21,484,0
-99533,Automation testing,Automation testing,Cognizant-FTE,Sushma Hegde,4,2025-09-19 10:23:45,776,0
+99533,Automation testing,Automation testing,Cognizant-FTE,Sushma Hegde,4,2025-09-19 10:23:45,776,1
 99532, HR staff, HR staff,Wartsila,Shivam Prasad,1,2025-09-19 09:43:35,854,0
 99531,SAP Plant Maintenance,SAP Plant Maintenance,Deloitte_Consulting,Arun Jyothi M,1,2025-09-19 09:28:02,256,0
-99530,C#.NET Developer,C#.NET Developer,Cognizant,Sandhya Kumari Sahani,1,2025-09-19 09:17:52,18,0
+99530,C#.NET Developer,C#.NET Developer,Cognizant,Sandhya Kumari Sahani,1,2025-09-19 09:17:52,18,1
 99529,CITI - Spark-Scala,CITI - Spark-Scala,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-19 09:15:28,1006,0
 99528,IT incident RCA,IT incident RCA,PricewaterhouseCoopers,Dhaval Patel,2,2025-09-19 08:18:01,249,1
 99527, SAP PP/QM, SAP PP/QM,PricewaterhouseCoopers,Dhaval Patel,2,2025-09-19 08:12:16,249,0
@@ -10877,7 +10891,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99517,QA Automation + Manual,QA Automation + Manual,Deloitte - Advisory,Frederick L,5,2025-09-19 06:52:25,194,0
 99516,TA OPS,TA OPS,PricewaterhouseCoopers,Dhaval Patel,2,2025-09-19 06:49:38,249,2
 99515,ServiceNow GRC Developer,ServiceNow GRC Developer,DTICI,Saravanan P,1,2025-09-19 06:49:26,916,0
-99514,GCP Cloud Admin / Specialist,GCP Cloud Admin / Specialist,Cognizant,Sandhya Kumari Sahani,5,2025-09-19 06:29:57,18,0
+99514,GCP Cloud Admin / Specialist,GCP Cloud Admin / Specialist,Cognizant,Sandhya Kumari Sahani,5,2025-09-19 06:29:57,18,1
 99513,Core .NET Technologies,Core .NET Technologies,TCS,Dhaval Patel,2,2025-09-19 05:59:18,943,0
 99512,Cyber Security Analyst, Software Engineer,Socgen,karan lalchandani,1,2025-09-19 05:19:28,65,0
 99511,Databricks,Databricks,TCS,Dhaval Patel,2,2025-09-19 05:11:00,943,0
@@ -10989,7 +11003,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99403,PMS Analyst,PMS Analyst,LTTS China,Pramod P,1,2025-09-17 06:16:38,1004,0
 99402,Gen AI and Machine Learning,Gen AI and Machine Learning,Infosys Consulting,Tara V R,1,2025-09-17 06:05:47,923,0
 99401,Developer,Developer,TCS,Dhaval Patel,1,2025-09-17 06:04:04,943,0
-99400, Embedded C++ Development, Embedded C++ Development,Cognizant,Sushma Hegde,5,2025-09-17 06:01:15,18,0
+99400, Embedded C++ Development, Embedded C++ Development,Cognizant,Sushma Hegde,5,2025-09-17 06:01:15,18,1
 99399,Cyber Security - GRC - Vendor Risk Assessment~Cyber Security - GRC - Data Security,Cyber Security - GRC - Vendor Risk Assessment~Cyber Security - GRC - Data Security,TCS,Manisha Sh,2,2025-09-17 06:01:02,943,0
 99398,Java developer,Java developer,Flipkart,Mehr Hashim,5,2025-09-17 05:35:22,228,0
 99397,Fashion Stylist,Fashion Stylist,Flipkart,Mehr Hashim,1,2025-09-17 05:31:47,228,0
@@ -11073,7 +11087,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99289,Sr. Project Manager,Sr. Project Manager,Infosys Consulting,Tara V R,1,2025-09-15 10:16:50,923,0
 99288,Developer,Developer,TCS,Soniya Sabnani,1,2025-09-15 10:13:39,943,0
 99287,Developer,Developer,TCS,Dhaval Patel,1,2025-09-15 10:06:15,943,0
-99286,Product Manager,Product Manager,Cognizant,Sushma Hegde,8,2025-09-15 10:02:22,18,0
+99286,Product Manager,Product Manager,Cognizant,Sushma Hegde,8,2025-09-15 10:02:22,18,1
 99285,SAP DMS,SAP DMS,Deloitte_Consulting,Rajat Tyagi,1,2025-09-15 09:58:30,256,0
 99284,Sr. SAP Full Stack Developer.(Umang),Sr. SAP Full Stack Developer.,BSH,Dipika Saha,1,2025-09-15 09:41:41,802,0
 99283,Developer,Developer,TCS,Manisha Sh,1,2025-09-15 08:32:49,943,0
@@ -11083,7 +11097,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99279,Pyspark Databricks,Pyspark Databricks,TCS,Dhaval Patel,2,2025-09-15 07:51:53,943,0
 99278,Cloud DevOps Digital: Microsoft Azure Digital: Python Unix Shell Scripting and text processing tools Core .NET Technologies# C 5.0.,Cloud DevOps Digital: Microsoft Azure Digital: Python Unix Shell Scripting and text processing tools Core .NET Technologies# C 5.0.,TCS,Dhaval Patel,2,2025-09-15 07:50:02,943,0
 99277,High Priority requirement - 11 positions - QA automation & Python Dev,High Priority requirement - 11 positions ,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,11,2025-09-15 07:46:19,1006,0
-99276,Cloud Security Architect (AWS/Azure),Cloud Security Architect (AWS/Azure),Cognizant,Sandhya Kumari Sahani,1,2025-09-15 07:42:52,18,0
+99276,Cloud Security Architect (AWS/Azure),Cloud Security Architect (AWS/Azure),Cognizant,Sandhya Kumari Sahani,1,2025-09-15 07:42:52,18,1
 99275,Servicenow Architect,Servicenow Architect,Deloitte_Consulting,Rajat Tyagi,1,2025-09-15 07:36:33,256,0
 99274,Network Administrator,Network Administrator,TCS,Dhaval Patel,1,2025-09-15 07:33:25,943,0
 99273,Payal MS Azure Integration,Application Lead,Accenture_IDB_1,Archana B. K,1,2025-09-15 07:12:06,925,0
@@ -11160,7 +11174,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99202,Digital : DevOps~Digital : Kubernetes,Digital : DevOps~Digital : Kubernetes,TCS,Manisha Sh,2,2025-09-12 04:50:22,943,0
 99201,ServiceNow,ServiceNow,TCS,Dhaval Patel,2,2025-09-12 04:45:03,943,0
 99200,Digital : DevOps Continuous Integration and Continuous Delivery (CI/CD)~Digital : Databricks~Digital : Dataiku~Azure Data Factory~Unix Administration,Digital : DevOps Continuous Integration and Continuous Delivery (CI/CD)~Digital : Databricks~Digital : Dataiku~Azure Data Factory~Unix Administration,TCS,Dhaval Patel,2,2025-09-12 04:29:56,943,0
-99199, Required profiles-Sailpoint, Required profiles-Sailpoint,Cognizant,Sandhya Kumari Sahani,2,2025-09-12 04:24:47,18,0
+99199, Required profiles-Sailpoint, Required profiles-Sailpoint,Cognizant,Sandhya Kumari Sahani,2,2025-09-12 04:24:47,18,1
 99198, Cyber Security - ASM - Network Security, Cyber Security - ASM - Network Security,TCS,Manisha Sh,2,2025-09-12 04:22:02,943,0
 99197,SAP Cloud Platform Integration (CPI),SAP Cloud Platform Integration (CPI),TCS,Dhaval Patel,1,2025-09-12 04:14:40,943,0
 99196,Maria IBM DB2,DB2 Database Administrator,Accenture_IDB_1,Archana B. K,1,2025-09-11 14:05:03,925,0
@@ -11226,7 +11240,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99136,Microservices~Digital : Spring Boot,Microservices~Digital : Spring Boot,TCS,Manisha Sh,2,2025-09-10 12:08:22,943,0
 99135,Business A,Business A,PricewaterhouseCoopers,Subhash Kumar,1,2025-09-10 12:07:51,249,0
 99134, ServiceNow_IT Service Management, ServiceNow_IT Service Management,TCS,Dhaval Patel,2,2025-09-10 12:03:29,943,0
-99133,IAM BA – PIM controls  I IAM BA – API IDP I Security Analyst Junior I Pentesting Coordinator I Security Architect,IAM BA – PIM controls IAM BA – API IDP Security Analyst Junior Pentesting Coordinator  Security Architect,Cognizant,Sandhya Kumari Sahani,5,2025-09-10 12:01:19,18,0
+99133,IAM BA – PIM controls  I IAM BA – API IDP I Security Analyst Junior I Pentesting Coordinator I Security Architect,IAM BA – PIM controls IAM BA – API IDP Security Analyst Junior Pentesting Coordinator  Security Architect,Cognizant,Sandhya Kumari Sahani,5,2025-09-10 12:01:19,18,1
 99132,Salesforce,Salesforce,TCS,Dhaval Patel,2,2025-09-10 12:00:38,943,0
 99131,Data Migration Testing,Data Migration Testing,TCS,Dhaval Patel,2,2025-09-10 11:55:42,943,0
 99130,MICROSOFT DYNAMICS CRM QA,MICROSOFT DYNAMICS CRM QA,PricewaterhouseCoopers,Manisha Sh,1,2025-09-10 11:55:20,249,1
@@ -11279,7 +11293,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99083,Java Full Stack Chetna, Application Developer,Accenture_IDB_1,Archana B. K,2,2025-09-10 06:06:56,925,0
 99082,Backend Engineer ,Backend Engineer ,Coupang,Mehr Hashim,1,2025-09-10 05:56:26,958,0
 99081, Python Test Automation Framework Developer, Python Test Automation Framework Developer,Infosys-India Pvt Ltd,Sushma Hegde,4,2025-09-10 05:55:51,1006,0
-99080,Mobile Software / Front End Developer,Mobile Software / Front End Developer,Cognizant,Sandhya Kumari Sahani,2,2025-09-10 05:53:05,18,0
+99080,Mobile Software / Front End Developer,Mobile Software / Front End Developer,Cognizant,Sandhya Kumari Sahani,2,2025-09-10 05:53:05,18,1
 99079,Economics Research Analyst,Economics Research Analyst,Deloitte_Consulting,Rajat Tyagi,2,2025-09-10 05:34:02,256,0
 99078,Project Manager/Scrum Master ,Project Manager/Scrum Master ,Schneider Electric,Shivam Prasad,1,2025-09-10 05:30:49,479,0
 99077,Analyst-Legal ,Analyst-Legal ,Socgen,Menaka Prasad,1,2025-09-10 04:46:36,65,0
@@ -11288,7 +11302,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99074,Senior Full Stack Developer - Alifiya,Senior Full Stack Developer,DTICI,Saravanan P,1,2025-09-10 04:32:05,916,0
 99073,Master Data Support & Maintenance Specialist - Ranjini,Master Data Support & Maintenance Specialist,DTICI,Saravanan P,1,2025-09-10 04:27:04,916,0
 99072,Technical Support Freight Pay System,Technical Support Freight Pay System,PricewaterhouseCoopers,Dhaval Patel,1,2025-09-10 03:54:01,249,1
-99071,Firmware,Firmware,Cognizant,Sandhya Kumari Sahani,1,2025-09-09 13:14:39,18,0
+99071,Firmware,Firmware,Cognizant,Sandhya Kumari Sahani,1,2025-09-09 13:14:39,18,1
 99070,"Springboot, AngularJs, Aprimo CMS tool","Springboot, AngularJs, Aprimo CMS tool",Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-09 12:59:30,1006,0
 99069,Database Expert - Alifiya,Database Expert,DTICI,Saravanan P,1,2025-09-09 12:57:24,916,0
 99068,SAP HANA Modeling,SAP HANA Modeling,TCS,Manisha Sh,2,2025-09-09 12:46:48,943,0
@@ -11314,10 +11328,10 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 99048, Specialist Software Engineer, Specialist Software Engineer,Socgen,Menaka Prasad,1,2025-09-09 10:23:36,65,0
 99047,SSE-Business Objects,Specialist Systems Engineer,Socgen,Menaka Prasad,1,2025-09-09 10:20:20,65,0
 99046, Specialist Software Engineer - OBIEE , Specialist Software Engineer - OBIEE ,Socgen,Menaka Prasad,1,2025-09-09 10:18:53,65,1
-99045,Embedded C++ Development,Embedded C++ Development,Cognizant,Sushma Hegde,1,2025-09-09 10:04:28,18,0
-99044,OPC UA server developer ,OPC UA server developer ,Cognizant,Sandhya Kumari Sahani,1,2025-09-09 09:59:08,18,0
+99045,Embedded C++ Development,Embedded C++ Development,Cognizant,Sushma Hegde,1,2025-09-09 10:04:28,18,1
+99044,OPC UA server developer ,OPC UA server developer ,Cognizant,Sandhya Kumari Sahani,1,2025-09-09 09:59:08,18,1
 99043,Scrum Master,Scrum Master,Schneider Electric,Shivam Prasad,1,2025-09-09 09:47:16,479,0
-99042,Linux Container-,Junior Linux Systems & Container Engineer,Cognizant,Sandhya Kumari Sahani,1,2025-09-09 09:46:41,18,0
+99042,Linux Container-,Junior Linux Systems & Container Engineer,Cognizant,Sandhya Kumari Sahani,1,2025-09-09 09:46:41,18,1
 99041, Java Spring Boot Microservices Developer , Java Spring Boot Microservices Developer ,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-09 09:42:14,1006,0
 99040,Infor Global HR/Lawson,Infor Global HR/Lawson,Deloitte_Consulting,Rajat Tyagi,1,2025-09-09 09:22:22,256,0
 99039,Vidya Unix Shell Scripting, Data Platform Engineer,Accenture_IDB_1,Archana B. K,1,2025-09-09 09:17:16,925,0
@@ -11504,7 +11518,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 98858,S/4 HANA ABAP - Kripashankar Neelakandan,S/4 HANA ABAP,DTICI,Saravanan P,1,2025-09-05 07:32:41,916,0
 98857,SAP Analytics Cloud - Krishnendu Narayanan,SAP Analytics Cloud ,DTICI,Saravanan P,1,2025-09-05 07:27:48,916,0
 98856,CSOC Level 2 Analyst (Enterprise IT) - Phani,CSOC Level 2 Analyst,DTICI,Shilpa P,1,2025-09-05 07:25:12,916,0
-98855,JIRA administration,JIRA administration,Cognizant,Sandhya Kumari Sahani,1,2025-09-05 07:17:42,18,0
+98855,JIRA administration,JIRA administration,Cognizant,Sandhya Kumari Sahani,1,2025-09-05 07:17:42,18,1
 98854,Project Manager,Project Manager,VISA,Dhaval Patel,1,2025-09-05 07:12:40,931,0
 98853,Campaign Manager,Campaign Manager,VISA,Dhaval Patel,1,2025-09-05 07:09:49,931,0
 98852,SW Integration Testing And SW Qualification Testing ,SW Integration Testing And SW Qualification Testing ,L&T-Cont,Dikshita Sehgal,4,2025-09-05 07:06:23,50,0
@@ -11654,7 +11668,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 98707,DevOps Engineer ,DevOps Automation Engineer ,CME,Gourab S,1,2025-09-03 08:04:32,12,0
 98706,Senior Software Engineer - JLL.com,Senior Software Engineer - JLL.com,JLL,Shilpa P,1,2025-09-03 07:55:21,416,1
 98705,Customer Service Officer,Customer Service Officer,OSBI,karan lalchandani,1,2025-09-03 07:52:50,388,0
-98704,CWR Positions ,CWR Positions ,Cognizant,Sandhya Kumari Sahani,2,2025-09-03 07:44:59,18,0
+98704,CWR Positions ,CWR Positions ,Cognizant,Sandhya Kumari Sahani,2,2025-09-03 07:44:59,18,1
 98703,Technology Analyst,Technology Analyst,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-03 07:36:57,1006,0
 98702,Backend Developer - LidA,Backend Developer,DTICI,Saravanan P,1,2025-09-03 07:09:05,916,0
 98701,Servicenow Portal,Servicenow Portal,Deloitte_Consulting,Arun Jyothi M,1,2025-09-03 06:56:39,256,0
@@ -11811,7 +11825,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 98550,SAP SD ,SAP SD ,Infosys Consulting,Tara V R,1,2025-09-01 12:13:07,923,0
 98549,DevOps Engineer - Satish,DevOps Engineer,DTICI,Saravanan P,1,2025-09-01 12:03:21,916,0
 98548, Cyber Security Senior Analyst - Qualys Vulnerability Management, Cyber Security Senior Analyst - Qualys Vulnerability Management,Socgen,karan lalchandani,1,2025-09-01 11:58:00,65,0
-98547,Urgent Profiles needed !!!,Urgent Profiles needed !!!,Cognizant,Sandhya Kumari Sahani,2,2025-09-01 11:46:48,18,0
+98547,Urgent Profiles needed !!!,Urgent Profiles needed !!!,Cognizant,Sandhya Kumari Sahani,2,2025-09-01 11:46:48,18,1
 98546,Shivani Enterprise Network Operations, Network Engineer,Accenture_IDB_1,Archana B. K,2,2025-09-01 11:45:23,925,0
 98545,Shivani Site Reliability Eng,Application Tech Support Practitioner,Accenture_IDB_1,Archana B. K,1,2025-09-01 11:41:40,925,0
 98544,Network Routing(WAN Technology),Network Routing(WAN Technology),TCS,Dipika Saha,2,2025-09-01 11:36:58,943,0
@@ -11827,7 +11841,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 98534,Chetna Spring Boot, Application Developer,Accenture_IDB_1,Priyakanta Choudhary,20,2025-09-01 10:08:35,925,0
 98533,Mainframe Modernization,Mainframe Modernization,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-01 09:57:11,1006,0
 98532,.NET MAUI/Xamarin ,.NET MAUI/Xamarin ,BSH,M Jagadish Kumar,1,2025-09-01 09:49:53,802,0
-98531,Program Management and RTE,Program Management and RTE,Cognizant,Sandhya Kumari Sahani,1,2025-09-01 09:24:33,18,0
+98531,Program Management and RTE,Program Management and RTE,Cognizant,Sandhya Kumari Sahani,1,2025-09-01 09:24:33,18,1
 98530,Mainframe Technologies,Mainframe Technologies,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-01 09:22:05,1006,0
 98529,Java backend Developer,Java backend Developer,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-01 09:05:34,1006,0
 98528,Accountant,Accountant,Flipkart,Mehr Hashim,4,2025-09-01 08:50:00,228,0
@@ -11935,9 +11949,9 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 98424,Microsoft M365 Senior Administrator,Microsoft M365 Senior Administrator,Bread Financials_Support,Shivam Prasad,2,2025-09-01 05:14:53,828,0
 98423,Microsoft M365 Administrator,Microsoft M365 Administrator,Bread Financials_Support,Shivam Prasad,3,2025-09-01 05:12:49,828,0
 98422,Senior AWS Architect,Senior AWS Architect,SONY Software Development Centre,Mehr Hashim,1,2025-09-01 05:12:20,345,0
-98421,Forgerock Developer/ Lead,Forgerock Developer/ Lead,Cognizant,Sandhya Kumari Sahani,2,2025-09-01 05:10:43,18,0
+98421,Forgerock Developer/ Lead,Forgerock Developer/ Lead,Cognizant,Sandhya Kumari Sahani,2,2025-09-01 05:10:43,18,1
 98420,Python + Appium,Python + Appium,Boston Scientific,Shivam Prasad,1,2025-09-01 05:09:50,514,0
-98419,SailPoint IIQ IAM Developer,SailPoint IIQ IAM Developer,Cognizant,Sandhya Kumari Sahani,1,2025-09-01 05:08:46,18,0
+98419,SailPoint IIQ IAM Developer,SailPoint IIQ IAM Developer,Cognizant,Sandhya Kumari Sahani,1,2025-09-01 05:08:46,18,1
 98418,Python + Squish,Python + Squish,Boston Scientific,Shivam Prasad,1,2025-09-01 05:07:52,514,0
 98417,Python SDET + Linux,Python SDET + Linux,Boston Scientific,Shivam Prasad,1,2025-09-01 05:06:21,514,0
 98416,New Relic,New Relic,Infosys-India Pvt Ltd,Sandhya Kumari Sahani,1,2025-09-01 05:05:39,1006,0
