@@ -593,7 +593,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109805,SAP SD ,SAP SD,Deloitte Mercedes Benz,Saravanan P,1,2026-04-15 07:50:39,1018,0
 109804,"INFYSYJP00002959/559003, 559004, 559005 || ORC || OIC & VBCS","INFYSYJP00002959/559003, 559004, 559005 || ORC || OIC & VBCS",Infosys Consulting,Tara V R,3,2026-04-15 07:25:15,923,0
 109803,"INFYSYJP00004139/562147_Docker, Kubernetes. Linux","INFYSYJP00004139/562147_Docker, Kubernetes. Linux",Infosys Consulting,Tara V R,2,2026-04-15 07:21:53,923,0
-109802,INFYSYJP00002876/558641 - Senior Python GCP Developer,INFYSYJP00002876/5586INFYSYJP00002876/558641 - Senior Python GCP Developer41 - Senior Python GCP Developer,Infosys Consulting,Tara V R,2,2026-04-15 07:18:31,923,0
+109802,INFYSYJP00002876/558641 - Senior Python GCP Developer,INFYSYJP00002876/5586INFYSYJP00002876/558641 - Senior Python GCP Developer41 - Senior Python GCP Developer,Infosys Consulting,Tara V R,2,2026-04-15 07:18:31,923,1
 109801,Functional Testing,Functional Testing,TCS,Dhaval Patel,1,2026-04-15 07:10:30,943,0
 109800,Antarikhya - MDM,Business Analytics,Cognizant,Syed Waseem,2,2026-04-15 07:08:05,18,0
 109799,P2P_Bangalore,Procure to Pay Processor,Accenture_BPO,Jawad Ulla Khan,2,2026-04-15 06:59:07,27,0
@@ -612,26 +612,26 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109786,HiTech : Automation Testing,HiTech : Automation Testing,TCS,Dhaval Patel,1,2026-04-15 04:48:36,943,0
 109785, Incident management, Incident management,TCS,Dhaval Patel,1,2026-04-15 04:31:50,943,0
 109784,OCI AIDP Position,OCI AIDP Position,Deloitte_Consulting,Rajat Tyagi,1,2026-04-15 04:27:48,256,0
-109783,INFYSYJP00002712/558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated),INFYSYJP00002712/558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated),Infosys Consulting,Tara V R,2,2026-04-14 13:03:09,923,0
-109782,INFYSYJP00003137/ENGMHTCH170302026 - Embedded Software Engineer / Firmware Engineer - C++ (Refloating -1),INFYSYJP00003137/ENGMHTCH170302026 - Embedded Software Engineer / Firmware Engineer - C++ (Refloating -1),Infosys Consulting,Tara V R,2,2026-04-14 13:00:04,923,0
+109783,INFYSYJP00002712/558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated),INFYSYJP00002712/558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated),Infosys Consulting,Tara V R,2,2026-04-14 13:03:09,923,1
+109782,INFYSYJP00003137/ENGMHTCH170302026 - Embedded Software Engineer / Firmware Engineer - C++ (Refloating -1),INFYSYJP00003137/ENGMHTCH170302026 - Embedded Software Engineer / Firmware Engineer - C++ (Refloating -1),Infosys Consulting,Tara V R,2,2026-04-14 13:00:04,923,1
 109781,SDE - Vishesh,SDE - Vishesh,FlipkartIT,Mehr Hashim,2,2026-04-14 12:58:40,1017,0
 109780,INFYSYJP00002409/95351Y26-ETL QA Tester with Capital Market domain,INFYSYJP00002409/95351Y26-ETL QA Tester with Capital Market domain,Infosys Consulting,Tara V R,4,2026-04-14 12:29:55,923,0
-109779,INFYSYJP00003118 /559676 - SAP SD,INFYSYJP00003118 /559676 - SAP SD,Infosys Consulting,Tara V R,1,2026-04-14 12:26:47,923,0
+109779,INFYSYJP00003118 /559676 - SAP SD,INFYSYJP00003118 /559676 - SAP SD,Infosys Consulting,Tara V R,1,2026-04-14 12:26:47,923,1
 109778,INFYSYJP00002410/95352Y26-ETL QA Tester with AWS experience,INFYSYJP00002410/95352Y26-ETL QA Tester with AWS experience,Infosys Consulting,Tara V R,4,2026-04-14 12:22:34,923,0
 109777,INFYSYJP00002411/95353Y26-ETL QA Tester with Python Automation,INFYSYJP00002411/95353Y26-ETL QA Tester with Python Automation,Infosys Consulting,Tara V R,4,2026-04-14 12:19:53,923,0
-109776,INFYSYJP00002712 558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated) ,INFYSYJP00002712 558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated) ,Infosys Consulting,Tara V R,4,2026-04-14 12:19:14,923,0
-109775,INFYSYJP00003004/559056_DNACRL_Senior Syndigo Engineer_India,INFYSYJP00003004/559056_DNACRL_Senior Syndigo Engineer_India,Infosys Consulting,Tara V R,1,2026-04-14 12:17:21,923,0
+109776,INFYSYJP00002712 558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated) ,INFYSYJP00002712 558391 - Java Technical Lead / Architect (Refloating -4 - Feedback Updated) ,Infosys Consulting,Tara V R,4,2026-04-14 12:19:14,923,1
+109775,INFYSYJP00003004/559056_DNACRL_Senior Syndigo Engineer_India,INFYSYJP00003004/559056_DNACRL_Senior Syndigo Engineer_India,Infosys Consulting,Tara V R,1,2026-04-14 12:17:21,923,1
 109774,Siddartha / SAP ABAP Development for HANA,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:16:47,925,0
 109773,"INFYSYJP00002412/95355Y26-ETL QA Tester with API Testing experience, Automation knowledge","INFYSYJP00002412/95355Y26-ETL QA Tester with API Testing experience, Automation knowledge",Infosys Consulting,Tara V R,3,2026-04-14 12:15:07,923,0
 109772,Moumita / Microsoft ASP.NET,Microsoft ASP.NET-,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:14:39,925,0
-109771,INFYSYJP00004138/168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138/168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Tara V R,1,2026-04-14 12:11:42,923,0
+109771,INFYSYJP00004138/168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138/168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Tara V R,1,2026-04-14 12:11:42,923,1
 109770,Moumita / Microsoft ASP.NET,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:10:45,925,0
 109769,Moumita  / Microsoft ASP.NET,Microsoft ASP.NET,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 12:09:38,925,0
-109768,INFYSYJP00004120/561815_Fullstack Developer,INFYSYJP00004120/561815_Fullstack Developer,Infosys Consulting,Tara V R,1,2026-04-14 12:08:44,923,0
-109767,INFYSYJP00003456/559299_DNAFS_WESTPAC_Technology Lead,INFYSYJP00003456/559299_DNAFS_WESTPAC_Technology Lead,Infosys Consulting,Tara V R,2,2026-04-14 12:04:39,923,0
+109768,INFYSYJP00004120/561815_Fullstack Developer,INFYSYJP00004120/561815_Fullstack Developer,Infosys Consulting,Tara V R,1,2026-04-14 12:08:44,923,1
+109767,INFYSYJP00003456/559299_DNAFS_WESTPAC_Technology Lead,INFYSYJP00003456/559299_DNAFS_WESTPAC_Technology Lead,Infosys Consulting,Tara V R,2,2026-04-14 12:04:39,923,1
 109766,Digital : Spring Boot~PL/SQL,Digital : Spring Boot~PL/SQL,TCS,Dhaval Patel,1,2026-04-14 12:00:19,943,0
 109765,Data Privacy and protect associate,Data Privacy and protect associate,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 11:56:43,249,0
-109764,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Chiranjeev Desai,3,2026-04-14 11:36:54,923,0
+109764,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,INFYSYJP00004138 168830Y26 - INS-ADM - AS400 Tech Lead - India,Infosys Consulting,Chiranjeev Desai,3,2026-04-14 11:36:54,923,1
 109763,Sanjeeva - AWS Cloud Security,AWS Cloud Security,Cognizant,Syed Waseem,2,2026-04-14 11:28:01,18,0
 109762,associate - Data Privacy and Protection,associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,26,2026-04-14 11:16:38,249,0
 109761,Oracle Revenue Management Cloud Service Position ,Oracle Revenue Management Cloud Service Position ,Deloitte_Consulting,Rajat Tyagi,1,2026-04-14 11:15:48,256,0
@@ -640,8 +640,8 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109758,SAP Technical Consultant - BTP,SAP Technical Consultant ,BSH,Saravanan P,1,2026-04-14 10:13:05,802,0
 109757,Anupama / Microsoft Power Business Intelligence (BI),Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 10:12:39,925,0
 109756,Pavani - cspm,cspm developer,Cognizant,Syed Waseem,2,2026-04-14 10:09:37,18,0
-109755,INFYSYJP00000746 Java SDET Automation,INFYSYJP00000746 Java SDET Automation,Infosys Consulting,Tara V R,3,2026-04-14 10:00:00,923,0
-109754,INFYSYJP00004125/562329-Service Management Tech Program Manager,INFYSYJP00004125/562329-Service Management Tech Program Manager,Infosys Consulting,Tara V R,1,2026-04-14 09:59:49,923,0
+109755,INFYSYJP00000746 Java SDET Automation,INFYSYJP00000746 Java SDET Automation,Infosys Consulting,Tara V R,3,2026-04-14 10:00:00,923,1
+109754,INFYSYJP00004125/562329-Service Management Tech Program Manager,INFYSYJP00004125/562329-Service Management Tech Program Manager,Infosys Consulting,Tara V R,1,2026-04-14 09:59:49,923,1
 109753,: Digital : ServiceNow_IT Service Management,: Digital : ServiceNow_IT Service Management,TCS,Dhaval Patel,1,2026-04-14 09:58:06,943,0
 109752,Shiek - MS DEFENDER ,MS DEFENDER,Cognizant,Syed Waseem,2,2026-04-14 09:55:58,18,0
 109751,Microsoft Power Platform,Microsoft Power Platform,TCS,Dhaval Patel,1,2026-04-14 09:45:22,943,0
@@ -651,12 +651,12 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109747,Keyword: Skills: Playwright,Keyword: Skills: Playwright,TCS,Dhaval Patel,1,2026-04-14 09:29:07,943,0
 109746,Spurthy  / Service Desk Management ,Application Tech Support Practitioner,Accenture_IDB,Priyakanta Choudhary,1,2026-04-14 09:13:30,222,0
 109745, Vidya / Selenium,Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 09:02:22,925,0
-109744,INFYSYJP00004121/562036 - RFP_IDP_Architect,INFYSYJP00004121/562036 - RFP_IDP_Architect,Infosys Consulting,Tara V R,1,2026-04-14 08:32:24,923,0
+109744,INFYSYJP00004121/562036 - RFP_IDP_Architect,INFYSYJP00004121/562036 - RFP_IDP_Architect,Infosys Consulting,Tara V R,1,2026-04-14 08:32:24,923,1
 109743,Digital: SAP Analytics Cloud,Digital: SAP Analytics Cloud,TCS,Dhaval Patel,1,2026-04-14 08:14:36,943,0
 109742,Moumita / SAP ABAP Development for HANA,SAP ABAP Development for HANA,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 08:08:03,925,0
 109741,Chetna / Spring Boot,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 08:04:34,925,0
 109740,Vidya  / Selenium, Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-14 08:02:30,925,0
-109739,INFYSYJP00002378/RKCISPC154_Project coordinator,INFYSYJP00002378/RKCISPC154_Project coordinator,Infosys Consulting,Tara V R,1,2026-04-14 07:43:09,923,0
+109739,INFYSYJP00002378/RKCISPC154_Project coordinator,INFYSYJP00002378/RKCISPC154_Project coordinator,Infosys Consulting,Tara V R,1,2026-04-14 07:43:09,923,1
 109738,INFYSYJP00004118/562060_ServiceNow HRSD,INFYSYJP00004118/562060_ServiceNow HRSD,Infosys Consulting,Tara V R,1,2026-04-14 07:40:33,923,0
 109737,SAP PS,SAP PS,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-14 07:17:03,249,0
 109736,SDM Gurgaon Drive 16th April / Shivani,Application Tech Support Practitioner,Accenture_IDB,Priyakanta Choudhary,15,2026-04-14 07:09:24,222,0
@@ -687,7 +687,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109711, 562154_Senior Servicenow ITOM developer, 562154_Senior Servicenow ITOM developer,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 13:20:27,923,0
 109710,INFYSYJP00003466 560774_IDQ/MDM Admin_DNAHL_India,INFYSYJP00003466 560774_IDQ/MDM Admin_DNAHL_India,Infosys Consulting,Tara V R,3,2026-04-13 13:14:24,923,0
 109709,INFYSYJP00004084/155757Y26_Infra DevOps– L3,INFYSYJP00004084/155757Y26_Infra DevOps– L3,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 13:03:28,923,0
-109708,INFYSYJP00004106/562153_SNOW HRSD Lead,INFYSYJP00004106/562153_SNOW HRSD Lead,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 12:57:20,923,0
+109708,INFYSYJP00004106/562153_SNOW HRSD Lead,INFYSYJP00004106/562153_SNOW HRSD Lead,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 12:57:20,923,1
 109707,Chetna / Service Now ITSM,"Application Support Engineer,",Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:50:39,925,0
 109706,CHETNA  / Service now ITSM,"Application Support Engineer,",Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 12:48:45,925,0
 109705,Consultant Systems Engineer - OCS - (260003DH),Consultant Systems Engineer - OCS,Socgen_GTS,Surya S,1,2026-04-13 12:48:07,1028,0
@@ -737,7 +737,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109661,INFYSYJP00004074/561742 _ DNAMFG _ Senior BI engineer _ India,INFYSYJP00004074/561742 _ DNAMFG _ Senior BI engineer _ India,Infosys Consulting,Tara V R,4,2026-04-13 07:36:07,923,0
 109660, Microsoft Power BI, Microsoft Power BI,TCS,Dhaval Patel,1,2026-04-13 07:34:08,943,0
 109659,INFYSYJP00004089/155759Y26_Azure L3,INFYSYJP00004089/155759Y26_Azure L3,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 07:33:37,923,0
-109658,INFYSYJP00004087/155758Y26_Backup L3,INFYSYJP00004087/155758Y26_Backup L3,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 07:32:08,923,0
+109658,INFYSYJP00004087/155758Y26_Backup L3,INFYSYJP00004087/155758Y26_Backup L3,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 07:32:08,923,1
 109657,INFYSYJP00004047/561771_Angular Developer (at least 1 TL),INFYSYJP00004047/561771_Angular Developer (at least 1 TL),Infosys Consulting,Tara V R,5,2026-04-13 07:28:52,923,0
 109656,INFYSYJP00004080/1678972Y4_AWS SME,INFYSYJP00004080/1678972Y4_AWS SME,Infosys Consulting,Chiranjeev Desai,1,2026-04-13 07:28:34,923,0
 109655,logistics specialist,logistics specialist,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-13 07:28:11,249,0
