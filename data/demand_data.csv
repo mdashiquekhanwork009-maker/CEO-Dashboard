@@ -1,9 +1,31 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110352,AP Manager,AP Manager,Flipkart,Mehr Hashim,1,2026-04-24 03:50:46,228,0
+110351,Datastax Cassandra DBA,Datastax Cassandra DBA,Deloitte_Consulting,Rajat Tyagi,2,2026-04-24 03:44:42,256,0
+110350,"INFYSYJP00004485/563576 - Senior Golang Engineer - Blr, Pune - EAIS","INFYSYJP00004485/563576 - Senior Golang Engineer - Blr, Pune - EAIS",Infosys Consulting,Chiranjeev Desai,1,2026-04-23 13:15:35,923,0
+110349,Payal / Salesforce Development,Salesforce Development,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 13:07:51,925,0
+110348,SAP ABAO HANA / Ramya,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 12:43:37,925,0
+110347,Maria / Microsoft Power Business Intelligence (BI),Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 12:41:11,925,0
+110346,Specialist Software Engineer -Devops - (260000W9),Specialist Software Engineer -Devops,Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-23 12:40:47,1034,0
+110345,Specialist Software Engineer - Datastage - (26000960),Specialist Software Engineer - Datastage,Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-23 12:38:06,1034,0
+110344,Archana / Aircraft Maintenance,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 12:30:41,925,0
+110343,"Playwright, Selenium, Java","Playwright, Selenium, Java",Infosys Consulting,Tara V R,1,2026-04-23 11:45:36,923,0
+110342,Siddartha  / Functional Test Planning,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 11:43:54,925,0
+110341,INFYSYJP00004370/563084- AEP/AJO Lead Developer-BLR- DX ,INFYSYJP00004370/563084- AEP/AJO Lead Developer-BLR- DX ,Infosys Consulting,Chiranjeev Desai,1,2026-04-23 11:34:04,923,0
+110340,INFYSYJP00004361 /Adobe- AEM - Lead- India DX,INFYSYJP00004361 /Adobe- AEM - Lead- India DX,Infosys Consulting,Chiranjeev Desai,1,2026-04-23 11:32:20,923,0
+110339,Vidya / ServiceNow,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 11:24:45,925,0
+110338,INFYSYJP00004462/563308_ADF +Snowflake_DNAMFG_India,INFYSYJP00004462/563308_ADF +Snowflake_DNAMFG_India,Infosys Consulting,Tara V R,1,2026-04-23 10:54:55,923,0
+110337,SAP PO/PI & APIs Development / Leena,Application Support Engineer,Accenture_IDB,Priyakanta Choudhary,1,2026-04-23 10:54:42,222,0
+110336,Skill Set - Learning & Development,Skill Set - Learning & Development,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-23 10:49:56,249,0
+110335,ISO 20022 & Payments Testing,ISO 20022 & Payments Testing,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-23 10:47:25,249,0
+110334,Workday Payroll,Workday Payroll,TCS,Soniya Sabnani,1,2026-04-23 10:42:03,943,0
+110333,INFYSYJP00004400/563044 - Senior Test Automation Engineer-Python,INFYSYJP00004400/563044 - Senior Test Automation Engineer-Python,Infosys Consulting,Tara V R,1,2026-04-23 10:33:59,923,0
+110332,Power BI Developer ,Power BI Developer ,DTICI,Saravanan P,1,2026-04-23 10:20:54,916,0
+110331,Senior Business Analyst,Senior Business Analyst,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-23 10:15:45,249,0
 110330,SAP FICO,SAP FICO,Deloitte_Consulting,Rajat Tyagi,1,2026-04-23 09:47:38,256,0
 110329,Siddartha / Asset Life Cycle Management,Asset Life Cycle Management,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-23 09:46:25,925,0
 110328,UI Path Developer,UI Path Developer,TCS,Soniya Sabnani,1,2026-04-23 09:43:11,943,0
 110327,Developer,Developer,TCS,Soniya Sabnani,1,2026-04-23 09:34:09,943,0
-110326,Leadership Development (LDP),Leadership Development (LDP),TCS,Dhaval Patel,1,2026-04-23 09:33:44,943,0
+110326,Leadership Development (LDP),Leadership Development (LDP),PricewaterhouseCoopers,Dhaval Patel,1,2026-04-23 09:33:44,249,0
 110325,Power Pages Product Owner,Power Pages Product Owner,DTICI,Saravanan P,1,2026-04-23 09:30:18,916,0
 110324,Consultant,Consultant,TCS,Soniya Sabnani,1,2026-04-23 09:29:55,943,0
 110323,#1816- BI Developer,BI Engineer,Koch Industries,Joyesh Banerjee,1,2026-04-23 09:17:13,353,0
@@ -178,7 +200,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110154,C++ Developer - Sumit BU ,C++ Developer,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-21 07:27:06,493,0
 110153,SAP Financial Planning and Analysis ,SAP Financial Planning and Analysis ,Deloitte_Consulting,Rajat Tyagi,1,2026-04-21 07:23:56,256,0
 110152,UI Developer - Anshul BU ,UI Developer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-21 07:10:47,493,0
-110151,QA - Electrical ,QA - Electrical ,Schneider Electric,Sushma K M,1,2026-04-21 07:03:17,479,0
+110151,QA - Electrical ,QA - Electrical ,Schneider Electric,Sushma K M,1,2026-04-21 07:03:17,479,1
 110150,Dataiku Developer,Dataiku Developer,TCS,Soniya Sabnani,1,2026-04-21 06:54:05,943,0
 110149,AWS Cloud Operations Engineer,AWS Cloud Operations Engineer,Infosys Consulting,Tara V R,6,2026-04-21 06:53:33,923,0
 110148,Software Test Engineer,Software Test Engineer,Trane Technologies,Shailesh Gangwar,1,2026-04-21 06:52:47,919,0
@@ -680,7 +702,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109652,INFYSYJP00003689/561069 - AI/ML Engineer (7+ Years),INFYSYJP00003689/561069 - AI/ML Engineer (7+ Years),Infosys Consulting,Tara V R,3,2026-04-13 07:22:41,923,0
 109651,Chetna / Microsoft Azure IaaS,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-13 07:20:57,925,0
 109650,INFYSYJP00000975/668508Y25-PT,INFYSYJP00000975/668508Y25-PT,Infosys Consulting,Tara V R,2,2026-04-13 06:58:53,923,0
-109648,Senior SAP BASIS/DBA/BTP/Cloud Specialist/Architect,Senior SAP BASIS/DBA/BTP/Cloud Specialist/Architect,SONY Software Development Centre,Mehr Hashim,1,2026-04-13 06:51:36,345,0
+109648,Senior SAP BASIS/DBA/BTP/Cloud Specialist/Architect,Senior SAP BASIS/DBA/BTP/Cloud Specialist/Architect,SONY Software Development Centre,Mehr Hashim,1,2026-04-13 06:51:36,345,1
 109649,INFYSYJP00003965/649353Y25 _ DNAHL _ Senior Spotfire Engineer _ India,INFYSYJP00003965/649353Y25 _ DNAHL _ Senior Spotfire Engineer _ India,Infosys Consulting,Tara V R,1,2026-04-13 06:51:36,923,0
 109647,Supply and Demand Planner ,Supply and Demand Planner ,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-13 06:46:41,249,0
 109646,Assistant Manager,Assistant Manager,UHG-Non IT,Prathyusha Mangalampalli,4,2026-04-13 06:35:21,138,0
@@ -1122,7 +1144,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109209,IBM i AS400,IBM i (AS400),Accenture_ATCI,Tamil C,1,2026-04-06 08:43:17,1015,0
 109208,HR Recruiter,HR Recruiter,Lowes,Mehr Hashim,1,2026-04-06 08:36:03,432,0
 109207,160810-1 Enterprise Solution Architect  ,160810-1 Enterprise Solution Architect  ,Accenture_ATCI,Tamil C,1,2026-04-06 08:24:59,1015,0
-109206,"Artificial Intelligence, and ML Engineer","Artificial Intelligence, and ML Engineer",Lowes,Mehr Hashim,1,2026-04-06 08:24:08,432,0
+109206,"Artificial Intelligence, and ML Engineer","Artificial Intelligence, and ML Engineer",Lowes,Mehr Hashim,1,2026-04-06 08:24:08,432,2
 109205,Custom Software Engineer - Microservices ,Custom Software Engineer - Microservices ,Accenture_ATCI,Tamil C,1,2026-04-06 08:11:00,1015,0
 109204,INFYSYJP00003765/141210Y26_Servicenow Architect(GRC),INFYSYJP00003765/141210Y26_Servicenow Architect(GRC),Infosys Consulting,Chiranjeev Desai,1,2026-04-06 07:55:30,923,0
 109203,Rayan  / SAP Sales and Distribution ,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-06 07:36:43,925,0
@@ -1435,7 +1457,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108895,INFYSYJP00003634/OCM Consultants,INFYSYJP00003634/OCM Consultants,Infosys Consulting,Chiranjeev Desai,1,2026-04-02 05:47:13,923,0
 108894,AI Software Engineer - Rithesh BU ,AI Software Engineer,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-02 05:42:15,493,0
 108893,AI Fullstack Engineer - Rithesh BU ,AI Fullstack Engineer ,GE Healthcare Global Private Limited.,Mehr Hashim,3,2026-04-02 05:35:13,493,0
-108892,Devops Engineer - Soumik BU ,Devops Engineer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-02 05:32:11,493,0
+108892,Devops Engineer - Soumik BU ,Devops Engineer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-02 05:32:11,493,2
 108891,Sandhya - AGI Vailmail,AGI with Vailmail,Cognizant,Sushma Hegde,2,2026-04-02 05:31:05,18,0
 108890,Bhavya - SAP ISU ABAP ,SAP ISU ABAP ,Cognizant,Sushma Hegde,2,2026-04-02 05:27:42,18,0
 108889,SAP WM / SAP EWM Senior Consultant,SAP WM / SAP EWM Senior Consultant,PricewaterhouseCoopers,Dhaval Patel,5,2026-04-02 05:26:44,249,0
@@ -1515,7 +1537,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108815,ROBOTICS PROCESS,Robotics process,TCS,Dhaval Patel,1,2026-04-01 12:04:03,943,0
 108814, Rayan  /SAP BTP Integration Suite,SAP BTP Integration Suite-,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 11:52:33,925,0
 108813,Associate or Senior Associate Level,Associate or Senior Associate Level,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-01 11:37:38,249,1
-108812,QA engineer - Balaji BU ,QA engineer ,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-01 11:23:17,493,0
+108812,QA engineer - Balaji BU ,QA engineer ,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-01 11:23:17,493,2
 108811,Java Developer - Prakash BU ,Java Developer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-04-01 11:17:56,493,0
 108810,Configuration & Compliance - Syed BU ,Configuration & Compliance,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-01 11:15:15,493,0
 108809,Senior Associate || Service Now Developer,Senior Associate || Service Now Developer,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-01 11:11:08,249,0
@@ -1544,7 +1566,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 108786,Payal / Microsoft Azure Data services,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 10:27:24,925,0
 108785,Network automation engineer ,Network automation engineer ,Coupang,Mehr Hashim,1,2026-04-01 10:27:07,958,0
 108784,SAP Security - Sudheer,SAP Security ,DTICI,Saravanan P,1,2026-04-01 10:26:48,916,0
-108783,MDM Engineer,MDM Engineer,Pure Storage,Mehr Hashim,1,2026-04-01 10:22:30,804,0
+108783,MDM Engineer,MDM Engineer,Pure Storage,Mehr Hashim,1,2026-04-01 10:22:30,804,1
 108782,Software Developer ,Software Developer,Analog Devices,Mehr Hashim,1,2026-04-01 10:20:12,748,0
 108781,MYSQL - MongoDB,MYSQL - MongoDB,FlipkartIT,Mehr Hashim,1,2026-04-01 10:16:33,1017,0
 108780,Nisha / Angular,Angular,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-01 10:03:12,925,0
