@@ -1,4 +1,9 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110405,Internal Audit,Internal Audit,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-24 08:59:03,249,0
+110404,INTERNAL AUDIT,INTERNAL AUDIT,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-24 08:57:07,249,0
+110403,Parveen / Data Engineering,Data Engineering,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 08:52:51,925,0
+110402,performance testing,performance testing,Infosys Consulting,Tara V R,2,2026-04-24 08:40:16,923,0
+110401,SAP Business Technology Platform,SAP Business Technology Platform,TCS,Soniya Sabnani,1,2026-04-24 08:38:16,943,0
 110400,Manhattan WMOS,Manhattan WMOS,TCS,Soniya Sabnani,1,2026-04-24 08:03:54,943,0
 110399,Nisha / Python (Programming Language),Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 07:46:07,925,0
 110398,Anupama / Oracle Procurement,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-24 07:43:45,925,0
@@ -818,7 +823,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109583,Digital : Spring Boot~Core Java~Spring,Digital : Spring Boot~Core Java~Spring,TCS,Dhaval Patel,1,2026-04-10 08:11:03,943,0
 109582,Digital : Python~Digital : Artificial Intelligence(AI)~Core .NET Technologies~ASP.NET 4.5,Digital : Python~Digital : Artificial Intelligence(AI)~Core .NET Technologies~ASP.NET 4.5,TCS,Dhaval Patel,1,2026-04-10 07:52:29,943,0
 109581, Digital : Selenium, Digital : Selenium,TCS,Dhaval Patel,1,2026-04-10 07:41:00,943,0
-109580, validation lead | validation analyst | technical writing, validation lead | validation analyst | technical writing,TCS,Dhaval Patel,1,2026-04-10 07:37:59,943,0
+109580, validation lead | validation analyst | technical writing, validation lead | validation analyst | technical writing,TCS,Dhaval Patel,1,2026-04-10 07:37:59,943,1
 109579,Senior Executive Assistant,Senior Executive Assistant,Coupang,Mehr Hashim,2,2026-04-10 07:29:44,958,0
 109578,Anupama / SAP ABAP Development for HANA,- Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-10 07:16:59,925,0
 109577,Shiek - Cisco ISE,CISCO ISE,Cognizant,Syed Waseem,2,2026-04-10 07:03:38,18,0
