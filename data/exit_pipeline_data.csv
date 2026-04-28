@@ -62,6 +62,7 @@ Laxmitha  D,Prathyusha Mangalampalli,Monika Mohan Gavhane,2,C36260002,2025-12-31
 Ningappa M Donni,Prathyusha Mangalampalli,Sonali Arun Panigrahi,2,C36260118,2026-01-30,35400.0,5400.0,Resignation,Accenture_BPO,5,2026-05-11
 LOKESH RAMESH BABU,Jawad u,Gunji  Harini ,2,C36260267,2026-02-20,22066.0,3366.0,Bgv Failure,Accenture_BPO,5,2026-05-11
 Naga sankeerthana,Prathyusha Mangalampalli,Yukta Mangesh Goday ,2,C36260287,2026-02-25,29500.0,4500.0,Resignation,Accenture_BPO,5,2026-05-19
+LOKESH RAMESH BABU,Jawad u,Sandesh Rajendra Mohite,2,C36260410,2026-03-24,35400.0,5400.0,Bgv Failure,Accenture_BPO,5,2026-05-04
 Sachin K,Prathyusha Mangalampalli,Dheeraj G J,2,C36260558,2026-04-09,27105.0,4134.0,No Show,Accenture_BPO,5,2026-04-09
 Krishna Mohanty,Menaka Prasad,Dinesh Kumar J ,2,C36230467,2023-04-10,61332.12,2472.12,Contract Closure,CenturyLink Technologies India Pvt.Ltd,5,2026-05-01
 Ebi Thambu,Linu P Mathew,Shalini S,1,C36250386,2025-03-10,43953.0,6453.0,Resignation,Socgen,5,2026-05-08
@@ -71,7 +72,7 @@ Shreyashi Kundu,Afzal Mohammed,Shaik Kather S J,1,C36250511,2025-04-03,78624.0,3
 Jothipriya R,M Jagadish Kumar,Pasumarthi Venkata Naga Abhishek ,1,C36250585,2025-04-07,78624.0,16124.0,Resignation,Socgen,5,2026-05-06
 Jothipriya R,M Jagadish Kumar,R Ajay,1,C36250664,2025-04-21,78624.0,16124.0,Contract Closure,Socgen,5,2026-05-20
 Aniskeh Manick S N,Afzal Mohammed,Meena Girishan,1,C36250626,2025-04-10,78624.0,28624.0,Contract Closure,Socgen,5,2026-05-06
-Mokshithraj M,Saravanan P,Harish P,1,C36250992,2025-05-29,46683.0,5850.0,Contract Closure,Socgen,5,2026-05-28
+Mokshithraj M,Saravanan P,Harish P,1,C36250992,2025-05-29,46683.0,5850.0,Resignation,Socgen,5,2026-05-27
 Harshitha S,Tamil C,Srinivas Katta,4,O36240157,2024-10-30,267044.33,33711.33,Contract Closure,DXC,5,2026-05-04
 Harshitha S,Tamil C,Cxexperts Consultancy Services Private Limited,4,O36250010,2025-01-06,278571.43,28571.43,Contract Closure,DXC,5,2026-04-30
 Jackson Mathew S,Tamil C,Boorla Sreeja,4,O36250005,2025-01-06,333333.33,333330.33,Contract Closure,DXC,5,2026-05-15
@@ -105,7 +106,6 @@ Siva Darsana,Afzal Mohammed,Athulya Anilkumar,1,C36242445,2024-11-28,46683.0,108
 Sagarika Suman,Bijoy Anand Jha,Shreya Mishra,1,C36260389,2026-03-16,96474.0,8974.0,Resignation,Soc gen Ops ,5,2026-05-07
 Sagarika Suman,Bijoy Anand Jha,Yelampalle Chinnapa Reddy ,1,C36260589,2026-04-13,54054.0,7387.33,Resignation,Soc gen Ops ,5,2026-04-13
 Muhammed faizal,Sabreena Jabeen,Pagala Ramalakshumma,2,C36232088,2023-10-19,156492.0,44992.0,Contract Closure,Mercedes benz,5,2026-04-30
-Chakali Mallikarjuna,Priyakanta Choudhary,Priyanka Jadon,2,C36240518,2024-04-12,39199.95,5600.95,Contract Closure,Accenture_IDB,5,2026-04-30
 Ranganatha T,Suman N,Sundarrajan Duraisamy,2,C36241073,2024-07-11,136000.0,33917.0,Project Roll Off,Accenture_IDB,5,2026-04-30
 Sandipta Panigrahi,Mehr Hashim,Aafrin Anjum,2,C36211286,2021-05-06,115935.0,38202.0,Contract Closure,Flipkart,5,2026-06-30
 Sharanabasava Saalunke,Mehr Hashim,Sangamesh ,2,C36250703,2025-04-24,39750.0,2250.0,Resignation,Flipkart,5,2026-05-25
@@ -157,7 +157,6 @@ Vedesh Soundhara Raj,Mehr Hashim,Astik Kishore Bandekar,2,C36240585,2024-04-25,1
 Gopinath S N,Mehr Hashim,Subashchandrabose M,2,C36240590,2024-05-06,310800.0,102467.0,Resignation,GE Healthcare Global Private Limited.,5,2026-06-08
 Uma Sree,Mehr Hashim,Patel Kamlesh Rameshbhai,2,,2024-05-03,450000.0,83333.33,Exited and Redeployed,GE Healthcare Global Private Limited.,6,2024-05-03
 Prateek A,Mehr Hashim,Badavath Prathap,2,C36242130,2024-09-27,403200.0,28200.0,Contract Closure,GE Healthcare Global Private Limited.,5,2026-06-30
-Sandipta Panigrahi,Mehr Hashim,Shantnu Kumar ,2,C36242404,2024-11-19,436800.0,50550.0,Resignation,GE Healthcare Global Private Limited.,5,2026-05-07
 Subhash Kumar,Vamsi Sankaran,Mathan Kumar K,2,C36242432,2024-11-25,386000.0,163084.0,Resignation,GE Healthcare Global Private Limited.,5,2026-04-30
 Tamilarasan S,Mehr Hashim,Sethu Parvathy T S,2,C36250356,2025-03-12,285600.0,227267.0,Contract Closure,GE Healthcare Global Private Limited.,5,2026-04-30
 Gopinath S N,Mehr Hashim,Veeresh Hiremath,2,C36250865,2025-05-19,420000.0,45000.0,Resignation,GE Healthcare Global Private Limited.,5,2026-06-04
@@ -171,7 +170,7 @@ Gopinath S N,Mehr Hashim,Ramesh Aravind V,2,C36250338,2025-03-07,275000.0,275000
 Prateek A,Mehr Hashim,Amith G ,2,C36250422,2025-03-24,230000.0,63334.0,Conversion,Hinge Health,5,2026-06-26
 Prateek A,Mehr Hashim,Priya Balasaheb Kawane,2,C36250577,2025-04-07,250000.0,66667.0,Project Roll Off,Hinge Health,5,2026-11-02
 Tejaswini I N,Beryl babu,Surabattula Adityavardhan,2,C36241087,2024-07-12,243625.0,16125.0,Resignation,BSH,5,2026-05-06
-Babu H,Shivam Prasad,Akhil Chandrakant Belanekar,2,C36250857,2025-05-19,188500.0,13500.0,Conversion,Bread Financials_Support,5,2026-04-24
+Babu H,Shivam Prasad,Akhil Chandrakant Belanekar,2,C36250857,2025-05-19,188500.0,13500.0,Conversion,Bread Financials_Support,5,2026-05-08
 Manju B,Dipika Saha,Vishal  Kumar,2,C36251370,2025-07-21,318750.0,18750.0,Contract Closure,Bread Financials_Support,5,2026-05-28
 Ilakiya A,Saravanan P,Veeresh Nayaka,2,C36250741,2025-04-29,195888.0,95888.0,Project Roll Off,DTICI,5,2026-05-06
 Vaishnavi G,Tara V R,Midathala Aruna ,2,C36251314,2025-07-09,181650.0,89984.0,Contract Closure,Infosys Consulting,5,2026-07-02

@@ -1,4 +1,12 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110591,associate - Data Privacy and Protection,associate - Data Privacy and Protection,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-28 09:54:26,249,0
+110590, Finance IT Manager, Finance IT Manager,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-28 09:49:36,249,0
+110589,SAP PP with ABAP,SAP PP with ABAP,BSH,Saravanan P,1,2026-04-28 09:47:53,802,0
+110588, SAP ERP Materials Management (MM), SAP ERP Materials Management (MM),TCS,Dhaval Patel,1,2026-04-28 09:47:39,943,0
+110587,Digital : ServiceNow_IT Service Management,Digital : ServiceNow_IT Service Management,TCS,Dhaval Patel,1,2026-04-28 09:45:38,943,0
+110586,QA Automation testing,QA Analyst,CME_C2H,Joyesh Banerjee,1,2026-04-28 09:43:58,190,0
+110585,: Angular| Node.js| React.js| Full stack,: Angular| Node.js| React.js| Full stack,TCS,Dhaval Patel,1,2026-04-28 09:43:24,943,0
+110584,"INFYSYJP00004641 563781, 563780 - INS ADM - Technology Lead","INFYSYJP00004641 563781, 563780 - INS ADM - Technology Lead",Infosys Consulting,Chiranjeev Desai,2,2026-04-28 09:41:29,923,0
 110583,Bharath - Graph QL Developer,Graph QL Developer,Cognizant,Syed Waseem,1,2026-04-28 09:16:49,18,0
 110582,Data Scientist (TRACE),Data Scientist (TRACE),TCS,Soniya Sabnani,1,2026-04-28 09:15:54,943,0
 110581,Skills: Telecom - Service Management - BPS~Service Management,Skills: Telecom - Service Management - BPS~Service Management,TCS,Dhaval Patel,1,2026-04-28 08:56:29,943,0
@@ -551,7 +559,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110034,"GenAI Lead, Sr Java, Python, Pyspark Engineer","GenAI Lead, Sr Java, Python, Pyspark Engineer",PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 06:23:18,249,0
 110033,INFYSYJP00000284 562788 - Azure API & Integration Specialist - Chennai - EAIS ,INFYSYJP00000284 562788 - Azure API & Integration Specialist - Chennai - EAIS ,Infosys Consulting,Tara V R,2,2026-04-20 06:21:47,923,0
 110032,Vidya / ServiceNow ,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-20 06:19:11,925,0
-110031,Internal audit ,Internal audit ,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 06:12:06,249,0
+110031,Internal audit ,Internal audit ,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-20 06:12:06,249,1
 110030,Data Modeler,Data Modeler,TCS,Dhaval Patel,1,2026-04-20 06:09:10,943,0
 110029,INFYSYJP00004293 562720_Tableau Admin/BI Lead_DNAMFG_India ,INFYSYJP00004293 562720_Tableau Admin/BI Lead_DNAMFG_India ,Infosys Consulting,Tara V R,2,2026-04-20 05:46:52,923,0
 110028,INFYSYJP00004283 561866 - Kubernetes Administrator,INFYSYJP00004283 561866 - Kubernetes Administrator,Infosys Consulting,Tara V R,2,2026-04-20 05:44:38,923,0
@@ -597,8 +605,8 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109988,INFYSYJP00003612 560927_DNACRL_Informatica C360 & B360 SaaS Developer_India,INFYSYJP00003612 560927_DNACRL_Informatica C360 & B360 SaaS Developer_India,Infosys Consulting,Chiranjeev Desai,2,2026-04-17 09:52:48,923,0
 109987,Anupama  / Oracle JD Edwards Enterprise CNC,Oracle JD Edwards Enterprise CNC,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-17 09:43:24,925,0
 109986,INFYSYJP00003929/493495 - SAP S/4HANA Treasury & Cash Management,INFYSYJP00003929/493495 - SAP S/4HANA Treasury & Cash Management,Infosys Consulting,Tara V R,1,2026-04-17 09:31:28,923,0
-109985,Internal Audit,Internal Audit,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 08:58:08,249,0
-109984,internal audit,internal audit,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 08:50:57,249,0
+109985,Internal Audit,Internal Audit,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 08:58:08,249,1
+109984,internal audit,internal audit,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-17 08:50:57,249,1
 109983,Data Warehouse~Azure Data Factory,Data Warehouse~Azure Data Factory,TCS,Dhaval Patel,1,2026-04-17 08:39:10,943,1
 109982,Data Entry_DDC5,Data Entry ,Accenture_BPO,Jawad Ulla Khan,5,2026-04-17 08:18:12,27,0
 109981, HiTech : Automation Testing, HiTech : Automation Testing,TCS,Dhaval Patel,1,2026-04-17 08:01:34,943,0
