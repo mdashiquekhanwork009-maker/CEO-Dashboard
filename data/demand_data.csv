@@ -1,4 +1,25 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110563,Mohanraj - Mainframe,Mainframe Developer,Cognizant,Syed Waseem,1,2026-04-28 07:11:51,18,0
+110562, Java Application Development - Lida Lasrado, Java Application Development - Lida Lasrado,DTICI,Saravanan P,1,2026-04-28 07:06:54,916,0
+110561,Digital : Adobe Experience Manager (AEM),Digital : Adobe Experience Manager (AEM),TCS,Dhaval Patel,1,2026-04-28 07:05:08,943,0
+110560, AI Engineer ,AI Champion,Deloitte Mercedes Benz,Tamil C,1,2026-04-28 07:00:32,1018,0
+110559,Kinaxis / Moumita,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 06:58:55,925,0
+110558,Cyber Security~MSS - Security Operations Center (SOC)~CrowdStrike Endpoint Detection And Response,Cyber Security~MSS - Security Operations Center (SOC)~CrowdStrike Endpoint Detection And Response,TCS,Dhaval Patel,1,2026-04-28 06:55:12,943,0
+110557,Chetna / Spring Boot,Application Developer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 06:52:48,925,0
+110556,INFYSYJP00003141 539424_DNAFS_AMEX_Technology Lead ,INFYSYJP00003141 539424_DNAFS_AMEX_Technology Lead ,Infosys Consulting,Chiranjeev Desai,2,2026-04-28 06:50:43,923,0
+110555,Keyword: Skills: Advanced Java Concepts~Digital : Microservices~Digital : Spring Boot~Digital : Vue.js,Keyword: Skills: Advanced Java Concepts~Digital : Microservices~Digital : Spring Boot~Digital : Vue.js,TCS,Dhaval Patel,1,2026-04-28 06:48:29,943,0
+110554,Maria / Ab Initio,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 06:45:49,925,0
+110553,INFYSYJP00003695 559917 - Senior Appian Developer - Hyd - EAIS,INFYSYJP00003695 559917 - Senior Appian Developer - Hyd - EAIS,Infosys Consulting,Chiranjeev Desai,2,2026-04-28 06:34:49,923,0
+110552,AI Platform & MLOps Engineer (Azure),AI Platform & MLOps Engineer (Azure),Deloitte Mercedes Benz,Tamil C,1,2026-04-28 06:31:11,1018,0
+110551,Lead Software Engineer - Test Automation - (25000JDZ),Lead Software Engineer - Test Automation - (25000JDZ),Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-28 06:29:40,1034,0
+110550,Azure Data Engineer ,Azure Data Engineer ,Deloitte Mercedes Benz,Saravanan P,1,2026-04-28 06:13:38,1018,0
+110549,SSE Bigdata Talend - (26000A43),SSE Bigdata Talend,Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-28 06:05:40,1034,0
+110548,Python / Nisha,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 05:46:54,925,0
+110547,Angular Chetna,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,2,2026-04-28 05:42:33,925,0
+110546, Network L3, Network L3,TCS,Dhaval Patel,1,2026-04-28 05:37:29,943,0
+110545, Oracle DBA, Oracle DBA,TCS,Dhaval Patel,1,2026-04-28 05:35:19,943,0
+110544, Rayan / Automation Anywhere, Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 05:34:06,925,0
+110543,Angular / Nisha,Full Stack Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 05:30:04,925,0
 110542,Abinitio / Maria,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 05:25:01,925,0
 110541,Python / Nisha,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-28 05:16:53,925,0
 110540,INFYSYJP00004633/563805_LS-ADM_Java/Python Integration Lead_Bangalore,INFYSYJP00004633/563805_LS-ADM_Java/Python Integration Lead_Bangalore,Infosys Consulting,Tara V R,1,2026-04-28 05:14:12,923,0
@@ -377,7 +398,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110167,Scrum Master,Scrum Master,DTICI,Saravanan P,1,2026-04-21 08:07:02,916,0
 110166,Business Analysis,Business Analysis,PricewaterhouseCoopers,Dhaval Patel,1,2026-04-21 07:54:27,249,0
 110165,Chetna / ServiceNow,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:52:29,925,0
-110164,data privacy and protect,data privacy and protect,PricewaterhouseCoopers,Dhaval Patel,26,2026-04-21 07:51:56,249,0
+110164,data privacy and protect,data privacy and protect,PricewaterhouseCoopers,Dhaval Patel,10,2026-04-21 07:51:56,249,0
 110163,L1 Application Support,L1 Application Support,DTICI,Saravanan P,1,2026-04-21 07:48:53,916,0
 110162,Anupama / Microsoft Azure Data Services,Microsoft Azure Data Services,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 07:48:44,925,0
 110161,SAP ERP ,SAP ERP ,TCS,Soniya Sabnani,1,2026-04-21 07:48:34,943,0
@@ -1218,7 +1239,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 109325,Shivani / Network Infrastructures,Network Infrastructures,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-07 07:13:34,925,0
 109324,Leena  / ServiceNow IT Service Management,Packaged/SaaS Application Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-07 07:13:05,925,0
 109323,associate - Data Privacy and Protection (677),associate - Data Privacy and Protection (677),PricewaterhouseCoopers,Dhaval Patel,1,2026-04-07 07:10:19,249,0
-109322,Shivani / Microsoft Windows Desktop Management,Windows Desktop Management,Accenture_IDB,Priyakanta Choudhary,1,2026-04-07 07:04:14,222,1
+109322,Shivani / Microsoft Windows Desktop Management,Windows Desktop Management,Accenture_IDB,Priyakanta Choudhary,1,2026-04-07 07:04:14,222,0
 109321,"INFYSYJP00003758/552013 _ DNAHL _ Redshift using SQL, Python, PySpark, AWS Cloud Environments, AWS services _ India","INFYSYJP00003758/552013 _ DNAHL _ Redshift using SQL, Python, PySpark, AWS Cloud Environments, AWS services _ India",Infosys Consulting,Tara V R,2,2026-04-07 07:03:45,923,1
 109320,Java Microservices Back end Developer,Java Microservices Back end Developer,DTICI,Saravanan P,1,2026-04-07 06:48:27,916,0
 109319, BI Data Visualization - Tableau~Digital : Microsoft Power BI~ThoughtSpot, BI Data Visualization - Tableau~Digital : Microsoft Power BI~ThoughtSpot,TCS,Dhaval Patel,1,2026-04-07 06:36:43,943,0
