@@ -3,6 +3,7 @@ from io import BytesIO
 import os
 import re
 import socket
+import warnings
 import pandas as pd
 from flask import Flask, Response, render_template_string, jsonify, request, send_from_directory
 from plotly import data
@@ -237,6 +238,55 @@ RAW_DATASET_CONFIG = {
 }
 
 
+DATE_PARSE_FORMATS = (
+    "%Y-%m-%d %H:%M:%S",
+    "%Y-%m-%d %I:%M %p",
+    "%Y-%m-%d",
+    "%d-%m-%Y %H:%M:%S",
+    "%d-%m-%Y %I:%M %p",
+    "%d-%m-%Y",
+    "%d/%m/%Y %H:%M:%S",
+    "%d/%m/%Y %I:%M %p",
+    "%d/%m/%Y",
+)
+
+
+def parse_datetime_series(values, dayfirst=False):
+    series = pd.Series(values)
+    parsed = pd.Series(pd.NaT, index=series.index, dtype="datetime64[ns]")
+    remaining = series.notna() & series.astype(str).str.strip().ne("")
+
+    for date_format in DATE_PARSE_FORMATS:
+        if not remaining.any():
+            break
+        candidates = pd.to_datetime(series[remaining], errors="coerce", format=date_format)
+        matched = candidates.notna()
+        if matched.any():
+            parsed.loc[candidates[matched].index] = candidates[matched]
+            remaining.loc[candidates[matched].index] = False
+
+    if remaining.any():
+        try:
+            candidates = pd.to_datetime(
+                series[remaining],
+                errors="coerce",
+                format="mixed",
+                dayfirst=dayfirst,
+            )
+        except (TypeError, ValueError):
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", UserWarning)
+                candidates = pd.to_datetime(series[remaining], errors="coerce", dayfirst=dayfirst)
+
+        matched = candidates.notna()
+        if matched.any():
+            parsed.loc[candidates[matched].index] = candidates[matched]
+
+    if getattr(parsed.dt, "tz", None) is not None:
+        parsed = parsed.dt.tz_localize(None)
+    return parsed
+
+
 def _prepare_frame(df, file_key):
     if df.empty:
         df = df.copy()
@@ -263,14 +313,10 @@ def _prepare_frame(df, file_key):
         # Selection pipeline metrics should follow the display date for dashboard filters.
         for candidate in ["display_date", "offer_created_date", "selection_date"]:
             if candidate in df.columns:
-                candidate_parsed = pd.to_datetime(df[candidate], errors="coerce")
-                if getattr(candidate_parsed.dt, "tz", None) is not None:
-                    candidate_parsed = candidate_parsed.dt.tz_localize(None)
+                candidate_parsed = parse_datetime_series(df[candidate])
                 parsed = parsed.where(parsed.notna(), candidate_parsed)
     elif date_col and date_col in df.columns:
-        parsed = pd.to_datetime(df[date_col], errors="coerce")  # ← HERE
-        if getattr(parsed.dt, "tz", None) is not None:
-            parsed = parsed.dt.tz_localize(None)
+        parsed = parse_datetime_series(df[date_col])
     else:
         parsed = None
 
@@ -284,9 +330,7 @@ def _prepare_frame(df, file_key):
         df["_month"] = pd.Series(pd.NA, index=df.index, dtype="Int64")
 
     if "po_end_date" in df.columns:
-        po_end_parsed = pd.to_datetime(df["po_end_date"], errors="coerce")
-        if getattr(po_end_parsed.dt, "tz", None) is not None:
-            po_end_parsed = po_end_parsed.dt.tz_localize(None)
+        po_end_parsed = parse_datetime_series(df["po_end_date"])
         df["_po_end_date"] = po_end_parsed
     else:
         df["_po_end_date"] = pd.NaT
