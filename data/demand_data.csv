@@ -1,4 +1,6 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110710,"INFYSYJP00004753 563665 - RSA Kafka/Axon platforms and MQ, NATS/Event Broker","INFYSYJP00004753 563665 - RSA Kafka/Axon platforms and MQ, NATS/Event Broker",Infosys Consulting,Tara V R,2,2026-04-30 06:29:12,923,0
+110709,QA Ranorex and C#,QA Ranorex and C#,Deloitte Mercedes Benz,Saravanan P,1,2026-04-30 06:19:02,1018,0
 110707,Senior Talend Developer (Data Engineering) | Pan India,Senior Talend Developer (Data Engineering) | Pan India,Infosys Consulting,Tara V R,1,2026-04-30 05:57:54,923,0
 110708,INFYSYJP00004751/Adobe- Security Engineer-India- DX,INFYSYJP00004751/Adobe- Security Engineer-India- DX,Infosys Consulting,Chiranjeev Desai,1,2026-04-30 05:57:54,923,0
 110706,INFYSYJP00004709/562420_DNAFS_BNY_Data Engineer],INFYSYJP00004709/562420_DNAFS_BNY_Data Engineer],Infosys Consulting,Tara V R,1,2026-04-30 05:51:06,923,0
@@ -597,7 +599,7 @@ id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,
 110113,Process Expert,Process Expert,TCS,Soniya Sabnani,1,2026-04-21 05:40:48,943,0
 110112,Java Developer - Aashish BU  ,Java Developer ,GE Healthcare Global Private Limited.,Mehr Hashim,2,2026-04-21 05:40:44,493,0
 110111,Technical Specialist - Operations Automation (Ansible & Gitlab),Technical Specialist - Operations Automation (Ansible & Gitlab),SONY Software Development Centre,Mehr Hashim,1,2026-04-21 05:29:53,345,0
-110110,Data Analyst,Data Analyst,Harman,Tamil C,2,2026-04-21 05:29:16,90,0
+110110,Data Analyst,Data Analyst,Harman,Tamil C,2,2026-04-21 05:29:16,90,1
 110109,Leena / ServiceNow Configuration Management Database (CMDB),Application Support Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 05:27:08,925,0
 110108,Oracle Applications Development / Raju,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-21 05:21:23,925,0
 110107,"Snowflake, Airflow, SQL","Snowflake, Airflow, SQL",Socgen-MIBS-RBS-AVYENS,Surya S,1,2026-04-21 05:21:13,1034,0
