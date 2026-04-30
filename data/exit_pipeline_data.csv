@@ -1,4 +1,5 @@
 recruiter_name,manager_name,full_name,employee_type,employee_id,joining_date,p_o_value,margin,exit_type,company_name,status,tentative_exit_date
+Shiva Prasad,Fazila Khanum,Busi Anil Kumar ,2,C36221971,2022-08-08,189000.0,9000.0,Contract Closure,Infosys ADM,5,2026-05-29
 Shikha Rana,Shikha Rana,Kamadi Abhinav Reddy,1,,2022-02-14,42483.0,7483.0,No Show,UHG,7,
 Abhishek B,Harshavardhan Reddy,Sushma K,6,C36210643,2021-03-17,35685.0,5185.0,Contract Closure,HP,5,2026-10-15
 Sunaina Mehra,Harshavardhan Reddy,Pavithra P,6,C36220182,2022-01-17,35685.0,5185.0,Contract Closure,HP,5,2026-09-16
@@ -22,7 +23,6 @@ Mahalakshmi S,Jawad Ulla Khan, Sakshi Hodage  Ajit,2,C36241016,2024-06-28,25580.
 Sindhu S R,Jawad Ulla Khan,Laxuman Rangrao Sandule,2,C36241037,2024-06-28,25580.04,5508.04,Resignation,Accenture_BPO,5,2026-05-08
 Ravi Berwal,Jawad Ulla Khan,Vishal Pruthviraj Chavan,2,C36241041,2024-07-04,25580.04,3902.04,Resignation,Accenture_BPO,5,2026-05-19
 Mahalakshmi S,Jawad Ulla Khan,Durvesh  Anil Chavan,2,C36241102,2024-07-12,25580.04,3902.04,Resignation,Accenture_BPO,5,2026-05-12
-Vaishnavi N J,Jawad Ulla Khan,Rohini Mangesh  Yadav,2,C36241206,2024-07-25,23684.96,4322.96,Project Roll Off,Accenture_BPO,5,2026-04-30
 Pacha Vyshnavi,Jawad Ulla Khan,Kimaya Nitin Patil,2,C36241145,2024-07-22,22847.16,3485.16,No Show,Accenture_BPO,3,2024-07-22
 Sachin K,Jawad Ulla Khan,Pallavi Mahadev Chavan,2,C36241332,2024-08-06,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-05-15
 Mehraj N,Jawad Ulla Khan,Kartik Manjabapu Date ,2,C36241656,2024-08-21,25580.04,6218.04,Resignation,Accenture_BPO,5,2026-05-11
@@ -108,6 +108,7 @@ Muhammed faizal,Sabreena Jabeen,Pagala Ramalakshumma,2,C36232088,2023-10-19,1564
 Ranganatha T,Suman N,Sundarrajan Duraisamy,2,C36241073,2024-07-11,136000.0,33917.0,Project Roll Off,Accenture_IDB,5,2026-04-30
 Sandipta Panigrahi,Mehr Hashim,Aafrin Anjum,2,C36211286,2021-05-06,115935.0,38202.0,Contract Closure,Flipkart,5,2026-06-30
 Sharanabasava Saalunke,Mehr Hashim,Sangamesh ,2,C36250703,2025-04-24,39750.0,2250.0,Resignation,Flipkart,5,2026-05-25
+Manyam Rohith,Mehr Hashim,Md Amir Sohail,2,C36251393,2025-07-24,44308.0,2508.0,Termination,Flipkart,5,2026-04-29
 Surabhi K,Mehr Hashim,Lavanya H M,2,C36251366,2025-07-21,61833.33,3500.33,Resignation,Flipkart,5,2026-04-29
 Manyam Rohith,Mehr Hashim,Nitish Kumar Sharma,2,C36251226,2025-06-26,39750.0,2250.0,Resignation,Flipkart,5,2026-05-19
 Achuth Yadav MS,Mehr Hashim, Yedhu Krishna,2,C36251833,2025-09-08,41128.0,2328.0,Resignation,Flipkart,5,2026-05-13
@@ -195,5 +196,5 @@ Divya Np,Jawad Ulla Khan,Tharun  Kumar ,2,CR3625679,2025-06-17,40155.0,6650.0,No
 Sachin K,Jawad Ulla Khan,Koushik Patil,2,CR3625584,2025-06-19,33357.0,6650.0,No Show,Lenovo 2,5,2025-07-17
 Sai Ganesh R,Sushma Hegde,Saikumar M Bhujanganavar,2,C36251194,2025-06-23,178000.0,15500.0,No Show,Kyndryl,7,2025-06-23
 Sandhya Kumari Sahani,Sushma Hegde,Afrin Abbas Shaikh,2,C36260057,2026-01-13,239400.0,97734.0,Bgv Failure,Infosys-India Pvt Ltd,5,2026-04-30
-Sandhya Kumari Sahani,Sushma Hegde,Danesh Zubin Marolia ,2,C36260054,2026-01-13,189000.0,101500.0,Performance Issue,Infosys-India Pvt Ltd,5,2026-05-20
+Sandhya Kumari Sahani,Sushma Hegde,Danesh Zubin Marolia ,2,C36260054,2026-01-13,189000.0,101500.0,Performance Issue,Infosys-India Pvt Ltd,5,2026-04-30
 Anusha Ramesh Kalakannavar,Saravanan P, Meesala Priyanka ,2,C36260587,2026-04-13,139960.0,27460.0,Resignation,Deloitte Mercedes Benz,5,2026-05-28
