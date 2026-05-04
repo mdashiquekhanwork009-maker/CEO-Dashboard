@@ -1,4 +1,30 @@
 id,Title,Designation,Company_name,Created_by,no_of_opening,Created_at,Client_id,id_status
+110778, Chetna / Java Full Stack Development.,Java Full Stack Development.,Accenture_IDB_1,Priyakanta Choudhary,1,2026-05-04 05:31:08,925,0
+110777,IT Support Engineer,IT Support Engineer,DTICI,Saravanan P,1,2026-05-04 05:26:48,916,0
+110776,Java Developer - Soumik BU ,Java Developer,GE Healthcare Global Private Limited.,Mehr Hashim,1,2026-05-04 05:16:44,493,0
+110775,SQA - Engineer ,SQA - Engineer ,Veritas,Sushma K M,1,2026-05-04 05:10:58,439,0
+110774,Sales Ops Specialist ,Sales Ops Specialist ,Veritas,Sushma K M,1,2026-05-04 05:09:38,439,0
+110773,DevX Infrastructure Engineer,DevX Infrastructure Engineer,Veritas,Sushma K M,1,2026-05-04 05:05:49,439,0
+110772,Spurthy / Guidewire ClaimCenter,Guidewire ClaimCenter,Accenture_IDB_1,Priyakanta Choudhary,1,2026-05-04 05:05:23,925,0
+110771, HR Benefits Administrators, HR Benefits Administrators,Veritas,Sushma K M,2,2026-05-04 05:03:35,439,0
+110770,C++ Software Engineer – Senior,C++ Software Engineer – Senior,Veritas,Sushma K M,6,2026-05-04 05:01:49,439,0
+110769,Senior Data Remediation Analyst,Senior Data Remediation Analyst,Bread Financials_Support,Sushma K M,2,2026-05-04 05:00:16,828,0
+110768,Staff Penetration Tester,Staff Penetration Tester,Bread Financials_Support,Sushma K M,4,2026-05-04 04:58:48,828,0
+110767,Sr Software Engineer,Sr Software Engineer,Wartsila,Sushma K M,2,2026-05-04 04:56:58,854,0
+110766,Sr QA Automation Engineer,Sr QA Automation Engineer,Wartsila,Sushma K M,1,2026-05-04 04:55:40,854,0
+110765,Full Stack Developer ,Full Stack Developer ,Johnson Electric,Sushma K M,1,2026-05-04 04:49:55,940,0
+110764,Sr Scrum Master ,Sr Scrum Master ,Schneider Electric,Sushma K M,1,2026-05-04 04:46:32,479,0
+110763,Pramod - Product Owner,Product Owner,Cognizant,Syed Waseem,1,2026-05-04 04:43:16,18,0
+110762,Full stack Web Developer,Full stack Web Developer,Schneider Electric,Sushma K M,1,2026-05-04 04:42:12,479,0
+110761,QA Engineer,QA Engineer,Schneider Electric,Sushma K M,1,2026-05-04 04:40:29,479,0
+110760,.NET + React ,.NET + React ,Schneider Electric,Sushma K M,1,2026-05-04 04:38:12,479,0
+110759,INFYSYJP00004736 562099 - Amazon Connect Developer,INFYSYJP00004736 562099 - Amazon Connect Developer,Infosys Consulting,Chiranjeev Desai,2,2026-05-04 04:22:01,923,0
+110758,Specialist Software Engineer - Java,Specialist Software Engineer - Java,Socgen-MIBS-RBS-AVYENS,Anuradha Murthy,1,2026-04-30 16:42:39,1034,0
+110757,HR Generalist,HR Generalist,Swiss Re,Anuradha Murthy,1,2026-04-30 13:31:14,337,0
+110756,ESI_Mumbai,Health Admin Services Representative,Accenture_BPO,Jawad Ulla Khan,10,2026-04-30 12:52:22,27,0
+110755,AI Platform & MLOps Engineer (Azure),AI Platform & MLOps Engineer (Azure),Deloitte Mercedes Benz,Saravanan P,1,2026-04-30 12:38:10,1018,0
+110754,CNS_Network Security_Cisco,CNS_Network Security_Cisco,TCS,Dhaval Patel,1,2026-04-30 12:33:24,943,0
+110753,Test Engineer,Test Engineer,Trane Technologies,Shailesh Gangwar,3,2026-04-30 12:30:41,919,0
 110752,Maria /  SAP EWM,Application Support Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-30 12:06:04,925,0
 110751,SAP FI S/4HANA Accounting / Maria,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-30 11:30:51,925,0
 110750,SAP Sales and Distribution / Maria,Custom Software Engineer,Accenture_IDB_1,Priyakanta Choudhary,1,2026-04-30 11:28:40,925,0
